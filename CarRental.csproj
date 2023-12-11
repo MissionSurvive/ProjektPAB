@@ -61,11 +61,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarBrandForm.Designer.cs">
+      <DependentUpon>CarBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarCarForm.Designer.cs">
+      <DependentUpon>CarCarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CarForm.Designer.cs">
       <DependentUpon>CarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarOptionForm.Designer.cs">
+      <DependentUpon>CarOptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CarRentalCWDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -80,8 +98,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CarBrandForm.resx">
+      <DependentUpon>CarBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarCarForm.resx">
+      <DependentUpon>CarCarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CarForm.resx">
       <DependentUpon>CarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarOptionForm.resx">
+      <DependentUpon>CarOptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

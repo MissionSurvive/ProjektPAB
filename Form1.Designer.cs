@@ -41,7 +41,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.dataPanel = new System.Windows.Forms.Panel();
             this.navBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -52,6 +51,7 @@
             // 
             // navBar
             // 
+            this.navBar.BackColor = System.Drawing.Color.White;
             this.navBar.Controls.Add(this.panel2);
             this.navBar.Controls.Add(this.button7);
             this.navBar.Controls.Add(this.button6);
@@ -196,22 +196,13 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(164, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1100, 300);
-            this.panel1.TabIndex = 1;
-            // 
             // dataPanel
             // 
             this.dataPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataPanel.Location = new System.Drawing.Point(164, 299);
+            this.dataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataPanel.Location = new System.Drawing.Point(164, 0);
             this.dataPanel.Name = "dataPanel";
-            this.dataPanel.Size = new System.Drawing.Size(1100, 382);
+            this.dataPanel.Size = new System.Drawing.Size(1100, 681);
             this.dataPanel.TabIndex = 2;
             // 
             // Form1
@@ -221,7 +212,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.dataPanel);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.navBar);
             this.Name = "Form1";
             this.Text = "Main Form";
@@ -238,7 +228,6 @@
 
         private System.Windows.Forms.Panel navBar;
         private System.Windows.Forms.Panel logo;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
