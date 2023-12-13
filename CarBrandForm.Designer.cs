@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarBrandForm));
-            this.label1 = new System.Windows.Forms.Label();
+            this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAZWAMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,30 +39,30 @@
             this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
             this.mARKITableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.MARKITableAdapter();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BrandLabel = new System.Windows.Forms.Label();
+            this.CountryLabel = new System.Windows.Forms.Label();
+            this.RegionLabel = new System.Windows.Forms.Label();
+            this.BrandTextBox = new System.Windows.Forms.TextBox();
+            this.CountryTextBox = new System.Windows.Forms.TextBox();
+            this.RegionTextBox = new System.Windows.Forms.TextBox();
+            this.FilterButton = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // TableLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 37);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Marki";
+            this.TableLabel.AutoSize = true;
+            this.TableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TableLabel.Location = new System.Drawing.Point(12, 9);
+            this.TableLabel.Name = "TableLabel";
+            this.TableLabel.Size = new System.Drawing.Size(95, 37);
+            this.TableLabel.TabIndex = 2;
+            this.TableLabel.Text = "Marki";
             // 
             // dataGridView1
             // 
@@ -78,6 +78,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(906, 413);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // iDMARKADataGridViewTextBoxColumn
             // 
@@ -118,108 +119,111 @@
             // 
             this.mARKITableAdapter.ClearBeforeFill = true;
             // 
-            // label2
+            // BrandLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(15, 466);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Nazwa marki";
+            this.BrandLabel.AutoSize = true;
+            this.BrandLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BrandLabel.Location = new System.Drawing.Point(15, 466);
+            this.BrandLabel.Name = "BrandLabel";
+            this.BrandLabel.Size = new System.Drawing.Size(99, 20);
+            this.BrandLabel.TabIndex = 7;
+            this.BrandLabel.Text = "Nazwa marki";
             // 
-            // label3
+            // CountryLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(15, 512);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Kraj";
+            this.CountryLabel.AutoSize = true;
+            this.CountryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CountryLabel.Location = new System.Drawing.Point(15, 512);
+            this.CountryLabel.Name = "CountryLabel";
+            this.CountryLabel.Size = new System.Drawing.Size(36, 20);
+            this.CountryLabel.TabIndex = 8;
+            this.CountryLabel.Text = "Kraj";
             // 
-            // label4
+            // RegionLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(15, 558);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Region";
+            this.RegionLabel.AutoSize = true;
+            this.RegionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RegionLabel.Location = new System.Drawing.Point(15, 558);
+            this.RegionLabel.Name = "RegionLabel";
+            this.RegionLabel.Size = new System.Drawing.Size(60, 20);
+            this.RegionLabel.TabIndex = 9;
+            this.RegionLabel.Text = "Region";
             // 
-            // textBox1
+            // BrandTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 489);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 20);
-            this.textBox1.TabIndex = 10;
+            this.BrandTextBox.Location = new System.Drawing.Point(19, 489);
+            this.BrandTextBox.Name = "BrandTextBox";
+            this.BrandTextBox.Size = new System.Drawing.Size(164, 20);
+            this.BrandTextBox.TabIndex = 10;
             // 
-            // textBox2
+            // CountryTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(19, 535);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 20);
-            this.textBox2.TabIndex = 11;
+            this.CountryTextBox.Location = new System.Drawing.Point(19, 535);
+            this.CountryTextBox.Name = "CountryTextBox";
+            this.CountryTextBox.Size = new System.Drawing.Size(164, 20);
+            this.CountryTextBox.TabIndex = 11;
             // 
-            // textBox3
+            // RegionTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(18, 581);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 20);
-            this.textBox3.TabIndex = 12;
+            this.RegionTextBox.Location = new System.Drawing.Point(18, 581);
+            this.RegionTextBox.Name = "RegionTextBox";
+            this.RegionTextBox.Size = new System.Drawing.Size(165, 20);
+            this.RegionTextBox.TabIndex = 12;
             // 
-            // button2
+            // FilterButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(761, 615);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 54);
-            this.button2.TabIndex = 61;
-            this.button2.Text = "Filtruj";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.FilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FilterButton.Image = ((System.Drawing.Image)(resources.GetObject("FilterButton.Image")));
+            this.FilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FilterButton.Location = new System.Drawing.Point(761, 615);
+            this.FilterButton.Name = "FilterButton";
+            this.FilterButton.Size = new System.Drawing.Size(164, 54);
+            this.FilterButton.TabIndex = 61;
+            this.FilterButton.Text = "Filtruj";
+            this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.FilterButton.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // UpdateButton
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(421, 615);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(164, 54);
-            this.button6.TabIndex = 60;
-            this.button6.Text = "Modyfikuj";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = true;
+            this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.Image")));
+            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdateButton.Location = new System.Drawing.Point(421, 615);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(164, 54);
+            this.UpdateButton.TabIndex = 60;
+            this.UpdateButton.Text = "Modyfikuj";
+            this.UpdateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // button5
+            // DeleteButton
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(591, 615);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(164, 54);
-            this.button5.TabIndex = 59;
-            this.button5.Text = "Usuń";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
+            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeleteButton.Location = new System.Drawing.Point(591, 615);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(164, 54);
+            this.DeleteButton.TabIndex = 59;
+            this.DeleteButton.Text = "Usuń";
+            this.DeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // button1
+            // AddButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(251, 615);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 54);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "Dodaj";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
+            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddButton.Location = new System.Drawing.Point(251, 615);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(164, 54);
+            this.AddButton.TabIndex = 58;
+            this.AddButton.Text = "Dodaj";
+            this.AddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // CarBrandForm
             // 
@@ -227,18 +231,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(937, 681);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.FilterButton);
+            this.Controls.Add(this.UpdateButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.RegionTextBox);
+            this.Controls.Add(this.CountryTextBox);
+            this.Controls.Add(this.BrandTextBox);
+            this.Controls.Add(this.RegionLabel);
+            this.Controls.Add(this.CountryLabel);
+            this.Controls.Add(this.BrandLabel);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TableLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CarBrandForm";
             this.Text = "CarBrandForm";
@@ -253,7 +257,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private CarRentalCWDataSet carRentalCWDataSet;
         private System.Windows.Forms.BindingSource mARKIBindingSource;
@@ -262,15 +266,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nAZWAMARKADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kRAJDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rEGIONDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label BrandLabel;
+        private System.Windows.Forms.Label CountryLabel;
+        private System.Windows.Forms.Label RegionLabel;
+        private System.Windows.Forms.TextBox BrandTextBox;
+        private System.Windows.Forms.TextBox CountryTextBox;
+        private System.Windows.Forms.TextBox RegionTextBox;
+        private System.Windows.Forms.Button FilterButton;
+        private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button AddButton;
     }
 }

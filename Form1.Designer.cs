@@ -42,6 +42,7 @@
             this.logo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataPanel = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.navBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -52,6 +53,7 @@
             // navBar
             // 
             this.navBar.BackColor = System.Drawing.Color.White;
+            this.navBar.Controls.Add(this.button8);
             this.navBar.Controls.Add(this.panel2);
             this.navBar.Controls.Add(this.button7);
             this.navBar.Controls.Add(this.button6);
@@ -122,6 +124,7 @@
             this.button5.Text = "Zamówienia";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -135,6 +138,7 @@
             this.button4.Text = "Wypożyczalnie";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -205,6 +209,21 @@
             this.dataPanel.Size = new System.Drawing.Size(1100, 681);
             this.dataPanel.TabIndex = 2;
             // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(0, 466);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(164, 54);
+            this.button8.TabIndex = 9;
+            this.button8.Text = "Role";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseWaitCursor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,6 +258,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel dataPanel;
+        private System.Windows.Forms.Button button8;
     }
 }
 

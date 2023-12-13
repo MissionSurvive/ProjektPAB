@@ -31,24 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarCarForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDSAMOCHODDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDPALIWODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDMODELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zDJECIEDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.kOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRZEBIEGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOJEMNOSCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sKRZYNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mIEJSCADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dOSTEPNOSCDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.cENADZIENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cENATYDZIENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cENAMIESIACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kAUCJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sAMOCHODYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
             this.sAMOCHODYTableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.SAMOCHODYTableAdapter();
@@ -85,9 +67,29 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.sAMOCHODYBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDSAMOCHODDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDPALIWODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDMODELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zDJECIEDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.kOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRZEBIEGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pOJEMNOSCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sKRZYNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mIEJSCADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dOSTEPNOSCDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cENADZIENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cENATYDZIENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cENAMIESIACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kAUCJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.sAMOCHODYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sAMOCHODYBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -99,137 +101,6 @@
             this.label1.Size = new System.Drawing.Size(186, 37);
             this.label1.TabIndex = 3;
             this.label1.Text = "Samochody";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDSAMOCHODDataGridViewTextBoxColumn,
-            this.iDPALIWODataGridViewTextBoxColumn,
-            this.iDMODELDataGridViewTextBoxColumn,
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn,
-            this.zDJECIEDataGridViewImageColumn,
-            this.kOLORDataGridViewTextBoxColumn,
-            this.pRZEBIEGDataGridViewTextBoxColumn,
-            this.vINDataGridViewTextBoxColumn,
-            this.pOJEMNOSCDataGridViewTextBoxColumn,
-            this.mOCDataGridViewTextBoxColumn,
-            this.sKRZYNIADataGridViewTextBoxColumn,
-            this.mIEJSCADataGridViewTextBoxColumn,
-            this.dOSTEPNOSCDataGridViewCheckBoxColumn,
-            this.cENADZIENDataGridViewTextBoxColumn,
-            this.cENATYDZIENDataGridViewTextBoxColumn,
-            this.cENAMIESIACDataGridViewTextBoxColumn,
-            this.kAUCJADataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.sAMOCHODYBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 50);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(906, 366);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // iDSAMOCHODDataGridViewTextBoxColumn
-            // 
-            this.iDSAMOCHODDataGridViewTextBoxColumn.DataPropertyName = "ID_SAMOCHOD";
-            this.iDSAMOCHODDataGridViewTextBoxColumn.HeaderText = "ID_SAMOCHOD";
-            this.iDSAMOCHODDataGridViewTextBoxColumn.Name = "iDSAMOCHODDataGridViewTextBoxColumn";
-            this.iDSAMOCHODDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // iDPALIWODataGridViewTextBoxColumn
-            // 
-            this.iDPALIWODataGridViewTextBoxColumn.DataPropertyName = "ID_PALIWO";
-            this.iDPALIWODataGridViewTextBoxColumn.HeaderText = "ID_PALIWO";
-            this.iDPALIWODataGridViewTextBoxColumn.Name = "iDPALIWODataGridViewTextBoxColumn";
-            // 
-            // iDMODELDataGridViewTextBoxColumn
-            // 
-            this.iDMODELDataGridViewTextBoxColumn.DataPropertyName = "ID_MODEL";
-            this.iDMODELDataGridViewTextBoxColumn.HeaderText = "ID_MODEL";
-            this.iDMODELDataGridViewTextBoxColumn.Name = "iDMODELDataGridViewTextBoxColumn";
-            // 
-            // iDWYPOZYCZALNIADataGridViewTextBoxColumn
-            // 
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
-            // 
-            // zDJECIEDataGridViewImageColumn
-            // 
-            this.zDJECIEDataGridViewImageColumn.DataPropertyName = "ZDJECIE";
-            this.zDJECIEDataGridViewImageColumn.HeaderText = "ZDJECIE";
-            this.zDJECIEDataGridViewImageColumn.Name = "zDJECIEDataGridViewImageColumn";
-            // 
-            // kOLORDataGridViewTextBoxColumn
-            // 
-            this.kOLORDataGridViewTextBoxColumn.DataPropertyName = "KOLOR";
-            this.kOLORDataGridViewTextBoxColumn.HeaderText = "KOLOR";
-            this.kOLORDataGridViewTextBoxColumn.Name = "kOLORDataGridViewTextBoxColumn";
-            // 
-            // pRZEBIEGDataGridViewTextBoxColumn
-            // 
-            this.pRZEBIEGDataGridViewTextBoxColumn.DataPropertyName = "PRZEBIEG";
-            this.pRZEBIEGDataGridViewTextBoxColumn.HeaderText = "PRZEBIEG";
-            this.pRZEBIEGDataGridViewTextBoxColumn.Name = "pRZEBIEGDataGridViewTextBoxColumn";
-            // 
-            // vINDataGridViewTextBoxColumn
-            // 
-            this.vINDataGridViewTextBoxColumn.DataPropertyName = "VIN";
-            this.vINDataGridViewTextBoxColumn.HeaderText = "VIN";
-            this.vINDataGridViewTextBoxColumn.Name = "vINDataGridViewTextBoxColumn";
-            // 
-            // pOJEMNOSCDataGridViewTextBoxColumn
-            // 
-            this.pOJEMNOSCDataGridViewTextBoxColumn.DataPropertyName = "POJEMNOSC";
-            this.pOJEMNOSCDataGridViewTextBoxColumn.HeaderText = "POJEMNOSC";
-            this.pOJEMNOSCDataGridViewTextBoxColumn.Name = "pOJEMNOSCDataGridViewTextBoxColumn";
-            // 
-            // mOCDataGridViewTextBoxColumn
-            // 
-            this.mOCDataGridViewTextBoxColumn.DataPropertyName = "MOC";
-            this.mOCDataGridViewTextBoxColumn.HeaderText = "MOC";
-            this.mOCDataGridViewTextBoxColumn.Name = "mOCDataGridViewTextBoxColumn";
-            // 
-            // sKRZYNIADataGridViewTextBoxColumn
-            // 
-            this.sKRZYNIADataGridViewTextBoxColumn.DataPropertyName = "SKRZYNIA";
-            this.sKRZYNIADataGridViewTextBoxColumn.HeaderText = "SKRZYNIA";
-            this.sKRZYNIADataGridViewTextBoxColumn.Name = "sKRZYNIADataGridViewTextBoxColumn";
-            // 
-            // mIEJSCADataGridViewTextBoxColumn
-            // 
-            this.mIEJSCADataGridViewTextBoxColumn.DataPropertyName = "MIEJSCA";
-            this.mIEJSCADataGridViewTextBoxColumn.HeaderText = "MIEJSCA";
-            this.mIEJSCADataGridViewTextBoxColumn.Name = "mIEJSCADataGridViewTextBoxColumn";
-            // 
-            // dOSTEPNOSCDataGridViewCheckBoxColumn
-            // 
-            this.dOSTEPNOSCDataGridViewCheckBoxColumn.DataPropertyName = "DOSTEPNOSC";
-            this.dOSTEPNOSCDataGridViewCheckBoxColumn.HeaderText = "DOSTEPNOSC";
-            this.dOSTEPNOSCDataGridViewCheckBoxColumn.Name = "dOSTEPNOSCDataGridViewCheckBoxColumn";
-            // 
-            // cENADZIENDataGridViewTextBoxColumn
-            // 
-            this.cENADZIENDataGridViewTextBoxColumn.DataPropertyName = "CENA_DZIEN";
-            this.cENADZIENDataGridViewTextBoxColumn.HeaderText = "CENA_DZIEN";
-            this.cENADZIENDataGridViewTextBoxColumn.Name = "cENADZIENDataGridViewTextBoxColumn";
-            // 
-            // cENATYDZIENDataGridViewTextBoxColumn
-            // 
-            this.cENATYDZIENDataGridViewTextBoxColumn.DataPropertyName = "CENA_TYDZIEN";
-            this.cENATYDZIENDataGridViewTextBoxColumn.HeaderText = "CENA_TYDZIEN";
-            this.cENATYDZIENDataGridViewTextBoxColumn.Name = "cENATYDZIENDataGridViewTextBoxColumn";
-            // 
-            // cENAMIESIACDataGridViewTextBoxColumn
-            // 
-            this.cENAMIESIACDataGridViewTextBoxColumn.DataPropertyName = "CENA_MIESIAC";
-            this.cENAMIESIACDataGridViewTextBoxColumn.HeaderText = "CENA_MIESIAC";
-            this.cENAMIESIACDataGridViewTextBoxColumn.Name = "cENAMIESIACDataGridViewTextBoxColumn";
-            // 
-            // kAUCJADataGridViewTextBoxColumn
-            // 
-            this.kAUCJADataGridViewTextBoxColumn.DataPropertyName = "KAUCJA";
-            this.kAUCJADataGridViewTextBoxColumn.HeaderText = "KAUCJA";
-            this.kAUCJADataGridViewTextBoxColumn.Name = "kAUCJADataGridViewTextBoxColumn";
             // 
             // sAMOCHODYBindingSource
             // 
@@ -270,6 +141,7 @@
             this.button5.Text = "Usuń";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -548,12 +420,150 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // sAMOCHODYBindingSource1
+            // 
+            this.sAMOCHODYBindingSource1.DataMember = "SAMOCHODY";
+            this.sAMOCHODYBindingSource1.DataSource = this.carRentalCWDataSet;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDSAMOCHODDataGridViewTextBoxColumn,
+            this.iDPALIWODataGridViewTextBoxColumn,
+            this.iDMODELDataGridViewTextBoxColumn,
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn,
+            this.zDJECIEDataGridViewImageColumn,
+            this.kOLORDataGridViewTextBoxColumn,
+            this.pRZEBIEGDataGridViewTextBoxColumn,
+            this.vINDataGridViewTextBoxColumn,
+            this.pOJEMNOSCDataGridViewTextBoxColumn,
+            this.mOCDataGridViewTextBoxColumn,
+            this.sKRZYNIADataGridViewTextBoxColumn,
+            this.mIEJSCADataGridViewTextBoxColumn,
+            this.dOSTEPNOSCDataGridViewCheckBoxColumn,
+            this.cENADZIENDataGridViewTextBoxColumn,
+            this.cENATYDZIENDataGridViewTextBoxColumn,
+            this.cENAMIESIACDataGridViewTextBoxColumn,
+            this.kAUCJADataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.sAMOCHODYBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 50);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(906, 366);
+            this.dataGridView1.TabIndex = 58;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // iDSAMOCHODDataGridViewTextBoxColumn
+            // 
+            this.iDSAMOCHODDataGridViewTextBoxColumn.DataPropertyName = "ID_SAMOCHOD";
+            this.iDSAMOCHODDataGridViewTextBoxColumn.HeaderText = "ID_SAMOCHOD";
+            this.iDSAMOCHODDataGridViewTextBoxColumn.Name = "iDSAMOCHODDataGridViewTextBoxColumn";
+            this.iDSAMOCHODDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDPALIWODataGridViewTextBoxColumn
+            // 
+            this.iDPALIWODataGridViewTextBoxColumn.DataPropertyName = "ID_PALIWO";
+            this.iDPALIWODataGridViewTextBoxColumn.HeaderText = "ID_PALIWO";
+            this.iDPALIWODataGridViewTextBoxColumn.Name = "iDPALIWODataGridViewTextBoxColumn";
+            // 
+            // iDMODELDataGridViewTextBoxColumn
+            // 
+            this.iDMODELDataGridViewTextBoxColumn.DataPropertyName = "ID_MODEL";
+            this.iDMODELDataGridViewTextBoxColumn.HeaderText = "ID_MODEL";
+            this.iDMODELDataGridViewTextBoxColumn.Name = "iDMODELDataGridViewTextBoxColumn";
+            // 
+            // iDWYPOZYCZALNIADataGridViewTextBoxColumn
+            // 
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
+            // 
+            // zDJECIEDataGridViewImageColumn
+            // 
+            this.zDJECIEDataGridViewImageColumn.DataPropertyName = "ZDJECIE";
+            this.zDJECIEDataGridViewImageColumn.HeaderText = "ZDJECIE";
+            this.zDJECIEDataGridViewImageColumn.Name = "zDJECIEDataGridViewImageColumn";
+            // 
+            // kOLORDataGridViewTextBoxColumn
+            // 
+            this.kOLORDataGridViewTextBoxColumn.DataPropertyName = "KOLOR";
+            this.kOLORDataGridViewTextBoxColumn.HeaderText = "KOLOR";
+            this.kOLORDataGridViewTextBoxColumn.Name = "kOLORDataGridViewTextBoxColumn";
+            // 
+            // pRZEBIEGDataGridViewTextBoxColumn
+            // 
+            this.pRZEBIEGDataGridViewTextBoxColumn.DataPropertyName = "PRZEBIEG";
+            this.pRZEBIEGDataGridViewTextBoxColumn.HeaderText = "PRZEBIEG";
+            this.pRZEBIEGDataGridViewTextBoxColumn.Name = "pRZEBIEGDataGridViewTextBoxColumn";
+            // 
+            // vINDataGridViewTextBoxColumn
+            // 
+            this.vINDataGridViewTextBoxColumn.DataPropertyName = "VIN";
+            this.vINDataGridViewTextBoxColumn.HeaderText = "VIN";
+            this.vINDataGridViewTextBoxColumn.Name = "vINDataGridViewTextBoxColumn";
+            // 
+            // pOJEMNOSCDataGridViewTextBoxColumn
+            // 
+            this.pOJEMNOSCDataGridViewTextBoxColumn.DataPropertyName = "POJEMNOSC";
+            this.pOJEMNOSCDataGridViewTextBoxColumn.HeaderText = "POJEMNOSC";
+            this.pOJEMNOSCDataGridViewTextBoxColumn.Name = "pOJEMNOSCDataGridViewTextBoxColumn";
+            // 
+            // mOCDataGridViewTextBoxColumn
+            // 
+            this.mOCDataGridViewTextBoxColumn.DataPropertyName = "MOC";
+            this.mOCDataGridViewTextBoxColumn.HeaderText = "MOC";
+            this.mOCDataGridViewTextBoxColumn.Name = "mOCDataGridViewTextBoxColumn";
+            // 
+            // sKRZYNIADataGridViewTextBoxColumn
+            // 
+            this.sKRZYNIADataGridViewTextBoxColumn.DataPropertyName = "SKRZYNIA";
+            this.sKRZYNIADataGridViewTextBoxColumn.HeaderText = "SKRZYNIA";
+            this.sKRZYNIADataGridViewTextBoxColumn.Name = "sKRZYNIADataGridViewTextBoxColumn";
+            // 
+            // mIEJSCADataGridViewTextBoxColumn
+            // 
+            this.mIEJSCADataGridViewTextBoxColumn.DataPropertyName = "MIEJSCA";
+            this.mIEJSCADataGridViewTextBoxColumn.HeaderText = "MIEJSCA";
+            this.mIEJSCADataGridViewTextBoxColumn.Name = "mIEJSCADataGridViewTextBoxColumn";
+            // 
+            // dOSTEPNOSCDataGridViewCheckBoxColumn
+            // 
+            this.dOSTEPNOSCDataGridViewCheckBoxColumn.DataPropertyName = "DOSTEPNOSC";
+            this.dOSTEPNOSCDataGridViewCheckBoxColumn.HeaderText = "DOSTEPNOSC";
+            this.dOSTEPNOSCDataGridViewCheckBoxColumn.Name = "dOSTEPNOSCDataGridViewCheckBoxColumn";
+            // 
+            // cENADZIENDataGridViewTextBoxColumn
+            // 
+            this.cENADZIENDataGridViewTextBoxColumn.DataPropertyName = "CENA_DZIEN";
+            this.cENADZIENDataGridViewTextBoxColumn.HeaderText = "CENA_DZIEN";
+            this.cENADZIENDataGridViewTextBoxColumn.Name = "cENADZIENDataGridViewTextBoxColumn";
+            // 
+            // cENATYDZIENDataGridViewTextBoxColumn
+            // 
+            this.cENATYDZIENDataGridViewTextBoxColumn.DataPropertyName = "CENA_TYDZIEN";
+            this.cENATYDZIENDataGridViewTextBoxColumn.HeaderText = "CENA_TYDZIEN";
+            this.cENATYDZIENDataGridViewTextBoxColumn.Name = "cENATYDZIENDataGridViewTextBoxColumn";
+            // 
+            // cENAMIESIACDataGridViewTextBoxColumn
+            // 
+            this.cENAMIESIACDataGridViewTextBoxColumn.DataPropertyName = "CENA_MIESIAC";
+            this.cENAMIESIACDataGridViewTextBoxColumn.HeaderText = "CENA_MIESIAC";
+            this.cENAMIESIACDataGridViewTextBoxColumn.Name = "cENAMIESIACDataGridViewTextBoxColumn";
+            // 
+            // kAUCJADataGridViewTextBoxColumn
+            // 
+            this.kAUCJADataGridViewTextBoxColumn.DataPropertyName = "KAUCJA";
+            this.kAUCJADataGridViewTextBoxColumn.HeaderText = "KAUCJA";
+            this.kAUCJADataGridViewTextBoxColumn.Name = "kAUCJADataGridViewTextBoxColumn";
+            // 
             // CarCarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(937, 681);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.textBox10);
@@ -587,15 +597,15 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CarCarForm";
             this.Text = "CarCarForm";
             this.Load += new System.EventHandler(this.CarCarForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sAMOCHODYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sAMOCHODYBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -604,27 +614,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private CarRentalCWDataSet carRentalCWDataSet;
         private System.Windows.Forms.BindingSource sAMOCHODYBindingSource;
         private CarRentalCWDataSetTableAdapters.SAMOCHODYTableAdapter sAMOCHODYTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDSAMOCHODDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDPALIWODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDMODELDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDWYPOZYCZALNIADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn zDJECIEDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kOLORDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pRZEBIEGDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vINDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pOJEMNOSCDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mOCDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sKRZYNIADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mIEJSCADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dOSTEPNOSCDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cENADZIENDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cENATYDZIENDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cENAMIESIACDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kAUCJADataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button1;
@@ -658,5 +650,24 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource sAMOCHODYBindingSource1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDSAMOCHODDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDPALIWODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDMODELDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDWYPOZYCZALNIADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn zDJECIEDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kOLORDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pRZEBIEGDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vINDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pOJEMNOSCDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mOCDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sKRZYNIADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mIEJSCADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dOSTEPNOSCDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cENADZIENDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cENATYDZIENDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cENAMIESIACDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kAUCJADataGridViewTextBoxColumn;
     }
 }

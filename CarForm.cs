@@ -14,25 +14,13 @@ namespace CarRental
     {
         CarBrandForm carBrandForm = new CarBrandForm() { TopLevel = false, TopMost = true };
         CarCarForm carCarForm = new CarCarForm() { TopLevel = false, TopMost = true };
+        CarChassisForm carChassisForm = new CarChassisForm() { TopLevel = false, TopMost = true };
+        CarFuelForm carFuelForm = new CarFuelForm() { TopLevel = false, TopMost = true };
         FormCollection collection = Application.OpenForms;
 
         public CarForm()
         {
             InitializeComponent();
-        }
-
-        private bool CheckOpened(string name)
-        {
-            FormCollection fc = Application.OpenForms;
-
-            foreach (Form frm in fc)
-            {
-                if (frm.Text == name)
-                {
-                    return true;
-                }
-            }
-            return false;
         }
 
         private void CarForm_Load(object sender, EventArgs e)
@@ -46,13 +34,21 @@ namespace CarRental
         {
             foreach (Form form in collection)
             {
-                if(form.Name == "CarCarForm")//8
+                if (form.Name == "CarCarForm")
                 {
                     carCarForm.Hide();
                 }
-                if(form.Name == "CarBrandForm")//6
+                if (form.Name == "CarBrandForm")
                 {
                     carBrandForm.Hide();
+                }
+                if (form.Name == "CarChassisForm")
+                {
+                    carChassisForm.Hide();
+                }
+                if (form.Name == "CarFuelForm")
+                {
+                    carFuelForm.Hide();
                 }
             }
             
@@ -73,10 +69,70 @@ namespace CarRental
                 {
                     carBrandForm.Hide();
                 }
+                if (form.Name == "CarChassisForm")
+                {
+                    carChassisForm.Hide();
+                }
+                if (form.Name == "CarFuelForm")
+                {
+                    carFuelForm.Hide();
+                }
             }
             carCarForm.FormBorderStyle = FormBorderStyle.None;
             carPanel.Controls.Add(carCarForm);
             carCarForm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in collection)
+            {
+                if (form.Name == "CarCarForm")
+                {
+                    carCarForm.Hide();
+                }
+                if (form.Name == "CarBrandForm")
+                {
+                    carBrandForm.Hide();
+                }
+                if (form.Name == "CarChassisForm")
+                {
+                    carChassisForm.Hide();
+                }
+                if (form.Name == "CarFuelForm")
+                {
+                    carFuelForm.Hide();
+                }
+            }
+            carChassisForm.FormBorderStyle = FormBorderStyle.None;
+            carPanel.Controls.Add(carChassisForm);
+            carChassisForm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in collection)
+            {
+                if (form.Name == "CarCarForm")
+                {
+                    carCarForm.Hide();
+                }
+                if (form.Name == "CarBrandForm")
+                {
+                    carBrandForm.Hide();
+                }
+                if (form.Name == "CarChassisForm")
+                {
+                    carChassisForm.Hide();
+                }
+                if (form.Name == "CarFuelForm")
+                {
+                    carFuelForm.Hide();
+                }
+            }
+            carFuelForm.FormBorderStyle = FormBorderStyle.None;
+            carPanel.Controls.Add(carFuelForm);
+            carFuelForm.Show();
         }
     }
 }
