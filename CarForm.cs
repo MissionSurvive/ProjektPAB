@@ -16,6 +16,7 @@ namespace CarRental
         CarCarForm carCarForm = new CarCarForm() { TopLevel = false, TopMost = true };
         CarChassisForm carChassisForm = new CarChassisForm() { TopLevel = false, TopMost = true };
         CarFuelForm carFuelForm = new CarFuelForm() { TopLevel = false, TopMost = true };
+        CarModelForm carModelForm = new CarModelForm() { TopLevel = false, TopMost = true };
         FormCollection collection = Application.OpenForms;
 
         public CarForm()
@@ -50,6 +51,10 @@ namespace CarRental
                 {
                     carFuelForm.Hide();
                 }
+                if (form.Name == "CarModelForm")
+                {
+                    carModelForm.Hide();
+                }
             }
             
             carBrandForm.FormBorderStyle = FormBorderStyle.None;
@@ -77,6 +82,10 @@ namespace CarRental
                 {
                     carFuelForm.Hide();
                 }
+                if (form.Name == "CarModelForm")
+                {
+                    carModelForm.Hide();
+                }
             }
             carCarForm.FormBorderStyle = FormBorderStyle.None;
             carPanel.Controls.Add(carCarForm);
@@ -102,6 +111,10 @@ namespace CarRental
                 if (form.Name == "CarFuelForm")
                 {
                     carFuelForm.Hide();
+                }
+                if (form.Name == "CarModelForm")
+                {
+                    carModelForm.Hide();
                 }
             }
             carChassisForm.FormBorderStyle = FormBorderStyle.None;
@@ -129,10 +142,44 @@ namespace CarRental
                 {
                     carFuelForm.Hide();
                 }
+                if (form.Name == "CarModelForm")
+                {
+                    carModelForm.Hide();
+                }
             }
             carFuelForm.FormBorderStyle = FormBorderStyle.None;
             carPanel.Controls.Add(carFuelForm);
             carFuelForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in collection)
+            {
+                if (form.Name == "CarCarForm")
+                {
+                    carCarForm.Hide();
+                }
+                if (form.Name == "CarBrandForm")
+                {
+                    carBrandForm.Hide();
+                }
+                if (form.Name == "CarChassisForm")
+                {
+                    carChassisForm.Hide();
+                }
+                if (form.Name == "CarFuelForm")
+                {
+                    carFuelForm.Hide();
+                }
+                if (form.Name == "CarModelForm")
+                {
+                    carModelForm.Hide();
+                }
+            }
+            carModelForm.FormBorderStyle = FormBorderStyle.None;
+            carPanel.Controls.Add(carModelForm);
+            carModelForm.Show();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace CarRental
         OrderForm orderForm = new OrderForm() { TopLevel = false, TopMost = true };
         RentalPlacesForm rentalPlacesForm = new RentalPlacesForm() { TopLevel = false, TopMost = true };
         RoleForm roleForm = new RoleForm() { TopLevel = false, TopMost = true };
+        EmployeeForm employeeForm = new EmployeeForm() { TopLevel = false, TopMost = true };
         FormCollection collection = Application.OpenForms;
         public Form1()
         {
@@ -41,6 +42,10 @@ namespace CarRental
                 if (form.Name == "RoleForm")
                 {
                     roleForm.Hide();
+                }
+                if (form.Name == "EmployeeForm")
+                {
+                    employeeForm.Hide();
                 }
             }
             carForm.FormBorderStyle = FormBorderStyle.None;
@@ -68,6 +73,10 @@ namespace CarRental
                 {
                     roleForm.Hide();
                 }
+                if (form.Name == "EmployeeForm")
+                {
+                    employeeForm.Hide();
+                }
             }
             orderForm.FormBorderStyle = FormBorderStyle.None;
             dataPanel.Controls.Add(orderForm);
@@ -93,6 +102,10 @@ namespace CarRental
                 if (form.Name == "RoleForm")
                 {
                     roleForm.Hide();
+                }
+                if (form.Name == "EmployeeForm")
+                {
+                    employeeForm.Hide();
                 }
             }
             rentalPlacesForm.FormBorderStyle = FormBorderStyle.None;
@@ -120,10 +133,44 @@ namespace CarRental
                 {
                     roleForm.Hide();
                 }
+                if (form.Name == "EmployeeForm")
+                {
+                    employeeForm.Hide();
+                }
             }
             roleForm.FormBorderStyle = FormBorderStyle.None;
             dataPanel.Controls.Add(roleForm);
             roleForm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in collection)
+            {
+                if (form.Name == "CarForm")
+                {
+                    carForm.Hide();
+                }
+                if (form.Name == "OrderForm")
+                {
+                    orderForm.Hide();
+                }
+                if (form.Name == "RentalPlacesForm")
+                {
+                    rentalPlacesForm.Hide();
+                }
+                if (form.Name == "RoleForm")
+                {
+                    roleForm.Hide();
+                }
+                if (form.Name == "EmployeeForm")
+                {
+                    employeeForm.Hide();
+                }
+            }
+            employeeForm.FormBorderStyle = FormBorderStyle.None;
+            dataPanel.Controls.Add(employeeForm);
+            employeeForm.Show();
         }
     }
 }
