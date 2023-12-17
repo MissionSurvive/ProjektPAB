@@ -28,28 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientOptionsForm));
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.FaxTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.PeselTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.SurnameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
+            this.UpdateAccountButton = new System.Windows.Forms.Button();
+            this.RoleCombo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.carRentalCWDataSet6 = new CarRental.CarRentalCWDataSet6();
+            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rOLETableAdapter = new CarRental.CarRentalCWDataSet6TableAdapters.ROLETableAdapter();
+            this.NipTextBox = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -62,12 +71,12 @@
             this.label13.TabIndex = 153;
             this.label13.Text = "Hasło";
             // 
-            // textBox10
+            // PasswordTextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(186, 117);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(164, 20);
-            this.textBox10.TabIndex = 152;
+            this.PasswordTextBox.Location = new System.Drawing.Point(186, 117);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(164, 20);
+            this.PasswordTextBox.TabIndex = 152;
             // 
             // label11
             // 
@@ -79,12 +88,12 @@
             this.label11.TabIndex = 151;
             this.label11.Text = "Nazwa użytkownika";
             // 
-            // textBox8
+            // UsernameTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(187, 71);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(164, 20);
-            this.textBox8.TabIndex = 150;
+            this.UsernameTextBox.Location = new System.Drawing.Point(187, 71);
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(164, 20);
+            this.UsernameTextBox.TabIndex = 150;
             // 
             // label12
             // 
@@ -106,13 +115,6 @@
             this.label5.TabIndex = 145;
             this.label5.Text = "NIP";
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(17, 301);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(164, 20);
-            this.textBox4.TabIndex = 144;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -123,12 +125,12 @@
             this.label7.TabIndex = 141;
             this.label7.Text = "Fax";
             // 
-            // textBox6
+            // FaxTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(16, 255);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(164, 20);
-            this.textBox6.TabIndex = 140;
+            this.FaxTextBox.Location = new System.Drawing.Point(16, 255);
+            this.FaxTextBox.Name = "FaxTextBox";
+            this.FaxTextBox.Size = new System.Drawing.Size(164, 20);
+            this.FaxTextBox.TabIndex = 140;
             // 
             // label3
             // 
@@ -140,12 +142,13 @@
             this.label3.TabIndex = 138;
             this.label3.Text = "PESEL";
             // 
-            // textBox2
+            // PeselTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(17, 163);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 20);
-            this.textBox2.TabIndex = 137;
+            this.PeselTextBox.Location = new System.Drawing.Point(17, 163);
+            this.PeselTextBox.Name = "PeselTextBox";
+            this.PeselTextBox.Size = new System.Drawing.Size(164, 20);
+            this.PeselTextBox.TabIndex = 137;
+            this.PeselTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PeselTextBox_KeyPress);
             // 
             // label4
             // 
@@ -157,12 +160,12 @@
             this.label4.TabIndex = 136;
             this.label4.Text = "Telefon";
             // 
-            // textBox3
+            // PhoneTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 209);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 20);
-            this.textBox3.TabIndex = 135;
+            this.PhoneTextBox.Location = new System.Drawing.Point(16, 209);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(164, 20);
+            this.PhoneTextBox.TabIndex = 135;
             // 
             // label2
             // 
@@ -174,12 +177,12 @@
             this.label2.TabIndex = 134;
             this.label2.Text = "Imię";
             // 
-            // textBox1
+            // NameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(17, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 20);
-            this.textBox1.TabIndex = 133;
+            this.NameTextBox.Location = new System.Drawing.Point(17, 71);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(164, 20);
+            this.NameTextBox.TabIndex = 133;
             // 
             // label17
             // 
@@ -191,12 +194,12 @@
             this.label17.TabIndex = 132;
             this.label17.Text = "Nazwisko";
             // 
-            // textBox9
+            // SurnameTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(16, 117);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(164, 20);
-            this.textBox9.TabIndex = 131;
+            this.SurnameTextBox.Location = new System.Drawing.Point(16, 117);
+            this.SurnameTextBox.Name = "SurnameTextBox";
+            this.SurnameTextBox.Size = new System.Drawing.Size(164, 20);
+            this.SurnameTextBox.TabIndex = 131;
             // 
             // label1
             // 
@@ -220,32 +223,92 @@
             this.button2.Text = "Anuluj";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // UpdateButton
             // 
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.Image")));
             this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateButton.Location = new System.Drawing.Point(438, 495);
+            this.UpdateButton.Location = new System.Drawing.Point(268, 495);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(164, 54);
             this.UpdateButton.TabIndex = 155;
             this.UpdateButton.Text = "Modyfikuj";
             this.UpdateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // AddButton
             // 
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddButton.Location = new System.Drawing.Point(268, 495);
+            this.AddButton.Location = new System.Drawing.Point(98, 495);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(164, 54);
             this.AddButton.TabIndex = 154;
             this.AddButton.Text = "Dodaj";
             this.AddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // UpdateAccountButton
+            // 
+            this.UpdateAccountButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UpdateAccountButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateAccountButton.Image")));
+            this.UpdateAccountButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdateAccountButton.Location = new System.Drawing.Point(438, 495);
+            this.UpdateAccountButton.Name = "UpdateAccountButton";
+            this.UpdateAccountButton.Size = new System.Drawing.Size(164, 54);
+            this.UpdateAccountButton.TabIndex = 157;
+            this.UpdateAccountButton.Text = "Modyfikuj konto";
+            this.UpdateAccountButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateAccountButton.UseVisualStyleBackColor = true;
+            this.UpdateAccountButton.Click += new System.EventHandler(this.UpdateAccountButton_Click);
+            // 
+            // RoleCombo
+            // 
+            this.RoleCombo.DataSource = this.rOLEBindingSource;
+            this.RoleCombo.DisplayMember = "ROLA";
+            this.RoleCombo.FormattingEnabled = true;
+            this.RoleCombo.Location = new System.Drawing.Point(16, 347);
+            this.RoleCombo.Name = "RoleCombo";
+            this.RoleCombo.Size = new System.Drawing.Size(164, 21);
+            this.RoleCombo.TabIndex = 158;
+            this.RoleCombo.ValueMember = "ID_ROLA";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(15, 324);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 20);
+            this.label6.TabIndex = 159;
+            this.label6.Text = "Rola";
+            // 
+            // carRentalCWDataSet6
+            // 
+            this.carRentalCWDataSet6.DataSetName = "CarRentalCWDataSet6";
+            this.carRentalCWDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rOLEBindingSource
+            // 
+            this.rOLEBindingSource.DataMember = "ROLE";
+            this.rOLEBindingSource.DataSource = this.carRentalCWDataSet6;
+            // 
+            // rOLETableAdapter
+            // 
+            this.rOLETableAdapter.ClearBeforeFill = true;
+            // 
+            // NipTextBox
+            // 
+            this.NipTextBox.Location = new System.Drawing.Point(17, 301);
+            this.NipTextBox.Name = "NipTextBox";
+            this.NipTextBox.Size = new System.Drawing.Size(164, 20);
+            this.NipTextBox.TabIndex = 144;
+            this.NipTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NipTextBox_KeyPress);
             // 
             // ClientOptionsForm
             // 
@@ -253,29 +316,35 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.RoleCombo);
+            this.Controls.Add(this.UpdateAccountButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.NipTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.FaxTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.PeselTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.PhoneTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.SurnameTextBox);
             this.Controls.Add(this.label1);
             this.Name = "ClientOptionsForm";
             this.Text = "Zarządzanie klientem";
+            this.Load += new System.EventHandler(this.ClientOptionsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,25 +352,31 @@
 
         #endregion
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button AddButton;
+        public System.Windows.Forms.TextBox PasswordTextBox;
+        public System.Windows.Forms.TextBox UsernameTextBox;
+        public System.Windows.Forms.TextBox FaxTextBox;
+        public System.Windows.Forms.TextBox PeselTextBox;
+        public System.Windows.Forms.TextBox PhoneTextBox;
+        public System.Windows.Forms.TextBox NameTextBox;
+        public System.Windows.Forms.TextBox SurnameTextBox;
+        private System.Windows.Forms.Button UpdateAccountButton;
+        private System.Windows.Forms.ComboBox RoleCombo;
+        private System.Windows.Forms.Label label6;
+        private CarRentalCWDataSet6 carRentalCWDataSet6;
+        private System.Windows.Forms.BindingSource rOLEBindingSource;
+        private CarRentalCWDataSet6TableAdapters.ROLETableAdapter rOLETableAdapter;
+        public System.Windows.Forms.TextBox NipTextBox;
     }
 }

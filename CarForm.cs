@@ -24,13 +24,6 @@ namespace CarRental
             InitializeComponent();
         }
 
-        private void CarForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.SAMOCHODY' table. You can move, or remove it, as needed.
-            this.sAMOCHODYTableAdapter.Fill(this.carRentalCWDataSet.SAMOCHODY);
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             foreach (Form form in collection)

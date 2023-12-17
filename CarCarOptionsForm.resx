@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="wYPOZYCZALNIEBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>961, 17</value>
+  </metadata>
+  <metadata name="carRentalCWDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="rODZAJEPALIWABindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>525, 17</value>
+  </metadata>
+  <metadata name="mODELEBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>179, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -220,55 +232,16 @@
         krpt0REgqdsUIfwHA9dn6RPjS0MAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="UpdateAccountButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <metadata name="rOLEBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>430, 17</value>
-  </metadata>
-  <metadata name="carRentalCWDataSet6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="carRentalCWDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="rOLEBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>430, 17</value>
+  <metadata name="mODELETableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>356, 17</value>
   </metadata>
-  <metadata name="carRentalCWDataSet6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="rODZAJE_PALIWATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>745, 17</value>
   </metadata>
-  <metadata name="rOLETableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>586, 17</value>
+  <metadata name="wYPOZYCZALNIETableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
   </metadata>
 </root>

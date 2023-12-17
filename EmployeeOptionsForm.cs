@@ -20,6 +20,11 @@ namespace CarRental
             InitializeComponent();
         }
 
+        private object CheckNull(string data)
+        {
+            return string.IsNullOrEmpty(data) ? DBNull.Value : (object)data;
+        }
+
         private void EmployeeOptionsForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'carRentalCWDataSet6.ROLE' table. You can move, or remove it, as needed.
@@ -44,9 +49,9 @@ namespace CarRental
             command.Parameters.AddWithValue("@Role", RoleCombo.SelectedIndex);
             command.Parameters.AddWithValue("@Name", NameTextBox.Text);
             command.Parameters.AddWithValue("@Surname", SurnameTextBox.Text);
-            command.Parameters.AddWithValue("@Pesel", PeselTextBox.Text);
+            command.Parameters.AddWithValue("@Pesel", CheckNull(PeselTextBox.Text));
             command.Parameters.AddWithValue("@Phone", PhoneTextBox.Text);
-            command.Parameters.AddWithValue("@Rank", RankTextBox.Text);
+            command.Parameters.AddWithValue("@Rank", CheckNull(RankTextBox.Text));
             command.Parameters.AddWithValue("@Date", DateEmployedPicker.Text);
             command.Parameters.AddWithValue("@Salary", SalaryNumeric.Value);
             command.Parameters.AddWithValue("@Extra", ExtraNumeric.Value);
@@ -81,9 +86,9 @@ namespace CarRental
             command.Parameters.AddWithValue("@Role", RoleCombo.SelectedIndex);
             command.Parameters.AddWithValue("@Name", NameTextBox.Text);
             command.Parameters.AddWithValue("@Surname", SurnameTextBox.Text);
-            command.Parameters.AddWithValue("@Pesel", PeselTextBox.Text);
+            command.Parameters.AddWithValue("@Pesel", CheckNull(PeselTextBox.Text));
             command.Parameters.AddWithValue("@Phone", PhoneTextBox.Text);
-            command.Parameters.AddWithValue("@Rank", RankTextBox.Text);
+            command.Parameters.AddWithValue("@Rank", CheckNull(RankTextBox.Text));
             command.Parameters.AddWithValue("@Date", DateEmployedPicker.Value);
             command.Parameters.AddWithValue("@Salary", SalaryNumeric.Value);
             command.Parameters.AddWithValue("@Extra", ExtraNumeric.Value);
@@ -93,7 +98,7 @@ namespace CarRental
             {
                 connection.open();
                 if (string.IsNullOrEmpty(NameTextBox.Text) || string.IsNullOrEmpty(NameTextBox.Text) ||
-                    string.IsNullOrEmpty(PhoneTextBox.Text))
+                    string.IsNullOrEmpty(PhoneTextBox.Text) || string.IsNullOrEmpty(UsernameTextBox.Text) || string.IsNullOrEmpty(PasswordTextBox.Text))
                 {
                     MessageBox.Show("Pole to nie może być puste!");
                 }
