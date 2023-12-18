@@ -45,8 +45,8 @@ namespace CarRental
                                      "NAZWISKO_PRACOWNIK = @Surname, PESEL_PRACOWNIK = @Pesel, TELEFON_PRACOWNIK = @Phone, " +
                                      "STANOWISKO = @Rank, DATA_ZATRUDNIENIA = @date, WYNAGRODZENIE = @Salary, PREMIA = @Extra WHERE ID_PRAC LIKE'"
                                      + EmployeeForm.rowNumber + "'", connection.connect());
-            command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@Role", RoleCombo.SelectedIndex);
+            command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedValue);
+            command.Parameters.AddWithValue("@Role", RoleCombo.SelectedValue);
             command.Parameters.AddWithValue("@Name", NameTextBox.Text);
             command.Parameters.AddWithValue("@Surname", SurnameTextBox.Text);
             command.Parameters.AddWithValue("@Pesel", CheckNull(PeselTextBox.Text));

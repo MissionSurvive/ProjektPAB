@@ -26,7 +26,7 @@ namespace CarRental
         {
             // TODO: This line of code loads data into the 'carRentalCWDataSet.WYPOZYCZALNIE' table. You can move, or remove it, as needed.
             this.wYPOZYCZALNIETableAdapter.Fill(this.carRentalCWDataSet.WYPOZYCZALNIE);
-
+            this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

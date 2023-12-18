@@ -35,7 +35,7 @@ namespace CarRental
             rowNumber = Int32.Parse(id);
             PacketTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             ContentTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            PriceTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            PriceNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace CarRental
             this.pAKIETYTableAdapter.Fill(this.carRentalCWDataSet.PAKIETY);
             PacketTextBox.Text = "";
             ContentTextBox.Text = "";
-            PriceTextBox.Text = "";
+            PriceNumeric.Value = 0;
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace CarRental
             command = new SqlCommand("UPDATE PAKIETY SET NAZWA = @PacketName, ZAWARTOSC = @Content, CENA = @Price WHERE ID_PAKIET LIKE'" + rowNumber + "'", connection.connect());
             command.Parameters.AddWithValue("@PacketName", PacketTextBox.Text);
             command.Parameters.AddWithValue("@Content", ContentTextBox.Text);
-            command.Parameters.AddWithValue("@Price", PriceTextBox.Text);
+            command.Parameters.AddWithValue("@Price", PriceNumeric.Value);
             try
             {
                 connection.open();
@@ -68,10 +68,6 @@ namespace CarRental
                 else if (string.IsNullOrEmpty(ContentTextBox.Text))
                 {
                     MessageBox.Show("Zawartość nie może być pusta!");
-                }
-                else if (string.IsNullOrEmpty(PriceTextBox.Text))
-                {
-                    MessageBox.Show("Cena nie może być pusta!");
                 }
                 else
                 {
@@ -93,7 +89,7 @@ namespace CarRental
             command = new SqlCommand("INSERT INTO PAKIETY (NAZWA, ZAWARTOSC, CENA) VALUES (@PacketName, @Content, @Price)", connection.connect());
             command.Parameters.AddWithValue("@PacketName", PacketTextBox.Text);
             command.Parameters.AddWithValue("@Content", ContentTextBox.Text);
-            command.Parameters.AddWithValue("@Price", PriceTextBox.Text);
+            command.Parameters.AddWithValue("@Price", PriceNumeric.Value);
             try
             {
                 connection.open();
@@ -104,10 +100,6 @@ namespace CarRental
                 else if (string.IsNullOrEmpty(ContentTextBox.Text))
                 {
                     MessageBox.Show("Zawartość nie może być pusta!");
-                }
-                else if (string.IsNullOrEmpty(PriceTextBox.Text))
-                {
-                    MessageBox.Show("Cena nie może być pusta!");
                 }
                 else
                 {

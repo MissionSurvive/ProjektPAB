@@ -26,7 +26,7 @@ namespace CarRental
         {
             // TODO: This line of code loads data into the 'carRentalCWDataSet.RODZAJE_NADWOZIA' table. You can move, or remove it, as needed.
             this.rODZAJE_NADWOZIATableAdapter.Fill(this.carRentalCWDataSet.RODZAJE_NADWOZIA);
-
+            this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

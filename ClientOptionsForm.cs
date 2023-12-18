@@ -84,7 +84,7 @@ namespace CarRental
         {
             command = new SqlCommand("INSERT INTO KLIENCI (IMIE_KLIENT, NAZWISKO_KLIENT, PESEL_KLIENT, TELEFON_KLIENT, FAX, NIP) " +
                                      "VALUES (@Name, @Surname, @Pesel, @Phone, @Fax, @Nip)", connection.connect());
-            command.Parameters.AddWithValue("@Role", RoleCombo.SelectedIndex);
+            command.Parameters.AddWithValue("@Role", RoleCombo.SelectedValue);
             command.Parameters.AddWithValue("@Name", NameTextBox.Text);
             command.Parameters.AddWithValue("@Surname", SurnameTextBox.Text);
             command.Parameters.AddWithValue("@Pesel", CheckNull(PeselTextBox.Text));

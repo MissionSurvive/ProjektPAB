@@ -42,9 +42,9 @@ namespace CarRental
                 "KOLOR = @Color, PRZEBIEG = @Odo, VIN = @Vin, POJEMNOSC = @Disp, MOC = @Power, SKRZYNIA = @Gearbox, MIEJSCA = @Seats, " +
                 "CENA_DZIEN = @Day, CENA_TYDZIEN = @Week, CENA_MIESIAC = @Month, KAUCJA = @Deposit WHERE ID_SAMOCHOD LIKE'"
                 + CarCarForm.rowNumber + "'", connection.connect());
-            command.Parameters.AddWithValue("@Fuel", FuelCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@Model", ModelCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedIndex);
+            command.Parameters.AddWithValue("@Fuel", FuelCombo.SelectedValue);
+            command.Parameters.AddWithValue("@Model", ModelCombo.SelectedValue);
+            command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedValue);
             command.Parameters.AddWithValue("@Odo", OdometerNumeric.Value);
             command.Parameters.AddWithValue("@Disp", DisplacementNumeric.Value);
             command.Parameters.AddWithValue("@Power", PowerNumeric.Value);

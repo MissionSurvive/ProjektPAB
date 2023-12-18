@@ -22,6 +22,11 @@ namespace CarRental
             InitializeComponent();
         }
 
+        private object CheckNull(string data)
+        {
+            return string.IsNullOrEmpty(data) ? DBNull.Value : (object)data;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -40,11 +45,11 @@ namespace CarRental
             command = new SqlCommand("UPDATE MODELE SET ID_MARKA = @Brand + 1, ID_NADWOZIE = @Chassis + 1, NAZWA_MODEL = @ModelName, " +
                                      "ROCZNIK = @Year, GENERACJA = @Generation, SEGMENT = @Segment WHERE ID_model LIKE'" 
                                      + CarModelForm.rowNumber + "'", connection.connect());
-            command.Parameters.AddWithValue("@Brand", BrandCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@Chassis", ChassisCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@ModelName", ModelTextBox.Text);
+            command.Parameters.AddWithValue("@Brand", BrandCombo.SelectedValue);
+            command.Parameters.AddWithValue("@Chassis", ChassisCombo.SelectedValue);
+            command.Parameters.AddWithValue("@ModelName", CheckNull(ModelTextBox.Text));
             command.Parameters.AddWithValue("@Year", YearTextBox.Text);
-            command.Parameters.AddWithValue("@Generation", GenerationTextBox.Text);
+            command.Parameters.AddWithValue("@Generation", CheckNull(GenerationTextBox.Text));
             command.Parameters.AddWithValue("@Segment", SegmentTextBox.Text);
             try
             {
@@ -75,11 +80,11 @@ namespace CarRental
         {
             command = new SqlCommand("INSERT INTO MODELE (ID_MARKA, ID_NADWOZIE, NAZWA_MODEL, ROCZNIK, GENERACJA, SEGMENT) " +
                                      "VALUES (@Brand, @Chassis, @ModelName, @Year, @Generation, @Segment)", connection.connect());
-            command.Parameters.AddWithValue("@Brand", BrandCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@Chassis", ChassisCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@ModelName", ModelTextBox.Text);
+            command.Parameters.AddWithValue("@Brand", BrandCombo.SelectedValue);
+            command.Parameters.AddWithValue("@Chassis", ChassisCombo.SelectedValue);
+            command.Parameters.AddWithValue("@ModelName", CheckNull(ModelTextBox.Text));
             command.Parameters.AddWithValue("@Year", YearTextBox.Text);
-            command.Parameters.AddWithValue("@Generation", GenerationTextBox.Text);
+            command.Parameters.AddWithValue("@Generation", CheckNull(GenerationTextBox.Text));
             command.Parameters.AddWithValue("@Segment", SegmentTextBox.Text);
             try
             {

@@ -30,15 +30,15 @@ namespace CarRental
         {
             // TODO: This line of code loads data into the 'carRentalCWDataSet.MODELE' table. You can move, or remove it, as needed.
             this.mODELETableAdapter.Fill(this.carRentalCWDataSet.MODELE);
-
+            this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
         }
 
         public void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             rowNumber = Int32.Parse(id);
-            //carModelOptionsForm.BrandCombo.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            //carModelOptionsForm.ChassisCombo.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            carModelOptionsForm.BrandCombo.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+            carModelOptionsForm.ChassisCombo.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[2].Value;
             carModelOptionsForm.ModelTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             carModelOptionsForm.YearTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             carModelOptionsForm.GenerationTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
@@ -61,6 +61,7 @@ namespace CarRental
             MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
             this.mODELETableAdapter.Update(this.carRentalCWDataSet.MODELE);
             this.mODELETableAdapter.Fill(this.carRentalCWDataSet.MODELE);
+
         }
 
         private void CarModelForm_MouseHover(object sender, EventArgs e)

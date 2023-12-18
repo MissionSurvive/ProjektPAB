@@ -22,10 +22,16 @@ namespace CarRental
             InitializeComponent();
         }
 
+        private object CheckNull(string data)
+        {
+            return string.IsNullOrEmpty(data) ? DBNull.Value : (object)data;
+        }
+
         private void CarBrandForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'carRentalCWDataSet.MARKI' table. You can move, or remove it, as needed.
             this.mARKITableAdapter.Fill(this.carRentalCWDataSet.MARKI);
+            this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -55,8 +61,8 @@ namespace CarRental
         {
             command = new SqlCommand("UPDATE MARKI SET NAZWA_MARKA = @BrandName, KRAJ = @Country, REGION = @Region WHERE ID_MARKA LIKE'" + rowNumber + "'", connection.connect());
             command.Parameters.AddWithValue("@BrandName", BrandTextBox.Text);
-            command.Parameters.AddWithValue("@Country", CountryTextBox.Text);
-            command.Parameters.AddWithValue("@Region", RegionTextBox.Text);
+            command.Parameters.AddWithValue("@Country", CheckNull(CountryTextBox.Text));
+            command.Parameters.AddWithValue("@Region", CheckNull(RegionTextBox.Text));
             try
             {
                 connection.open();
@@ -65,13 +71,6 @@ namespace CarRental
                     MessageBox.Show("Nazwa marki nie może być pusta!");
                 } else
                 {
-                    if(string.IsNullOrEmpty(CountryTextBox.Text))
-                    {
-                        CountryTextBox.Text = null;
-                    } else if(string.IsNullOrEmpty(RegionTextBox.Text))
-                    {
-                        RegionTextBox.Text = null;
-                    }
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
@@ -89,8 +88,8 @@ namespace CarRental
         {
             command = new SqlCommand("INSERT INTO MARKI (NAZWA_MARKA, KRAJ, REGION) VALUES (@BrandName, @Country, @Region)", connection.connect());
             command.Parameters.AddWithValue("@BrandName", BrandTextBox.Text);
-            command.Parameters.AddWithValue("@Country", CountryTextBox.Text);
-            command.Parameters.AddWithValue("@Region", RegionTextBox.Text);
+            command.Parameters.AddWithValue("@Country", CheckNull(CountryTextBox.Text));
+            command.Parameters.AddWithValue("@Region", CheckNull(RegionTextBox.Text));
             try
             {
                 connection.open();
@@ -100,14 +99,6 @@ namespace CarRental
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(CountryTextBox.Text))
-                    {
-                        CountryTextBox.Text = null;
-                    }
-                    else if (string.IsNullOrEmpty(RegionTextBox.Text))
-                    {
-                        RegionTextBox.Text = null;
-                    }
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Dodano rekord pomyślnie!");

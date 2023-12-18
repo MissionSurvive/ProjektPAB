@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderPacketForm));
-            this.PriceTextBox = new System.Windows.Forms.TextBox();
             this.PriceLabel = new System.Windows.Forms.Label();
             this.FilterButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
@@ -49,17 +48,12 @@
             this.pAKIETYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
             this.pAKIETYTableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.PAKIETYTableAdapter();
+            this.PriceNumeric = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PriceTextBox
-            // 
-            this.PriceTextBox.Location = new System.Drawing.Point(15, 578);
-            this.PriceTextBox.Name = "PriceTextBox";
-            this.PriceTextBox.Size = new System.Drawing.Size(165, 20);
-            this.PriceTextBox.TabIndex = 125;
             // 
             // PriceLabel
             // 
@@ -225,18 +219,31 @@
             // 
             this.pAKIETYTableAdapter.ClearBeforeFill = true;
             // 
+            // PriceNumeric
+            // 
+            this.PriceNumeric.DecimalPlaces = 2;
+            this.PriceNumeric.Location = new System.Drawing.Point(15, 579);
+            this.PriceNumeric.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.PriceNumeric.Name = "PriceNumeric";
+            this.PriceNumeric.Size = new System.Drawing.Size(165, 20);
+            this.PriceNumeric.TabIndex = 132;
+            // 
             // OrderPacketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(937, 681);
+            this.Controls.Add(this.PriceNumeric);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.PacketTextBox);
             this.Controls.Add(this.PacketLabel);
             this.Controls.Add(this.ContentTextBox);
             this.Controls.Add(this.ContentLabel);
-            this.Controls.Add(this.PriceTextBox);
             this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.UpdateButton);
@@ -250,13 +257,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox PriceTextBox;
         private System.Windows.Forms.Label PriceLabel;
         private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.Button UpdateButton;
@@ -275,5 +282,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nAZWADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zAWARTOSCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cENADataGridViewTextBoxColumn;
+        private System.Windows.Forms.NumericUpDown PriceNumeric;
     }
 }
