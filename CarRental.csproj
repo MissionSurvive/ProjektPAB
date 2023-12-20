@@ -241,6 +241,24 @@
     <Compile Include="OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderHistoryForm.Designer.cs">
+      <DependentUpon>OrderHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderHistoryOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderHistoryOptionsForm.Designer.cs">
+      <DependentUpon>OrderHistoryOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderOrderForm.Designer.cs">
+      <DependentUpon>OrderOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderOrderOptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +278,12 @@
     </Compile>
     <Compile Include="RentalPlacesForm.Designer.cs">
       <DependentUpon>RentalPlacesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RoleForm.cs">
       <SubType>Form</SubType>
@@ -309,6 +333,15 @@
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OrderHistoryForm.resx">
+      <DependentUpon>OrderHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderHistoryOptionsForm.resx">
+      <DependentUpon>OrderHistoryOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderOrderForm.resx">
+      <DependentUpon>OrderOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderOrderOptionsForm.resx">
       <DependentUpon>OrderOrderOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RentalPlacesForm.resx">
       <DependentUpon>RentalPlacesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoleForm.resx">
       <DependentUpon>RoleForm.cs</DependentUpon>

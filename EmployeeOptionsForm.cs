@@ -41,7 +41,7 @@ namespace CarRental
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("UPDATE PRACOWNICY SET ID_WYPOZYCZALNIA = @Rental + 1, IMIE_PRACOWNIK = @Name, " +
+            command = new SqlCommand("UPDATE PRACOWNICY SET ID_WYPOZYCZALNIA = @Rental, IMIE_PRACOWNIK = @Name, " +
                                      "NAZWISKO_PRACOWNIK = @Surname, PESEL_PRACOWNIK = @Pesel, TELEFON_PRACOWNIK = @Phone, " +
                                      "STANOWISKO = @Rank, DATA_ZATRUDNIENIA = @date, WYNAGRODZENIE = @Salary, PREMIA = @Extra WHERE ID_PRAC LIKE'"
                                      + EmployeeForm.rowNumber + "'", connection.connect());
@@ -66,7 +66,7 @@ namespace CarRental
                 else
                 {
                     command.ExecuteNonQuery();
-                    command.CommandText = "UPDATE KONTA_PRACOWNIKOW SET ID_ROLA = @Role + 1 WHERE ID_KON_PRACOWNIK = " + EmployeeForm.rowNumber + " ";
+                    command.CommandText = "UPDATE KONTA_PRACOWNIKOW SET ID_ROLA = @Role WHERE ID_KON_PRACOWNIK = " + EmployeeForm.rowNumber + " ";
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Zaktualizowano rekord z ID: " + EmployeeForm.rowNumber + " !");
@@ -81,7 +81,7 @@ namespace CarRental
         private void AddButton_Click(object sender, EventArgs e)
         {
             command = new SqlCommand("INSERT INTO PRACOWNICY (ID_WYPOZYCZALNIA, IMIE_PRACOWNIK, NAZWISKO_PRACOWNIK, PESEL_PRACOWNIK, TELEFON_PRACOWNIK, STANOWISKO, DATA_ZATRUDNIENIA, WYNAGRODZENIE, PREMIA) " +
-                                     "VALUES (@Rental + 1, @Name, @Surname, @Pesel, @Phone, @Rank, @Date, @Salary, @Extra)", connection.connect());
+                                     "VALUES (@Rental, @Name, @Surname, @Pesel, @Phone, @Rank, @Date, @Salary, @Extra)", connection.connect());
             command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedIndex);
             command.Parameters.AddWithValue("@Role", RoleCombo.SelectedIndex);
             command.Parameters.AddWithValue("@Name", NameTextBox.Text);

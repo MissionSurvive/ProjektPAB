@@ -33,6 +33,10 @@ namespace CarRental
 
         private void CarCarForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'allDataSet.WYPOZYCZALNIE' table. You can move, or remove it, as needed.
+            this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
+            // TODO: This line of code loads data into the 'allDataSet.RODZAJE_PALIWA' table. You can move, or remove it, as needed.
+            this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
             // TODO: This line of code loads data into the 'allDataSet.SAMOCHODY' table. You can move, or remove it, as needed.
             this.sAMOCHODYTableAdapter.Fill(this.allDataSet.SAMOCHODY);
             this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
@@ -81,6 +85,45 @@ namespace CarRental
             this.sAMOCHODYTableAdapter.Fill(this.allDataSet.SAMOCHODY);
             nextRow = dataGridView1.Rows.Count;
             getId();
+        }
+
+
+        /*var select = "SELECT ID_SAMOCHOD, MODELE.NAZWA_MODEL, RODZAJE_PALIWA.NAZWA_RODZAJ, WYPOZYCZALNIE.MIASTO, " +
+                    "MARKI.NAZWA_MARKA, RODZAJE_NADWOZIA.NAZWA_NADWOZIE, KOLOR, PRZEBIEG, VIN, POJEMNOSC, MOC, SKRZYNIA, MIEJSCA, " +
+                    "CENA_DZIEN, CENA_TYDZIEN, CENA_MIESIAC, KAUCJA FROM SAMOCHODY " +
+                    "JOIN WYPOZYCZALNIE ON SAMOCHODY.ID_WYPOZYCZALNIA = WYPOZYCZALNIE.ID_WYPOZYCZALNIA " +
+                    "JOIN MODELE ON SAMOCHODY.ID_MODEL = MODELE.ID_MODEL " +
+                    "JOIN RODZAJE_PALIWA ON SAMOCHODY.ID_PALIWO = RODZAJE_PALIWA.ID_PALIWO " +
+                    "JOIN MARKI ON MODELE.ID_MARKA = MARKI.ID_MARKA " +
+                    "JOIN RODZAJE_NADWOZIA ON MODELE.ID_NADWOZIE = RODZAJE_NADWOZIA.ID_NADWOZIE";
+        var c = new SqlConnection(@"Data Source = X280\SQLEXPRESS; Initial Catalog = CarRentalCW; Integrated Security = True");
+        var adapter = new SqlDataAdapter(select, c);
+        var CommandBuilder = new SqlCommandBuilder(adapter);
+        DataSet set = new DataSet();
+        adapter.Fill(set);
+        dataGridView2.DataSource = set.Tables[0];*/
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            /*try
+            {
+                if (FilterCheck.Checked)
+                {
+                    BindingSource source = new BindingSource();
+                    source.DataSource = dataGridView2.DataSource;
+                    source.Filter = "KOLOR LIKE '%" + ColorTextBox.Text + "%' OR SKRZYNIA LIKE '%" + GearboxTextBox.Text + "%' OR MOC = " + PowerDownNumeric.Value + " OR MIEJSCA = " + SeatsNumeric.Value + "";
+                    dataGridView2.DataSource = source.DataSource;
+                }
+                else
+                {
+                    MessageBox.Show("Włącz filtrację!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }*/
+            
         }
     }
 }

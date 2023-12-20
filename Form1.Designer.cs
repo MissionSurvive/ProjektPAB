@@ -43,6 +43,7 @@
             this.logo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataPanel = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.navBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -53,6 +54,7 @@
             // navBar
             // 
             this.navBar.BackColor = System.Drawing.Color.White;
+            this.navBar.Controls.Add(this.button9);
             this.navBar.Controls.Add(this.button8);
             this.navBar.Controls.Add(this.panel2);
             this.navBar.Controls.Add(this.button7);
@@ -126,6 +128,7 @@
             this.button6.Text = "Historia";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -226,6 +229,21 @@
             this.dataPanel.Size = new System.Drawing.Size(1100, 681);
             this.dataPanel.TabIndex = 2;
             // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.Location = new System.Drawing.Point(0, 526);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(164, 54);
+            this.button9.TabIndex = 10;
+            this.button9.Text = "Raporty";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseWaitCursor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +279,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel dataPanel;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 

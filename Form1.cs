@@ -18,6 +18,8 @@ namespace CarRental
         RoleForm roleForm = new RoleForm() { TopLevel = false, TopMost = true };
         EmployeeForm employeeForm = new EmployeeForm() { TopLevel = false, TopMost = true };
         ClientForm clientForm = new ClientForm() { TopLevel = false, TopMost = true };
+        OrderHistoryForm orderHistoryForm = new OrderHistoryForm() { TopLevel = false, TopMost = true };
+        ReportForm reportForm = new ReportForm() { TopLevel = false, TopMost = true };
         FormCollection collection = Application.OpenForms;
         public Form1()
         {
@@ -51,6 +53,14 @@ namespace CarRental
                 if (form.Name == "ClientForm")
                 {
                     clientForm.Hide();
+                }
+                if (form.Name == "OrderHistoryForm")
+                {
+                    orderHistoryForm.Hide();
+                }
+                if (form.Name == "ReportForm")
+                {
+                    reportForm.Hide();
                 }
             }
             carForm.FormBorderStyle = FormBorderStyle.None;
@@ -86,6 +96,14 @@ namespace CarRental
                 {
                     clientForm.Hide();
                 }
+                if (form.Name == "OrderHistoryForm")
+                {
+                    orderHistoryForm.Hide();
+                }
+                if (form.Name == "ReportForm")
+                {
+                    reportForm.Hide();
+                }
             }
             orderForm.FormBorderStyle = FormBorderStyle.None;
             dataPanel.Controls.Add(orderForm);
@@ -119,6 +137,14 @@ namespace CarRental
                 if (form.Name == "ClientForm")
                 {
                     clientForm.Hide();
+                }
+                if (form.Name == "OrderHistoryForm")
+                {
+                    orderHistoryForm.Hide();
+                }
+                if (form.Name == "ReportForm")
+                {
+                    reportForm.Hide();
                 }
             }
             rentalPlacesForm.FormBorderStyle = FormBorderStyle.None;
@@ -154,6 +180,14 @@ namespace CarRental
                 {
                     clientForm.Hide();
                 }
+                if (form.Name == "OrderHistoryForm")
+                {
+                    orderHistoryForm.Hide();
+                }
+                if (form.Name == "ReportForm")
+                {
+                    reportForm.Hide();
+                }
             }
             roleForm.FormBorderStyle = FormBorderStyle.None;
             dataPanel.Controls.Add(roleForm);
@@ -187,6 +221,14 @@ namespace CarRental
                 if (form.Name == "ClientForm")
                 {
                     clientForm.Hide();
+                }
+                if (form.Name == "OrderHistoryForm")
+                {
+                    orderHistoryForm.Hide();
+                }
+                if (form.Name == "ReportForm")
+                {
+                    reportForm.Hide();
                 }
             }
             employeeForm.FormBorderStyle = FormBorderStyle.None;
@@ -222,10 +264,102 @@ namespace CarRental
                 {
                     clientForm.Hide();
                 }
+                if (form.Name == "OrderHistoryForm")
+                {
+                    orderHistoryForm.Hide();
+                }
+                if (form.Name == "ReportForm")
+                {
+                    reportForm.Hide();
+                }
             }
             clientForm.FormBorderStyle = FormBorderStyle.None;
             dataPanel.Controls.Add(clientForm);
             clientForm.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in collection)
+            {
+                if (form.Name == "CarForm")
+                {
+                    carForm.Hide();
+                }
+                if (form.Name == "OrderForm")
+                {
+                    orderForm.Hide();
+                }
+                if (form.Name == "RentalPlacesForm")
+                {
+                    rentalPlacesForm.Hide();
+                }
+                if (form.Name == "RoleForm")
+                {
+                    roleForm.Hide();
+                }
+                if (form.Name == "EmployeeForm")
+                {
+                    employeeForm.Hide();
+                }
+                if (form.Name == "ClientForm")
+                {
+                    clientForm.Hide();
+                }
+                if (form.Name == "OrderHistoryForm")
+                {
+                    orderHistoryForm.Hide();
+                }
+                if (form.Name == "ReportForm")
+                {
+                    reportForm.Hide();
+                }
+            }
+            orderHistoryForm.FormBorderStyle = FormBorderStyle.None;
+            dataPanel.Controls.Add(orderHistoryForm);
+            orderHistoryForm.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in collection)
+            {
+                if (form.Name == "CarForm")
+                {
+                    carForm.Hide();
+                }
+                if (form.Name == "OrderForm")
+                {
+                    orderForm.Hide();
+                }
+                if (form.Name == "RentalPlacesForm")
+                {
+                    rentalPlacesForm.Hide();
+                }
+                if (form.Name == "RoleForm")
+                {
+                    roleForm.Hide();
+                }
+                if (form.Name == "EmployeeForm")
+                {
+                    employeeForm.Hide();
+                }
+                if (form.Name == "ClientForm")
+                {
+                    clientForm.Hide();
+                }
+                if (form.Name == "OrderHistoryForm")
+                {
+                    orderHistoryForm.Hide();
+                }
+                if (form.Name == "ReportForm")
+                {
+                    reportForm.Hide();
+                }
+            }
+            reportForm.FormBorderStyle = FormBorderStyle.None;
+            dataPanel.Controls.Add(reportForm);
+            reportForm.Show();
         }
     }
 }

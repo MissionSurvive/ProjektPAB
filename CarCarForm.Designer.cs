@@ -35,9 +35,6 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.FilterButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.sAMOCHODYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sAMOCHODYTableAdapter = new CarRental.AllDataSetTableAdapters.SAMOCHODYTableAdapter();
             this.iDSAMOCHODDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDPALIWODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDMODELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +51,18 @@
             this.cENATYDZIENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cENAMIESIACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kAUCJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAMOCHODYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
+            this.sAMOCHODYTableAdapter = new CarRental.AllDataSetTableAdapters.SAMOCHODYTableAdapter();
+            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rODZAJEPALIWABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rODZAJE_PALIWATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_PALIWATableAdapter();
+            this.wYPOZYCZALNIETableAdapter = new CarRental.AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sAMOCHODYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -109,6 +115,7 @@
             this.FilterButton.Text = "Filtruj";
             this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // dataGridView1
             // 
@@ -137,20 +144,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(906, 559);
             this.dataGridView1.TabIndex = 58;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sAMOCHODYBindingSource
-            // 
-            this.sAMOCHODYBindingSource.DataMember = "SAMOCHODY";
-            this.sAMOCHODYBindingSource.DataSource = this.allDataSet;
-            // 
-            // sAMOCHODYTableAdapter
-            // 
-            this.sAMOCHODYTableAdapter.ClearBeforeFill = true;
             // 
             // iDSAMOCHODDataGridViewTextBoxColumn
             // 
@@ -249,6 +242,38 @@
             this.kAUCJADataGridViewTextBoxColumn.HeaderText = "KAUCJA";
             this.kAUCJADataGridViewTextBoxColumn.Name = "kAUCJADataGridViewTextBoxColumn";
             // 
+            // sAMOCHODYBindingSource
+            // 
+            this.sAMOCHODYBindingSource.DataMember = "SAMOCHODY";
+            this.sAMOCHODYBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sAMOCHODYTableAdapter
+            // 
+            this.sAMOCHODYTableAdapter.ClearBeforeFill = true;
+            // 
+            // wYPOZYCZALNIEBindingSource
+            // 
+            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
+            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
+            // 
+            // rODZAJEPALIWABindingSource
+            // 
+            this.rODZAJEPALIWABindingSource.DataMember = "RODZAJE_PALIWA";
+            this.rODZAJEPALIWABindingSource.DataSource = this.allDataSet;
+            // 
+            // rODZAJE_PALIWATableAdapter
+            // 
+            this.rODZAJE_PALIWATableAdapter.ClearBeforeFill = true;
+            // 
+            // wYPOZYCZALNIETableAdapter
+            // 
+            this.wYPOZYCZALNIETableAdapter.ClearBeforeFill = true;
+            // 
             // CarCarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,8 +290,10 @@
             this.Text = "CarCarForm";
             this.Load += new System.EventHandler(this.CarCarForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sAMOCHODYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,5 +325,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cENATYDZIENDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cENAMIESIACDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kAUCJADataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource rODZAJEPALIWABindingSource;
+        private AllDataSetTableAdapters.RODZAJE_PALIWATableAdapter rODZAJE_PALIWATableAdapter;
+        private System.Windows.Forms.BindingSource wYPOZYCZALNIEBindingSource;
+        private AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter wYPOZYCZALNIETableAdapter;
     }
 }
