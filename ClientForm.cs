@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -34,11 +30,11 @@ namespace CarRental
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet7.KONTA_KLIENTOW' table. You can move, or remove it, as needed.
-            this.kONTA_KLIENTOWTableAdapter.Fill(this.carRentalCWDataSet7.KONTA_KLIENTOW);
+            // TODO: This line of code loads data into the 'allDataSet.KONTA_KLIENTOW' table. You can move, or remove it, as needed.
+            this.kONTA_KLIENTOWTableAdapter.Fill(this.allDataSet.KONTA_KLIENTOW);
+            // TODO: This line of code loads data into the 'allDataSet.KLIENCI' table. You can move, or remove it, as needed.
+            this.kLIENCITableAdapter.Fill(this.allDataSet.KLIENCI);
             this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.KLIENCI' table. You can move, or remove it, as needed.
-            this.kLIENCITableAdapter.Fill(this.carRentalCWDataSet.KLIENCI);
             this.dataGridView2.Sort(this.dataGridView2.Columns[0], ListSortDirection.Ascending);
             nextRow = dataGridView1.Rows.Count;
             getId();
@@ -63,10 +59,10 @@ namespace CarRental
             command.ExecuteNonQuery();
             connection.close();
             MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.kONTA_KLIENTOWTableAdapter.Update(this.carRentalCWDataSet7.KONTA_KLIENTOW);
-            this.kONTA_KLIENTOWTableAdapter.Fill(this.carRentalCWDataSet7.KONTA_KLIENTOW);
-            this.kLIENCITableAdapter.Update(this.carRentalCWDataSet.KLIENCI);
-            this.kLIENCITableAdapter.Fill(this.carRentalCWDataSet.KLIENCI);
+            this.kONTA_KLIENTOWTableAdapter.Update(this.allDataSet.KONTA_KLIENTOW);
+            this.kONTA_KLIENTOWTableAdapter.Fill(this.allDataSet.KONTA_KLIENTOW);
+            this.kLIENCITableAdapter.Update(this.allDataSet.KLIENCI);
+            this.kLIENCITableAdapter.Fill(this.allDataSet.KLIENCI);
             getId();
         }
 
@@ -88,10 +84,10 @@ namespace CarRental
             clientOptionsForm.NipTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
             clientOptionsForm.UsernameTextBox.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
             clientOptionsForm.PasswordTextBox.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-            this.kONTA_KLIENTOWTableAdapter.Update(this.carRentalCWDataSet7.KONTA_KLIENTOW);
-            this.kONTA_KLIENTOWTableAdapter.Fill(this.carRentalCWDataSet7.KONTA_KLIENTOW);
-            this.kLIENCITableAdapter.Update(this.carRentalCWDataSet.KLIENCI);
-            this.kLIENCITableAdapter.Fill(this.carRentalCWDataSet.KLIENCI);
+            this.kONTA_KLIENTOWTableAdapter.Update(this.allDataSet.KONTA_KLIENTOW);
+            this.kONTA_KLIENTOWTableAdapter.Fill(this.allDataSet.KONTA_KLIENTOW);
+            this.kLIENCITableAdapter.Update(this.allDataSet.KLIENCI);
+            this.kLIENCITableAdapter.Fill(this.allDataSet.KLIENCI);
             nextRow = dataGridView1.Rows.Count;
             getId();
         }

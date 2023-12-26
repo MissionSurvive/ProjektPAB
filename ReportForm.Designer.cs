@@ -32,11 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.EmployeeCombo = new System.Windows.Forms.ComboBox();
+            this.pRACOWNICYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
             this.ReportRadio1 = new System.Windows.Forms.RadioButton();
             this.ReportRadio2 = new System.Windows.Forms.RadioButton();
             this.ReportRadio3 = new System.Windows.Forms.RadioButton();
@@ -48,13 +49,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.SumTextBox = new System.Windows.Forms.TextBox();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.pRACOWNICYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pRACOWNICYTableAdapter = new CarRental.AllDataSetTableAdapters.PRACOWNICYTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.RadioGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            this.RadioGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -75,19 +74,9 @@
             this.dataGridView1.Size = new System.Drawing.Size(1061, 277);
             this.dataGridView1.TabIndex = 103;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(14, 355);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 25);
-            this.label1.TabIndex = 104;
-            this.label1.Text = "Raport dzienny";
-            // 
             // StartDatePicker
             // 
-            this.StartDatePicker.Location = new System.Drawing.Point(19, 417);
+            this.StartDatePicker.Location = new System.Drawing.Point(14, 374);
             this.StartDatePicker.Name = "StartDatePicker";
             this.StartDatePicker.Size = new System.Drawing.Size(200, 20);
             this.StartDatePicker.TabIndex = 119;
@@ -96,17 +85,17 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(17, 393);
+            this.label8.Location = new System.Drawing.Point(12, 350);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 20);
+            this.label8.Size = new System.Drawing.Size(72, 20);
             this.label8.TabIndex = 118;
-            this.label8.Text = "Dzień";
+            this.label8.Text = "Dzień od";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(17, 486);
+            this.label12.Location = new System.Drawing.Point(12, 443);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 20);
             this.label12.TabIndex = 138;
@@ -117,11 +106,21 @@
             this.EmployeeCombo.DataSource = this.pRACOWNICYBindingSource;
             this.EmployeeCombo.DisplayMember = "NAZWISKO_PRACOWNIK";
             this.EmployeeCombo.FormattingEnabled = true;
-            this.EmployeeCombo.Location = new System.Drawing.Point(21, 509);
+            this.EmployeeCombo.Location = new System.Drawing.Point(16, 466);
             this.EmployeeCombo.Name = "EmployeeCombo";
             this.EmployeeCombo.Size = new System.Drawing.Size(200, 21);
             this.EmployeeCombo.TabIndex = 137;
             this.EmployeeCombo.ValueMember = "ID_PRAC";
+            // 
+            // pRACOWNICYBindingSource
+            // 
+            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
+            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ReportRadio1
             // 
@@ -174,7 +173,7 @@
             this.RadioGroup.Controls.Add(this.ReportRadio2);
             this.RadioGroup.Controls.Add(this.ReportRadio3);
             this.RadioGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RadioGroup.Location = new System.Drawing.Point(227, 393);
+            this.RadioGroup.Location = new System.Drawing.Point(233, 350);
             this.RadioGroup.Name = "RadioGroup";
             this.RadioGroup.Size = new System.Drawing.Size(200, 144);
             this.RadioGroup.TabIndex = 143;
@@ -210,7 +209,7 @@
             // 
             // EndDatePicker
             // 
-            this.EndDatePicker.Location = new System.Drawing.Point(21, 463);
+            this.EndDatePicker.Location = new System.Drawing.Point(16, 420);
             this.EndDatePicker.Name = "EndDatePicker";
             this.EndDatePicker.Size = new System.Drawing.Size(200, 20);
             this.EndDatePicker.TabIndex = 150;
@@ -219,11 +218,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(17, 439);
+            this.label9.Location = new System.Drawing.Point(12, 396);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 20);
+            this.label9.Size = new System.Drawing.Size(72, 20);
             this.label9.TabIndex = 149;
-            this.label9.Text = "Do";
+            this.label9.Text = "Dzień do";
             // 
             // label13
             // 
@@ -242,16 +241,6 @@
             this.SumTextBox.ReadOnly = true;
             this.SumTextBox.Size = new System.Drawing.Size(164, 20);
             this.SumTextBox.TabIndex = 152;
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pRACOWNICYBindingSource
-            // 
-            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
-            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
             // 
             // pRACOWNICYTableAdapter
             // 
@@ -274,7 +263,6 @@
             this.Controls.Add(this.EmployeeCombo);
             this.Controls.Add(this.StartDatePicker);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TableLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -282,10 +270,10 @@
             this.Text = "ReportForm";
             this.Load += new System.EventHandler(this.ReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             this.RadioGroup.ResumeLayout(false);
             this.RadioGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,7 +283,6 @@
 
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DateTimePicker StartDatePicker;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -29,8 +23,8 @@ namespace CarRental
 
         private void CarBrandForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.MARKI' table. You can move, or remove it, as needed.
-            this.mARKITableAdapter.Fill(this.carRentalCWDataSet.MARKI);
+            // TODO: This line of code loads data into the 'allDataSet.MARKI' table. You can move, or remove it, as needed.
+            this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
             this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
         }
 
@@ -41,8 +35,8 @@ namespace CarRental
             command.ExecuteNonQuery();
             connection.close();
             MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.mARKITableAdapter.Update(this.carRentalCWDataSet.MARKI);
-            this.mARKITableAdapter.Fill(this.carRentalCWDataSet.MARKI);
+            this.mARKITableAdapter.Update(this.allDataSet.MARKI);
+            this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
             BrandTextBox.Text = "";
             CountryTextBox.Text = "";
             RegionTextBox.Text = "";
@@ -74,8 +68,8 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
-                    this.mARKITableAdapter.Update(this.carRentalCWDataSet.MARKI);
-                    this.mARKITableAdapter.Fill(this.carRentalCWDataSet.MARKI);
+                    this.mARKITableAdapter.Update(this.allDataSet.MARKI);
+                    this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
                 } 
             }
             catch(Exception ex)
@@ -102,8 +96,8 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Dodano rekord pomyślnie!");
-                    this.mARKITableAdapter.Update(this.carRentalCWDataSet.MARKI);
-                    this.mARKITableAdapter.Fill(this.carRentalCWDataSet.MARKI);
+                    this.mARKITableAdapter.Update(this.allDataSet.MARKI);
+                    this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
                 }
             }
             catch (Exception ex)

@@ -115,7 +115,6 @@
             this.FilterButton.Text = "Filtruj";
             this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FilterButton.UseVisualStyleBackColor = true;
-            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // dataGridView1
             // 

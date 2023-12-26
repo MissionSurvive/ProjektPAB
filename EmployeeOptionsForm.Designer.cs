@@ -55,24 +55,22 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.RentalCombo = new System.Windows.Forms.ComboBox();
-            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet5 = new CarRental.CarRentalCWDataSet5();
-            this.wYPOZYCZALNIETableAdapter = new CarRental.CarRentalCWDataSet5TableAdapters.WYPOZYCZALNIETableAdapter();
             this.UpdateAccountButton = new System.Windows.Forms.Button();
             this.RoleCombo = new System.Windows.Forms.ComboBox();
-            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet6 = new CarRental.CarRentalCWDataSet6();
             this.label14 = new System.Windows.Forms.Label();
-            this.rOLETableAdapter = new CarRental.CarRentalCWDataSet6TableAdapters.ROLETableAdapter();
             this.SalaryNumeric = new System.Windows.Forms.NumericUpDown();
             this.ExtraNumeric = new System.Windows.Forms.NumericUpDown();
             this.PeselTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet6)).BeginInit();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.wYPOZYCZALNIETableAdapter = new CarRental.AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter();
+            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rOLETableAdapter = new CarRental.AllDataSetTableAdapters.ROLETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.SalaryNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExtraNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -317,20 +315,6 @@
             this.RentalCombo.TabIndex = 129;
             this.RentalCombo.ValueMember = "ID_WYPOZYCZALNIA";
             // 
-            // wYPOZYCZALNIEBindingSource
-            // 
-            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
-            this.wYPOZYCZALNIEBindingSource.DataSource = this.carRentalCWDataSet5;
-            // 
-            // carRentalCWDataSet5
-            // 
-            this.carRentalCWDataSet5.DataSetName = "CarRentalCWDataSet5";
-            this.carRentalCWDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // wYPOZYCZALNIETableAdapter
-            // 
-            this.wYPOZYCZALNIETableAdapter.ClearBeforeFill = true;
-            // 
             // UpdateAccountButton
             // 
             this.UpdateAccountButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -356,16 +340,6 @@
             this.RoleCombo.TabIndex = 132;
             this.RoleCombo.ValueMember = "ID_ROLA";
             // 
-            // rOLEBindingSource
-            // 
-            this.rOLEBindingSource.DataMember = "ROLE";
-            this.rOLEBindingSource.DataSource = this.carRentalCWDataSet6;
-            // 
-            // carRentalCWDataSet6
-            // 
-            this.carRentalCWDataSet6.DataSetName = "CarRentalCWDataSet6";
-            this.carRentalCWDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -375,10 +349,6 @@
             this.label14.Size = new System.Drawing.Size(42, 20);
             this.label14.TabIndex = 133;
             this.label14.Text = "Rola";
-            // 
-            // rOLETableAdapter
-            // 
-            this.rOLETableAdapter.ClearBeforeFill = true;
             // 
             // SalaryNumeric
             // 
@@ -412,6 +382,29 @@
             this.PeselTextBox.Name = "PeselTextBox";
             this.PeselTextBox.Size = new System.Drawing.Size(164, 20);
             this.PeselTextBox.TabIndex = 137;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // wYPOZYCZALNIEBindingSource
+            // 
+            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
+            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
+            // 
+            // wYPOZYCZALNIETableAdapter
+            // 
+            this.wYPOZYCZALNIETableAdapter.ClearBeforeFill = true;
+            // 
+            // rOLEBindingSource
+            // 
+            this.rOLEBindingSource.DataMember = "ROLE";
+            this.rOLEBindingSource.DataSource = this.allDataSet;
+            // 
+            // rOLETableAdapter
+            // 
+            this.rOLETableAdapter.ClearBeforeFill = true;
             // 
             // EmployeeOptionsForm
             // 
@@ -453,12 +446,11 @@
             this.Name = "EmployeeOptionsForm";
             this.Text = "Zarządzanie pracownikiem";
             this.Load += new System.EventHandler(this.EmployeeOptionsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalaryNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExtraNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,17 +483,16 @@
         public System.Windows.Forms.TextBox UsernameTextBox;
         public System.Windows.Forms.TextBox PasswordTextBox;
         public System.Windows.Forms.ComboBox RentalCombo;
-        private CarRentalCWDataSet5 carRentalCWDataSet5;
-        private System.Windows.Forms.BindingSource wYPOZYCZALNIEBindingSource;
-        private CarRentalCWDataSet5TableAdapters.WYPOZYCZALNIETableAdapter wYPOZYCZALNIETableAdapter;
         private System.Windows.Forms.Button UpdateAccountButton;
         private System.Windows.Forms.ComboBox RoleCombo;
         private System.Windows.Forms.Label label14;
-        private CarRentalCWDataSet6 carRentalCWDataSet6;
-        private System.Windows.Forms.BindingSource rOLEBindingSource;
-        private CarRentalCWDataSet6TableAdapters.ROLETableAdapter rOLETableAdapter;
         public System.Windows.Forms.NumericUpDown SalaryNumeric;
         public System.Windows.Forms.NumericUpDown ExtraNumeric;
         public System.Windows.Forms.TextBox PeselTextBox;
+        private AllDataSet allDataSet;
+        private System.Windows.Forms.BindingSource wYPOZYCZALNIEBindingSource;
+        private AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter wYPOZYCZALNIETableAdapter;
+        private System.Windows.Forms.BindingSource rOLEBindingSource;
+        private AllDataSetTableAdapters.ROLETableAdapter rOLETableAdapter;
     }
 }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -20,10 +13,12 @@ namespace CarRental
         ClientForm clientForm = new ClientForm() { TopLevel = false, TopMost = true };
         OrderHistoryForm orderHistoryForm = new OrderHistoryForm() { TopLevel = false, TopMost = true };
         ReportForm reportForm = new ReportForm() { TopLevel = false, TopMost = true };
+        
         FormCollection collection = Application.OpenForms;
         public Form1()
         {
             InitializeComponent();
+            userLabel.Text = LoginForm.username + " " + LoginForm.surname;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -360,6 +355,13 @@ namespace CarRental
             reportForm.FormBorderStyle = FormBorderStyle.None;
             dataPanel.Controls.Add(reportForm);
             reportForm.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            this.Dispose();
+            loginForm.Show();
         }
     }
 }

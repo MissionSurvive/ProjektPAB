@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -27,11 +20,10 @@ namespace CarRental
 
         private void EmployeeOptionsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet6.ROLE' table. You can move, or remove it, as needed.
-            this.rOLETableAdapter.Fill(this.carRentalCWDataSet6.ROLE);
-            // TODO: This line of code loads data into the 'carRentalCWDataSet5.WYPOZYCZALNIE' table. You can move, or remove it, as needed.
-            this.wYPOZYCZALNIETableAdapter.Fill(this.carRentalCWDataSet5.WYPOZYCZALNIE);
-
+            // TODO: This line of code loads data into the 'allDataSet.ROLE' table. You can move, or remove it, as needed.
+            this.rOLETableAdapter.Fill(this.allDataSet.ROLE);
+            // TODO: This line of code loads data into the 'allDataSet.WYPOZYCZALNIE' table. You can move, or remove it, as needed.
+            this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,7 +44,7 @@ namespace CarRental
             command.Parameters.AddWithValue("@Pesel", CheckNull(PeselTextBox.Text));
             command.Parameters.AddWithValue("@Phone", PhoneTextBox.Text);
             command.Parameters.AddWithValue("@Rank", CheckNull(RankTextBox.Text));
-            command.Parameters.AddWithValue("@Date", DateEmployedPicker.Text);
+            command.Parameters.AddWithValue("@Date", DateEmployedPicker.Value);
             command.Parameters.AddWithValue("@Salary", SalaryNumeric.Value);
             command.Parameters.AddWithValue("@Extra", ExtraNumeric.Value);
             try
@@ -82,8 +74,8 @@ namespace CarRental
         {
             command = new SqlCommand("INSERT INTO PRACOWNICY (ID_WYPOZYCZALNIA, IMIE_PRACOWNIK, NAZWISKO_PRACOWNIK, PESEL_PRACOWNIK, TELEFON_PRACOWNIK, STANOWISKO, DATA_ZATRUDNIENIA, WYNAGRODZENIE, PREMIA) " +
                                      "VALUES (@Rental, @Name, @Surname, @Pesel, @Phone, @Rank, @Date, @Salary, @Extra)", connection.connect());
-            command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@Role", RoleCombo.SelectedIndex);
+            command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedValue);
+            command.Parameters.AddWithValue("@Role", RoleCombo.SelectedValue);
             command.Parameters.AddWithValue("@Name", NameTextBox.Text);
             command.Parameters.AddWithValue("@Surname", SurnameTextBox.Text);
             command.Parameters.AddWithValue("@Pesel", CheckNull(PeselTextBox.Text));
@@ -107,7 +99,7 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     MessageBox.Show(EmployeeForm.idInt.ToString() + " Done 1!");
                     EmployeeForm.idInt = EmployeeForm.idInt + 1;  
-                    command.CommandText = "INSERT INTO KONTA_PRACOWNIKOW (ID_ROLA, ID_PRAC, NAZWA_PRACOWNIK, HASLO_PRACOWNIK) VALUES (@Role + 1, " + EmployeeForm.idInt + " ," + "@Username, @Password)";
+                    command.CommandText = "INSERT INTO KONTA_PRACOWNIKOW (ID_ROLA, ID_PRAC, NAZWA_PRACOWNIK, HASLO_PRACOWNIK) VALUES (@Role, " + EmployeeForm.idInt + " ," + "@Username, @Password)";
                     command.ExecuteNonQuery();
                     MessageBox.Show("Done 2!");
                     command.CommandText = "UPDATE PRACOWNICY SET ID_KON_PRACOWNIK = " + EmployeeForm.idInt + " WHERE ID_PRAC = " + EmployeeForm.idInt+ " ";

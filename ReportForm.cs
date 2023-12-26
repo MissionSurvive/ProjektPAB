@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
 {
     public partial class ReportForm : Form
-    {
-        
-        
+    { 
         public ReportForm()
         {
             InitializeComponent();
@@ -150,7 +142,6 @@ namespace CarRental
         {
             // TODO: This line of code loads data into the 'allDataSet.PRACOWNICY' table. You can move, or remove it, as needed.
             this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
-
         }
     }
 }

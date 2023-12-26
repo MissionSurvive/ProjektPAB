@@ -36,19 +36,19 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mIASTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aDRESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.wYPOZYCZALNIETableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.WYPOZYCZALNIETableAdapter();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.AddressLabel = new System.Windows.Forms.Label();
             this.CityLabel = new System.Windows.Forms.Label();
             this.CityTextBox = new System.Windows.Forms.TextBox();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.wYPOZYCZALNIETableAdapter = new CarRental.AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter();
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mIASTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDRESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // FilterButton
@@ -131,39 +131,6 @@
             this.dataGridView1.TabIndex = 98;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
-            // iDWYPOZYCZALNIADataGridViewTextBoxColumn
-            // 
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mIASTODataGridViewTextBoxColumn
-            // 
-            this.mIASTODataGridViewTextBoxColumn.DataPropertyName = "MIASTO";
-            this.mIASTODataGridViewTextBoxColumn.HeaderText = "MIASTO";
-            this.mIASTODataGridViewTextBoxColumn.Name = "mIASTODataGridViewTextBoxColumn";
-            // 
-            // aDRESDataGridViewTextBoxColumn
-            // 
-            this.aDRESDataGridViewTextBoxColumn.DataPropertyName = "ADRES";
-            this.aDRESDataGridViewTextBoxColumn.HeaderText = "ADRES";
-            this.aDRESDataGridViewTextBoxColumn.Name = "aDRESDataGridViewTextBoxColumn";
-            // 
-            // wYPOZYCZALNIEBindingSource
-            // 
-            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
-            this.wYPOZYCZALNIEBindingSource.DataSource = this.carRentalCWDataSet;
-            // 
-            // carRentalCWDataSet
-            // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // wYPOZYCZALNIETableAdapter
-            // 
-            this.wYPOZYCZALNIETableAdapter.ClearBeforeFill = true;
-            // 
             // AddressTextBox
             // 
             this.AddressTextBox.Location = new System.Drawing.Point(12, 573);
@@ -198,6 +165,39 @@
             this.CityTextBox.Size = new System.Drawing.Size(164, 20);
             this.CityTextBox.TabIndex = 99;
             // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // wYPOZYCZALNIEBindingSource
+            // 
+            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
+            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
+            // 
+            // wYPOZYCZALNIETableAdapter
+            // 
+            this.wYPOZYCZALNIETableAdapter.ClearBeforeFill = true;
+            // 
+            // iDWYPOZYCZALNIADataGridViewTextBoxColumn
+            // 
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mIASTODataGridViewTextBoxColumn
+            // 
+            this.mIASTODataGridViewTextBoxColumn.DataPropertyName = "MIASTO";
+            this.mIASTODataGridViewTextBoxColumn.HeaderText = "MIASTO";
+            this.mIASTODataGridViewTextBoxColumn.Name = "mIASTODataGridViewTextBoxColumn";
+            // 
+            // aDRESDataGridViewTextBoxColumn
+            // 
+            this.aDRESDataGridViewTextBoxColumn.DataPropertyName = "ADRES";
+            this.aDRESDataGridViewTextBoxColumn.HeaderText = "ADRES";
+            this.aDRESDataGridViewTextBoxColumn.Name = "aDRESDataGridViewTextBoxColumn";
+            // 
             // RentalPlacesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,8 +219,8 @@
             this.Text = "RentalPlacesForm";
             this.Load += new System.EventHandler(this.RentalPlacesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,15 +233,15 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private CarRentalCWDataSet carRentalCWDataSet;
-        private System.Windows.Forms.BindingSource wYPOZYCZALNIEBindingSource;
-        private CarRentalCWDataSetTableAdapters.WYPOZYCZALNIETableAdapter wYPOZYCZALNIETableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDWYPOZYCZALNIADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mIASTODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aDRESDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.Label CityLabel;
         private System.Windows.Forms.TextBox CityTextBox;
+        private AllDataSet allDataSet;
+        private System.Windows.Forms.BindingSource wYPOZYCZALNIEBindingSource;
+        private AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter wYPOZYCZALNIETableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDWYPOZYCZALNIADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mIASTODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aDRESDataGridViewTextBoxColumn;
     }
 }

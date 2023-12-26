@@ -38,14 +38,14 @@
             this.RoleTextBox = new System.Windows.Forms.TextBox();
             this.RoleLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rOLETableAdapter = new CarRental.AllDataSetTableAdapters.ROLETableAdapter();
             this.iDROLADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rOLADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.rOLETableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.ROLETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -144,6 +144,20 @@
             this.dataGridView1.TabIndex = 118;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rOLEBindingSource
+            // 
+            this.rOLEBindingSource.DataMember = "ROLE";
+            this.rOLEBindingSource.DataSource = this.allDataSet;
+            // 
+            // rOLETableAdapter
+            // 
+            this.rOLETableAdapter.ClearBeforeFill = true;
+            // 
             // iDROLADataGridViewTextBoxColumn
             // 
             this.iDROLADataGridViewTextBoxColumn.DataPropertyName = "ID_ROLA";
@@ -156,20 +170,6 @@
             this.rOLADataGridViewTextBoxColumn.DataPropertyName = "ROLA";
             this.rOLADataGridViewTextBoxColumn.HeaderText = "ROLA";
             this.rOLADataGridViewTextBoxColumn.Name = "rOLADataGridViewTextBoxColumn";
-            // 
-            // rOLEBindingSource
-            // 
-            this.rOLEBindingSource.DataMember = "ROLE";
-            this.rOLEBindingSource.DataSource = this.carRentalCWDataSet;
-            // 
-            // carRentalCWDataSet
-            // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rOLETableAdapter
-            // 
-            this.rOLETableAdapter.ClearBeforeFill = true;
             // 
             // RoleForm
             // 
@@ -190,8 +190,8 @@
             this.Text = "RoleForm";
             this.Load += new System.EventHandler(this.RoleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,9 +206,9 @@
         private System.Windows.Forms.TextBox RoleTextBox;
         private System.Windows.Forms.Label RoleLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private CarRentalCWDataSet carRentalCWDataSet;
+        private AllDataSet allDataSet;
         private System.Windows.Forms.BindingSource rOLEBindingSource;
-        private CarRentalCWDataSetTableAdapters.ROLETableAdapter rOLETableAdapter;
+        private AllDataSetTableAdapters.ROLETableAdapter rOLETableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDROLADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rOLADataGridViewTextBoxColumn;
     }

@@ -164,45 +164,11 @@
     <Compile Include="CarModelOptionsForm.Designer.cs">
       <DependentUpon>CarModelOptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CarRentalCWDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalCWDataSet.xsd</DependentUpon>
+    <Compile Include="ClientDashboardForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CarRentalCWDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalCWDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalCWDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalCWDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalCWDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalCWDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalCWDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalCWDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalCWDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalCWDataSet5.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalCWDataSet6.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalCWDataSet6.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalCWDataSet7.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalCWDataSet7.xsd</DependentUpon>
+    <Compile Include="ClientDashboardForm.Designer.cs">
+      <DependentUpon>ClientDashboardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientForm.cs">
       <SubType>Form</SubType>
@@ -215,6 +181,12 @@
     </Compile>
     <Compile Include="ClientOptionsForm.Designer.cs">
       <DependentUpon>ClientOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientRegisterForm.Designer.cs">
+      <DependentUpon>ClientRegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="dbConnect.cs" />
     <Compile Include="EmployeeForm.cs">
@@ -234,6 +206,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OrderForm.cs">
       <SubType>Form</SubType>
@@ -315,11 +293,17 @@
     <EmbeddedResource Include="CarModelOptionsForm.resx">
       <DependentUpon>CarModelOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientDashboardForm.resx">
+      <DependentUpon>ClientDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientOptionsForm.resx">
       <DependentUpon>ClientOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientRegisterForm.resx">
+      <DependentUpon>ClientRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
@@ -329,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
@@ -372,94 +359,6 @@
     </None>
     <None Include="AllDataSet.xss">
       <DependentUpon>AllDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet.xsc">
-      <DependentUpon>CarRentalCWDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarRentalCWDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarRentalCWDataSet.xss">
-      <DependentUpon>CarRentalCWDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet1.xsc">
-      <DependentUpon>CarRentalCWDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarRentalCWDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarRentalCWDataSet1.xss">
-      <DependentUpon>CarRentalCWDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet2.xsc">
-      <DependentUpon>CarRentalCWDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarRentalCWDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarRentalCWDataSet2.xss">
-      <DependentUpon>CarRentalCWDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet3.xsc">
-      <DependentUpon>CarRentalCWDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarRentalCWDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarRentalCWDataSet3.xss">
-      <DependentUpon>CarRentalCWDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet4.xsc">
-      <DependentUpon>CarRentalCWDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarRentalCWDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarRentalCWDataSet4.xss">
-      <DependentUpon>CarRentalCWDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet5.xsc">
-      <DependentUpon>CarRentalCWDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarRentalCWDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarRentalCWDataSet5.xss">
-      <DependentUpon>CarRentalCWDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet6.xsc">
-      <DependentUpon>CarRentalCWDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet6.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarRentalCWDataSet6.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarRentalCWDataSet6.xss">
-      <DependentUpon>CarRentalCWDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet7.xsc">
-      <DependentUpon>CarRentalCWDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="CarRentalCWDataSet7.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarRentalCWDataSet7.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarRentalCWDataSet7.xss">
-      <DependentUpon>CarRentalCWDataSet7.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CarRental.CarRentalCWDataSetTableAdapters.MARKITableAdapter.datasource" />

@@ -34,6 +34,9 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.FilterButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.hISTORIAZAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hISTORIA_ZAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter();
             this.iDHISTORIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDPRACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDZAMOWIENIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,12 +49,9 @@
             this.kOLIZJADataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dATAKOLIZJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kARAKOLIZJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hISTORIAZAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.allDataSet = new CarRental.AllDataSet();
-            this.hISTORIA_ZAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hISTORIAZAMOWIENIABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hISTORIAZAMOWIENIABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -114,6 +114,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(1072, 562);
             this.dataGridView1.TabIndex = 112;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // hISTORIAZAMOWIENIABindingSource
+            // 
+            this.hISTORIAZAMOWIENIABindingSource.DataMember = "HISTORIA_ZAMOWIENIA";
+            this.hISTORIAZAMOWIENIABindingSource.DataSource = this.allDataSet;
+            // 
+            // hISTORIA_ZAMOWIENIATableAdapter
+            // 
+            this.hISTORIA_ZAMOWIENIATableAdapter.ClearBeforeFill = true;
             // 
             // iDHISTORIADataGridViewTextBoxColumn
             // 
@@ -188,20 +202,6 @@
             this.kARAKOLIZJADataGridViewTextBoxColumn.HeaderText = "KARA_KOLIZJA";
             this.kARAKOLIZJADataGridViewTextBoxColumn.Name = "kARAKOLIZJADataGridViewTextBoxColumn";
             // 
-            // hISTORIAZAMOWIENIABindingSource
-            // 
-            this.hISTORIAZAMOWIENIABindingSource.DataMember = "HISTORIA_ZAMOWIENIA";
-            this.hISTORIAZAMOWIENIABindingSource.DataSource = this.allDataSet;
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hISTORIA_ZAMOWIENIATableAdapter
-            // 
-            this.hISTORIA_ZAMOWIENIATableAdapter.ClearBeforeFill = true;
-            // 
             // OrderHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,8 +217,8 @@
             this.Text = "OrderHistoryForm";
             this.Load += new System.EventHandler(this.OrderHistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hISTORIAZAMOWIENIABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hISTORIAZAMOWIENIABindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

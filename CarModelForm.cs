@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -28,8 +20,8 @@ namespace CarRental
 
         private void CarModelForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.MODELE' table. You can move, or remove it, as needed.
-            this.mODELETableAdapter.Fill(this.carRentalCWDataSet.MODELE);
+            // TODO: This line of code loads data into the 'allDataSet.MODELE' table. You can move, or remove it, as needed.
+            this.mODELETableAdapter.Fill(this.allDataSet.MODELE);
             this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
         }
 
@@ -43,8 +35,8 @@ namespace CarRental
             carModelOptionsForm.YearTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             carModelOptionsForm.GenerationTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             carModelOptionsForm.SegmentTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-            this.mODELETableAdapter.Update(this.carRentalCWDataSet.MODELE);
-            this.mODELETableAdapter.Fill(this.carRentalCWDataSet.MODELE);
+            this.mODELETableAdapter.Update(this.allDataSet.MODELE);
+            this.mODELETableAdapter.Fill(this.allDataSet.MODELE);
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -59,14 +51,9 @@ namespace CarRental
             command.ExecuteNonQuery();
             connection.close();
             MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.mODELETableAdapter.Update(this.carRentalCWDataSet.MODELE);
-            this.mODELETableAdapter.Fill(this.carRentalCWDataSet.MODELE);
+            this.mODELETableAdapter.Update(this.allDataSet.MODELE);
+            this.mODELETableAdapter.Fill(this.allDataSet.MODELE);
 
-        }
-
-        private void CarModelForm_MouseHover(object sender, EventArgs e)
-        {
-            
         }
     }
 }

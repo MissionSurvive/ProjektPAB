@@ -90,9 +90,30 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.EmployeeCombo = new System.Windows.Forms.ComboBox();
-            this.label = new System.Windows.Forms.Label();
             this.pRACOWNICYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.iDPAKIETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAZWADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zAWARTOSCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cENADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pAKIETYBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pRACOWNICYBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pRACOWNICYTableAdapter = new CarRental.AllDataSetTableAdapters.PRACOWNICYTableAdapter();
+            this.iDPRACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTANOWISKODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pREMIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kLIENCIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).BeginInit();
@@ -105,6 +126,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kLIENCIBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -327,9 +352,9 @@
             this.cENAMIESIACDataGridViewTextBoxColumn,
             this.kAUCJADataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.sAMOCHODYBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(218, 45);
+            this.dataGridView1.Location = new System.Drawing.Point(218, 458);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(444, 370);
+            this.dataGridView1.Size = new System.Drawing.Size(475, 370);
             this.dataGridView1.TabIndex = 156;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -444,7 +469,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1008, 495);
+            this.button2.Location = new System.Drawing.Point(1010, 845);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 54);
             this.button2.TabIndex = 159;
@@ -458,7 +483,7 @@
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.Image")));
             this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateButton.Location = new System.Drawing.Point(838, 495);
+            this.UpdateButton.Location = new System.Drawing.Point(840, 845);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(164, 54);
             this.UpdateButton.TabIndex = 158;
@@ -472,7 +497,7 @@
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddButton.Location = new System.Drawing.Point(668, 495);
+            this.AddButton.Location = new System.Drawing.Point(670, 845);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(164, 54);
             this.AddButton.TabIndex = 157;
@@ -507,9 +532,9 @@
             this.fAXDataGridViewTextBoxColumn,
             this.nIPDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.kLIENCIBindingSource1;
-            this.dataGridView2.Location = new System.Drawing.Point(669, 45);
+            this.dataGridView2.Location = new System.Drawing.Point(699, 45);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(503, 370);
+            this.dataGridView2.Size = new System.Drawing.Size(475, 370);
             this.dataGridView2.TabIndex = 160;
             this.dataGridView2.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseClick);
             // 
@@ -571,7 +596,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(213, 9);
+            this.label10.Location = new System.Drawing.Point(213, 422);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(125, 25);
             this.label10.TabIndex = 161;
@@ -581,7 +606,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(663, 9);
+            this.label11.Location = new System.Drawing.Point(694, 9);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 25);
             this.label11.TabIndex = 162;
@@ -598,6 +623,11 @@
             this.EmployeeCombo.TabIndex = 164;
             this.EmployeeCombo.ValueMember = "ID_PRAC";
             // 
+            // pRACOWNICYBindingSource
+            // 
+            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
+            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
+            // 
             // label
             // 
             this.label.AutoSize = true;
@@ -608,21 +638,181 @@
             this.label.TabIndex = 163;
             this.label.Text = "Pracownik";
             // 
-            // pRACOWNICYBindingSource
+            // label12
             // 
-            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
-            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.Location = new System.Drawing.Point(213, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(122, 25);
+            this.label12.TabIndex = 165;
+            this.label12.Text = "Pracownicy";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDPRACDataGridViewTextBoxColumn,
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn,
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn1,
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn,
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn,
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn,
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn,
+            this.sTANOWISKODataGridViewTextBoxColumn,
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn,
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn,
+            this.pREMIADataGridViewTextBoxColumn});
+            this.dataGridView3.DataSource = this.pRACOWNICYBindingSource1;
+            this.dataGridView3.Location = new System.Drawing.Point(218, 45);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(475, 370);
+            this.dataGridView3.TabIndex = 167;
+            this.dataGridView3.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView3_CellMouseClick);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.Location = new System.Drawing.Point(694, 422);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 25);
+            this.label13.TabIndex = 168;
+            this.label13.Text = "Pakiety";
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDPAKIETDataGridViewTextBoxColumn,
+            this.nAZWADataGridViewTextBoxColumn,
+            this.zAWARTOSCDataGridViewTextBoxColumn,
+            this.cENADataGridViewTextBoxColumn});
+            this.dataGridView4.DataSource = this.pAKIETYBindingSource1;
+            this.dataGridView4.Location = new System.Drawing.Point(700, 458);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(472, 370);
+            this.dataGridView4.TabIndex = 169;
+            this.dataGridView4.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView4_CellMouseClick);
+            // 
+            // iDPAKIETDataGridViewTextBoxColumn
+            // 
+            this.iDPAKIETDataGridViewTextBoxColumn.DataPropertyName = "ID_PAKIET";
+            this.iDPAKIETDataGridViewTextBoxColumn.HeaderText = "ID_PAKIET";
+            this.iDPAKIETDataGridViewTextBoxColumn.Name = "iDPAKIETDataGridViewTextBoxColumn";
+            this.iDPAKIETDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nAZWADataGridViewTextBoxColumn
+            // 
+            this.nAZWADataGridViewTextBoxColumn.DataPropertyName = "NAZWA";
+            this.nAZWADataGridViewTextBoxColumn.HeaderText = "NAZWA";
+            this.nAZWADataGridViewTextBoxColumn.Name = "nAZWADataGridViewTextBoxColumn";
+            // 
+            // zAWARTOSCDataGridViewTextBoxColumn
+            // 
+            this.zAWARTOSCDataGridViewTextBoxColumn.DataPropertyName = "ZAWARTOSC";
+            this.zAWARTOSCDataGridViewTextBoxColumn.HeaderText = "ZAWARTOSC";
+            this.zAWARTOSCDataGridViewTextBoxColumn.Name = "zAWARTOSCDataGridViewTextBoxColumn";
+            // 
+            // cENADataGridViewTextBoxColumn
+            // 
+            this.cENADataGridViewTextBoxColumn.DataPropertyName = "CENA";
+            this.cENADataGridViewTextBoxColumn.HeaderText = "CENA";
+            this.cENADataGridViewTextBoxColumn.Name = "cENADataGridViewTextBoxColumn";
+            // 
+            // pAKIETYBindingSource1
+            // 
+            this.pAKIETYBindingSource1.DataMember = "PAKIETY";
+            this.pAKIETYBindingSource1.DataSource = this.allDataSet;
+            // 
+            // pRACOWNICYBindingSource1
+            // 
+            this.pRACOWNICYBindingSource1.DataMember = "PRACOWNICY";
+            this.pRACOWNICYBindingSource1.DataSource = this.allDataSet;
             // 
             // pRACOWNICYTableAdapter
             // 
             this.pRACOWNICYTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDPRACDataGridViewTextBoxColumn
+            // 
+            this.iDPRACDataGridViewTextBoxColumn.DataPropertyName = "ID_PRAC";
+            this.iDPRACDataGridViewTextBoxColumn.HeaderText = "ID_PRAC";
+            this.iDPRACDataGridViewTextBoxColumn.Name = "iDPRACDataGridViewTextBoxColumn";
+            this.iDPRACDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDKONPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "ID_KON_PRACOWNIK";
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "ID_KON_PRACOWNIK";
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.Name = "iDKONPRACOWNIKDataGridViewTextBoxColumn";
+            // 
+            // iDWYPOZYCZALNIADataGridViewTextBoxColumn1
+            // 
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn1.DataPropertyName = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn1.HeaderText = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn1.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn1";
+            // 
+            // iMIEPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "IMIE_PRACOWNIK";
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "IMIE_PRACOWNIK";
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.Name = "iMIEPRACOWNIKDataGridViewTextBoxColumn";
+            // 
+            // nAZWISKOPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "NAZWISKO_PRACOWNIK";
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "NAZWISKO_PRACOWNIK";
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.Name = "nAZWISKOPRACOWNIKDataGridViewTextBoxColumn";
+            // 
+            // pESELPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "PESEL_PRACOWNIK";
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "PESEL_PRACOWNIK";
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn.Name = "pESELPRACOWNIKDataGridViewTextBoxColumn";
+            // 
+            // tELEFONPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "TELEFON_PRACOWNIK";
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "TELEFON_PRACOWNIK";
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.Name = "tELEFONPRACOWNIKDataGridViewTextBoxColumn";
+            // 
+            // sTANOWISKODataGridViewTextBoxColumn
+            // 
+            this.sTANOWISKODataGridViewTextBoxColumn.DataPropertyName = "STANOWISKO";
+            this.sTANOWISKODataGridViewTextBoxColumn.HeaderText = "STANOWISKO";
+            this.sTANOWISKODataGridViewTextBoxColumn.Name = "sTANOWISKODataGridViewTextBoxColumn";
+            // 
+            // dATAZATRUDNIENIADataGridViewTextBoxColumn
+            // 
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.DataPropertyName = "DATA_ZATRUDNIENIA";
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.HeaderText = "DATA_ZATRUDNIENIA";
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.Name = "dATAZATRUDNIENIADataGridViewTextBoxColumn";
+            // 
+            // wYNAGRODZENIEDataGridViewTextBoxColumn
+            // 
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn.DataPropertyName = "WYNAGRODZENIE";
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn.HeaderText = "WYNAGRODZENIE";
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn.Name = "wYNAGRODZENIEDataGridViewTextBoxColumn";
+            // 
+            // pREMIADataGridViewTextBoxColumn
+            // 
+            this.pREMIADataGridViewTextBoxColumn.DataPropertyName = "PREMIA";
+            this.pREMIADataGridViewTextBoxColumn.HeaderText = "PREMIA";
+            this.pREMIADataGridViewTextBoxColumn.Name = "pREMIADataGridViewTextBoxColumn";
             // 
             // OrderOrderOptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.dataGridView4);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.EmployeeCombo);
             this.Controls.Add(this.label);
             this.Controls.Add(this.label11);
@@ -664,6 +854,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kLIENCIBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,6 +927,27 @@
         public System.Windows.Forms.ComboBox EmployeeCombo;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.BindingSource pRACOWNICYBindingSource;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDPAKIETDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nAZWADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zAWARTOSCDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cENADataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource pAKIETYBindingSource1;
+        private System.Windows.Forms.BindingSource pRACOWNICYBindingSource1;
         private AllDataSetTableAdapters.PRACOWNICYTableAdapter pRACOWNICYTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDPRACDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDKONPRACOWNIKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDWYPOZYCZALNIADataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iMIEPRACOWNIKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nAZWISKOPRACOWNIKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pESELPRACOWNIKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tELEFONPRACOWNIKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTANOWISKODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dATAZATRUDNIENIADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wYNAGRODZENIEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pREMIADataGridViewTextBoxColumn;
     }
 }

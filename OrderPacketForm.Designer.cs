@@ -41,18 +41,18 @@
             this.PacketTextBox = new System.Windows.Forms.TextBox();
             this.PacketLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDPAKIETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAZWADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zAWARTOSCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cENADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pAKIETYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.pAKIETYTableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.PAKIETYTableAdapter();
             this.PriceNumeric = new System.Windows.Forms.NumericUpDown();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.pAKIETYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pAKIETYTableAdapter = new CarRental.AllDataSetTableAdapters.PAKIETYTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // PriceLabel
@@ -169,55 +169,16 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDPAKIETDataGridViewTextBoxColumn,
-            this.nAZWADataGridViewTextBoxColumn,
-            this.zAWARTOSCDataGridViewTextBoxColumn,
-            this.cENADataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
             this.dataGridView1.DataSource = this.pAKIETYBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(909, 410);
             this.dataGridView1.TabIndex = 131;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // iDPAKIETDataGridViewTextBoxColumn
-            // 
-            this.iDPAKIETDataGridViewTextBoxColumn.DataPropertyName = "ID_PAKIET";
-            this.iDPAKIETDataGridViewTextBoxColumn.HeaderText = "ID_PAKIET";
-            this.iDPAKIETDataGridViewTextBoxColumn.Name = "iDPAKIETDataGridViewTextBoxColumn";
-            this.iDPAKIETDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nAZWADataGridViewTextBoxColumn
-            // 
-            this.nAZWADataGridViewTextBoxColumn.DataPropertyName = "NAZWA";
-            this.nAZWADataGridViewTextBoxColumn.HeaderText = "NAZWA";
-            this.nAZWADataGridViewTextBoxColumn.Name = "nAZWADataGridViewTextBoxColumn";
-            // 
-            // zAWARTOSCDataGridViewTextBoxColumn
-            // 
-            this.zAWARTOSCDataGridViewTextBoxColumn.DataPropertyName = "ZAWARTOSC";
-            this.zAWARTOSCDataGridViewTextBoxColumn.HeaderText = "ZAWARTOSC";
-            this.zAWARTOSCDataGridViewTextBoxColumn.Name = "zAWARTOSCDataGridViewTextBoxColumn";
-            // 
-            // cENADataGridViewTextBoxColumn
-            // 
-            this.cENADataGridViewTextBoxColumn.DataPropertyName = "CENA";
-            this.cENADataGridViewTextBoxColumn.HeaderText = "CENA";
-            this.cENADataGridViewTextBoxColumn.Name = "cENADataGridViewTextBoxColumn";
-            // 
-            // pAKIETYBindingSource
-            // 
-            this.pAKIETYBindingSource.DataMember = "PAKIETY";
-            this.pAKIETYBindingSource.DataSource = this.carRentalCWDataSet;
-            // 
-            // carRentalCWDataSet
-            // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pAKIETYTableAdapter
-            // 
-            this.pAKIETYTableAdapter.ClearBeforeFill = true;
             // 
             // PriceNumeric
             // 
@@ -231,6 +192,45 @@
             this.PriceNumeric.Name = "PriceNumeric";
             this.PriceNumeric.Size = new System.Drawing.Size(165, 20);
             this.PriceNumeric.TabIndex = 132;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pAKIETYBindingSource
+            // 
+            this.pAKIETYBindingSource.DataMember = "PAKIETY";
+            this.pAKIETYBindingSource.DataSource = this.allDataSet;
+            // 
+            // pAKIETYTableAdapter
+            // 
+            this.pAKIETYTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID_PAKIET";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID_PAKIET";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "NAZWA";
+            this.dataGridViewTextBoxColumn2.HeaderText = "NAZWA";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ZAWARTOSC";
+            this.dataGridViewTextBoxColumn3.HeaderText = "ZAWARTOSC";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CENA";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CENA";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // OrderPacketForm
             // 
@@ -255,9 +255,9 @@
             this.Text = "OrderOrderForm";
             this.Load += new System.EventHandler(this.OrderPacketForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,13 +275,17 @@
         private System.Windows.Forms.TextBox PacketTextBox;
         private System.Windows.Forms.Label PacketLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private CarRentalCWDataSet carRentalCWDataSet;
-        private System.Windows.Forms.BindingSource pAKIETYBindingSource;
-        private CarRentalCWDataSetTableAdapters.PAKIETYTableAdapter pAKIETYTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDPAKIETDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAZWADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zAWARTOSCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cENADataGridViewTextBoxColumn;
         private System.Windows.Forms.NumericUpDown PriceNumeric;
+        private AllDataSet allDataSet;
+        private System.Windows.Forms.BindingSource pAKIETYBindingSource;
+        private AllDataSetTableAdapters.PAKIETYTableAdapter pAKIETYTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

@@ -35,6 +35,10 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.kLIENCIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kLIENCITableAdapter = new CarRental.AllDataSetTableAdapters.KLIENCITableAdapter();
             this.iDKLIENTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDKONKLIENTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iMIEKLIENTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,23 +47,17 @@
             this.tELEFONKLIENTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fAXDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nIPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kLIENCIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.kLIENCITableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.KLIENCITableAdapter();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.carRentalCWDataSet7 = new CarRental.CarRentalCWDataSet7();
             this.kONTAKLIENTOWBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kONTA_KLIENTOWTableAdapter = new CarRental.CarRentalCWDataSet7TableAdapters.KONTA_KLIENTOWTableAdapter();
+            this.kONTA_KLIENTOWTableAdapter = new CarRental.AllDataSetTableAdapters.KONTA_KLIENTOWTableAdapter();
             this.iDKONKLIENTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDROLADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDKLIENTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAZWAKLIENTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hASLOKLIENTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kLIENCIBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kLIENCIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kONTAKLIENTOWBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,6 +132,37 @@
             this.dataGridView1.TabIndex = 111;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDKONKLIENTDataGridViewTextBoxColumn1,
+            this.iDROLADataGridViewTextBoxColumn,
+            this.iDKLIENTDataGridViewTextBoxColumn1,
+            this.nAZWAKLIENTDataGridViewTextBoxColumn,
+            this.hASLOKLIENTDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.kONTAKLIENTOWBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(657, 50);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(431, 562);
+            this.dataGridView2.TabIndex = 112;
+            this.dataGridView2.Visible = false;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kLIENCIBindingSource
+            // 
+            this.kLIENCIBindingSource.DataMember = "KLIENCI";
+            this.kLIENCIBindingSource.DataSource = this.allDataSet;
+            // 
+            // kLIENCITableAdapter
+            // 
+            this.kLIENCITableAdapter.ClearBeforeFill = true;
+            // 
             // iDKLIENTDataGridViewTextBoxColumn
             // 
             this.iDKLIENTDataGridViewTextBoxColumn.DataPropertyName = "ID_KLIENT";
@@ -183,46 +212,10 @@
             this.nIPDataGridViewTextBoxColumn.HeaderText = "NIP";
             this.nIPDataGridViewTextBoxColumn.Name = "nIPDataGridViewTextBoxColumn";
             // 
-            // kLIENCIBindingSource
-            // 
-            this.kLIENCIBindingSource.DataMember = "KLIENCI";
-            this.kLIENCIBindingSource.DataSource = this.carRentalCWDataSet;
-            // 
-            // carRentalCWDataSet
-            // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kLIENCITableAdapter
-            // 
-            this.kLIENCITableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDKONKLIENTDataGridViewTextBoxColumn1,
-            this.iDROLADataGridViewTextBoxColumn,
-            this.iDKLIENTDataGridViewTextBoxColumn1,
-            this.nAZWAKLIENTDataGridViewTextBoxColumn,
-            this.hASLOKLIENTDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.kONTAKLIENTOWBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(657, 50);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(431, 562);
-            this.dataGridView2.TabIndex = 112;
-            this.dataGridView2.Visible = false;
-            // 
-            // carRentalCWDataSet7
-            // 
-            this.carRentalCWDataSet7.DataSetName = "CarRentalCWDataSet7";
-            this.carRentalCWDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // kONTAKLIENTOWBindingSource
             // 
             this.kONTAKLIENTOWBindingSource.DataMember = "KONTA_KLIENTOW";
-            this.kONTAKLIENTOWBindingSource.DataSource = this.carRentalCWDataSet7;
+            this.kONTAKLIENTOWBindingSource.DataSource = this.allDataSet;
             // 
             // kONTA_KLIENTOWTableAdapter
             // 
@@ -276,10 +269,9 @@
             this.Text = "ClientForm";
             this.Load += new System.EventHandler(this.ClientForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kLIENCIBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kLIENCIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kONTAKLIENTOWBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -293,9 +285,10 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private CarRentalCWDataSet carRentalCWDataSet;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private AllDataSet allDataSet;
         private System.Windows.Forms.BindingSource kLIENCIBindingSource;
-        private CarRentalCWDataSetTableAdapters.KLIENCITableAdapter kLIENCITableAdapter;
+        private AllDataSetTableAdapters.KLIENCITableAdapter kLIENCITableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDKLIENTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDKONKLIENTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iMIEKLIENTDataGridViewTextBoxColumn;
@@ -304,10 +297,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tELEFONKLIENTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fAXDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nIPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private CarRentalCWDataSet7 carRentalCWDataSet7;
         private System.Windows.Forms.BindingSource kONTAKLIENTOWBindingSource;
-        private CarRentalCWDataSet7TableAdapters.KONTA_KLIENTOWTableAdapter kONTA_KLIENTOWTableAdapter;
+        private AllDataSetTableAdapters.KONTA_KLIENTOWTableAdapter kONTA_KLIENTOWTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDKONKLIENTDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDROLADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDKLIENTDataGridViewTextBoxColumn1;

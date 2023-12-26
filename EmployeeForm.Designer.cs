@@ -35,6 +35,10 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.pRACOWNICYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pRACOWNICYTableAdapter = new CarRental.AllDataSetTableAdapters.PRACOWNICYTableAdapter();
             this.iDPRACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDKONPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,21 +50,17 @@
             this.dATAZATRUDNIENIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wYNAGRODZENIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pREMIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRACOWNICYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.pRACOWNICYTableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.PRACOWNICYTableAdapter();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.kONTAPRACOWNIKOWBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kONTA_PRACOWNIKOWTableAdapter = new CarRental.AllDataSetTableAdapters.KONTA_PRACOWNIKOWTableAdapter();
             this.iDKONPRACOWNIKDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDROLADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDPRACDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAZWAPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hASLOPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kONTAPRACOWNIKOWBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kONTA_PRACOWNIKOWTableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.KONTA_PRACOWNIKOWTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kONTAPRACOWNIKOWBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,6 +138,37 @@
             this.dataGridView1.TabIndex = 106;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn1,
+            this.iDROLADataGridViewTextBoxColumn,
+            this.iDPRACDataGridViewTextBoxColumn1,
+            this.nAZWAPRACOWNIKDataGridViewTextBoxColumn,
+            this.hASLOPRACOWNIKDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.kONTAPRACOWNIKOWBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(644, 50);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(444, 562);
+            this.dataGridView2.TabIndex = 107;
+            this.dataGridView2.Visible = false;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pRACOWNICYBindingSource
+            // 
+            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
+            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
+            // 
+            // pRACOWNICYTableAdapter
+            // 
+            this.pRACOWNICYTableAdapter.ClearBeforeFill = true;
+            // 
             // iDPRACDataGridViewTextBoxColumn
             // 
             this.iDPRACDataGridViewTextBoxColumn.DataPropertyName = "ID_PRAC";
@@ -205,36 +236,14 @@
             this.pREMIADataGridViewTextBoxColumn.HeaderText = "PREMIA";
             this.pREMIADataGridViewTextBoxColumn.Name = "pREMIADataGridViewTextBoxColumn";
             // 
-            // pRACOWNICYBindingSource
+            // kONTAPRACOWNIKOWBindingSource
             // 
-            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
-            this.pRACOWNICYBindingSource.DataSource = this.carRentalCWDataSet;
+            this.kONTAPRACOWNIKOWBindingSource.DataMember = "KONTA_PRACOWNIKOW";
+            this.kONTAPRACOWNIKOWBindingSource.DataSource = this.allDataSet;
             // 
-            // carRentalCWDataSet
+            // kONTA_PRACOWNIKOWTableAdapter
             // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pRACOWNICYTableAdapter
-            // 
-            this.pRACOWNICYTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDKONPRACOWNIKDataGridViewTextBoxColumn1,
-            this.iDROLADataGridViewTextBoxColumn,
-            this.iDPRACDataGridViewTextBoxColumn1,
-            this.nAZWAPRACOWNIKDataGridViewTextBoxColumn,
-            this.hASLOPRACOWNIKDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.kONTAPRACOWNIKOWBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(644, 50);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(444, 562);
-            this.dataGridView2.TabIndex = 107;
-            this.dataGridView2.Visible = false;
+            this.kONTA_PRACOWNIKOWTableAdapter.ClearBeforeFill = true;
             // 
             // iDKONPRACOWNIKDataGridViewTextBoxColumn1
             // 
@@ -267,15 +276,6 @@
             this.hASLOPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "HASLO_PRACOWNIK";
             this.hASLOPRACOWNIKDataGridViewTextBoxColumn.Name = "hASLOPRACOWNIKDataGridViewTextBoxColumn";
             // 
-            // kONTAPRACOWNIKOWBindingSource
-            // 
-            this.kONTAPRACOWNIKOWBindingSource.DataMember = "KONTA_PRACOWNIKOW";
-            this.kONTAPRACOWNIKOWBindingSource.DataSource = this.carRentalCWDataSet;
-            // 
-            // kONTA_PRACOWNIKOWTableAdapter
-            // 
-            this.kONTA_PRACOWNIKOWTableAdapter.ClearBeforeFill = true;
-            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,9 +293,9 @@
             this.Text = "EmployeeForm";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kONTAPRACOWNIKOWBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -309,9 +309,10 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private CarRentalCWDataSet carRentalCWDataSet;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private AllDataSet allDataSet;
         private System.Windows.Forms.BindingSource pRACOWNICYBindingSource;
-        private CarRentalCWDataSetTableAdapters.PRACOWNICYTableAdapter pRACOWNICYTableAdapter;
+        private AllDataSetTableAdapters.PRACOWNICYTableAdapter pRACOWNICYTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDPRACDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDKONPRACOWNIKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDWYPOZYCZALNIADataGridViewTextBoxColumn;
@@ -323,9 +324,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dATAZATRUDNIENIADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wYNAGRODZENIEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pREMIADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.BindingSource kONTAPRACOWNIKOWBindingSource;
-        private CarRentalCWDataSetTableAdapters.KONTA_PRACOWNIKOWTableAdapter kONTA_PRACOWNIKOWTableAdapter;
+        private AllDataSetTableAdapters.KONTA_PRACOWNIKOWTableAdapter kONTA_PRACOWNIKOWTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDKONPRACOWNIKDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDROLADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDPRACDataGridViewTextBoxColumn1;

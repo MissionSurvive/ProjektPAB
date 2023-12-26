@@ -32,13 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarBrandForm));
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAZWAMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kRAJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEGIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.mARKITableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.MARKITableAdapter();
             this.BrandLabel = new System.Windows.Forms.Label();
             this.CountryLabel = new System.Windows.Forms.Label();
             this.RegionLabel = new System.Windows.Forms.Label();
@@ -49,9 +42,16 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mARKITableAdapter = new CarRental.AllDataSetTableAdapters.MARKITableAdapter();
+            this.iDMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAZWAMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kRAJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEGIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -80,44 +80,8 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
-            // iDMARKADataGridViewTextBoxColumn
-            // 
-            this.iDMARKADataGridViewTextBoxColumn.DataPropertyName = "ID_MARKA";
-            this.iDMARKADataGridViewTextBoxColumn.HeaderText = "ID_MARKA";
-            this.iDMARKADataGridViewTextBoxColumn.Name = "iDMARKADataGridViewTextBoxColumn";
-            this.iDMARKADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nAZWAMARKADataGridViewTextBoxColumn
-            // 
-            this.nAZWAMARKADataGridViewTextBoxColumn.DataPropertyName = "NAZWA_MARKA";
-            this.nAZWAMARKADataGridViewTextBoxColumn.HeaderText = "NAZWA_MARKA";
-            this.nAZWAMARKADataGridViewTextBoxColumn.Name = "nAZWAMARKADataGridViewTextBoxColumn";
-            // 
-            // kRAJDataGridViewTextBoxColumn
-            // 
-            this.kRAJDataGridViewTextBoxColumn.DataPropertyName = "KRAJ";
-            this.kRAJDataGridViewTextBoxColumn.HeaderText = "KRAJ";
-            this.kRAJDataGridViewTextBoxColumn.Name = "kRAJDataGridViewTextBoxColumn";
-            // 
-            // rEGIONDataGridViewTextBoxColumn
-            // 
-            this.rEGIONDataGridViewTextBoxColumn.DataPropertyName = "REGION";
-            this.rEGIONDataGridViewTextBoxColumn.HeaderText = "REGION";
-            this.rEGIONDataGridViewTextBoxColumn.Name = "rEGIONDataGridViewTextBoxColumn";
-            // 
-            // mARKIBindingSource
-            // 
-            this.mARKIBindingSource.DataMember = "MARKI";
-            this.mARKIBindingSource.DataSource = this.carRentalCWDataSet;
-            // 
             // carRentalCWDataSet
             // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mARKITableAdapter
-            // 
-            this.mARKITableAdapter.ClearBeforeFill = true;
             // 
             // BrandLabel
             // 
@@ -225,6 +189,45 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mARKIBindingSource
+            // 
+            this.mARKIBindingSource.DataMember = "MARKI";
+            this.mARKIBindingSource.DataSource = this.allDataSet;
+            // 
+            // mARKITableAdapter
+            // 
+            this.mARKITableAdapter.ClearBeforeFill = true;
+            // 
+            // iDMARKADataGridViewTextBoxColumn
+            // 
+            this.iDMARKADataGridViewTextBoxColumn.DataPropertyName = "ID_MARKA";
+            this.iDMARKADataGridViewTextBoxColumn.HeaderText = "ID_MARKA";
+            this.iDMARKADataGridViewTextBoxColumn.Name = "iDMARKADataGridViewTextBoxColumn";
+            this.iDMARKADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nAZWAMARKADataGridViewTextBoxColumn
+            // 
+            this.nAZWAMARKADataGridViewTextBoxColumn.DataPropertyName = "NAZWA_MARKA";
+            this.nAZWAMARKADataGridViewTextBoxColumn.HeaderText = "NAZWA_MARKA";
+            this.nAZWAMARKADataGridViewTextBoxColumn.Name = "nAZWAMARKADataGridViewTextBoxColumn";
+            // 
+            // kRAJDataGridViewTextBoxColumn
+            // 
+            this.kRAJDataGridViewTextBoxColumn.DataPropertyName = "KRAJ";
+            this.kRAJDataGridViewTextBoxColumn.HeaderText = "KRAJ";
+            this.kRAJDataGridViewTextBoxColumn.Name = "kRAJDataGridViewTextBoxColumn";
+            // 
+            // rEGIONDataGridViewTextBoxColumn
+            // 
+            this.rEGIONDataGridViewTextBoxColumn.DataPropertyName = "REGION";
+            this.rEGIONDataGridViewTextBoxColumn.HeaderText = "REGION";
+            this.rEGIONDataGridViewTextBoxColumn.Name = "rEGIONDataGridViewTextBoxColumn";
+            // 
             // CarBrandForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,8 +251,8 @@
             this.Text = "CarBrandForm";
             this.Load += new System.EventHandler(this.CarBrandForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,13 +262,6 @@
 
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private CarRentalCWDataSet carRentalCWDataSet;
-        private System.Windows.Forms.BindingSource mARKIBindingSource;
-        private CarRentalCWDataSetTableAdapters.MARKITableAdapter mARKITableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDMARKADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nAZWAMARKADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kRAJDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rEGIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label BrandLabel;
         private System.Windows.Forms.Label CountryLabel;
         private System.Windows.Forms.Label RegionLabel;
@@ -276,5 +272,12 @@
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button AddButton;
+        private AllDataSet allDataSet;
+        private System.Windows.Forms.BindingSource mARKIBindingSource;
+        private AllDataSetTableAdapters.MARKITableAdapter mARKITableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDMARKADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nAZWAMARKADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kRAJDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rEGIONDataGridViewTextBoxColumn;
     }
 }

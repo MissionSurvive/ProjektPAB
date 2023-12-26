@@ -53,11 +53,11 @@
             this.UpdateAccountButton = new System.Windows.Forms.Button();
             this.RoleCombo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.carRentalCWDataSet6 = new CarRental.CarRentalCWDataSet6();
-            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rOLETableAdapter = new CarRental.CarRentalCWDataSet6TableAdapters.ROLETableAdapter();
             this.NipTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet6)).BeginInit();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rOLETableAdapter = new CarRental.AllDataSetTableAdapters.ROLETableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -288,20 +288,6 @@
             this.label6.TabIndex = 159;
             this.label6.Text = "Rola";
             // 
-            // carRentalCWDataSet6
-            // 
-            this.carRentalCWDataSet6.DataSetName = "CarRentalCWDataSet6";
-            this.carRentalCWDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rOLEBindingSource
-            // 
-            this.rOLEBindingSource.DataMember = "ROLE";
-            this.rOLEBindingSource.DataSource = this.carRentalCWDataSet6;
-            // 
-            // rOLETableAdapter
-            // 
-            this.rOLETableAdapter.ClearBeforeFill = true;
-            // 
             // NipTextBox
             // 
             this.NipTextBox.Location = new System.Drawing.Point(17, 301);
@@ -309,6 +295,20 @@
             this.NipTextBox.Size = new System.Drawing.Size(164, 20);
             this.NipTextBox.TabIndex = 144;
             this.NipTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NipTextBox_KeyPress);
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rOLEBindingSource
+            // 
+            this.rOLEBindingSource.DataMember = "ROLE";
+            this.rOLEBindingSource.DataSource = this.allDataSet;
+            // 
+            // rOLETableAdapter
+            // 
+            this.rOLETableAdapter.ClearBeforeFill = true;
             // 
             // ClientOptionsForm
             // 
@@ -343,7 +343,7 @@
             this.Name = "ClientOptionsForm";
             this.Text = "Zarządzanie klientem";
             this.Load += new System.EventHandler(this.ClientOptionsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -374,9 +374,9 @@
         private System.Windows.Forms.Button UpdateAccountButton;
         private System.Windows.Forms.ComboBox RoleCombo;
         private System.Windows.Forms.Label label6;
-        private CarRentalCWDataSet6 carRentalCWDataSet6;
-        private System.Windows.Forms.BindingSource rOLEBindingSource;
-        private CarRentalCWDataSet6TableAdapters.ROLETableAdapter rOLETableAdapter;
         public System.Windows.Forms.TextBox NipTextBox;
+        private AllDataSet allDataSet;
+        private System.Windows.Forms.BindingSource rOLEBindingSource;
+        private AllDataSetTableAdapters.ROLETableAdapter rOLETableAdapter;
     }
 }

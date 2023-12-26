@@ -40,22 +40,20 @@
             this.GenerationTextBox = new System.Windows.Forms.TextBox();
             this.ModelTextBox = new System.Windows.Forms.TextBox();
             this.ChassisCombo = new System.Windows.Forms.ComboBox();
-            this.rODZAJENADWOZIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet4 = new CarRental.CarRentalCWDataSet4();
             this.label3 = new System.Windows.Forms.Label();
             this.BrandCombo = new System.Windows.Forms.ComboBox();
-            this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet3 = new CarRental.CarRentalCWDataSet3();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.mARKITableAdapter = new CarRental.CarRentalCWDataSet3TableAdapters.MARKITableAdapter();
-            this.rODZAJE_NADWOZIATableAdapter = new CarRental.CarRentalCWDataSet4TableAdapters.RODZAJE_NADWOZIATableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet4)).BeginInit();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mARKITableAdapter = new CarRental.AllDataSetTableAdapters.MARKITableAdapter();
+            this.rODZAJENADWOZIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rODZAJE_NADWOZIATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -147,16 +145,6 @@
             this.ChassisCombo.TabIndex = 83;
             this.ChassisCombo.ValueMember = "ID_NADWOZIE";
             // 
-            // rODZAJENADWOZIABindingSource
-            // 
-            this.rODZAJENADWOZIABindingSource.DataMember = "RODZAJE_NADWOZIA";
-            this.rODZAJENADWOZIABindingSource.DataSource = this.carRentalCWDataSet4;
-            // 
-            // carRentalCWDataSet4
-            // 
-            this.carRentalCWDataSet4.DataSetName = "CarRentalCWDataSet4";
-            this.carRentalCWDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -177,17 +165,6 @@
             this.BrandCombo.Size = new System.Drawing.Size(163, 21);
             this.BrandCombo.TabIndex = 81;
             this.BrandCombo.ValueMember = "ID_MARKA";
-            this.BrandCombo.SelectedIndexChanged += new System.EventHandler(this.BrandCombo_SelectedIndexChanged);
-            // 
-            // mARKIBindingSource
-            // 
-            this.mARKIBindingSource.DataMember = "MARKI";
-            this.mARKIBindingSource.DataSource = this.carRentalCWDataSet3;
-            // 
-            // carRentalCWDataSet3
-            // 
-            this.carRentalCWDataSet3.DataSetName = "CarRentalCWDataSet3";
-            this.carRentalCWDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -241,9 +218,24 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mARKIBindingSource
+            // 
+            this.mARKIBindingSource.DataMember = "MARKI";
+            this.mARKIBindingSource.DataSource = this.allDataSet;
+            // 
             // mARKITableAdapter
             // 
             this.mARKITableAdapter.ClearBeforeFill = true;
+            // 
+            // rODZAJENADWOZIABindingSource
+            // 
+            this.rODZAJENADWOZIABindingSource.DataMember = "RODZAJE_NADWOZIA";
+            this.rODZAJENADWOZIABindingSource.DataSource = this.allDataSet;
             // 
             // rODZAJE_NADWOZIATableAdapter
             // 
@@ -274,10 +266,9 @@
             this.Name = "CarModelOptionsForm";
             this.Text = "Zarządzanie modelami";
             this.Load += new System.EventHandler(this.CarModelOptionsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,11 +292,10 @@
         public System.Windows.Forms.TextBox ModelTextBox;
         public System.Windows.Forms.ComboBox ChassisCombo;
         public System.Windows.Forms.ComboBox BrandCombo;
-        private CarRentalCWDataSet3 carRentalCWDataSet3;
+        private AllDataSet allDataSet;
         private System.Windows.Forms.BindingSource mARKIBindingSource;
-        private CarRentalCWDataSet3TableAdapters.MARKITableAdapter mARKITableAdapter;
-        private CarRentalCWDataSet4 carRentalCWDataSet4;
+        private AllDataSetTableAdapters.MARKITableAdapter mARKITableAdapter;
         private System.Windows.Forms.BindingSource rODZAJENADWOZIABindingSource;
-        private CarRentalCWDataSet4TableAdapters.RODZAJE_NADWOZIATableAdapter rODZAJE_NADWOZIATableAdapter;
+        private AllDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter rODZAJE_NADWOZIATableAdapter;
     }
 }

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -85,45 +81,6 @@ namespace CarRental
             this.sAMOCHODYTableAdapter.Fill(this.allDataSet.SAMOCHODY);
             nextRow = dataGridView1.Rows.Count;
             getId();
-        }
-
-
-        /*var select = "SELECT ID_SAMOCHOD, MODELE.NAZWA_MODEL, RODZAJE_PALIWA.NAZWA_RODZAJ, WYPOZYCZALNIE.MIASTO, " +
-                    "MARKI.NAZWA_MARKA, RODZAJE_NADWOZIA.NAZWA_NADWOZIE, KOLOR, PRZEBIEG, VIN, POJEMNOSC, MOC, SKRZYNIA, MIEJSCA, " +
-                    "CENA_DZIEN, CENA_TYDZIEN, CENA_MIESIAC, KAUCJA FROM SAMOCHODY " +
-                    "JOIN WYPOZYCZALNIE ON SAMOCHODY.ID_WYPOZYCZALNIA = WYPOZYCZALNIE.ID_WYPOZYCZALNIA " +
-                    "JOIN MODELE ON SAMOCHODY.ID_MODEL = MODELE.ID_MODEL " +
-                    "JOIN RODZAJE_PALIWA ON SAMOCHODY.ID_PALIWO = RODZAJE_PALIWA.ID_PALIWO " +
-                    "JOIN MARKI ON MODELE.ID_MARKA = MARKI.ID_MARKA " +
-                    "JOIN RODZAJE_NADWOZIA ON MODELE.ID_NADWOZIE = RODZAJE_NADWOZIA.ID_NADWOZIE";
-        var c = new SqlConnection(@"Data Source = X280\SQLEXPRESS; Initial Catalog = CarRentalCW; Integrated Security = True");
-        var adapter = new SqlDataAdapter(select, c);
-        var CommandBuilder = new SqlCommandBuilder(adapter);
-        DataSet set = new DataSet();
-        adapter.Fill(set);
-        dataGridView2.DataSource = set.Tables[0];*/
-
-        private void FilterButton_Click(object sender, EventArgs e)
-        {
-            /*try
-            {
-                if (FilterCheck.Checked)
-                {
-                    BindingSource source = new BindingSource();
-                    source.DataSource = dataGridView2.DataSource;
-                    source.Filter = "KOLOR LIKE '%" + ColorTextBox.Text + "%' OR SKRZYNIA LIKE '%" + GearboxTextBox.Text + "%' OR MOC = " + PowerDownNumeric.Value + " OR MIEJSCA = " + SeatsNumeric.Value + "";
-                    dataGridView2.DataSource = source.DataSource;
-                }
-                else
-                {
-                    MessageBox.Show("Włącz filtrację!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
-            
         }
     }
 }

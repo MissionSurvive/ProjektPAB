@@ -37,15 +37,15 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.rODZAJEPALIWABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rODZAJE_PALIWATableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.RODZAJE_PALIWATableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.rODZAJEPALIWABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rODZAJE_PALIWATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_PALIWATableAdapter();
             this.iDPALIWODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAZWARODZAJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FuelLabel
@@ -130,20 +130,6 @@
             this.TableLabel.TabIndex = 80;
             this.TableLabel.Text = "Paliwo";
             // 
-            // carRentalCWDataSet
-            // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rODZAJEPALIWABindingSource
-            // 
-            this.rODZAJEPALIWABindingSource.DataMember = "RODZAJE_PALIWA";
-            this.rODZAJEPALIWABindingSource.DataSource = this.carRentalCWDataSet;
-            // 
-            // rODZAJE_PALIWATableAdapter
-            // 
-            this.rODZAJE_PALIWATableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -157,6 +143,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(906, 502);
             this.dataGridView1.TabIndex = 94;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rODZAJEPALIWABindingSource
+            // 
+            this.rODZAJEPALIWABindingSource.DataMember = "RODZAJE_PALIWA";
+            this.rODZAJEPALIWABindingSource.DataSource = this.allDataSet;
+            // 
+            // rODZAJE_PALIWATableAdapter
+            // 
+            this.rODZAJE_PALIWATableAdapter.ClearBeforeFill = true;
             // 
             // iDPALIWODataGridViewTextBoxColumn
             // 
@@ -189,9 +189,9 @@
             this.Name = "CarFuelForm";
             this.Text = "CarFuelForm";
             this.Load += new System.EventHandler(this.CarFuelForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,10 +205,10 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Label TableLabel;
-        private CarRentalCWDataSet carRentalCWDataSet;
-        private System.Windows.Forms.BindingSource rODZAJEPALIWABindingSource;
-        private CarRentalCWDataSetTableAdapters.RODZAJE_PALIWATableAdapter rODZAJE_PALIWATableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private AllDataSet allDataSet;
+        private System.Windows.Forms.BindingSource rODZAJEPALIWABindingSource;
+        private AllDataSetTableAdapters.RODZAJE_PALIWATableAdapter rODZAJE_PALIWATableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDPALIWODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAZWARODZAJDataGridViewTextBoxColumn;
     }

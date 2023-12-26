@@ -38,14 +38,14 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.rODZAJENADWOZIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rODZAJE_NADWOZIATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter();
             this.iDNADWOZIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAZWANADWOZIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rODZAJENADWOZIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.rODZAJE_NADWOZIATableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // ChassisLabel
@@ -144,6 +144,20 @@
             this.dataGridView1.TabIndex = 98;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rODZAJENADWOZIABindingSource
+            // 
+            this.rODZAJENADWOZIABindingSource.DataMember = "RODZAJE_NADWOZIA";
+            this.rODZAJENADWOZIABindingSource.DataSource = this.allDataSet;
+            // 
+            // rODZAJE_NADWOZIATableAdapter
+            // 
+            this.rODZAJE_NADWOZIATableAdapter.ClearBeforeFill = true;
+            // 
             // iDNADWOZIEDataGridViewTextBoxColumn
             // 
             this.iDNADWOZIEDataGridViewTextBoxColumn.DataPropertyName = "ID_NADWOZIE";
@@ -156,20 +170,6 @@
             this.nAZWANADWOZIEDataGridViewTextBoxColumn.DataPropertyName = "NAZWA_NADWOZIE";
             this.nAZWANADWOZIEDataGridViewTextBoxColumn.HeaderText = "NAZWA_NADWOZIE";
             this.nAZWANADWOZIEDataGridViewTextBoxColumn.Name = "nAZWANADWOZIEDataGridViewTextBoxColumn";
-            // 
-            // rODZAJENADWOZIABindingSource
-            // 
-            this.rODZAJENADWOZIABindingSource.DataMember = "RODZAJE_NADWOZIA";
-            this.rODZAJENADWOZIABindingSource.DataSource = this.carRentalCWDataSet;
-            // 
-            // carRentalCWDataSet
-            // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rODZAJE_NADWOZIATableAdapter
-            // 
-            this.rODZAJE_NADWOZIATableAdapter.ClearBeforeFill = true;
             // 
             // CarChassisForm
             // 
@@ -190,8 +190,8 @@
             this.Text = "CarChassisForm";
             this.Load += new System.EventHandler(this.CarChassisForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,9 +207,9 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private CarRentalCWDataSet carRentalCWDataSet;
+        private AllDataSet allDataSet;
         private System.Windows.Forms.BindingSource rODZAJENADWOZIABindingSource;
-        private CarRentalCWDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter rODZAJE_NADWOZIATableAdapter;
+        private AllDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter rODZAJE_NADWOZIATableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDNADWOZIEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAZWANADWOZIEDataGridViewTextBoxColumn;
     }

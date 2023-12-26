@@ -5,8 +5,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -34,13 +32,15 @@ namespace CarRental
 
         private void OrderOrderForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'allDataSet.HISTORIA_ZAMOWIENIA' table. You can move, or remove it, as needed.
+            this.hISTORIA_ZAMOWIENIATableAdapter.Fill(this.allDataSet.HISTORIA_ZAMOWIENIA);
             // TODO: This line of code loads data into the 'allDataSet.ZAMOWIENIA' table. You can move, or remove it, as needed.
             this.zAMOWIENIATableAdapter.Fill(this.allDataSet.ZAMOWIENIA);
             this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
             // TODO: This line of code loads data into the 'allDataSet.HISTORIA_ZAMOWIENIA' table. You can move, or remove it, as needed.
             this.hISTORIA_ZAMOWIENIATableAdapter.Fill(this.allDataSet.HISTORIA_ZAMOWIENIA);
             this.dataGridView2.Sort(this.dataGridView2.Columns[0], ListSortDirection.Ascending);
-            
+            nextRow = dataGridView1.Rows.Count;
             getId();
         }
 

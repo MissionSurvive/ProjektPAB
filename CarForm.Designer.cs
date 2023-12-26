@@ -39,11 +39,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.sAMOCHODYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.sAMOCHODYTableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.SAMOCHODYTableAdapter();
             this.carNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sAMOCHODYBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // carPanel
@@ -153,16 +150,12 @@
             // sAMOCHODYBindingSource
             // 
             this.sAMOCHODYBindingSource.DataMember = "SAMOCHODY";
-            this.sAMOCHODYBindingSource.DataSource = this.carRentalCWDataSet;
             // 
             // carRentalCWDataSet
             // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // sAMOCHODYTableAdapter
             // 
-            this.sAMOCHODYTableAdapter.ClearBeforeFill = true;
             // 
             // CarForm
             // 
@@ -177,15 +170,12 @@
             this.carNavBar.ResumeLayout(false);
             this.carNavBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sAMOCHODYBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private CarRentalCWDataSet carRentalCWDataSet;
         private System.Windows.Forms.BindingSource sAMOCHODYBindingSource;
-        private CarRentalCWDataSetTableAdapters.SAMOCHODYTableAdapter sAMOCHODYTableAdapter;
         private System.Windows.Forms.Panel carPanel;
         private System.Windows.Forms.Panel carNavBar;
         private System.Windows.Forms.Button button3;

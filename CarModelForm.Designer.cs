@@ -31,10 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarModelForm));
             this.TableLabel = new System.Windows.Forms.Label();
-            this.carRentalCWDataSet = new CarRental.CarRentalCWDataSet();
-            this.mODELEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mODELETableAdapter = new CarRental.CarRentalCWDataSetTableAdapters.MODELETableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.FilterButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.mODELEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mODELETableAdapter = new CarRental.AllDataSetTableAdapters.MODELETableAdapter();
             this.iDMODELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDNADWOZIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,12 +45,9 @@
             this.rOCZNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gENERACJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sEGMENTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilterButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.AddButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -59,20 +59,6 @@
             this.TableLabel.Size = new System.Drawing.Size(120, 37);
             this.TableLabel.TabIndex = 13;
             this.TableLabel.Text = "Modele";
-            // 
-            // carRentalCWDataSet
-            // 
-            this.carRentalCWDataSet.DataSetName = "CarRentalCWDataSet";
-            this.carRentalCWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mODELEBindingSource
-            // 
-            this.mODELEBindingSource.DataMember = "MODELE";
-            this.mODELEBindingSource.DataSource = this.carRentalCWDataSet;
-            // 
-            // mODELETableAdapter
-            // 
-            this.mODELETableAdapter.ClearBeforeFill = true;
             // 
             // dataGridView1
             // 
@@ -92,6 +78,61 @@
             this.dataGridView1.Size = new System.Drawing.Size(906, 559);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // FilterButton
+            // 
+            this.FilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FilterButton.Image = ((System.Drawing.Image)(resources.GetObject("FilterButton.Image")));
+            this.FilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FilterButton.Location = new System.Drawing.Point(761, 615);
+            this.FilterButton.Name = "FilterButton";
+            this.FilterButton.Size = new System.Drawing.Size(164, 54);
+            this.FilterButton.TabIndex = 65;
+            this.FilterButton.Text = "Filtruj";
+            this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.FilterButton.UseVisualStyleBackColor = true;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
+            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeleteButton.Location = new System.Drawing.Point(591, 615);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(164, 54);
+            this.DeleteButton.TabIndex = 63;
+            this.DeleteButton.Text = "Usuń";
+            this.DeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // AddButton
+            // 
+            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
+            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddButton.Location = new System.Drawing.Point(421, 615);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(164, 54);
+            this.AddButton.TabIndex = 62;
+            this.AddButton.Text = "Zarządzaj";
+            this.AddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mODELEBindingSource
+            // 
+            this.mODELEBindingSource.DataMember = "MODELE";
+            this.mODELEBindingSource.DataSource = this.allDataSet;
+            // 
+            // mODELETableAdapter
+            // 
+            this.mODELETableAdapter.ClearBeforeFill = true;
             // 
             // iDMODELDataGridViewTextBoxColumn
             // 
@@ -136,47 +177,6 @@
             this.sEGMENTDataGridViewTextBoxColumn.HeaderText = "SEGMENT";
             this.sEGMENTDataGridViewTextBoxColumn.Name = "sEGMENTDataGridViewTextBoxColumn";
             // 
-            // FilterButton
-            // 
-            this.FilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.FilterButton.Image = ((System.Drawing.Image)(resources.GetObject("FilterButton.Image")));
-            this.FilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FilterButton.Location = new System.Drawing.Point(761, 615);
-            this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(164, 54);
-            this.FilterButton.TabIndex = 65;
-            this.FilterButton.Text = "Filtruj";
-            this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.FilterButton.UseVisualStyleBackColor = true;
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
-            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeleteButton.Location = new System.Drawing.Point(591, 615);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(164, 54);
-            this.DeleteButton.TabIndex = 63;
-            this.DeleteButton.Text = "Usuń";
-            this.DeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
-            // AddButton
-            // 
-            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
-            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddButton.Location = new System.Drawing.Point(421, 615);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(164, 54);
-            this.AddButton.TabIndex = 62;
-            this.AddButton.Text = "Zarządzaj";
-            this.AddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
             // CarModelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,10 +192,9 @@
             this.Name = "CarModelForm";
             this.Text = "CarMakeForm";
             this.Load += new System.EventHandler(this.CarModelForm_Load);
-            this.MouseHover += new System.EventHandler(this.CarModelForm_MouseHover);
-            ((System.ComponentModel.ISupportInitialize)(this.carRentalCWDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,9 +202,13 @@
 
         #endregion
         private System.Windows.Forms.Label TableLabel;
-        private CarRentalCWDataSet carRentalCWDataSet;
+        private System.Windows.Forms.Button FilterButton;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private AllDataSet allDataSet;
         private System.Windows.Forms.BindingSource mODELEBindingSource;
-        private CarRentalCWDataSetTableAdapters.MODELETableAdapter mODELETableAdapter;
+        private AllDataSetTableAdapters.MODELETableAdapter mODELETableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDMODELDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDMARKADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDNADWOZIEDataGridViewTextBoxColumn;
@@ -213,9 +216,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rOCZNIKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gENERACJADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sEGMENTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button FilterButton;
-        private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

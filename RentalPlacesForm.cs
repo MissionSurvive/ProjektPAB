@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -24,8 +18,8 @@ namespace CarRental
 
         private void RentalPlacesForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.WYPOZYCZALNIE' table. You can move, or remove it, as needed.
-            this.wYPOZYCZALNIETableAdapter.Fill(this.carRentalCWDataSet.WYPOZYCZALNIE);
+            // TODO: This line of code loads data into the 'allDataSet.WYPOZYCZALNIE' table. You can move, or remove it, as needed.
+            this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
             this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
         }
 
@@ -36,8 +30,8 @@ namespace CarRental
             command.ExecuteNonQuery();
             connection.close();
             MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.wYPOZYCZALNIETableAdapter.Update(this.carRentalCWDataSet.WYPOZYCZALNIE);
-            this.wYPOZYCZALNIETableAdapter.Fill(this.carRentalCWDataSet.WYPOZYCZALNIE);
+            this.wYPOZYCZALNIETableAdapter.Update(this.allDataSet.WYPOZYCZALNIE);
+            this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
             CityTextBox.Text = "";
             AddressTextBox.Text = "";
         }
@@ -63,8 +57,8 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
-                    this.wYPOZYCZALNIETableAdapter.Update(this.carRentalCWDataSet.WYPOZYCZALNIE);
-                    this.wYPOZYCZALNIETableAdapter.Fill(this.carRentalCWDataSet.WYPOZYCZALNIE);
+                    this.wYPOZYCZALNIETableAdapter.Update(this.allDataSet.WYPOZYCZALNIE);
+                    this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
                 }
             }
             catch (Exception ex)
@@ -94,8 +88,8 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Dodano rekord pomyślnie!");
-                    this.wYPOZYCZALNIETableAdapter.Update(this.carRentalCWDataSet.WYPOZYCZALNIE);
-                    this.wYPOZYCZALNIETableAdapter.Fill(this.carRentalCWDataSet.WYPOZYCZALNIE);
+                    this.wYPOZYCZALNIETableAdapter.Update(this.allDataSet.WYPOZYCZALNIE);
+                    this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
                 }
             }
             catch (Exception ex)

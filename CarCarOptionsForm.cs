@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -27,13 +20,12 @@ namespace CarRental
 
         private void CarCarOptionsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.WYPOZYCZALNIE' table. You can move, or remove it, as needed.
-            this.wYPOZYCZALNIETableAdapter.Fill(this.carRentalCWDataSet.WYPOZYCZALNIE);
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.RODZAJE_PALIWA' table. You can move, or remove it, as needed.
-            this.rODZAJE_PALIWATableAdapter.Fill(this.carRentalCWDataSet.RODZAJE_PALIWA);
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.MODELE' table. You can move, or remove it, as needed.
-            this.mODELETableAdapter.Fill(this.carRentalCWDataSet.MODELE);
-
+            // TODO: This line of code loads data into the 'allDataSet.WYPOZYCZALNIE' table. You can move, or remove it, as needed.
+            this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
+            // TODO: This line of code loads data into the 'allDataSet.RODZAJE_PALIWA' table. You can move, or remove it, as needed.
+            this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+            // TODO: This line of code loads data into the 'allDataSet.MODELE' table. You can move, or remove it, as needed.
+            this.mODELETableAdapter.Fill(this.allDataSet.MODELE);
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)

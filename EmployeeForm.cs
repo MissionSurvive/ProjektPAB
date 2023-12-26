@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -33,11 +30,11 @@ namespace CarRental
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.KONTA_PRACOWNIKOW' table. You can move, or remove it, as needed.
-            this.kONTA_PRACOWNIKOWTableAdapter.Fill(this.carRentalCWDataSet.KONTA_PRACOWNIKOW);
+            // TODO: This line of code loads data into the 'allDataSet.KONTA_PRACOWNIKOW' table. You can move, or remove it, as needed.
+            this.kONTA_PRACOWNIKOWTableAdapter.Fill(this.allDataSet.KONTA_PRACOWNIKOW);
+            // TODO: This line of code loads data into the 'allDataSet.PRACOWNICY' table. You can move, or remove it, as needed.
+            this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
             this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.PRACOWNICY' table. You can move, or remove it, as needed.
-            this.pRACOWNICYTableAdapter.Fill(this.carRentalCWDataSet.PRACOWNICY);
             this.dataGridView2.Sort(this.dataGridView2.Columns[0], ListSortDirection.Ascending);
             nextRow = dataGridView1.Rows.Count;
             getId();
@@ -60,10 +57,10 @@ namespace CarRental
                 employeeOptionsForm.ExtraNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
                 employeeOptionsForm.UsernameTextBox.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
                 employeeOptionsForm.PasswordTextBox.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-                this.kONTA_PRACOWNIKOWTableAdapter.Update(this.carRentalCWDataSet.KONTA_PRACOWNIKOW);
-                this.kONTA_PRACOWNIKOWTableAdapter.Fill(this.carRentalCWDataSet.KONTA_PRACOWNIKOW);
-                this.pRACOWNICYTableAdapter.Update(this.carRentalCWDataSet.PRACOWNICY);
-                this.pRACOWNICYTableAdapter.Fill(this.carRentalCWDataSet.PRACOWNICY);
+                this.kONTA_PRACOWNIKOWTableAdapter.Update(this.allDataSet.KONTA_PRACOWNIKOW);
+                this.kONTA_PRACOWNIKOWTableAdapter.Fill(this.allDataSet.KONTA_PRACOWNIKOW);
+                this.pRACOWNICYTableAdapter.Update(this.allDataSet.PRACOWNICY);
+                this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
                 nextRow = dataGridView1.Rows.Count;
                 getId();
             }
@@ -92,10 +89,10 @@ namespace CarRental
             command.ExecuteNonQuery();
             connection.close();
             MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.kONTA_PRACOWNIKOWTableAdapter.Update(this.carRentalCWDataSet.KONTA_PRACOWNIKOW);
-            this.kONTA_PRACOWNIKOWTableAdapter.Fill(this.carRentalCWDataSet.KONTA_PRACOWNIKOW);
-            this.pRACOWNICYTableAdapter.Update(this.carRentalCWDataSet.PRACOWNICY);
-            this.pRACOWNICYTableAdapter.Fill(this.carRentalCWDataSet.PRACOWNICY);
+            this.kONTA_PRACOWNIKOWTableAdapter.Update(this.allDataSet.KONTA_PRACOWNIKOW);
+            this.kONTA_PRACOWNIKOWTableAdapter.Fill(this.allDataSet.KONTA_PRACOWNIKOW);
+            this.pRACOWNICYTableAdapter.Update(this.allDataSet.PRACOWNICY);
+            this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
             getId();
         }
 

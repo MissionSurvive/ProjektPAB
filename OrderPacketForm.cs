@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -24,8 +17,10 @@ namespace CarRental
 
         private void OrderPacketForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'allDataSet.PAKIETY' table. You can move, or remove it, as needed.
+            this.pAKIETYTableAdapter.Fill(this.allDataSet.PAKIETY);
             // TODO: This line of code loads data into the 'carRentalCWDataSet.PAKIETY' table. You can move, or remove it, as needed.
-            this.pAKIETYTableAdapter.Fill(this.carRentalCWDataSet.PAKIETY);
+            this.pAKIETYTableAdapter.Fill(this.allDataSet.PAKIETY);
 
         }
 
@@ -45,8 +40,8 @@ namespace CarRental
             command.ExecuteNonQuery();
             connection.close();
             MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.pAKIETYTableAdapter.Update(this.carRentalCWDataSet.PAKIETY);
-            this.pAKIETYTableAdapter.Fill(this.carRentalCWDataSet.PAKIETY);
+            this.pAKIETYTableAdapter.Update(this.allDataSet.PAKIETY);
+            this.pAKIETYTableAdapter.Fill(this.allDataSet.PAKIETY);
             PacketTextBox.Text = "";
             ContentTextBox.Text = "";
             PriceNumeric.Value = 0;
@@ -74,8 +69,8 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
-                    this.pAKIETYTableAdapter.Update(this.carRentalCWDataSet.PAKIETY);
-                    this.pAKIETYTableAdapter.Fill(this.carRentalCWDataSet.PAKIETY);
+                    this.pAKIETYTableAdapter.Update(this.allDataSet.PAKIETY);
+                    this.pAKIETYTableAdapter.Fill(this.allDataSet.PAKIETY);
                 }
             }
             catch (Exception ex)
@@ -106,8 +101,8 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Dodano rekord pomyślnie!");
-                    this.pAKIETYTableAdapter.Update(this.carRentalCWDataSet.PAKIETY);
-                    this.pAKIETYTableAdapter.Fill(this.carRentalCWDataSet.PAKIETY);
+                    this.pAKIETYTableAdapter.Update(this.allDataSet.PAKIETY);
+                    this.pAKIETYTableAdapter.Fill(this.allDataSet.PAKIETY);
                 }
             }
             catch (Exception ex)

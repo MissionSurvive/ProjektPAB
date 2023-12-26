@@ -48,6 +48,9 @@
             this.TableLabel = new System.Windows.Forms.Label();
             this.zAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.ZAMOWIENIATableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.hISTORIAZAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hISTORIA_ZAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter();
             this.iDHISTORIADataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDPRACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDZAMOWIENIEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,9 +63,6 @@
             this.kOLIZJADataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dATAKOLIZJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kARAKOLIZJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hISTORIAZAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hISTORIA_ZAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter();
-            this.DeleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAMOWIENIABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
@@ -228,6 +228,29 @@
             this.dataGridView2.TabIndex = 144;
             this.dataGridView2.Visible = false;
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
+            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeleteButton.Location = new System.Drawing.Point(592, 616);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(164, 54);
+            this.DeleteButton.TabIndex = 135;
+            this.DeleteButton.Text = "Usuń";
+            this.DeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // hISTORIAZAMOWIENIABindingSource
+            // 
+            this.hISTORIAZAMOWIENIABindingSource.DataMember = "HISTORIA_ZAMOWIENIA";
+            this.hISTORIAZAMOWIENIABindingSource.DataSource = this.allDataSet;
+            // 
+            // hISTORIA_ZAMOWIENIATableAdapter
+            // 
+            this.hISTORIA_ZAMOWIENIATableAdapter.ClearBeforeFill = true;
+            // 
             // iDHISTORIADataGridViewTextBoxColumn1
             // 
             this.iDHISTORIADataGridViewTextBoxColumn1.DataPropertyName = "ID_HISTORIA";
@@ -301,29 +324,6 @@
             this.kARAKOLIZJADataGridViewTextBoxColumn.HeaderText = "KARA_KOLIZJA";
             this.kARAKOLIZJADataGridViewTextBoxColumn.Name = "kARAKOLIZJADataGridViewTextBoxColumn";
             // 
-            // hISTORIAZAMOWIENIABindingSource
-            // 
-            this.hISTORIAZAMOWIENIABindingSource.DataMember = "HISTORIA_ZAMOWIENIA";
-            this.hISTORIAZAMOWIENIABindingSource.DataSource = this.allDataSet;
-            // 
-            // hISTORIA_ZAMOWIENIATableAdapter
-            // 
-            this.hISTORIA_ZAMOWIENIATableAdapter.ClearBeforeFill = true;
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
-            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeleteButton.Location = new System.Drawing.Point(592, 616);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(164, 54);
-            this.DeleteButton.TabIndex = 135;
-            this.DeleteButton.Text = "Usuń";
-            this.DeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
             // OrderOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +369,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dATASTARTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dATAKONIECDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.BindingSource hISTORIAZAMOWIENIABindingSource;
         private AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter hISTORIA_ZAMOWIENIATableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDHISTORIADataGridViewTextBoxColumn1;
@@ -383,6 +384,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn kOLIZJADataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dATAKOLIZJADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kARAKOLIZJADataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button DeleteButton;
     }
 }

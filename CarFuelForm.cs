@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -24,8 +18,8 @@ namespace CarRental
 
         private void CarFuelForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet.RODZAJE_PALIWA' table. You can move, or remove it, as needed.
-            this.rODZAJE_PALIWATableAdapter.Fill(this.carRentalCWDataSet.RODZAJE_PALIWA);
+            // TODO: This line of code loads data into the 'allDataSet.RODZAJE_PALIWA' table. You can move, or remove it, as needed.
+            this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
             this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Ascending);
         }
 
@@ -36,8 +30,8 @@ namespace CarRental
             command.ExecuteNonQuery();
             connection.close();
             MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.rODZAJE_PALIWATableAdapter.Update(this.carRentalCWDataSet.RODZAJE_PALIWA);
-            this.rODZAJE_PALIWATableAdapter.Fill(this.carRentalCWDataSet.RODZAJE_PALIWA);
+            this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+            this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
             FuelTextBox.Text = "";
         }
 
@@ -64,8 +58,8 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
-                    this.rODZAJE_PALIWATableAdapter.Update(this.carRentalCWDataSet.RODZAJE_PALIWA);
-                    this.rODZAJE_PALIWATableAdapter.Fill(this.carRentalCWDataSet.RODZAJE_PALIWA);
+                    this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                    this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
                 }
             }
             catch (Exception ex)
@@ -90,8 +84,8 @@ namespace CarRental
                     command.ExecuteNonQuery();
                     connection.close();
                     MessageBox.Show("Dodano rekord pomyślnie!");
-                    this.rODZAJE_PALIWATableAdapter.Update(this.carRentalCWDataSet.RODZAJE_PALIWA);
-                    this.rODZAJE_PALIWATableAdapter.Fill(this.carRentalCWDataSet.RODZAJE_PALIWA);
+                    this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                    this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
                 }
             }
             catch (Exception ex)

@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -18,7 +11,6 @@ namespace CarRental
         public static int nextRow;
         public static int idInt;
         private string id = "";
-        private string id2 = "";
         SqlCommand command = new SqlCommand();
         dbConnect connection = new dbConnect();
         public OrderOrderOptionsForm()
@@ -28,6 +20,8 @@ namespace CarRental
 
         private void OrderOrderOptionsForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'allDataSet.PRACOWNICY' table. You can move, or remove it, as needed.
+            this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
             // TODO: This line of code loads data into the 'allDataSet.PRACOWNICY' table. You can move, or remove it, as needed.
             this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
 
@@ -55,7 +49,27 @@ namespace CarRental
             rowNumber = Int32.Parse(id);
             CarCombo.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             RentalCombo.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            EmployeeCombo.SelectedValue = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            id = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+            rowNumber = Int32.Parse(id);
+            ClientCombo.SelectedValue = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void dataGridView3_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            id = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+            rowNumber = Int32.Parse(id);
+            EmployeeCombo.SelectedValue = dataGridView3.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void dataGridView4_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            id = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+            rowNumber = Int32.Parse(id);
+            PacketCombo.SelectedValue = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -104,7 +118,7 @@ namespace CarRental
                 command.ExecuteNonQuery();
                 MessageBox.Show(OrderOrderForm.idInt.ToString() + " Done 1!");
                 OrderOrderForm.idInt = OrderOrderForm.idInt + 1;
-                command.CommandText = "INSERT INTO HISTORIA_ZAMOWIENIA (ID_PRAC, ID_KLIENT, DATA_WYDANIE, DATA_PRZYJECIE, TANKOWANIE, KOLIZJA) VALUES (@Employee, @Client, @Start, @End, 0, 0)";
+                command.CommandText = "INSERT INTO HISTORIA_ZAMOWIENIA (ID_PRAC, ID_ZAMOWIENIE, ID_KLIENT, DATA_WYDANIE, DATA_PRZYJECIE, TANKOWANIE, ILOSC_TANKOWANIE, KOSZT_TANKOWANIE, KOLIZJA) VALUES (@Employee, " + OrderOrderForm.idInt + ", @Client, @Start, @End, 0, 0, 0, 0)";
                 command.ExecuteNonQuery();
                 MessageBox.Show("Done 2!");
                 command.CommandText = "UPDATE ZAMOWIENIA SET ID_HISTORIA = " + OrderOrderForm.idInt + " WHERE ID_ZAMOWIENIE = " + OrderOrderForm.idInt + " ";
@@ -117,13 +131,6 @@ namespace CarRental
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            id2 = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber2 = Int32.Parse(id2);
-            ClientCombo.SelectedValue = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
     }
 }

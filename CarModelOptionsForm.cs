@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -34,15 +25,15 @@ namespace CarRental
 
         private void CarModelOptionsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carRentalCWDataSet4.RODZAJE_NADWOZIA' table. You can move, or remove it, as needed.
-            this.rODZAJE_NADWOZIATableAdapter.Fill(this.carRentalCWDataSet4.RODZAJE_NADWOZIA);
-            // TODO: This line of code loads data into the 'carRentalCWDataSet3.MARKI' table. You can move, or remove it, as needed.
-            this.mARKITableAdapter.Fill(this.carRentalCWDataSet3.MARKI);
+            // TODO: This line of code loads data into the 'allDataSet.RODZAJE_NADWOZIA' table. You can move, or remove it, as needed.
+            this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
+            // TODO: This line of code loads data into the 'allDataSet.MARKI' table. You can move, or remove it, as needed.
+            this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("UPDATE MODELE SET ID_MARKA = @Brand + 1, ID_NADWOZIE = @Chassis + 1, NAZWA_MODEL = @ModelName, " +
+            command = new SqlCommand("UPDATE MODELE SET ID_MARKA = @Brand, ID_NADWOZIE = @Chassis, NAZWA_MODEL = @ModelName, " +
                                      "ROCZNIK = @Year, GENERACJA = @Generation, SEGMENT = @Segment WHERE ID_model LIKE'" 
                                      + CarModelForm.rowNumber + "'", connection.connect());
             command.Parameters.AddWithValue("@Brand", BrandCombo.SelectedValue);
@@ -69,11 +60,6 @@ namespace CarRental
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        public void BrandCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void AddButton_Click(object sender, EventArgs e)
