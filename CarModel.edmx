@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CarRentalCWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HISTORIA_ZAMOWIENIA">
+          <Key>
+            <PropertyRef Name="ID_HISTORIA" />
+          </Key>
+          <Property Name="ID_HISTORIA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PRAC" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ID_ZAMOWIENIE" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ID_KLIENT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATA_WYDANIE" Type="datetime" />
+          <Property Name="DATA_PRZYJECIE" Type="datetime" />
+          <Property Name="TANKOWANIE" Type="bit" Nullable="false" />
+          <Property Name="ILOSC_TANKOWANIE" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="KOSZT_TANKOWANIE" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="KOLIZJA" Type="bit" Nullable="false" />
+          <Property Name="DATA_KOLIZJA" Type="datetime" />
+          <Property Name="KARA_KOLIZJA" Type="decimal" Precision="7" Scale="2" />
+        </EntityType>
+        <EntityType Name="MODELE">
+          <Key>
+            <PropertyRef Name="ID_MODEL" />
+          </Key>
+          <Property Name="ID_MODEL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_MARKA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_NADWOZIE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="NAZWA_MODEL" Type="varchar" MaxLength="20" />
+          <Property Name="ROCZNIK" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="GENERACJA" Type="varchar" MaxLength="2" />
+          <Property Name="SEGMENT" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAKIETY">
+          <Key>
+            <PropertyRef Name="ID_PAKIET" />
+          </Key>
+          <Property Name="ID_PAKIET" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAZWA" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="ZAWARTOSC" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CENA" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRACOWNICY">
+          <Key>
+            <PropertyRef Name="ID_PRAC" />
+          </Key>
+          <Property Name="ID_PRAC" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_KON_PRACOWNIK" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ID_WYPOZYCZALNIA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IMIE_PRACOWNIK" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NAZWISKO_PRACOWNIK" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="PESEL_PRACOWNIK" Type="varchar" MaxLength="11" />
+          <Property Name="TELEFON_PRACOWNIK" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="STANOWISKO" Type="varchar" MaxLength="40" />
+          <Property Name="DATA_ZATRUDNIENIA" Type="datetime" Nullable="false" />
+          <Property Name="WYNAGRODZENIE" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="PREMIA" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="RODZAJE_PALIWA">
+          <Key>
+            <PropertyRef Name="ID_PALIWO" />
+          </Key>
+          <Property Name="ID_PALIWO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAZWA_RODZAJ" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SAMOCHODY">
+          <Key>
+            <PropertyRef Name="ID_SAMOCHOD" />
+          </Key>
+          <Property Name="ID_SAMOCHOD" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PALIWO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_MODEL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_WYPOZYCZALNIA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ZDJECIE" Type="image" />
+          <Property Name="KOLOR" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="PRZEBIEG" Type="decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="VIN" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="POJEMNOSC" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="MOC" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="SKRZYNIA" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="MIEJSCA" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="CENA_DZIEN" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CENA_TYDZIEN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CENA_MIESIAC" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="KAUCJA" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="WYPOZYCZALNIE">
+          <Key>
+            <PropertyRef Name="ID_WYPOZYCZALNIA" />
+          </Key>
+          <Property Name="ID_WYPOZYCZALNIA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MIASTO" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="ADRES" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZAMOWIENIA">
+          <Key>
+            <PropertyRef Name="ID_ZAMOWIENIE" />
+          </Key>
+          <Property Name="ID_ZAMOWIENIE" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PAKIET" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ID_HISTORIA" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ID_WYPOZYCZALNIA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_KLIENT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_SAMOCHOD" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LICZBA_DNI" Type="decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="CENA_ZAMOWIENIE" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="DATA_START" Type="datetime" Nullable="false" />
+          <Property Name="DATA_KONIEC" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_HISTORIA_HISTORIA__ZAMOWIEN">
+          <End Role="ZAMOWIENIA" Type="Self.ZAMOWIENIA" Multiplicity="0..1" />
+          <End Role="HISTORIA_ZAMOWIENIA" Type="Self.HISTORIA_ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_ZAMOWIENIE" />
+            </Principal>
+            <Dependent Role="HISTORIA_ZAMOWIENIA">
+              <PropertyRef Name="ID_ZAMOWIENIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_PRACOWNIK_PRACOWNI">
+          <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="0..1" />
+          <End Role="HISTORIA_ZAMOWIENIA" Type="Self.HISTORIA_ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRACOWNICY">
+              <PropertyRef Name="ID_PRAC" />
+            </Principal>
+            <Dependent Role="HISTORIA_ZAMOWIENIA">
+              <PropertyRef Name="ID_PRAC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRACOWNI_PRACOWNIK_WYPOZYCZ">
+          <End Role="WYPOZYCZALNIE" Type="Self.WYPOZYCZALNIE" Multiplicity="1" />
+          <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WYPOZYCZALNIE">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Principal>
+            <Dependent Role="PRACOWNICY">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SAMOCHOD_MODEL_SAM_MODELE">
+          <End Role="MODELE" Type="Self.MODELE" Multiplicity="1" />
+          <End Role="SAMOCHODY" Type="Self.SAMOCHODY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELE">
+              <PropertyRef Name="ID_MODEL" />
+            </Principal>
+            <Dependent Role="SAMOCHODY">
+              <PropertyRef Name="ID_MODEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SAMOCHOD_RODZAJ_PA_RODZAJE_">
+          <End Role="RODZAJE_PALIWA" Type="Self.RODZAJE_PALIWA" Multiplicity="1" />
+          <End Role="SAMOCHODY" Type="Self.SAMOCHODY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RODZAJE_PALIWA">
+              <PropertyRef Name="ID_PALIWO" />
+            </Principal>
+            <Dependent Role="SAMOCHODY">
+              <PropertyRef Name="ID_PALIWO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ">
+          <End Role="WYPOZYCZALNIE" Type="Self.WYPOZYCZALNIE" Multiplicity="1" />
+          <End Role="SAMOCHODY" Type="Self.SAMOCHODY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WYPOZYCZALNIE">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Principal>
+            <Dependent Role="SAMOCHODY">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_HISTORIA__HISTORIA">
+          <End Role="HISTORIA_ZAMOWIENIA" Type="Self.HISTORIA_ZAMOWIENIA" Multiplicity="0..1" />
+          <End Role="ZAMOWIENIA" Type="Self.ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORIA_ZAMOWIENIA">
+              <PropertyRef Name="ID_HISTORIA" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_HISTORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_PAKIET_W__PAKIETY">
+          <End Role="PAKIETY" Type="Self.PAKIETY" Multiplicity="0..1" />
+          <End Role="ZAMOWIENIA" Type="Self.ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAKIETY">
+              <PropertyRef Name="ID_PAKIET" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_PAKIET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ">
+          <End Role="WYPOZYCZALNIE" Type="Self.WYPOZYCZALNIE" Multiplicity="1" />
+          <End Role="ZAMOWIENIA" Type="Self.ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WYPOZYCZALNIE">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD">
+          <End Role="SAMOCHODY" Type="Self.SAMOCHODY" Multiplicity="1" />
+          <End Role="ZAMOWIENIA" Type="Self.ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SAMOCHODY">
+              <PropertyRef Name="ID_SAMOCHOD" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_SAMOCHOD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CarRentalCWModelStoreContainer">
+          <EntitySet Name="HISTORIA_ZAMOWIENIA" EntityType="Self.HISTORIA_ZAMOWIENIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODELE" EntityType="Self.MODELE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAKIETY" EntityType="Self.PAKIETY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRACOWNICY" EntityType="Self.PRACOWNICY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RODZAJE_PALIWA" EntityType="Self.RODZAJE_PALIWA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAMOCHODY" EntityType="Self.SAMOCHODY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WYPOZYCZALNIE" EntityType="Self.WYPOZYCZALNIE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZAMOWIENIA" EntityType="Self.ZAMOWIENIA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HISTORIA_HISTORIA__ZAMOWIEN" Association="Self.FK_HISTORIA_HISTORIA__ZAMOWIEN">
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+            <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_PRACOWNIK_PRACOWNI" Association="Self.FK_HISTORIA_PRACOWNIK_PRACOWNI">
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
+            <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRACOWNI_PRACOWNIK_WYPOZYCZ" Association="Self.FK_PRACOWNI_PRACOWNIK_WYPOZYCZ">
+            <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SAMOCHOD_MODEL_SAM_MODELE" Association="Self.FK_SAMOCHOD_MODEL_SAM_MODELE">
+            <End Role="MODELE" EntitySet="MODELE" />
+            <End Role="SAMOCHODY" EntitySet="SAMOCHODY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SAMOCHOD_RODZAJ_PA_RODZAJE_" Association="Self.FK_SAMOCHOD_RODZAJ_PA_RODZAJE_">
+            <End Role="RODZAJE_PALIWA" EntitySet="RODZAJE_PALIWA" />
+            <End Role="SAMOCHODY" EntitySet="SAMOCHODY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ" Association="Self.FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ">
+            <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
+            <End Role="SAMOCHODY" EntitySet="SAMOCHODY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_HISTORIA__HISTORIA" Association="Self.FK_ZAMOWIEN_HISTORIA__HISTORIA">
+            <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_PAKIET_W__PAKIETY" Association="Self.FK_ZAMOWIEN_PAKIET_W__PAKIETY">
+            <End Role="PAKIETY" EntitySet="PAKIETY" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ" Association="Self.FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ">
+            <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD" Association="Self.FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD">
+            <End Role="SAMOCHODY" EntitySet="SAMOCHODY" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarRentalCWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SAMOCHODY">
+          <Key>
+            <PropertyRef Name="ID_SAMOCHOD" />
+          </Key>
+          <Property Name="ID_SAMOCHOD" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PALIWO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_MODEL" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_WYPOZYCZALNIA" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ZDJECIE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="KOLOR" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRZEBIEG" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="POJEMNOSC" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="MOC" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="SKRZYNIA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MIEJSCA" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="CENA_DZIEN" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CENA_TYDZIEN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CENA_MIESIAC" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="KAUCJA" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="MODELE" Relationship="CarRentalCWModel.FK_SAMOCHOD_MODEL_SAM_MODELE" FromRole="SAMOCHODY" ToRole="MODELE" />
+          <NavigationProperty Name="RODZAJE_PALIWA" Relationship="CarRentalCWModel.FK_SAMOCHOD_RODZAJ_PA_RODZAJE_" FromRole="SAMOCHODY" ToRole="RODZAJE_PALIWA" />
+          <NavigationProperty Name="WYPOZYCZALNIE" Relationship="CarRentalCWModel.FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ" FromRole="SAMOCHODY" ToRole="WYPOZYCZALNIE" />
+          <NavigationProperty Name="ZAMOWIENIA" Relationship="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD" FromRole="SAMOCHODY" ToRole="ZAMOWIENIA" />
+        </EntityType>
+        <EntityContainer Name="CarRentalCWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SAMOCHODY" EntityType="Self.SAMOCHODY" />
+          <EntitySet Name="MODELE" EntityType="CarRentalCWModel.MODELE" />
+          <EntitySet Name="RODZAJE_PALIWA" EntityType="CarRentalCWModel.RODZAJE_PALIWA" />
+          <EntitySet Name="WYPOZYCZALNIE" EntityType="CarRentalCWModel.WYPOZYCZALNIE" />
+          <AssociationSet Name="FK_SAMOCHOD_MODEL_SAM_MODELE" Association="CarRentalCWModel.FK_SAMOCHOD_MODEL_SAM_MODELE">
+            <End Role="MODELE" EntitySet="MODELE" />
+            <End Role="SAMOCHODY" EntitySet="SAMOCHODY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SAMOCHOD_RODZAJ_PA_RODZAJE_" Association="CarRentalCWModel.FK_SAMOCHOD_RODZAJ_PA_RODZAJE_">
+            <End Role="RODZAJE_PALIWA" EntitySet="RODZAJE_PALIWA" />
+            <End Role="SAMOCHODY" EntitySet="SAMOCHODY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ" Association="CarRentalCWModel.FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ">
+            <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
+            <End Role="SAMOCHODY" EntitySet="SAMOCHODY" />
+          </AssociationSet>
+          <EntitySet Name="PAKIETY" EntityType="CarRentalCWModel.PAKIETY" />
+          <EntitySet Name="PRACOWNICY" EntityType="CarRentalCWModel.PRACOWNICY" />
+          <AssociationSet Name="FK_PRACOWNI_PRACOWNIK_WYPOZYCZ" Association="CarRentalCWModel.FK_PRACOWNI_PRACOWNIK_WYPOZYCZ">
+            <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
+          </AssociationSet>
+          <EntitySet Name="HISTORIA_ZAMOWIENIA" EntityType="CarRentalCWModel.HISTORIA_ZAMOWIENIA" />
+          <EntitySet Name="ZAMOWIENIA" EntityType="CarRentalCWModel.ZAMOWIENIA" />
+          <AssociationSet Name="FK_HISTORIA_HISTORIA__ZAMOWIEN" Association="CarRentalCWModel.FK_HISTORIA_HISTORIA__ZAMOWIEN">
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+            <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_PRACOWNIK_PRACOWNI" Association="CarRentalCWModel.FK_HISTORIA_PRACOWNIK_PRACOWNI">
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
+            <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_HISTORIA__HISTORIA" Association="CarRentalCWModel.FK_ZAMOWIEN_HISTORIA__HISTORIA">
+            <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_PAKIET_W__PAKIETY" Association="CarRentalCWModel.FK_ZAMOWIEN_PAKIET_W__PAKIETY">
+            <End Role="PAKIETY" EntitySet="PAKIETY" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD" Association="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD">
+            <End Role="SAMOCHODY" EntitySet="SAMOCHODY" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ" Association="CarRentalCWModel.FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ">
+            <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="MODELE">
+          <Key>
+            <PropertyRef Name="ID_MODEL" />
+          </Key>
+          <Property Name="ID_MODEL" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_MARKA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ID_NADWOZIE" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="NAZWA_MODEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ROCZNIK" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="GENERACJA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SEGMENT" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SAMOCHODY" Relationship="CarRentalCWModel.FK_SAMOCHOD_MODEL_SAM_MODELE" FromRole="MODELE" ToRole="SAMOCHODY" />
+        </EntityType>
+        <EntityType Name="RODZAJE_PALIWA">
+          <Key>
+            <PropertyRef Name="ID_PALIWO" />
+          </Key>
+          <Property Name="ID_PALIWO" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAZWA_RODZAJ" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SAMOCHODY" Relationship="CarRentalCWModel.FK_SAMOCHOD_RODZAJ_PA_RODZAJE_" FromRole="RODZAJE_PALIWA" ToRole="SAMOCHODY" />
+        </EntityType>
+        <EntityType Name="WYPOZYCZALNIE">
+          <Key>
+            <PropertyRef Name="ID_WYPOZYCZALNIA" />
+          </Key>
+          <Property Name="ID_WYPOZYCZALNIA" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MIASTO" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ADRES" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SAMOCHODY" Relationship="CarRentalCWModel.FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ" FromRole="WYPOZYCZALNIE" ToRole="SAMOCHODY" />
+          <NavigationProperty Name="PRACOWNICY" Relationship="CarRentalCWModel.FK_PRACOWNI_PRACOWNIK_WYPOZYCZ" FromRole="WYPOZYCZALNIE" ToRole="PRACOWNICY" />
+          <NavigationProperty Name="ZAMOWIENIA" Relationship="CarRentalCWModel.FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ" FromRole="WYPOZYCZALNIE" ToRole="ZAMOWIENIA" />
+        </EntityType>
+        <Association Name="FK_SAMOCHOD_MODEL_SAM_MODELE">
+          <End Type="CarRentalCWModel.MODELE" Role="MODELE" Multiplicity="1" />
+          <End Type="CarRentalCWModel.SAMOCHODY" Role="SAMOCHODY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELE">
+              <PropertyRef Name="ID_MODEL" />
+            </Principal>
+            <Dependent Role="SAMOCHODY">
+              <PropertyRef Name="ID_MODEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SAMOCHOD_RODZAJ_PA_RODZAJE_">
+          <End Type="CarRentalCWModel.RODZAJE_PALIWA" Role="RODZAJE_PALIWA" Multiplicity="1" />
+          <End Type="CarRentalCWModel.SAMOCHODY" Role="SAMOCHODY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RODZAJE_PALIWA">
+              <PropertyRef Name="ID_PALIWO" />
+            </Principal>
+            <Dependent Role="SAMOCHODY">
+              <PropertyRef Name="ID_PALIWO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ">
+          <End Type="CarRentalCWModel.WYPOZYCZALNIE" Role="WYPOZYCZALNIE" Multiplicity="1" />
+          <End Type="CarRentalCWModel.SAMOCHODY" Role="SAMOCHODY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WYPOZYCZALNIE">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Principal>
+            <Dependent Role="SAMOCHODY">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PAKIETY">
+          <Key>
+            <PropertyRef Name="ID_PAKIET" />
+          </Key>
+          <Property Name="ID_PAKIET" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAZWA" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ZAWARTOSC" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CENA" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
+          <NavigationProperty Name="ZAMOWIENIA" Relationship="CarRentalCWModel.FK_ZAMOWIEN_PAKIET_W__PAKIETY" FromRole="PAKIETY" ToRole="ZAMOWIENIA" />
+        </EntityType>
+        <EntityType Name="PRACOWNICY">
+          <Key>
+            <PropertyRef Name="ID_PRAC" />
+          </Key>
+          <Property Name="ID_PRAC" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_KON_PRACOWNIK" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_WYPOZYCZALNIA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IMIE_PRACOWNIK" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NAZWISKO_PRACOWNIK" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PESEL_PRACOWNIK" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON_PRACOWNIK" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="STANOWISKO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_ZATRUDNIENIA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WYNAGRODZENIE" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="PREMIA" Type="Decimal" Precision="6" Scale="2" />
+          <NavigationProperty Name="WYPOZYCZALNIE" Relationship="CarRentalCWModel.FK_PRACOWNI_PRACOWNIK_WYPOZYCZ" FromRole="PRACOWNICY" ToRole="WYPOZYCZALNIE" />
+          <NavigationProperty Name="HISTORIA_ZAMOWIENIA" Relationship="CarRentalCWModel.FK_HISTORIA_PRACOWNIK_PRACOWNI" FromRole="PRACOWNICY" ToRole="HISTORIA_ZAMOWIENIA" />
+        </EntityType>
+        <Association Name="FK_PRACOWNI_PRACOWNIK_WYPOZYCZ">
+          <End Type="CarRentalCWModel.WYPOZYCZALNIE" Role="WYPOZYCZALNIE" Multiplicity="1" />
+          <End Type="CarRentalCWModel.PRACOWNICY" Role="PRACOWNICY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WYPOZYCZALNIE">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Principal>
+            <Dependent Role="PRACOWNICY">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HISTORIA_ZAMOWIENIA">
+          <Key>
+            <PropertyRef Name="ID_HISTORIA" />
+          </Key>
+          <Property Name="ID_HISTORIA" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PRAC" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_ZAMOWIENIE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_KLIENT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATA_WYDANIE" Type="DateTime" Precision="3" />
+          <Property Name="DATA_PRZYJECIE" Type="DateTime" Precision="3" />
+          <Property Name="TANKOWANIE" Type="Boolean" Nullable="false" />
+          <Property Name="ILOSC_TANKOWANIE" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="KOSZT_TANKOWANIE" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="KOLIZJA" Type="Boolean" Nullable="false" />
+          <Property Name="DATA_KOLIZJA" Type="DateTime" Precision="3" />
+          <Property Name="KARA_KOLIZJA" Type="Decimal" Precision="7" Scale="2" />
+          <NavigationProperty Name="ZAMOWIENIA" Relationship="CarRentalCWModel.FK_HISTORIA_HISTORIA__ZAMOWIEN" FromRole="HISTORIA_ZAMOWIENIA" ToRole="ZAMOWIENIA" />
+          <NavigationProperty Name="PRACOWNICY" Relationship="CarRentalCWModel.FK_HISTORIA_PRACOWNIK_PRACOWNI" FromRole="HISTORIA_ZAMOWIENIA" ToRole="PRACOWNICY" />
+          <NavigationProperty Name="ZAMOWIENIA1" Relationship="CarRentalCWModel.FK_ZAMOWIEN_HISTORIA__HISTORIA" FromRole="HISTORIA_ZAMOWIENIA" ToRole="ZAMOWIENIA" />
+        </EntityType>
+        <EntityType Name="ZAMOWIENIA">
+          <Key>
+            <PropertyRef Name="ID_ZAMOWIENIE" />
+          </Key>
+          <Property Name="ID_ZAMOWIENIE" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PAKIET" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_HISTORIA" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_WYPOZYCZALNIA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ID_KLIENT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ID_SAMOCHOD" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="LICZBA_DNI" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+          <Property Name="CENA_ZAMOWIENIE" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="DATA_START" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DATA_KONIEC" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="HISTORIA_ZAMOWIENIA" Relationship="CarRentalCWModel.FK_HISTORIA_HISTORIA__ZAMOWIEN" FromRole="ZAMOWIENIA" ToRole="HISTORIA_ZAMOWIENIA" />
+          <NavigationProperty Name="HISTORIA_ZAMOWIENIA1" Relationship="CarRentalCWModel.FK_ZAMOWIEN_HISTORIA__HISTORIA" FromRole="ZAMOWIENIA" ToRole="HISTORIA_ZAMOWIENIA" />
+          <NavigationProperty Name="PAKIETY" Relationship="CarRentalCWModel.FK_ZAMOWIEN_PAKIET_W__PAKIETY" FromRole="ZAMOWIENIA" ToRole="PAKIETY" />
+          <NavigationProperty Name="SAMOCHODY" Relationship="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD" FromRole="ZAMOWIENIA" ToRole="SAMOCHODY" />
+          <NavigationProperty Name="WYPOZYCZALNIE" Relationship="CarRentalCWModel.FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ" FromRole="ZAMOWIENIA" ToRole="WYPOZYCZALNIE" />
+        </EntityType>
+        <Association Name="FK_HISTORIA_HISTORIA__ZAMOWIEN">
+          <End Type="CarRentalCWModel.ZAMOWIENIA" Role="ZAMOWIENIA" Multiplicity="0..1" />
+          <End Type="CarRentalCWModel.HISTORIA_ZAMOWIENIA" Role="HISTORIA_ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_ZAMOWIENIE" />
+            </Principal>
+            <Dependent Role="HISTORIA_ZAMOWIENIA">
+              <PropertyRef Name="ID_ZAMOWIENIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_PRACOWNIK_PRACOWNI">
+          <End Type="CarRentalCWModel.PRACOWNICY" Role="PRACOWNICY" Multiplicity="0..1" />
+          <End Type="CarRentalCWModel.HISTORIA_ZAMOWIENIA" Role="HISTORIA_ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRACOWNICY">
+              <PropertyRef Name="ID_PRAC" />
+            </Principal>
+            <Dependent Role="HISTORIA_ZAMOWIENIA">
+              <PropertyRef Name="ID_PRAC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_HISTORIA__HISTORIA">
+          <End Type="CarRentalCWModel.HISTORIA_ZAMOWIENIA" Role="HISTORIA_ZAMOWIENIA" Multiplicity="0..1" />
+          <End Type="CarRentalCWModel.ZAMOWIENIA" Role="ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORIA_ZAMOWIENIA">
+              <PropertyRef Name="ID_HISTORIA" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_HISTORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_PAKIET_W__PAKIETY">
+          <End Type="CarRentalCWModel.PAKIETY" Role="PAKIETY" Multiplicity="0..1" />
+          <End Type="CarRentalCWModel.ZAMOWIENIA" Role="ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAKIETY">
+              <PropertyRef Name="ID_PAKIET" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_PAKIET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD">
+          <End Type="CarRentalCWModel.SAMOCHODY" Role="SAMOCHODY" Multiplicity="1" />
+          <End Type="CarRentalCWModel.ZAMOWIENIA" Role="ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SAMOCHODY">
+              <PropertyRef Name="ID_SAMOCHOD" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_SAMOCHOD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ">
+          <End Type="CarRentalCWModel.WYPOZYCZALNIE" Role="WYPOZYCZALNIE" Multiplicity="1" />
+          <End Type="CarRentalCWModel.ZAMOWIENIA" Role="ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WYPOZYCZALNIE">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_WYPOZYCZALNIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarRentalCWModelStoreContainer" CdmEntityContainer="CarRentalCWEntities">
+          <EntitySetMapping Name="SAMOCHODY">
+            <EntityTypeMapping TypeName="CarRentalCWModel.SAMOCHODY">
+              <MappingFragment StoreEntitySet="SAMOCHODY">
+                <ScalarProperty Name="ID_SAMOCHOD" ColumnName="ID_SAMOCHOD" />
+                <ScalarProperty Name="ID_PALIWO" ColumnName="ID_PALIWO" />
+                <ScalarProperty Name="ID_MODEL" ColumnName="ID_MODEL" />
+                <ScalarProperty Name="ID_WYPOZYCZALNIA" ColumnName="ID_WYPOZYCZALNIA" />
+                <ScalarProperty Name="ZDJECIE" ColumnName="ZDJECIE" />
+                <ScalarProperty Name="KOLOR" ColumnName="KOLOR" />
+                <ScalarProperty Name="PRZEBIEG" ColumnName="PRZEBIEG" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="POJEMNOSC" ColumnName="POJEMNOSC" />
+                <ScalarProperty Name="MOC" ColumnName="MOC" />
+                <ScalarProperty Name="SKRZYNIA" ColumnName="SKRZYNIA" />
+                <ScalarProperty Name="MIEJSCA" ColumnName="MIEJSCA" />
+                <ScalarProperty Name="CENA_DZIEN" ColumnName="CENA_DZIEN" />
+                <ScalarProperty Name="CENA_TYDZIEN" ColumnName="CENA_TYDZIEN" />
+                <ScalarProperty Name="CENA_MIESIAC" ColumnName="CENA_MIESIAC" />
+                <ScalarProperty Name="KAUCJA" ColumnName="KAUCJA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODELE">
+            <EntityTypeMapping TypeName="CarRentalCWModel.MODELE">
+              <MappingFragment StoreEntitySet="MODELE">
+                <ScalarProperty Name="SEGMENT" ColumnName="SEGMENT" />
+                <ScalarProperty Name="GENERACJA" ColumnName="GENERACJA" />
+                <ScalarProperty Name="ROCZNIK" ColumnName="ROCZNIK" />
+                <ScalarProperty Name="NAZWA_MODEL" ColumnName="NAZWA_MODEL" />
+                <ScalarProperty Name="ID_NADWOZIE" ColumnName="ID_NADWOZIE" />
+                <ScalarProperty Name="ID_MARKA" ColumnName="ID_MARKA" />
+                <ScalarProperty Name="ID_MODEL" ColumnName="ID_MODEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RODZAJE_PALIWA">
+            <EntityTypeMapping TypeName="CarRentalCWModel.RODZAJE_PALIWA">
+              <MappingFragment StoreEntitySet="RODZAJE_PALIWA">
+                <ScalarProperty Name="NAZWA_RODZAJ" ColumnName="NAZWA_RODZAJ" />
+                <ScalarProperty Name="ID_PALIWO" ColumnName="ID_PALIWO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WYPOZYCZALNIE">
+            <EntityTypeMapping TypeName="CarRentalCWModel.WYPOZYCZALNIE">
+              <MappingFragment StoreEntitySet="WYPOZYCZALNIE">
+                <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+                <ScalarProperty Name="MIASTO" ColumnName="MIASTO" />
+                <ScalarProperty Name="ID_WYPOZYCZALNIA" ColumnName="ID_WYPOZYCZALNIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAKIETY">
+            <EntityTypeMapping TypeName="CarRentalCWModel.PAKIETY">
+              <MappingFragment StoreEntitySet="PAKIETY">
+                <ScalarProperty Name="CENA" ColumnName="CENA" />
+                <ScalarProperty Name="ZAWARTOSC" ColumnName="ZAWARTOSC" />
+                <ScalarProperty Name="NAZWA" ColumnName="NAZWA" />
+                <ScalarProperty Name="ID_PAKIET" ColumnName="ID_PAKIET" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRACOWNICY">
+            <EntityTypeMapping TypeName="CarRentalCWModel.PRACOWNICY">
+              <MappingFragment StoreEntitySet="PRACOWNICY">
+                <ScalarProperty Name="PREMIA" ColumnName="PREMIA" />
+                <ScalarProperty Name="WYNAGRODZENIE" ColumnName="WYNAGRODZENIE" />
+                <ScalarProperty Name="DATA_ZATRUDNIENIA" ColumnName="DATA_ZATRUDNIENIA" />
+                <ScalarProperty Name="STANOWISKO" ColumnName="STANOWISKO" />
+                <ScalarProperty Name="TELEFON_PRACOWNIK" ColumnName="TELEFON_PRACOWNIK" />
+                <ScalarProperty Name="PESEL_PRACOWNIK" ColumnName="PESEL_PRACOWNIK" />
+                <ScalarProperty Name="NAZWISKO_PRACOWNIK" ColumnName="NAZWISKO_PRACOWNIK" />
+                <ScalarProperty Name="IMIE_PRACOWNIK" ColumnName="IMIE_PRACOWNIK" />
+                <ScalarProperty Name="ID_WYPOZYCZALNIA" ColumnName="ID_WYPOZYCZALNIA" />
+                <ScalarProperty Name="ID_KON_PRACOWNIK" ColumnName="ID_KON_PRACOWNIK" />
+                <ScalarProperty Name="ID_PRAC" ColumnName="ID_PRAC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORIA_ZAMOWIENIA">
+            <EntityTypeMapping TypeName="CarRentalCWModel.HISTORIA_ZAMOWIENIA">
+              <MappingFragment StoreEntitySet="HISTORIA_ZAMOWIENIA">
+                <ScalarProperty Name="KARA_KOLIZJA" ColumnName="KARA_KOLIZJA" />
+                <ScalarProperty Name="DATA_KOLIZJA" ColumnName="DATA_KOLIZJA" />
+                <ScalarProperty Name="KOLIZJA" ColumnName="KOLIZJA" />
+                <ScalarProperty Name="KOSZT_TANKOWANIE" ColumnName="KOSZT_TANKOWANIE" />
+                <ScalarProperty Name="ILOSC_TANKOWANIE" ColumnName="ILOSC_TANKOWANIE" />
+                <ScalarProperty Name="TANKOWANIE" ColumnName="TANKOWANIE" />
+                <ScalarProperty Name="DATA_PRZYJECIE" ColumnName="DATA_PRZYJECIE" />
+                <ScalarProperty Name="DATA_WYDANIE" ColumnName="DATA_WYDANIE" />
+                <ScalarProperty Name="ID_KLIENT" ColumnName="ID_KLIENT" />
+                <ScalarProperty Name="ID_ZAMOWIENIE" ColumnName="ID_ZAMOWIENIE" />
+                <ScalarProperty Name="ID_PRAC" ColumnName="ID_PRAC" />
+                <ScalarProperty Name="ID_HISTORIA" ColumnName="ID_HISTORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZAMOWIENIA">
+            <EntityTypeMapping TypeName="CarRentalCWModel.ZAMOWIENIA">
+              <MappingFragment StoreEntitySet="ZAMOWIENIA">
+                <ScalarProperty Name="DATA_KONIEC" ColumnName="DATA_KONIEC" />
+                <ScalarProperty Name="DATA_START" ColumnName="DATA_START" />
+                <ScalarProperty Name="CENA_ZAMOWIENIE" ColumnName="CENA_ZAMOWIENIE" />
+                <ScalarProperty Name="LICZBA_DNI" ColumnName="LICZBA_DNI" />
+                <ScalarProperty Name="ID_SAMOCHOD" ColumnName="ID_SAMOCHOD" />
+                <ScalarProperty Name="ID_KLIENT" ColumnName="ID_KLIENT" />
+                <ScalarProperty Name="ID_WYPOZYCZALNIA" ColumnName="ID_WYPOZYCZALNIA" />
+                <ScalarProperty Name="ID_HISTORIA" ColumnName="ID_HISTORIA" />
+                <ScalarProperty Name="ID_PAKIET" ColumnName="ID_PAKIET" />
+                <ScalarProperty Name="ID_ZAMOWIENIE" ColumnName="ID_ZAMOWIENIE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

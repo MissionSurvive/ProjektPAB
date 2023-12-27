@@ -15,7 +15,7 @@ namespace CarRental
     public partial class LoginForm : Form
     {
         public static int userRoleLogged;
-        public static int employeeID;
+        public static int userID;
         public static string username;
         public static string surname;
         public LoginForm()
@@ -41,7 +41,7 @@ namespace CarRental
                     object idObj = dt.Rows[0][0];
                     object nameObj = dt.Rows[0][3];
                     object surnameObj = dt.Rows[0][4];
-                    employeeID = Convert.ToInt32(idObj);
+                    userID = Convert.ToInt32(idObj);
                     username = nameObj.ToString();
                     surname = surnameObj.ToString();
                     connection.Close();
@@ -69,7 +69,7 @@ namespace CarRental
                     object idObj = dt.Rows[0][0];
                     object nameObj = dt.Rows[0][3];
                     object surnameObj = dt.Rows[0][4];
-                    employeeID = Convert.ToInt32(idObj);
+                    userID = Convert.ToInt32(idObj);
                     username = nameObj.ToString();
                     surname = surnameObj.ToString();
                     connection.Close();
