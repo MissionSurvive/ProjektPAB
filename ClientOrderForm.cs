@@ -12,7 +12,6 @@ namespace CarRental
 {
     public partial class ClientOrderForm : Form
     {
-        ZAMOWIENIA model = new ZAMOWIENIA();
         public ClientOrderForm()
         {
             InitializeComponent();
@@ -56,22 +55,44 @@ namespace CarRental
                     {
                         i,j
                     })
+                    .Join(db.MARKI,
+                    k => k.j.ID_MARKA,
+                    l => l.ID_MARKA,
+                    (k, l) => new
+                    {
+                        k,l
+                    })
+                    .Join(db.RODZAJE_NADWOZIA,
+                    m => m.k.j.ID_NADWOZIE,
+                    n => n.ID_NADWOZIE,
+                    (m, n) => new
+                    {
+                        m, n
+                    })
                     .Select(result => new
                     {
-                        result.j.NAZWA_MODEL,
-                        result.i.g.e.c.a.LICZBA_DNI,
-                        result.i.g.e.c.a.CENA_ZAMOWIENIE,
-                        result.i.g.e.c.a.DATA_START,
-                        result.i.g.e.c.a.DATA_KONIEC,
-                        result.i.g.e.d.MIASTO,
-                        result.i.g.f.TANKOWANIE,
-                        result.i.g.f.ILOSC_TANKOWANIE,
-                        result.i.g.f.KOSZT_TANKOWANIE,
-                        result.i.g.f.KARA_KOLIZJA,
+                        result.m.k.i.g.e.c.b.NAZWA,
+                        result.m.k.i.g.e.d.MIASTO,
+                        result.m.l.NAZWA_MARKA,
+                        result.m.k.j.NAZWA_MODEL,
+                        result.n.NAZWA_NADWOZIE,
+                        result.m.k.i.h.KOLOR,
+                        result.m.k.i.h.MOC,
+                        result.m.k.i.h.SKRZYNIA,
+                        result.m.k.i.h.MIEJSCA,
+                        result.m.k.i.h.CENA_DZIEN,
+                        result.m.k.i.h.CENA_TYDZIEN,
+                        result.m.k.i.h.CENA_MIESIAC,
+                        result.m.k.i.h.KAUCJA,
+                        result.m.k.i.g.e.c.a.DATA_START,
+                        result.m.k.i.g.e.c.a.DATA_KONIEC,
+                        result.m.k.i.g.f.ILOSC_TANKOWANIE,
+                        result.m.k.i.g.f.KOSZT_TANKOWANIE,
+                        result.m.k.i.g.f.KARA_KOLIZJA,
+                        result.m.k.i.g.e.c.a.ID_ZAMOWIENIE,
                     }) 
                     .ToList();
-            }
-                
+            }     
         }
     }
 }

@@ -30,16 +30,21 @@ namespace CarRental
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("DELETE FROM MARKI WHERE ID_MARKA LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.mARKITableAdapter.Update(this.allDataSet.MARKI);
-            this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
-            BrandTextBox.Text = "";
-            CountryTextBox.Text = "";
-            RegionTextBox.Text = "";
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
+            {
+                command = new SqlCommand("DELETE FROM MARKI WHERE ID_MARKA LIKE'" + rowNumber + "'", connection.connect());
+                connection.open();
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.mARKITableAdapter.Update(this.allDataSet.MARKI);
+                this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
+                BrandTextBox.Text = "";
+                CountryTextBox.Text = "";
+                RegionTextBox.Text = "";
+            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -53,57 +58,69 @@ namespace CarRental
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("UPDATE MARKI SET NAZWA_MARKA = @BrandName, KRAJ = @Country, REGION = @Region WHERE ID_MARKA LIKE'" + rowNumber + "'", connection.connect());
-            command.Parameters.AddWithValue("@BrandName", BrandTextBox.Text);
-            command.Parameters.AddWithValue("@Country", CheckNull(CountryTextBox.Text));
-            command.Parameters.AddWithValue("@Region", CheckNull(RegionTextBox.Text));
-            try
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
-                connection.open();
-                if(string.IsNullOrEmpty(BrandTextBox.Text))
+                command = new SqlCommand("UPDATE MARKI SET NAZWA_MARKA = @BrandName, KRAJ = @Country, REGION = @Region WHERE ID_MARKA LIKE'" + rowNumber + "'", connection.connect());
+                command.Parameters.AddWithValue("@BrandName", BrandTextBox.Text);
+                command.Parameters.AddWithValue("@Country", CheckNull(CountryTextBox.Text));
+                command.Parameters.AddWithValue("@Region", CheckNull(RegionTextBox.Text));
+                try
                 {
-                    MessageBox.Show("Nazwa marki nie może być pusta!");
-                } else
+                    connection.open();
+                    if (string.IsNullOrEmpty(BrandTextBox.Text))
+                    {
+                        MessageBox.Show("Nazwa marki nie może być pusta!");
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                        connection.close();
+                        MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
+                        this.mARKITableAdapter.Update(this.allDataSet.MARKI);
+                        this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
+                    }
+                }
+                catch (Exception ex)
                 {
-                    command.ExecuteNonQuery();
-                    connection.close();
-                    MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
-                    this.mARKITableAdapter.Update(this.allDataSet.MARKI);
-                    this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
-                } 
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!"); 
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("INSERT INTO MARKI (NAZWA_MARKA, KRAJ, REGION) VALUES (@BrandName, @Country, @Region)", connection.connect());
-            command.Parameters.AddWithValue("@BrandName", BrandTextBox.Text);
-            command.Parameters.AddWithValue("@Country", CheckNull(CountryTextBox.Text));
-            command.Parameters.AddWithValue("@Region", CheckNull(RegionTextBox.Text));
-            try
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
-                connection.open();
-                if (string.IsNullOrEmpty(BrandTextBox.Text))
+                command = new SqlCommand("INSERT INTO MARKI (NAZWA_MARKA, KRAJ, REGION) VALUES (@BrandName, @Country, @Region)", connection.connect());
+                command.Parameters.AddWithValue("@BrandName", BrandTextBox.Text);
+                command.Parameters.AddWithValue("@Country", CheckNull(CountryTextBox.Text));
+                command.Parameters.AddWithValue("@Region", CheckNull(RegionTextBox.Text));
+                try
                 {
-                    MessageBox.Show("Nazwa marki nie może być pusta!");
+                    connection.open();
+                    if (string.IsNullOrEmpty(BrandTextBox.Text))
+                    {
+                        MessageBox.Show("Nazwa marki nie może być pusta!");
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                        connection.close();
+                        MessageBox.Show("Dodano rekord pomyślnie!");
+                        this.mARKITableAdapter.Update(this.allDataSet.MARKI);
+                        this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    command.ExecuteNonQuery();
-                    connection.close();
-                    MessageBox.Show("Dodano rekord pomyślnie!");
-                    this.mARKITableAdapter.Update(this.allDataSet.MARKI);
-                    this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
+            
         }
     }
 }

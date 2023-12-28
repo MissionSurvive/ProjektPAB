@@ -41,19 +41,28 @@ namespace CarRental
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            carModelOptionsForm.ShowDialog();
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
+            {
+                carModelOptionsForm.ShowDialog();
+            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("DELETE FROM MODELE WHERE ID_MODEL LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.mODELETableAdapter.Update(this.allDataSet.MODELE);
-            this.mODELETableAdapter.Fill(this.allDataSet.MODELE);
-
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
+            {
+                command = new SqlCommand("DELETE FROM MODELE WHERE ID_MODEL LIKE'" + rowNumber + "'", connection.connect());
+                connection.open();
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.mODELETableAdapter.Update(this.allDataSet.MODELE);
+                this.mODELETableAdapter.Fill(this.allDataSet.MODELE);
+            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
     }
 }

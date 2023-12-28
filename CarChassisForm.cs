@@ -25,66 +25,81 @@ namespace CarRental
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("DELETE FROM RODZAJE_NADWOZIA WHERE ID_NADWOZIE LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.rODZAJE_NADWOZIATableAdapter.Update(this.allDataSet.RODZAJE_NADWOZIA);
-            this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
-            ChassisTextBox.Text = "";
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
+            {
+                command = new SqlCommand("DELETE FROM RODZAJE_NADWOZIA WHERE ID_NADWOZIE LIKE'" + rowNumber + "'", connection.connect());
+                connection.open();
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.rODZAJE_NADWOZIATableAdapter.Update(this.allDataSet.RODZAJE_NADWOZIA);
+                this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
+                ChassisTextBox.Text = "";
+            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("UPDATE RODZAJE_NADWOZIA SET NAZWA_NADWOZIE = @ChassisName WHERE ID_NADWOZIE LIKE'" + rowNumber + "'", connection.connect());
-            command.Parameters.AddWithValue("@ChassisName", ChassisTextBox.Text);
-            try
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
-                connection.open();
-                if (string.IsNullOrEmpty(ChassisTextBox.Text))
+                command = new SqlCommand("UPDATE RODZAJE_NADWOZIA SET NAZWA_NADWOZIE = @ChassisName WHERE ID_NADWOZIE LIKE'" + rowNumber + "'", connection.connect());
+                command.Parameters.AddWithValue("@ChassisName", ChassisTextBox.Text);
+                try
                 {
-                    MessageBox.Show("Nazwa nadwozia nie może być pusta!");
+                    connection.open();
+                    if (string.IsNullOrEmpty(ChassisTextBox.Text))
+                    {
+                        MessageBox.Show("Nazwa nadwozia nie może być pusta!");
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                        connection.close();
+                        MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
+                        this.rODZAJE_NADWOZIATableAdapter.Update(this.allDataSet.RODZAJE_NADWOZIA);
+                        this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    command.ExecuteNonQuery();
-                    connection.close();
-                    MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
-                    this.rODZAJE_NADWOZIATableAdapter.Update(this.allDataSet.RODZAJE_NADWOZIA);
-                    this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("INSERT INTO RODZAJE_NADWOZIA (NAZWA_NADWOZIE) VALUES (@ChassisName)", connection.connect());
-            command.Parameters.AddWithValue("@ChassisName", ChassisTextBox.Text);
-            try
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
-                connection.open();
-                if (string.IsNullOrEmpty(ChassisTextBox.Text))
+                command = new SqlCommand("INSERT INTO RODZAJE_NADWOZIA (NAZWA_NADWOZIE) VALUES (@ChassisName)", connection.connect());
+                command.Parameters.AddWithValue("@ChassisName", ChassisTextBox.Text);
+                try
                 {
-                    MessageBox.Show("Nazwa nadwozia nie może być pusta!");
+                    connection.open();
+                    if (string.IsNullOrEmpty(ChassisTextBox.Text))
+                    {
+                        MessageBox.Show("Nazwa nadwozia nie może być pusta!");
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                        connection.close();
+                        MessageBox.Show("Dodano rekord pomyślnie!");
+                        this.rODZAJE_NADWOZIATableAdapter.Update(this.allDataSet.RODZAJE_NADWOZIA);
+                        this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    command.ExecuteNonQuery();
-                    connection.close();
-                    MessageBox.Show("Dodano rekord pomyślnie!");
-                    this.rODZAJE_NADWOZIATableAdapter.Update(this.allDataSet.RODZAJE_NADWOZIA);
-                    this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -23,6 +23,10 @@
         <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_PAKIET_W__PAKIETY" />
         <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD" />
         <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ" />
+        <EntityTypeShape EntityType="CarRentalCWModel.MARKI" Width="1.5" PointX="1.25" PointY="9.375" />
+        <EntityTypeShape EntityType="CarRentalCWModel.RODZAJE_NADWOZIA" Width="1.5" PointX="1.25" PointY="12.125" />
+        <AssociationConnector Association="CarRentalCWModel.FK_MODELE_MARKA_SAM_MARKI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_MODELE_RODZAJ_NA_RODZAJE_" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

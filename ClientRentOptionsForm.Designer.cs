@@ -35,9 +35,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DayRadio = new System.Windows.Forms.RadioButton();
-            this.WeekRadio = new System.Windows.Forms.RadioButton();
             this.MonthRadio = new System.Windows.Forms.RadioButton();
+            this.WeekRadio = new System.Windows.Forms.RadioButton();
+            this.DayRadio = new System.Windows.Forms.RadioButton();
             this.LengthNumeric = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,6 +46,10 @@
             this.SumTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.ID_PAKIET = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAZWA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZAWARTOSC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNumeric)).BeginInit();
@@ -74,6 +78,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_PAKIET,
+            this.NAZWA,
+            this.ZAWARTOSC,
+            this.CENA});
             this.dataGridView1.Location = new System.Drawing.Point(17, 38);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(555, 228);
@@ -109,17 +118,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Okres";
             // 
-            // DayRadio
+            // MonthRadio
             // 
-            this.DayRadio.AutoSize = true;
-            this.DayRadio.Location = new System.Drawing.Point(6, 26);
-            this.DayRadio.Name = "DayRadio";
-            this.DayRadio.Size = new System.Drawing.Size(52, 17);
-            this.DayRadio.TabIndex = 0;
-            this.DayRadio.TabStop = true;
-            this.DayRadio.Text = "Dzień";
-            this.DayRadio.UseVisualStyleBackColor = true;
-            this.DayRadio.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.MonthRadio.AutoSize = true;
+            this.MonthRadio.Location = new System.Drawing.Point(6, 72);
+            this.MonthRadio.Name = "MonthRadio";
+            this.MonthRadio.Size = new System.Drawing.Size(61, 17);
+            this.MonthRadio.TabIndex = 2;
+            this.MonthRadio.TabStop = true;
+            this.MonthRadio.Text = "Miesiąc";
+            this.MonthRadio.UseVisualStyleBackColor = true;
+            this.MonthRadio.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // WeekRadio
             // 
@@ -133,17 +142,17 @@
             this.WeekRadio.UseVisualStyleBackColor = true;
             this.WeekRadio.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // MonthRadio
+            // DayRadio
             // 
-            this.MonthRadio.AutoSize = true;
-            this.MonthRadio.Location = new System.Drawing.Point(6, 72);
-            this.MonthRadio.Name = "MonthRadio";
-            this.MonthRadio.Size = new System.Drawing.Size(61, 17);
-            this.MonthRadio.TabIndex = 2;
-            this.MonthRadio.TabStop = true;
-            this.MonthRadio.Text = "Miesiąc";
-            this.MonthRadio.UseVisualStyleBackColor = true;
-            this.MonthRadio.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.DayRadio.AutoSize = true;
+            this.DayRadio.Location = new System.Drawing.Point(6, 26);
+            this.DayRadio.Name = "DayRadio";
+            this.DayRadio.Size = new System.Drawing.Size(52, 17);
+            this.DayRadio.TabIndex = 0;
+            this.DayRadio.TabStop = true;
+            this.DayRadio.Text = "Dzień";
+            this.DayRadio.UseVisualStyleBackColor = true;
+            this.DayRadio.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // LengthNumeric
             // 
@@ -230,6 +239,30 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // ID_PAKIET
+            // 
+            this.ID_PAKIET.DataPropertyName = "ID_PAKIET";
+            this.ID_PAKIET.HeaderText = "ID_PAKIET";
+            this.ID_PAKIET.Name = "ID_PAKIET";
+            // 
+            // NAZWA
+            // 
+            this.NAZWA.DataPropertyName = "NAZWA";
+            this.NAZWA.HeaderText = "NAZWA";
+            this.NAZWA.Name = "NAZWA";
+            // 
+            // ZAWARTOSC
+            // 
+            this.ZAWARTOSC.DataPropertyName = "ZAWARTOSC";
+            this.ZAWARTOSC.HeaderText = "ZAWARTOSC";
+            this.ZAWARTOSC.Name = "ZAWARTOSC";
+            // 
+            // CENA
+            // 
+            this.CENA.DataPropertyName = "CENA";
+            this.CENA.HeaderText = "CENA";
+            this.CENA.Name = "CENA";
+            // 
             // ClientRentOptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,5 +314,9 @@
         private System.Windows.Forms.TextBox SumTextBox;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_PAKIET;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAZWA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ZAWARTOSC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CENA;
     }
 }

@@ -40,24 +40,34 @@ namespace CarRental
 
         private void button5_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("DELETE FROM SAMOCHODY WHERE ID_SAMOCHOD LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (SAMOCHODY, RESEED, 0)";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (SAMOCHODY, RESEED)";
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.sAMOCHODYTableAdapter.Update(this.allDataSet.SAMOCHODY);
-            this.sAMOCHODYTableAdapter.Fill(this.allDataSet.SAMOCHODY);
-            getId();
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
+            {
+                command = new SqlCommand("DELETE FROM SAMOCHODY WHERE ID_SAMOCHOD LIKE'" + rowNumber + "'", connection.connect());
+                connection.open();
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (SAMOCHODY, RESEED, 0)";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (SAMOCHODY, RESEED)";
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.sAMOCHODYTableAdapter.Update(this.allDataSet.SAMOCHODY);
+                this.sAMOCHODYTableAdapter.Fill(this.allDataSet.SAMOCHODY);
+                getId();
+            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            carCarOptionsForm.ShowDialog();
-            getId();
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
+            {
+                carCarOptionsForm.ShowDialog();
+                getId();
+            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!"); 
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

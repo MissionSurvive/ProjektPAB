@@ -12,25 +12,20 @@ namespace CarRental
     using System;
     using System.Collections.Generic;
     
-    public partial class MODELE
+    public partial class MARKI
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MODELE()
+        public MARKI()
         {
-            this.SAMOCHODY = new HashSet<SAMOCHODY>();
+            this.MODELE = new HashSet<MODELE>();
         }
     
-        public decimal ID_MODEL { get; set; }
         public decimal ID_MARKA { get; set; }
-        public decimal ID_NADWOZIE { get; set; }
-        public string NAZWA_MODEL { get; set; }
-        public string ROCZNIK { get; set; }
-        public string GENERACJA { get; set; }
-        public string SEGMENT { get; set; }
+        public string NAZWA_MARKA { get; set; }
+        public string KRAJ { get; set; }
+        public string REGION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SAMOCHODY> SAMOCHODY { get; set; }
-        public virtual MARKI MARKI { get; set; }
-        public virtual RODZAJE_NADWOZIA RODZAJE_NADWOZIA { get; set; }
+        public virtual ICollection<MODELE> MODELE { get; set; }
     }
 }

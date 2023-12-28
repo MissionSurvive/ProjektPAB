@@ -25,14 +25,19 @@ namespace CarRental
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("DELETE FROM RODZAJE_PALIWA WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
-            this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
-            FuelTextBox.Text = "";
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
+            {
+                command = new SqlCommand("DELETE FROM RODZAJE_PALIWA WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
+                connection.open();
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                FuelTextBox.Text = "";
+            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -44,54 +49,64 @@ namespace CarRental
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("UPDATE RODZAJE_PALIWA SET NAZWA_RODZAJ = @FuelName WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
-            command.Parameters.AddWithValue("@FuelName", FuelTextBox.Text);
-            try
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
-                connection.open();
-                if (string.IsNullOrEmpty(FuelTextBox.Text))
+                command = new SqlCommand("UPDATE RODZAJE_PALIWA SET NAZWA_RODZAJ = @FuelName WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
+                command.Parameters.AddWithValue("@FuelName", FuelTextBox.Text);
+                try
                 {
-                    MessageBox.Show("Nazwa paliwa nie może być pusta!");
+                    connection.open();
+                    if (string.IsNullOrEmpty(FuelTextBox.Text))
+                    {
+                        MessageBox.Show("Nazwa paliwa nie może być pusta!");
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                        connection.close();
+                        MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
+                        this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                        this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    command.ExecuteNonQuery();
-                    connection.close();
-                    MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
-                    this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
-                    this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("INSERT INTO RODZAJE_PALIWA (NAZWA_RODZAJ) VALUES (@FuelName)", connection.connect());
-            command.Parameters.AddWithValue("@FuelName", FuelTextBox.Text);
-            try
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
-                connection.open();
-                if (string.IsNullOrEmpty(FuelTextBox.Text))
+                command = new SqlCommand("INSERT INTO RODZAJE_PALIWA (NAZWA_RODZAJ) VALUES (@FuelName)", connection.connect());
+                command.Parameters.AddWithValue("@FuelName", FuelTextBox.Text);
+                try
                 {
-                    MessageBox.Show("Nazwa paliwa nie może być pusta!");
+                    connection.open();
+                    if (string.IsNullOrEmpty(FuelTextBox.Text))
+                    {
+                        MessageBox.Show("Nazwa paliwa nie może być pusta!");
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                        connection.close();
+                        MessageBox.Show("Dodano rekord pomyślnie!");
+                        this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                        this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    command.ExecuteNonQuery();
-                    connection.close();
-                    MessageBox.Show("Dodano rekord pomyślnie!");
-                    this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
-                    this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");  
         }
     }
 }

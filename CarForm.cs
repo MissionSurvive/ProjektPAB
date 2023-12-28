@@ -19,153 +19,178 @@ namespace CarRental
 
         private void button6_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Wydający" || LoginForm.userRoleLogged == "Mechanik")
             {
-                if (form.Name == "CarCarForm")
+                foreach (Form form in collection)
                 {
-                    carCarForm.Hide();
+                    if (form.Name == "CarCarForm")
+                    {
+                        carCarForm.Hide();
+                    }
+                    if (form.Name == "CarBrandForm")
+                    {
+                        carBrandForm.Hide();
+                    }
+                    if (form.Name == "CarChassisForm")
+                    {
+                        carChassisForm.Hide();
+                    }
+                    if (form.Name == "CarFuelForm")
+                    {
+                        carFuelForm.Hide();
+                    }
+                    if (form.Name == "CarModelForm")
+                    {
+                        carModelForm.Hide();
+                    }
                 }
-                if (form.Name == "CarBrandForm")
-                {
-                    carBrandForm.Hide();
-                }
-                if (form.Name == "CarChassisForm")
-                {
-                    carChassisForm.Hide();
-                }
-                if (form.Name == "CarFuelForm")
-                {
-                    carFuelForm.Hide();
-                }
-                if (form.Name == "CarModelForm")
-                {
-                    carModelForm.Hide();
-                }
+
+                carBrandForm.FormBorderStyle = FormBorderStyle.None;
+                carPanel.Controls.Add(carBrandForm);
+                carBrandForm.Show();
             }
-            
-            carBrandForm.FormBorderStyle = FormBorderStyle.None;
-            carPanel.Controls.Add(carBrandForm);
-            carBrandForm.Show();
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!"); 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Wydający" || LoginForm.userRoleLogged == "Mechanik")
             {
-                if (form.Name == "CarCarForm")
+                foreach (Form form in collection)
                 {
-                    carCarForm.Hide();
+                    if (form.Name == "CarCarForm")
+                    {
+                        carCarForm.Hide();
+                    }
+                    if (form.Name == "CarBrandForm")
+                    {
+                        carBrandForm.Hide();
+                    }
+                    if (form.Name == "CarChassisForm")
+                    {
+                        carChassisForm.Hide();
+                    }
+                    if (form.Name == "CarFuelForm")
+                    {
+                        carFuelForm.Hide();
+                    }
+                    if (form.Name == "CarModelForm")
+                    {
+                        carModelForm.Hide();
+                    }
                 }
-                if (form.Name == "CarBrandForm")
-                {
-                    carBrandForm.Hide();
-                }
-                if (form.Name == "CarChassisForm")
-                {
-                    carChassisForm.Hide();
-                }
-                if (form.Name == "CarFuelForm")
-                {
-                    carFuelForm.Hide();
-                }
-                if (form.Name == "CarModelForm")
-                {
-                    carModelForm.Hide();
-                }
+                carCarForm.FormBorderStyle = FormBorderStyle.None;
+                carPanel.Controls.Add(carCarForm);
+                carCarForm.Show();
             }
-            carCarForm.FormBorderStyle = FormBorderStyle.None;
-            carPanel.Controls.Add(carCarForm);
-            carCarForm.Show();
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Wydający" || LoginForm.userRoleLogged == "Mechanik")
             {
-                if (form.Name == "CarCarForm")
+                foreach (Form form in collection)
                 {
-                    carCarForm.Hide();
+                    if (form.Name == "CarCarForm")
+                    {
+                        carCarForm.Hide();
+                    }
+                    if (form.Name == "CarBrandForm")
+                    {
+                        carBrandForm.Hide();
+                    }
+                    if (form.Name == "CarChassisForm")
+                    {
+                        carChassisForm.Hide();
+                    }
+                    if (form.Name == "CarFuelForm")
+                    {
+                        carFuelForm.Hide();
+                    }
+                    if (form.Name == "CarModelForm")
+                    {
+                        carModelForm.Hide();
+                    }
                 }
-                if (form.Name == "CarBrandForm")
-                {
-                    carBrandForm.Hide();
-                }
-                if (form.Name == "CarChassisForm")
-                {
-                    carChassisForm.Hide();
-                }
-                if (form.Name == "CarFuelForm")
-                {
-                    carFuelForm.Hide();
-                }
-                if (form.Name == "CarModelForm")
-                {
-                    carModelForm.Hide();
-                }
+                carChassisForm.FormBorderStyle = FormBorderStyle.None;
+                carPanel.Controls.Add(carChassisForm);
+                carChassisForm.Show();
             }
-            carChassisForm.FormBorderStyle = FormBorderStyle.None;
-            carPanel.Controls.Add(carChassisForm);
-            carChassisForm.Show();
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Wydający" || LoginForm.userRoleLogged == "Mechanik")
             {
-                if (form.Name == "CarCarForm")
+                foreach (Form form in collection)
                 {
-                    carCarForm.Hide();
+                    if (form.Name == "CarCarForm")
+                    {
+                        carCarForm.Hide();
+                    }
+                    if (form.Name == "CarBrandForm")
+                    {
+                        carBrandForm.Hide();
+                    }
+                    if (form.Name == "CarChassisForm")
+                    {
+                        carChassisForm.Hide();
+                    }
+                    if (form.Name == "CarFuelForm")
+                    {
+                        carFuelForm.Hide();
+                    }
+                    if (form.Name == "CarModelForm")
+                    {
+                        carModelForm.Hide();
+                    }
                 }
-                if (form.Name == "CarBrandForm")
-                {
-                    carBrandForm.Hide();
-                }
-                if (form.Name == "CarChassisForm")
-                {
-                    carChassisForm.Hide();
-                }
-                if (form.Name == "CarFuelForm")
-                {
-                    carFuelForm.Hide();
-                }
-                if (form.Name == "CarModelForm")
-                {
-                    carModelForm.Hide();
-                }
+                carFuelForm.FormBorderStyle = FormBorderStyle.None;
+                carPanel.Controls.Add(carFuelForm);
+                carFuelForm.Show();
             }
-            carFuelForm.FormBorderStyle = FormBorderStyle.None;
-            carPanel.Controls.Add(carFuelForm);
-            carFuelForm.Show();
+            else MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Wydający" || LoginForm.userRoleLogged == "Mechanik")
             {
-                if (form.Name == "CarCarForm")
+                foreach (Form form in collection)
                 {
-                    carCarForm.Hide();
+                    if (form.Name == "CarCarForm")
+                    {
+                        carCarForm.Hide();
+                    }
+                    if (form.Name == "CarBrandForm")
+                    {
+                        carBrandForm.Hide();
+                    }
+                    if (form.Name == "CarChassisForm")
+                    {
+                        carChassisForm.Hide();
+                    }
+                    if (form.Name == "CarFuelForm")
+                    {
+                        carFuelForm.Hide();
+                    }
+                    if (form.Name == "CarModelForm")
+                    {
+                        carModelForm.Hide();
+                    }
                 }
-                if (form.Name == "CarBrandForm")
-                {
-                    carBrandForm.Hide();
-                }
-                if (form.Name == "CarChassisForm")
-                {
-                    carChassisForm.Hide();
-                }
-                if (form.Name == "CarFuelForm")
-                {
-                    carFuelForm.Hide();
-                }
-                if (form.Name == "CarModelForm")
-                {
-                    carModelForm.Hide();
-                }
+                carModelForm.FormBorderStyle = FormBorderStyle.None;
+                carPanel.Controls.Add(carModelForm);
+                carModelForm.Show();
             }
-            carModelForm.FormBorderStyle = FormBorderStyle.None;
-            carPanel.Controls.Add(carModelForm);
-            carModelForm.Show();
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
     }
 }

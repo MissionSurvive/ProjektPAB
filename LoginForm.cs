@@ -14,7 +14,7 @@ namespace CarRental
 {
     public partial class LoginForm : Form
     {
-        public static int userRoleLogged;
+        public static string userRoleLogged;
         public static int userID;
         public static string username;
         public static string surname;
@@ -28,8 +28,9 @@ namespace CarRental
             SqlConnection connection = new SqlConnection(@"Data Source = X280\SQLEXPRESS; Initial Catalog = CarRentalCW; Integrated Security = True");
             if(EmployeeRadio.Checked)
             {
-                var command = ("SELECT KONTA_PRACOWNIKOW.ID_PRAC, NAZWA_PRACOWNIK, HASLO_PRACOWNIK, PRACOWNICY.IMIE_PRACOWNIK, PRACOWNICY.NAZWISKO_PRACOWNIK FROM KONTA_PRACOWNIKOW " +
+                var command = ("SELECT KONTA_PRACOWNIKOW.ID_PRAC, NAZWA_PRACOWNIK, HASLO_PRACOWNIK, PRACOWNICY.IMIE_PRACOWNIK, PRACOWNICY.NAZWISKO_PRACOWNIK, ROLE.ROLA FROM KONTA_PRACOWNIKOW " +
                     "JOIN PRACOWNICY ON KONTA_PRACOWNIKOW.ID_PRAC = PRACOWNICY.ID_PRAC " +
+                    "JOIN ROLE ON KONTA_PRACOWNIKOW.ID_ROLA = ROLE.ID_ROLA " +
                     "WHERE NAZWA_PRACOWNIK = @Username AND HASLO_PRACOWNIK = @Password");
                 SqlDataAdapter adapter = new SqlDataAdapter(command, connection);
                 adapter.SelectCommand.Parameters.AddWithValue("@Username", usernameTextBox.Text);
@@ -41,9 +42,11 @@ namespace CarRental
                     object idObj = dt.Rows[0][0];
                     object nameObj = dt.Rows[0][3];
                     object surnameObj = dt.Rows[0][4];
+                    object roleObj = dt.Rows[0][5];
                     userID = Convert.ToInt32(idObj);
                     username = nameObj.ToString();
                     surname = surnameObj.ToString();
+                    userRoleLogged = roleObj.ToString();
                     connection.Close();
                     Form1 mainForm = new Form1();
                     this.Hide();

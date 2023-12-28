@@ -258,6 +258,9 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MARKI.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MODELE.cs">
       <DependentUpon>CarModel.tt</DependentUpon>
     </Compile>
@@ -316,6 +319,9 @@
     </Compile>
     <Compile Include="ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RODZAJE_NADWOZIA.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RODZAJE_PALIWA.cs">
       <DependentUpon>CarModel.tt</DependentUpon>

@@ -33,5 +33,7 @@ namespace CarRental
         public virtual DbSet<PRACOWNICY> PRACOWNICY { get; set; }
         public virtual DbSet<HISTORIA_ZAMOWIENIA> HISTORIA_ZAMOWIENIA { get; set; }
         public virtual DbSet<ZAMOWIENIA> ZAMOWIENIA { get; set; }
+        public virtual DbSet<MARKI> MARKI { get; set; }
+        public virtual DbSet<RODZAJE_NADWOZIA> RODZAJE_NADWOZIA { get; set; }
     }
 }

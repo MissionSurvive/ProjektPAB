@@ -22,6 +22,15 @@
           <Property Name="DATA_KOLIZJA" Type="datetime" />
           <Property Name="KARA_KOLIZJA" Type="decimal" Precision="7" Scale="2" />
         </EntityType>
+        <EntityType Name="MARKI">
+          <Key>
+            <PropertyRef Name="ID_MARKA" />
+          </Key>
+          <Property Name="ID_MARKA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAZWA_MARKA" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="KRAJ" Type="varchar" MaxLength="40" />
+          <Property Name="REGION" Type="varchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="MODELE">
           <Key>
             <PropertyRef Name="ID_MODEL" />
@@ -58,6 +67,13 @@
           <Property Name="DATA_ZATRUDNIENIA" Type="datetime" Nullable="false" />
           <Property Name="WYNAGRODZENIE" Type="decimal" Precision="7" Scale="2" Nullable="false" />
           <Property Name="PREMIA" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="RODZAJE_NADWOZIA">
+          <Key>
+            <PropertyRef Name="ID_NADWOZIE" />
+          </Key>
+          <Property Name="ID_NADWOZIE" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAZWA_NADWOZIE" Type="varchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <EntityType Name="RODZAJE_PALIWA">
           <Key>
@@ -131,6 +147,30 @@
             </Principal>
             <Dependent Role="HISTORIA_ZAMOWIENIA">
               <PropertyRef Name="ID_PRAC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODELE_MARKA_SAM_MARKI">
+          <End Role="MARKI" Type="Self.MARKI" Multiplicity="1" />
+          <End Role="MODELE" Type="Self.MODELE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARKI">
+              <PropertyRef Name="ID_MARKA" />
+            </Principal>
+            <Dependent Role="MODELE">
+              <PropertyRef Name="ID_MARKA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODELE_RODZAJ_NA_RODZAJE_">
+          <End Role="RODZAJE_NADWOZIA" Type="Self.RODZAJE_NADWOZIA" Multiplicity="1" />
+          <End Role="MODELE" Type="Self.MODELE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RODZAJE_NADWOZIA">
+              <PropertyRef Name="ID_NADWOZIE" />
+            </Principal>
+            <Dependent Role="MODELE">
+              <PropertyRef Name="ID_NADWOZIE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -232,9 +272,11 @@
         </Association>
         <EntityContainer Name="CarRentalCWModelStoreContainer">
           <EntitySet Name="HISTORIA_ZAMOWIENIA" EntityType="Self.HISTORIA_ZAMOWIENIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MARKI" EntityType="Self.MARKI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MODELE" EntityType="Self.MODELE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAKIETY" EntityType="Self.PAKIETY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRACOWNICY" EntityType="Self.PRACOWNICY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RODZAJE_NADWOZIA" EntityType="Self.RODZAJE_NADWOZIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RODZAJE_PALIWA" EntityType="Self.RODZAJE_PALIWA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SAMOCHODY" EntityType="Self.SAMOCHODY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WYPOZYCZALNIE" EntityType="Self.WYPOZYCZALNIE" Schema="dbo" store:Type="Tables" />
@@ -246,6 +288,14 @@
           <AssociationSet Name="FK_HISTORIA_PRACOWNIK_PRACOWNI" Association="Self.FK_HISTORIA_PRACOWNIK_PRACOWNI">
             <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
             <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODELE_MARKA_SAM_MARKI" Association="Self.FK_MODELE_MARKA_SAM_MARKI">
+            <End Role="MARKI" EntitySet="MARKI" />
+            <End Role="MODELE" EntitySet="MODELE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODELE_RODZAJ_NA_RODZAJE_" Association="Self.FK_MODELE_RODZAJ_NA_RODZAJE_">
+            <End Role="RODZAJE_NADWOZIA" EntitySet="RODZAJE_NADWOZIA" />
+            <End Role="MODELE" EntitySet="MODELE" />
           </AssociationSet>
           <AssociationSet Name="FK_PRACOWNI_PRACOWNIK_WYPOZYCZ" Association="Self.FK_PRACOWNI_PRACOWNIK_WYPOZYCZ">
             <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
@@ -358,6 +408,16 @@
             <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
             <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
           </AssociationSet>
+          <EntitySet Name="MARKI" EntityType="CarRentalCWModel.MARKI" />
+          <EntitySet Name="RODZAJE_NADWOZIA" EntityType="CarRentalCWModel.RODZAJE_NADWOZIA" />
+          <AssociationSet Name="FK_MODELE_MARKA_SAM_MARKI" Association="CarRentalCWModel.FK_MODELE_MARKA_SAM_MARKI">
+            <End Role="MARKI" EntitySet="MARKI" />
+            <End Role="MODELE" EntitySet="MODELE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODELE_RODZAJ_NA_RODZAJE_" Association="CarRentalCWModel.FK_MODELE_RODZAJ_NA_RODZAJE_">
+            <End Role="RODZAJE_NADWOZIA" EntitySet="RODZAJE_NADWOZIA" />
+            <End Role="MODELE" EntitySet="MODELE" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="MODELE">
           <Key>
@@ -371,6 +431,8 @@
           <Property Name="GENERACJA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="SEGMENT" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SAMOCHODY" Relationship="CarRentalCWModel.FK_SAMOCHOD_MODEL_SAM_MODELE" FromRole="MODELE" ToRole="SAMOCHODY" />
+          <NavigationProperty Name="MARKI" Relationship="CarRentalCWModel.FK_MODELE_MARKA_SAM_MARKI" FromRole="MODELE" ToRole="MARKI" />
+          <NavigationProperty Name="RODZAJE_NADWOZIA" Relationship="CarRentalCWModel.FK_MODELE_RODZAJ_NA_RODZAJE_" FromRole="MODELE" ToRole="RODZAJE_NADWOZIA" />
         </EntityType>
         <EntityType Name="RODZAJE_PALIWA">
           <Key>
@@ -579,6 +641,48 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MARKI">
+          <Key>
+            <PropertyRef Name="ID_MARKA" />
+          </Key>
+          <Property Name="ID_MARKA" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAZWA_MARKA" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="KRAJ" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="REGION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MODELE" Relationship="CarRentalCWModel.FK_MODELE_MARKA_SAM_MARKI" FromRole="MARKI" ToRole="MODELE" />
+        </EntityType>
+        <EntityType Name="RODZAJE_NADWOZIA">
+          <Key>
+            <PropertyRef Name="ID_NADWOZIE" />
+          </Key>
+          <Property Name="ID_NADWOZIE" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAZWA_NADWOZIE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MODELE" Relationship="CarRentalCWModel.FK_MODELE_RODZAJ_NA_RODZAJE_" FromRole="RODZAJE_NADWOZIA" ToRole="MODELE" />
+        </EntityType>
+        <Association Name="FK_MODELE_MARKA_SAM_MARKI">
+          <End Type="CarRentalCWModel.MARKI" Role="MARKI" Multiplicity="1" />
+          <End Type="CarRentalCWModel.MODELE" Role="MODELE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARKI">
+              <PropertyRef Name="ID_MARKA" />
+            </Principal>
+            <Dependent Role="MODELE">
+              <PropertyRef Name="ID_MARKA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODELE_RODZAJ_NA_RODZAJE_">
+          <End Type="CarRentalCWModel.RODZAJE_NADWOZIA" Role="RODZAJE_NADWOZIA" Multiplicity="1" />
+          <End Type="CarRentalCWModel.MODELE" Role="MODELE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RODZAJE_NADWOZIA">
+              <PropertyRef Name="ID_NADWOZIE" />
+            </Principal>
+            <Dependent Role="MODELE">
+              <PropertyRef Name="ID_NADWOZIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -695,6 +799,24 @@
                 <ScalarProperty Name="ID_HISTORIA" ColumnName="ID_HISTORIA" />
                 <ScalarProperty Name="ID_PAKIET" ColumnName="ID_PAKIET" />
                 <ScalarProperty Name="ID_ZAMOWIENIE" ColumnName="ID_ZAMOWIENIE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MARKI">
+            <EntityTypeMapping TypeName="CarRentalCWModel.MARKI">
+              <MappingFragment StoreEntitySet="MARKI">
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
+                <ScalarProperty Name="KRAJ" ColumnName="KRAJ" />
+                <ScalarProperty Name="NAZWA_MARKA" ColumnName="NAZWA_MARKA" />
+                <ScalarProperty Name="ID_MARKA" ColumnName="ID_MARKA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RODZAJE_NADWOZIA">
+            <EntityTypeMapping TypeName="CarRentalCWModel.RODZAJE_NADWOZIA">
+              <MappingFragment StoreEntitySet="RODZAJE_NADWOZIA">
+                <ScalarProperty Name="NAZWA_NADWOZIE" ColumnName="NAZWA_NADWOZIE" />
+                <ScalarProperty Name="ID_NADWOZIE" ColumnName="ID_NADWOZIE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

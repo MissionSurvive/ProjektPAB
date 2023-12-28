@@ -28,6 +28,7 @@ namespace CarRental
             SumTextBox.Text = sum.ToString();
             using (CarRentalCWEntities db = new CarRentalCWEntities())
             {
+                dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.DataSource = db.PAKIETY.ToList();
                 EmployeeCombo.DataSource = db.PRACOWNICY
                     .Where(x => x.ID_WYPOZYCZALNIA == ClientRentForm.rentalNumber)
@@ -48,7 +49,7 @@ namespace CarRental
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             int length = (int)LengthNumeric.Value;
-            sum = (ClientRentForm.dayPrice * length) + packetPrice;
+            sum = (ClientRentForm.dayPrice * length) + packetPrice + ClientRentForm.depositPrice;
             SumTextBox.Text = sum.ToString();
         }
 
@@ -62,7 +63,7 @@ namespace CarRental
             else
             {
                 int length = (int)LengthNumeric.Value;
-                sum = (ClientRentForm.weekPrice * length) + packetPrice;
+                sum = (ClientRentForm.weekPrice * length) + packetPrice + ClientRentForm.depositPrice;
                 SumTextBox.Text = sum.ToString();
             } 
         }
@@ -77,7 +78,7 @@ namespace CarRental
             else
             {
                 int length = (int)LengthNumeric.Value;
-                sum = (ClientRentForm.monthPrice * length) + packetPrice;
+                sum = (ClientRentForm.monthPrice * length) + packetPrice + ClientRentForm.depositPrice;
                 SumTextBox.Text = sum.ToString();
             } 
         }
