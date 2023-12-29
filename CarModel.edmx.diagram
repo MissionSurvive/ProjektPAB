@@ -27,6 +27,18 @@
         <EntityTypeShape EntityType="CarRentalCWModel.RODZAJE_NADWOZIA" Width="1.5" PointX="1.25" PointY="12.125" />
         <AssociationConnector Association="CarRentalCWModel.FK_MODELE_MARKA_SAM_MARKI" />
         <AssociationConnector Association="CarRentalCWModel.FK_MODELE_RODZAJ_NA_RODZAJE_" />
+        <EntityTypeShape EntityType="CarRentalCWModel.KLIENCI" Width="1.5" PointX="3.375" PointY="8" />
+        <EntityTypeShape EntityType="CarRentalCWModel.ROLE" Width="1.5" PointX="5.375" PointY="7.75" />
+        <AssociationConnector Association="CarRentalCWModel.FK_HISTORIA_KLIENT_PO_KLIENCI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIENI_KLIENCI" />
+        <EntityTypeShape EntityType="CarRentalCWModel.KONTA_KLIENTOW" Width="1.5" PointX="1.125" PointY="15.375" />
+        <EntityTypeShape EntityType="CarRentalCWModel.KONTA_PRACOWNIKOW" Width="1.5" PointX="13.25" PointY="8.75" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KLIENCI_KONTO_KLI_KONTA_KL" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KONTA_KL_KONTO_KLI_KLIENCI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KONTA_KL_ROLE_KLIE_ROLE" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KONTA_PR_KONTO_PRA_PRACOWNI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KONTA_PR_ROLE_PRAC_ROLE" />
+        <AssociationConnector Association="CarRentalCWModel.FK_PRACOWNI_KONTO_PRA_KONTA_PR" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

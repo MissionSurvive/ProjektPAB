@@ -36,19 +36,20 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mIASTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDRESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.AddressLabel = new System.Windows.Forms.Label();
             this.CityLabel = new System.Windows.Forms.Label();
             this.CityTextBox = new System.Windows.Forms.TextBox();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.wYPOZYCZALNIETableAdapter = new CarRental.AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter();
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mIASTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aDRESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilterCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // FilterButton
@@ -63,6 +64,7 @@
             this.FilterButton.Text = "Filtruj";
             this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // UpdateButton
             // 
@@ -131,6 +133,35 @@
             this.dataGridView1.TabIndex = 98;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
+            // iDWYPOZYCZALNIADataGridViewTextBoxColumn
+            // 
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mIASTODataGridViewTextBoxColumn
+            // 
+            this.mIASTODataGridViewTextBoxColumn.DataPropertyName = "MIASTO";
+            this.mIASTODataGridViewTextBoxColumn.HeaderText = "MIASTO";
+            this.mIASTODataGridViewTextBoxColumn.Name = "mIASTODataGridViewTextBoxColumn";
+            // 
+            // aDRESDataGridViewTextBoxColumn
+            // 
+            this.aDRESDataGridViewTextBoxColumn.DataPropertyName = "ADRES";
+            this.aDRESDataGridViewTextBoxColumn.HeaderText = "ADRES";
+            this.aDRESDataGridViewTextBoxColumn.Name = "aDRESDataGridViewTextBoxColumn";
+            // 
+            // wYPOZYCZALNIEBindingSource
+            // 
+            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
+            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // AddressTextBox
             // 
             this.AddressTextBox.Location = new System.Drawing.Point(12, 573);
@@ -165,38 +196,21 @@
             this.CityTextBox.Size = new System.Drawing.Size(164, 20);
             this.CityTextBox.TabIndex = 99;
             // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // wYPOZYCZALNIEBindingSource
-            // 
-            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
-            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
-            // 
             // wYPOZYCZALNIETableAdapter
             // 
             this.wYPOZYCZALNIETableAdapter.ClearBeforeFill = true;
             // 
-            // iDWYPOZYCZALNIADataGridViewTextBoxColumn
+            // FilterCheck
             // 
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mIASTODataGridViewTextBoxColumn
-            // 
-            this.mIASTODataGridViewTextBoxColumn.DataPropertyName = "MIASTO";
-            this.mIASTODataGridViewTextBoxColumn.HeaderText = "MIASTO";
-            this.mIASTODataGridViewTextBoxColumn.Name = "mIASTODataGridViewTextBoxColumn";
-            // 
-            // aDRESDataGridViewTextBoxColumn
-            // 
-            this.aDRESDataGridViewTextBoxColumn.DataPropertyName = "ADRES";
-            this.aDRESDataGridViewTextBoxColumn.HeaderText = "ADRES";
-            this.aDRESDataGridViewTextBoxColumn.Name = "aDRESDataGridViewTextBoxColumn";
+            this.FilterCheck.AutoSize = true;
+            this.FilterCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FilterCheck.Location = new System.Drawing.Point(924, 585);
+            this.FilterCheck.Name = "FilterCheck";
+            this.FilterCheck.Size = new System.Drawing.Size(126, 24);
+            this.FilterCheck.TabIndex = 101;
+            this.FilterCheck.Text = "Włącz filtrację";
+            this.FilterCheck.UseVisualStyleBackColor = true;
+            this.FilterCheck.CheckedChanged += new System.EventHandler(this.FilterCheck_CheckedChanged);
             // 
             // RentalPlacesForm
             // 
@@ -204,6 +218,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1100, 681);
+            this.Controls.Add(this.FilterCheck);
             this.Controls.Add(this.CityLabel);
             this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.dataGridView1);
@@ -219,8 +234,8 @@
             this.Text = "RentalPlacesForm";
             this.Load += new System.EventHandler(this.RentalPlacesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +258,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iDWYPOZYCZALNIADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mIASTODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aDRESDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox FilterCheck;
     }
 }

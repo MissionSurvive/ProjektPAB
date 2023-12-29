@@ -32,6 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarBrandForm));
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAZWAMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kRAJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEGIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
             this.BrandLabel = new System.Windows.Forms.Label();
             this.CountryLabel = new System.Windows.Forms.Label();
             this.RegionLabel = new System.Windows.Forms.Label();
@@ -42,16 +48,11 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mARKITableAdapter = new CarRental.AllDataSetTableAdapters.MARKITableAdapter();
-            this.iDMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAZWAMARKADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kRAJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEGIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilterCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -80,8 +81,40 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
-            // carRentalCWDataSet
+            // iDMARKADataGridViewTextBoxColumn
             // 
+            this.iDMARKADataGridViewTextBoxColumn.DataPropertyName = "ID_MARKA";
+            this.iDMARKADataGridViewTextBoxColumn.HeaderText = "ID_MARKA";
+            this.iDMARKADataGridViewTextBoxColumn.Name = "iDMARKADataGridViewTextBoxColumn";
+            this.iDMARKADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nAZWAMARKADataGridViewTextBoxColumn
+            // 
+            this.nAZWAMARKADataGridViewTextBoxColumn.DataPropertyName = "NAZWA_MARKA";
+            this.nAZWAMARKADataGridViewTextBoxColumn.HeaderText = "NAZWA_MARKA";
+            this.nAZWAMARKADataGridViewTextBoxColumn.Name = "nAZWAMARKADataGridViewTextBoxColumn";
+            // 
+            // kRAJDataGridViewTextBoxColumn
+            // 
+            this.kRAJDataGridViewTextBoxColumn.DataPropertyName = "KRAJ";
+            this.kRAJDataGridViewTextBoxColumn.HeaderText = "KRAJ";
+            this.kRAJDataGridViewTextBoxColumn.Name = "kRAJDataGridViewTextBoxColumn";
+            // 
+            // rEGIONDataGridViewTextBoxColumn
+            // 
+            this.rEGIONDataGridViewTextBoxColumn.DataPropertyName = "REGION";
+            this.rEGIONDataGridViewTextBoxColumn.HeaderText = "REGION";
+            this.rEGIONDataGridViewTextBoxColumn.Name = "rEGIONDataGridViewTextBoxColumn";
+            // 
+            // mARKIBindingSource
+            // 
+            this.mARKIBindingSource.DataMember = "MARKI";
+            this.mARKIBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // BrandLabel
             // 
@@ -146,6 +179,7 @@
             this.FilterButton.Text = "Filtruj";
             this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // UpdateButton
             // 
@@ -189,44 +223,21 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mARKIBindingSource
-            // 
-            this.mARKIBindingSource.DataMember = "MARKI";
-            this.mARKIBindingSource.DataSource = this.allDataSet;
-            // 
             // mARKITableAdapter
             // 
             this.mARKITableAdapter.ClearBeforeFill = true;
             // 
-            // iDMARKADataGridViewTextBoxColumn
+            // FilterCheck
             // 
-            this.iDMARKADataGridViewTextBoxColumn.DataPropertyName = "ID_MARKA";
-            this.iDMARKADataGridViewTextBoxColumn.HeaderText = "ID_MARKA";
-            this.iDMARKADataGridViewTextBoxColumn.Name = "iDMARKADataGridViewTextBoxColumn";
-            this.iDMARKADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nAZWAMARKADataGridViewTextBoxColumn
-            // 
-            this.nAZWAMARKADataGridViewTextBoxColumn.DataPropertyName = "NAZWA_MARKA";
-            this.nAZWAMARKADataGridViewTextBoxColumn.HeaderText = "NAZWA_MARKA";
-            this.nAZWAMARKADataGridViewTextBoxColumn.Name = "nAZWAMARKADataGridViewTextBoxColumn";
-            // 
-            // kRAJDataGridViewTextBoxColumn
-            // 
-            this.kRAJDataGridViewTextBoxColumn.DataPropertyName = "KRAJ";
-            this.kRAJDataGridViewTextBoxColumn.HeaderText = "KRAJ";
-            this.kRAJDataGridViewTextBoxColumn.Name = "kRAJDataGridViewTextBoxColumn";
-            // 
-            // rEGIONDataGridViewTextBoxColumn
-            // 
-            this.rEGIONDataGridViewTextBoxColumn.DataPropertyName = "REGION";
-            this.rEGIONDataGridViewTextBoxColumn.HeaderText = "REGION";
-            this.rEGIONDataGridViewTextBoxColumn.Name = "rEGIONDataGridViewTextBoxColumn";
+            this.FilterCheck.AutoSize = true;
+            this.FilterCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FilterCheck.Location = new System.Drawing.Point(761, 585);
+            this.FilterCheck.Name = "FilterCheck";
+            this.FilterCheck.Size = new System.Drawing.Size(126, 24);
+            this.FilterCheck.TabIndex = 62;
+            this.FilterCheck.Text = "Włącz filtrację";
+            this.FilterCheck.UseVisualStyleBackColor = true;
+            this.FilterCheck.CheckedChanged += new System.EventHandler(this.FilterCheck_CheckedChanged);
             // 
             // CarBrandForm
             // 
@@ -234,6 +245,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(937, 681);
+            this.Controls.Add(this.FilterCheck);
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.DeleteButton);
@@ -251,8 +263,8 @@
             this.Text = "CarBrandForm";
             this.Load += new System.EventHandler(this.CarBrandForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +291,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nAZWAMARKADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kRAJDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rEGIONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox FilterCheck;
     }
 }

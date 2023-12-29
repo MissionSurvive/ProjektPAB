@@ -101,5 +101,38 @@ namespace CarRental
             employeeOptionsForm.ShowDialog();
             getId();
         }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                UpdateButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                UpdateButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
+                dataGridView1.DataSource = this.allDataSet.PRACOWNICY;
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.PRACOWNICY
+                        .Where(
+                        x => x.IMIE_PRACOWNIK.StartsWith(NameTextBox.Text)
+                        && x.NAZWISKO_PRACOWNIK.StartsWith(SurnameTextBox.Text)
+                        )
+                        .ToList();
+                }
+            }
+        }
     }
 }

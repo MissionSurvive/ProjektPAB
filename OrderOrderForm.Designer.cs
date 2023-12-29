@@ -43,14 +43,10 @@
             this.dATAKONIECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.allDataSet = new CarRental.AllDataSet();
-            this.FilterButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.zAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.ZAMOWIENIATableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.hISTORIAZAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hISTORIA_ZAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter();
             this.iDHISTORIADataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDPRACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDZAMOWIENIEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +59,9 @@
             this.kOLIZJADataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dATAKOLIZJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kARAKOLIZJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hISTORIAZAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.hISTORIA_ZAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAMOWIENIABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
@@ -163,25 +162,12 @@
             this.allDataSet.DataSetName = "AllDataSet";
             this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // FilterButton
-            // 
-            this.FilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.FilterButton.Image = ((System.Drawing.Image)(resources.GetObject("FilterButton.Image")));
-            this.FilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FilterButton.Location = new System.Drawing.Point(762, 616);
-            this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(164, 54);
-            this.FilterButton.TabIndex = 137;
-            this.FilterButton.Text = "Filtruj";
-            this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.FilterButton.UseVisualStyleBackColor = true;
-            // 
             // UpdateButton
             // 
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.Image")));
             this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateButton.Location = new System.Drawing.Point(422, 616);
+            this.UpdateButton.Location = new System.Drawing.Point(592, 616);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(164, 54);
             this.UpdateButton.TabIndex = 136;
@@ -227,29 +213,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(240, 150);
             this.dataGridView2.TabIndex = 144;
             this.dataGridView2.Visible = false;
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
-            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeleteButton.Location = new System.Drawing.Point(592, 616);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(164, 54);
-            this.DeleteButton.TabIndex = 135;
-            this.DeleteButton.Text = "Usuń";
-            this.DeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
-            // hISTORIAZAMOWIENIABindingSource
-            // 
-            this.hISTORIAZAMOWIENIABindingSource.DataMember = "HISTORIA_ZAMOWIENIA";
-            this.hISTORIAZAMOWIENIABindingSource.DataSource = this.allDataSet;
-            // 
-            // hISTORIA_ZAMOWIENIATableAdapter
-            // 
-            this.hISTORIA_ZAMOWIENIATableAdapter.ClearBeforeFill = true;
             // 
             // iDHISTORIADataGridViewTextBoxColumn1
             // 
@@ -324,6 +287,29 @@
             this.kARAKOLIZJADataGridViewTextBoxColumn.HeaderText = "KARA_KOLIZJA";
             this.kARAKOLIZJADataGridViewTextBoxColumn.Name = "kARAKOLIZJADataGridViewTextBoxColumn";
             // 
+            // hISTORIAZAMOWIENIABindingSource
+            // 
+            this.hISTORIAZAMOWIENIABindingSource.DataMember = "HISTORIA_ZAMOWIENIA";
+            this.hISTORIAZAMOWIENIABindingSource.DataSource = this.allDataSet;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
+            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeleteButton.Location = new System.Drawing.Point(762, 616);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(164, 54);
+            this.DeleteButton.TabIndex = 135;
+            this.DeleteButton.Text = "Usuń";
+            this.DeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // hISTORIA_ZAMOWIENIATableAdapter
+            // 
+            this.hISTORIA_ZAMOWIENIATableAdapter.ClearBeforeFill = true;
+            // 
             // OrderOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,7 +318,6 @@
             this.ClientSize = new System.Drawing.Size(937, 681);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.TableLabel);
@@ -352,7 +337,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Label TableLabel;
         private AllDataSet allDataSet;

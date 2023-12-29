@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -108,6 +109,40 @@ namespace CarRental
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                AddButton.Enabled = false;
+                UpdateButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                AddButton.Enabled = true;
+                UpdateButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.pAKIETYTableAdapter.Fill(this.allDataSet.PAKIETY);
+                dataGridView1.DataSource = this.allDataSet.PAKIETY;
+            }
+        }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.PAKIETY
+                        .Where(
+                        x => x.NAZWA.StartsWith(PacketTextBox.Text)
+                        )
+                        .ToList();
+                }
             }
         }
     }

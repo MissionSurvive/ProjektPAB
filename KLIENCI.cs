@@ -12,31 +12,31 @@ namespace CarRental
     using System;
     using System.Collections.Generic;
     
-    public partial class ZAMOWIENIA
+    public partial class KLIENCI
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ZAMOWIENIA()
+        public KLIENCI()
         {
             this.HISTORIA_ZAMOWIENIA = new HashSet<HISTORIA_ZAMOWIENIA>();
+            this.ZAMOWIENIA = new HashSet<ZAMOWIENIA>();
+            this.KONTA_KLIENTOW1 = new HashSet<KONTA_KLIENTOW>();
         }
     
-        public decimal ID_ZAMOWIENIE { get; set; }
-        public Nullable<decimal> ID_PAKIET { get; set; }
-        public Nullable<decimal> ID_HISTORIA { get; set; }
-        public decimal ID_WYPOZYCZALNIA { get; set; }
         public decimal ID_KLIENT { get; set; }
-        public decimal ID_SAMOCHOD { get; set; }
-        public decimal LICZBA_DNI { get; set; }
-        public decimal CENA_ZAMOWIENIE { get; set; }
-        public System.DateTime DATA_START { get; set; }
-        public System.DateTime DATA_KONIEC { get; set; }
+        public Nullable<decimal> iD_KON_KLIENT { get; set; }
+        public string IMIE_KLIENT { get; set; }
+        public string NAZWISKO_KLIENT { get; set; }
+        public string PESEL_KLIENT { get; set; }
+        public string TELEFON_KLIENT { get; set; }
+        public string FAX { get; set; }
+        public Nullable<decimal> NIP { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HISTORIA_ZAMOWIENIA> HISTORIA_ZAMOWIENIA { get; set; }
-        public virtual HISTORIA_ZAMOWIENIA HISTORIA_ZAMOWIENIA1 { get; set; }
-        public virtual PAKIETY PAKIETY { get; set; }
-        public virtual SAMOCHODY SAMOCHODY { get; set; }
-        public virtual WYPOZYCZALNIE WYPOZYCZALNIE { get; set; }
-        public virtual KLIENCI KLIENCI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ZAMOWIENIA> ZAMOWIENIA { get; set; }
+        public virtual KONTA_KLIENTOW KONTA_KLIENTOW { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KONTA_KLIENTOW> KONTA_KLIENTOW1 { get; set; }
     }
 }

@@ -41,18 +41,19 @@
             this.PacketTextBox = new System.Windows.Forms.TextBox();
             this.PacketLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.PriceNumeric = new System.Windows.Forms.NumericUpDown();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.pAKIETYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pAKIETYTableAdapter = new CarRental.AllDataSetTableAdapters.PAKIETYTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pAKIETYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
+            this.PriceNumeric = new System.Windows.Forms.NumericUpDown();
+            this.pAKIETYTableAdapter = new CarRental.AllDataSetTableAdapters.PAKIETYTableAdapter();
+            this.FilterCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // PriceLabel
@@ -77,6 +78,7 @@
             this.FilterButton.Text = "Filtruj";
             this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // UpdateButton
             // 
@@ -180,33 +182,6 @@
             this.dataGridView1.TabIndex = 131;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
-            // PriceNumeric
-            // 
-            this.PriceNumeric.DecimalPlaces = 2;
-            this.PriceNumeric.Location = new System.Drawing.Point(15, 579);
-            this.PriceNumeric.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.PriceNumeric.Name = "PriceNumeric";
-            this.PriceNumeric.Size = new System.Drawing.Size(165, 20);
-            this.PriceNumeric.TabIndex = 132;
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pAKIETYBindingSource
-            // 
-            this.pAKIETYBindingSource.DataMember = "PAKIETY";
-            this.pAKIETYBindingSource.DataSource = this.allDataSet;
-            // 
-            // pAKIETYTableAdapter
-            // 
-            this.pAKIETYTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ID_PAKIET";
@@ -232,12 +207,52 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "CENA";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // pAKIETYBindingSource
+            // 
+            this.pAKIETYBindingSource.DataMember = "PAKIETY";
+            this.pAKIETYBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // PriceNumeric
+            // 
+            this.PriceNumeric.DecimalPlaces = 2;
+            this.PriceNumeric.Location = new System.Drawing.Point(15, 579);
+            this.PriceNumeric.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.PriceNumeric.Name = "PriceNumeric";
+            this.PriceNumeric.Size = new System.Drawing.Size(165, 20);
+            this.PriceNumeric.TabIndex = 132;
+            // 
+            // pAKIETYTableAdapter
+            // 
+            this.pAKIETYTableAdapter.ClearBeforeFill = true;
+            // 
+            // FilterCheck
+            // 
+            this.FilterCheck.AutoSize = true;
+            this.FilterCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FilterCheck.Location = new System.Drawing.Point(761, 585);
+            this.FilterCheck.Name = "FilterCheck";
+            this.FilterCheck.Size = new System.Drawing.Size(126, 24);
+            this.FilterCheck.TabIndex = 133;
+            this.FilterCheck.Text = "Włącz filtrację";
+            this.FilterCheck.UseVisualStyleBackColor = true;
+            this.FilterCheck.CheckedChanged += new System.EventHandler(this.FilterCheck_CheckedChanged);
+            // 
             // OrderPacketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(937, 681);
+            this.Controls.Add(this.FilterCheck);
             this.Controls.Add(this.PriceNumeric);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.PacketTextBox);
@@ -255,9 +270,9 @@
             this.Text = "OrderOrderForm";
             this.Load += new System.EventHandler(this.OrderPacketForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAKIETYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +302,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.CheckBox FilterCheck;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -104,6 +105,41 @@ namespace CarRental
             rowNumber = Int32.Parse(id);
             CityTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             AddressTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                AddButton.Enabled = false;
+                UpdateButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                AddButton.Enabled = true;
+                UpdateButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
+                dataGridView1.DataSource = this.allDataSet.WYPOZYCZALNIE;
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.WYPOZYCZALNIE
+                        .Where(
+                        x => x.MIASTO.StartsWith(CityTextBox.Text)
+                        && x.ADRES.StartsWith(AddressTextBox.Text)
+                        )
+                        .ToList();
+                }
+            }
         }
     }
 }

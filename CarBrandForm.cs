@@ -1,6 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -121,6 +124,42 @@ namespace CarRental
             else
                 MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
             
+        }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if(FilterCheck.Checked == true)
+            {
+                AddButton.Enabled = false;
+                UpdateButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                AddButton.Enabled = true;
+                UpdateButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.mARKITableAdapter.Fill(this.allDataSet.MARKI);
+                dataGridView1.DataSource = this.allDataSet.MARKI;
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if(FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.MARKI
+                        .Where(
+                        x => x.NAZWA_MARKA.StartsWith(BrandTextBox.Text) 
+                        && x.KRAJ.StartsWith(CountryTextBox.Text)
+                        && x.REGION.StartsWith(RegionTextBox.Text)
+                        )
+                        .ToList();
+                }
+            }
         }
     }
 }

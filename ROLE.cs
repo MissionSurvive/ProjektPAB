@@ -12,32 +12,21 @@ namespace CarRental
     using System;
     using System.Collections.Generic;
     
-    public partial class PRACOWNICY
+    public partial class ROLE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PRACOWNICY()
+        public ROLE()
         {
-            this.HISTORIA_ZAMOWIENIA = new HashSet<HISTORIA_ZAMOWIENIA>();
+            this.KONTA_KLIENTOW = new HashSet<KONTA_KLIENTOW>();
             this.KONTA_PRACOWNIKOW = new HashSet<KONTA_PRACOWNIKOW>();
         }
     
-        public decimal ID_PRAC { get; set; }
-        public Nullable<decimal> ID_KON_PRACOWNIK { get; set; }
-        public decimal ID_WYPOZYCZALNIA { get; set; }
-        public string IMIE_PRACOWNIK { get; set; }
-        public string NAZWISKO_PRACOWNIK { get; set; }
-        public string PESEL_PRACOWNIK { get; set; }
-        public string TELEFON_PRACOWNIK { get; set; }
-        public string STANOWISKO { get; set; }
-        public System.DateTime DATA_ZATRUDNIENIA { get; set; }
-        public decimal WYNAGRODZENIE { get; set; }
-        public Nullable<decimal> PREMIA { get; set; }
+        public decimal ID_ROLA { get; set; }
+        public string ROLA { get; set; }
     
-        public virtual WYPOZYCZALNIE WYPOZYCZALNIE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HISTORIA_ZAMOWIENIA> HISTORIA_ZAMOWIENIA { get; set; }
+        public virtual ICollection<KONTA_KLIENTOW> KONTA_KLIENTOW { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KONTA_PRACOWNIKOW> KONTA_PRACOWNIKOW { get; set; }
-        public virtual KONTA_PRACOWNIKOW KONTA_PRACOWNIKOW1 { get; set; }
     }
 }

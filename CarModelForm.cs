@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -63,6 +64,38 @@ namespace CarRental
             }
             else
                 MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
+        }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                AddButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                AddButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.mODELETableAdapter.Fill(this.allDataSet.MODELE);
+                dataGridView1.DataSource = this.allDataSet.MODELE;
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.MODELE
+                        .Where(
+                        x => x.NAZWA_MODEL.StartsWith(ModelTextBox.Text)
+                        )
+                        .ToList();
+                }
+            }
         }
     }
 }

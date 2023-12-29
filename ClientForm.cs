@@ -91,5 +91,38 @@ namespace CarRental
             nextRow = dataGridView1.Rows.Count;
             getId();
         }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                UpdateButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                UpdateButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.kLIENCITableAdapter.Fill(this.allDataSet.KLIENCI);
+                dataGridView1.DataSource = this.allDataSet.KLIENCI;
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.KLIENCI
+                        .Where(
+                        x => x.IMIE_KLIENT.StartsWith(NameTextBox.Text)
+                        && x.NAZWISKO_KLIENT.StartsWith(SurnameTextBox.Text)
+                        )
+                        .ToList();
+                }
+            }
+        }
     }
 }

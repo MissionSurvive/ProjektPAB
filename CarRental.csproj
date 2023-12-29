@@ -252,6 +252,15 @@
     <Compile Include="HISTORIA_ZAMOWIENIA.cs">
       <DependentUpon>CarModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="KLIENCI.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KONTA_KLIENTOW.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KONTA_PRACOWNIKOW.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +333,9 @@
       <DependentUpon>CarModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RODZAJE_PALIWA.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ROLE.cs">
       <DependentUpon>CarModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RoleForm.cs">

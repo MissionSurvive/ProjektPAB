@@ -22,6 +22,39 @@
           <Property Name="DATA_KOLIZJA" Type="datetime" />
           <Property Name="KARA_KOLIZJA" Type="decimal" Precision="7" Scale="2" />
         </EntityType>
+        <EntityType Name="KLIENCI">
+          <Key>
+            <PropertyRef Name="ID_KLIENT" />
+          </Key>
+          <Property Name="ID_KLIENT" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iD_KON_KLIENT" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="IMIE_KLIENT" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NAZWISKO_KLIENT" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="PESEL_KLIENT" Type="varchar" MaxLength="11" />
+          <Property Name="TELEFON_KLIENT" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FAX" Type="varchar" MaxLength="12" />
+          <Property Name="NIP" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="KONTA_KLIENTOW">
+          <Key>
+            <PropertyRef Name="iD_KON_KLIENT" />
+          </Key>
+          <Property Name="iD_KON_KLIENT" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ROLA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_KLIENT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="NAZWA_KLIENT" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HASLO_KLIENT" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KONTA_PRACOWNIKOW">
+          <Key>
+            <PropertyRef Name="ID_KON_PRACOWNIK" />
+          </Key>
+          <Property Name="ID_KON_PRACOWNIK" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ROLA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_PRAC" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="NAZWA_PRACOWNIK" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HASLO_PRACOWNIK" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="MARKI">
           <Key>
             <PropertyRef Name="ID_MARKA" />
@@ -82,6 +115,13 @@
           <Property Name="ID_PALIWO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAZWA_RODZAJ" Type="varchar" MaxLength="40" Nullable="false" />
         </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ID_ROLA" />
+          </Key>
+          <Property Name="ID_ROLA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROLA" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="SAMOCHODY">
           <Key>
             <PropertyRef Name="ID_SAMOCHOD" />
@@ -138,6 +178,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_HISTORIA_KLIENT_PO_KLIENCI">
+          <End Role="KLIENCI" Type="Self.KLIENCI" Multiplicity="1" />
+          <End Role="HISTORIA_ZAMOWIENIA" Type="Self.HISTORIA_ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KLIENCI">
+              <PropertyRef Name="ID_KLIENT" />
+            </Principal>
+            <Dependent Role="HISTORIA_ZAMOWIENIA">
+              <PropertyRef Name="ID_KLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_HISTORIA_PRACOWNIK_PRACOWNI">
           <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="0..1" />
           <End Role="HISTORIA_ZAMOWIENIA" Type="Self.HISTORIA_ZAMOWIENIA" Multiplicity="*" />
@@ -147,6 +199,66 @@
             </Principal>
             <Dependent Role="HISTORIA_ZAMOWIENIA">
               <PropertyRef Name="ID_PRAC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KLIENCI_KONTO_KLI_KONTA_KL">
+          <End Role="KONTA_KLIENTOW" Type="Self.KONTA_KLIENTOW" Multiplicity="0..1" />
+          <End Role="KLIENCI" Type="Self.KLIENCI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KONTA_KLIENTOW">
+              <PropertyRef Name="iD_KON_KLIENT" />
+            </Principal>
+            <Dependent Role="KLIENCI">
+              <PropertyRef Name="iD_KON_KLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KONTA_KL_KONTO_KLI_KLIENCI">
+          <End Role="KLIENCI" Type="Self.KLIENCI" Multiplicity="1" />
+          <End Role="KONTA_KLIENTOW" Type="Self.KONTA_KLIENTOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KLIENCI">
+              <PropertyRef Name="ID_KLIENT" />
+            </Principal>
+            <Dependent Role="KONTA_KLIENTOW">
+              <PropertyRef Name="ID_KLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KONTA_KL_ROLE_KLIE_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+          <End Role="KONTA_KLIENTOW" Type="Self.KONTA_KLIENTOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ID_ROLA" />
+            </Principal>
+            <Dependent Role="KONTA_KLIENTOW">
+              <PropertyRef Name="ID_ROLA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KONTA_PR_KONTO_PRA_PRACOWNI">
+          <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="1" />
+          <End Role="KONTA_PRACOWNIKOW" Type="Self.KONTA_PRACOWNIKOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRACOWNICY">
+              <PropertyRef Name="ID_PRAC" />
+            </Principal>
+            <Dependent Role="KONTA_PRACOWNIKOW">
+              <PropertyRef Name="ID_PRAC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KONTA_PR_ROLE_PRAC_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+          <End Role="KONTA_PRACOWNIKOW" Type="Self.KONTA_PRACOWNIKOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ID_ROLA" />
+            </Principal>
+            <Dependent Role="KONTA_PRACOWNIKOW">
+              <PropertyRef Name="ID_ROLA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -171,6 +283,18 @@
             </Principal>
             <Dependent Role="MODELE">
               <PropertyRef Name="ID_NADWOZIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRACOWNI_KONTO_PRA_KONTA_PR">
+          <End Role="KONTA_PRACOWNIKOW" Type="Self.KONTA_PRACOWNIKOW" Multiplicity="0..1" />
+          <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KONTA_PRACOWNIKOW">
+              <PropertyRef Name="ID_KON_PRACOWNIK" />
+            </Principal>
+            <Dependent Role="PRACOWNICY">
+              <PropertyRef Name="ID_KON_PRACOWNIK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -258,6 +382,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ZAMOWIEN_ZAMOWIENI_KLIENCI">
+          <End Role="KLIENCI" Type="Self.KLIENCI" Multiplicity="1" />
+          <End Role="ZAMOWIENIA" Type="Self.ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KLIENCI">
+              <PropertyRef Name="ID_KLIENT" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_KLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD">
           <End Role="SAMOCHODY" Type="Self.SAMOCHODY" Multiplicity="1" />
           <End Role="ZAMOWIENIA" Type="Self.ZAMOWIENIA" Multiplicity="*" />
@@ -272,12 +408,16 @@
         </Association>
         <EntityContainer Name="CarRentalCWModelStoreContainer">
           <EntitySet Name="HISTORIA_ZAMOWIENIA" EntityType="Self.HISTORIA_ZAMOWIENIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KLIENCI" EntityType="Self.KLIENCI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KONTA_KLIENTOW" EntityType="Self.KONTA_KLIENTOW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KONTA_PRACOWNIKOW" EntityType="Self.KONTA_PRACOWNIKOW" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MARKI" EntityType="Self.MARKI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MODELE" EntityType="Self.MODELE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAKIETY" EntityType="Self.PAKIETY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRACOWNICY" EntityType="Self.PRACOWNICY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RODZAJE_NADWOZIA" EntityType="Self.RODZAJE_NADWOZIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RODZAJE_PALIWA" EntityType="Self.RODZAJE_PALIWA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SAMOCHODY" EntityType="Self.SAMOCHODY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WYPOZYCZALNIE" EntityType="Self.WYPOZYCZALNIE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZAMOWIENIA" EntityType="Self.ZAMOWIENIA" Schema="dbo" store:Type="Tables" />
@@ -285,9 +425,33 @@
             <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
             <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
           </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_KLIENT_PO_KLIENCI" Association="Self.FK_HISTORIA_KLIENT_PO_KLIENCI">
+            <End Role="KLIENCI" EntitySet="KLIENCI" />
+            <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+          </AssociationSet>
           <AssociationSet Name="FK_HISTORIA_PRACOWNIK_PRACOWNI" Association="Self.FK_HISTORIA_PRACOWNIK_PRACOWNI">
             <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
             <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KLIENCI_KONTO_KLI_KONTA_KL" Association="Self.FK_KLIENCI_KONTO_KLI_KONTA_KL">
+            <End Role="KONTA_KLIENTOW" EntitySet="KONTA_KLIENTOW" />
+            <End Role="KLIENCI" EntitySet="KLIENCI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KONTA_KL_KONTO_KLI_KLIENCI" Association="Self.FK_KONTA_KL_KONTO_KLI_KLIENCI">
+            <End Role="KLIENCI" EntitySet="KLIENCI" />
+            <End Role="KONTA_KLIENTOW" EntitySet="KONTA_KLIENTOW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KONTA_KL_ROLE_KLIE_ROLE" Association="Self.FK_KONTA_KL_ROLE_KLIE_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="KONTA_KLIENTOW" EntitySet="KONTA_KLIENTOW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KONTA_PR_KONTO_PRA_PRACOWNI" Association="Self.FK_KONTA_PR_KONTO_PRA_PRACOWNI">
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
+            <End Role="KONTA_PRACOWNIKOW" EntitySet="KONTA_PRACOWNIKOW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KONTA_PR_ROLE_PRAC_ROLE" Association="Self.FK_KONTA_PR_ROLE_PRAC_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="KONTA_PRACOWNIKOW" EntitySet="KONTA_PRACOWNIKOW" />
           </AssociationSet>
           <AssociationSet Name="FK_MODELE_MARKA_SAM_MARKI" Association="Self.FK_MODELE_MARKA_SAM_MARKI">
             <End Role="MARKI" EntitySet="MARKI" />
@@ -296,6 +460,10 @@
           <AssociationSet Name="FK_MODELE_RODZAJ_NA_RODZAJE_" Association="Self.FK_MODELE_RODZAJ_NA_RODZAJE_">
             <End Role="RODZAJE_NADWOZIA" EntitySet="RODZAJE_NADWOZIA" />
             <End Role="MODELE" EntitySet="MODELE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRACOWNI_KONTO_PRA_KONTA_PR" Association="Self.FK_PRACOWNI_KONTO_PRA_KONTA_PR">
+            <End Role="KONTA_PRACOWNIKOW" EntitySet="KONTA_PRACOWNIKOW" />
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
           </AssociationSet>
           <AssociationSet Name="FK_PRACOWNI_PRACOWNIK_WYPOZYCZ" Association="Self.FK_PRACOWNI_PRACOWNIK_WYPOZYCZ">
             <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
@@ -323,6 +491,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ" Association="Self.FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ">
             <End Role="WYPOZYCZALNIE" EntitySet="WYPOZYCZALNIE" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_ZAMOWIENI_KLIENCI" Association="Self.FK_ZAMOWIEN_ZAMOWIENI_KLIENCI">
+            <End Role="KLIENCI" EntitySet="KLIENCI" />
             <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
           </AssociationSet>
           <AssociationSet Name="FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD" Association="Self.FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD">
@@ -417,6 +589,42 @@
           <AssociationSet Name="FK_MODELE_RODZAJ_NA_RODZAJE_" Association="CarRentalCWModel.FK_MODELE_RODZAJ_NA_RODZAJE_">
             <End Role="RODZAJE_NADWOZIA" EntitySet="RODZAJE_NADWOZIA" />
             <End Role="MODELE" EntitySet="MODELE" />
+          </AssociationSet>
+          <EntitySet Name="KLIENCI" EntityType="CarRentalCWModel.KLIENCI" />
+          <EntitySet Name="ROLE" EntityType="CarRentalCWModel.ROLE" />
+          <AssociationSet Name="FK_HISTORIA_KLIENT_PO_KLIENCI" Association="CarRentalCWModel.FK_HISTORIA_KLIENT_PO_KLIENCI">
+            <End Role="KLIENCI" EntitySet="KLIENCI" />
+            <End Role="HISTORIA_ZAMOWIENIA" EntitySet="HISTORIA_ZAMOWIENIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZAMOWIEN_ZAMOWIENI_KLIENCI" Association="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIENI_KLIENCI">
+            <End Role="KLIENCI" EntitySet="KLIENCI" />
+            <End Role="ZAMOWIENIA" EntitySet="ZAMOWIENIA" />
+          </AssociationSet>
+          <EntitySet Name="KONTA_KLIENTOW" EntityType="CarRentalCWModel.KONTA_KLIENTOW" />
+          <EntitySet Name="KONTA_PRACOWNIKOW" EntityType="CarRentalCWModel.KONTA_PRACOWNIKOW" />
+          <AssociationSet Name="FK_KLIENCI_KONTO_KLI_KONTA_KL" Association="CarRentalCWModel.FK_KLIENCI_KONTO_KLI_KONTA_KL">
+            <End Role="KONTA_KLIENTOW" EntitySet="KONTA_KLIENTOW" />
+            <End Role="KLIENCI" EntitySet="KLIENCI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KONTA_KL_KONTO_KLI_KLIENCI" Association="CarRentalCWModel.FK_KONTA_KL_KONTO_KLI_KLIENCI">
+            <End Role="KLIENCI" EntitySet="KLIENCI" />
+            <End Role="KONTA_KLIENTOW" EntitySet="KONTA_KLIENTOW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KONTA_KL_ROLE_KLIE_ROLE" Association="CarRentalCWModel.FK_KONTA_KL_ROLE_KLIE_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="KONTA_KLIENTOW" EntitySet="KONTA_KLIENTOW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KONTA_PR_KONTO_PRA_PRACOWNI" Association="CarRentalCWModel.FK_KONTA_PR_KONTO_PRA_PRACOWNI">
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
+            <End Role="KONTA_PRACOWNIKOW" EntitySet="KONTA_PRACOWNIKOW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KONTA_PR_ROLE_PRAC_ROLE" Association="CarRentalCWModel.FK_KONTA_PR_ROLE_PRAC_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="KONTA_PRACOWNIKOW" EntitySet="KONTA_PRACOWNIKOW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRACOWNI_KONTO_PRA_KONTA_PR" Association="CarRentalCWModel.FK_PRACOWNI_KONTO_PRA_KONTA_PR">
+            <End Role="KONTA_PRACOWNIKOW" EntitySet="KONTA_PRACOWNIKOW" />
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="MODELE">
@@ -516,6 +724,8 @@
           <Property Name="PREMIA" Type="Decimal" Precision="6" Scale="2" />
           <NavigationProperty Name="WYPOZYCZALNIE" Relationship="CarRentalCWModel.FK_PRACOWNI_PRACOWNIK_WYPOZYCZ" FromRole="PRACOWNICY" ToRole="WYPOZYCZALNIE" />
           <NavigationProperty Name="HISTORIA_ZAMOWIENIA" Relationship="CarRentalCWModel.FK_HISTORIA_PRACOWNIK_PRACOWNI" FromRole="PRACOWNICY" ToRole="HISTORIA_ZAMOWIENIA" />
+          <NavigationProperty Name="KONTA_PRACOWNIKOW" Relationship="CarRentalCWModel.FK_KONTA_PR_KONTO_PRA_PRACOWNI" FromRole="PRACOWNICY" ToRole="KONTA_PRACOWNIKOW" />
+          <NavigationProperty Name="KONTA_PRACOWNIKOW1" Relationship="CarRentalCWModel.FK_PRACOWNI_KONTO_PRA_KONTA_PR" FromRole="PRACOWNICY" ToRole="KONTA_PRACOWNIKOW" />
         </EntityType>
         <Association Name="FK_PRACOWNI_PRACOWNIK_WYPOZYCZ">
           <End Type="CarRentalCWModel.WYPOZYCZALNIE" Role="WYPOZYCZALNIE" Multiplicity="1" />
@@ -548,6 +758,7 @@
           <NavigationProperty Name="ZAMOWIENIA" Relationship="CarRentalCWModel.FK_HISTORIA_HISTORIA__ZAMOWIEN" FromRole="HISTORIA_ZAMOWIENIA" ToRole="ZAMOWIENIA" />
           <NavigationProperty Name="PRACOWNICY" Relationship="CarRentalCWModel.FK_HISTORIA_PRACOWNIK_PRACOWNI" FromRole="HISTORIA_ZAMOWIENIA" ToRole="PRACOWNICY" />
           <NavigationProperty Name="ZAMOWIENIA1" Relationship="CarRentalCWModel.FK_ZAMOWIEN_HISTORIA__HISTORIA" FromRole="HISTORIA_ZAMOWIENIA" ToRole="ZAMOWIENIA" />
+          <NavigationProperty Name="KLIENCI" Relationship="CarRentalCWModel.FK_HISTORIA_KLIENT_PO_KLIENCI" FromRole="HISTORIA_ZAMOWIENIA" ToRole="KLIENCI" />
         </EntityType>
         <EntityType Name="ZAMOWIENIA">
           <Key>
@@ -568,6 +779,7 @@
           <NavigationProperty Name="PAKIETY" Relationship="CarRentalCWModel.FK_ZAMOWIEN_PAKIET_W__PAKIETY" FromRole="ZAMOWIENIA" ToRole="PAKIETY" />
           <NavigationProperty Name="SAMOCHODY" Relationship="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD" FromRole="ZAMOWIENIA" ToRole="SAMOCHODY" />
           <NavigationProperty Name="WYPOZYCZALNIE" Relationship="CarRentalCWModel.FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ" FromRole="ZAMOWIENIA" ToRole="WYPOZYCZALNIE" />
+          <NavigationProperty Name="KLIENCI" Relationship="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIENI_KLIENCI" FromRole="ZAMOWIENIA" ToRole="KLIENCI" />
         </EntityType>
         <Association Name="FK_HISTORIA_HISTORIA__ZAMOWIEN">
           <End Type="CarRentalCWModel.ZAMOWIENIA" Role="ZAMOWIENIA" Multiplicity="0..1" />
@@ -680,6 +892,154 @@
             </Principal>
             <Dependent Role="MODELE">
               <PropertyRef Name="ID_NADWOZIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KLIENCI">
+          <Key>
+            <PropertyRef Name="ID_KLIENT" />
+          </Key>
+          <Property Name="ID_KLIENT" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iD_KON_KLIENT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IMIE_KLIENT" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NAZWISKO_KLIENT" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PESEL_KLIENT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON_KLIENT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="NIP" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="HISTORIA_ZAMOWIENIA" Relationship="CarRentalCWModel.FK_HISTORIA_KLIENT_PO_KLIENCI" FromRole="KLIENCI" ToRole="HISTORIA_ZAMOWIENIA" />
+          <NavigationProperty Name="ZAMOWIENIA" Relationship="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIENI_KLIENCI" FromRole="KLIENCI" ToRole="ZAMOWIENIA" />
+          <NavigationProperty Name="KONTA_KLIENTOW" Relationship="CarRentalCWModel.FK_KLIENCI_KONTO_KLI_KONTA_KL" FromRole="KLIENCI" ToRole="KONTA_KLIENTOW" />
+          <NavigationProperty Name="KONTA_KLIENTOW1" Relationship="CarRentalCWModel.FK_KONTA_KL_KONTO_KLI_KLIENCI" FromRole="KLIENCI" ToRole="KONTA_KLIENTOW" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ID_ROLA" />
+          </Key>
+          <Property Name="ID_ROLA" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROLA" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="KONTA_KLIENTOW" Relationship="CarRentalCWModel.FK_KONTA_KL_ROLE_KLIE_ROLE" FromRole="ROLE" ToRole="KONTA_KLIENTOW" />
+          <NavigationProperty Name="KONTA_PRACOWNIKOW" Relationship="CarRentalCWModel.FK_KONTA_PR_ROLE_PRAC_ROLE" FromRole="ROLE" ToRole="KONTA_PRACOWNIKOW" />
+        </EntityType>
+        <Association Name="FK_HISTORIA_KLIENT_PO_KLIENCI">
+          <End Type="CarRentalCWModel.KLIENCI" Role="KLIENCI" Multiplicity="1" />
+          <End Type="CarRentalCWModel.HISTORIA_ZAMOWIENIA" Role="HISTORIA_ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KLIENCI">
+              <PropertyRef Name="ID_KLIENT" />
+            </Principal>
+            <Dependent Role="HISTORIA_ZAMOWIENIA">
+              <PropertyRef Name="ID_KLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZAMOWIEN_ZAMOWIENI_KLIENCI">
+          <End Type="CarRentalCWModel.KLIENCI" Role="KLIENCI" Multiplicity="1" />
+          <End Type="CarRentalCWModel.ZAMOWIENIA" Role="ZAMOWIENIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KLIENCI">
+              <PropertyRef Name="ID_KLIENT" />
+            </Principal>
+            <Dependent Role="ZAMOWIENIA">
+              <PropertyRef Name="ID_KLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KONTA_KLIENTOW">
+          <Key>
+            <PropertyRef Name="iD_KON_KLIENT" />
+          </Key>
+          <Property Name="iD_KON_KLIENT" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ROLA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ID_KLIENT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="NAZWA_KLIENT" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HASLO_KLIENT" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="KLIENCI" Relationship="CarRentalCWModel.FK_KLIENCI_KONTO_KLI_KONTA_KL" FromRole="KONTA_KLIENTOW" ToRole="KLIENCI" />
+          <NavigationProperty Name="KLIENCI1" Relationship="CarRentalCWModel.FK_KONTA_KL_KONTO_KLI_KLIENCI" FromRole="KONTA_KLIENTOW" ToRole="KLIENCI" />
+          <NavigationProperty Name="ROLE" Relationship="CarRentalCWModel.FK_KONTA_KL_ROLE_KLIE_ROLE" FromRole="KONTA_KLIENTOW" ToRole="ROLE" />
+        </EntityType>
+        <EntityType Name="KONTA_PRACOWNIKOW">
+          <Key>
+            <PropertyRef Name="ID_KON_PRACOWNIK" />
+          </Key>
+          <Property Name="ID_KON_PRACOWNIK" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ROLA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ID_PRAC" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="NAZWA_PRACOWNIK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HASLO_PRACOWNIK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRACOWNICY" Relationship="CarRentalCWModel.FK_KONTA_PR_KONTO_PRA_PRACOWNI" FromRole="KONTA_PRACOWNIKOW" ToRole="PRACOWNICY" />
+          <NavigationProperty Name="ROLE" Relationship="CarRentalCWModel.FK_KONTA_PR_ROLE_PRAC_ROLE" FromRole="KONTA_PRACOWNIKOW" ToRole="ROLE" />
+          <NavigationProperty Name="PRACOWNICY1" Relationship="CarRentalCWModel.FK_PRACOWNI_KONTO_PRA_KONTA_PR" FromRole="KONTA_PRACOWNIKOW" ToRole="PRACOWNICY" />
+        </EntityType>
+        <Association Name="FK_KLIENCI_KONTO_KLI_KONTA_KL">
+          <End Type="CarRentalCWModel.KONTA_KLIENTOW" Role="KONTA_KLIENTOW" Multiplicity="0..1" />
+          <End Type="CarRentalCWModel.KLIENCI" Role="KLIENCI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KONTA_KLIENTOW">
+              <PropertyRef Name="iD_KON_KLIENT" />
+            </Principal>
+            <Dependent Role="KLIENCI">
+              <PropertyRef Name="iD_KON_KLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KONTA_KL_KONTO_KLI_KLIENCI">
+          <End Type="CarRentalCWModel.KLIENCI" Role="KLIENCI" Multiplicity="1" />
+          <End Type="CarRentalCWModel.KONTA_KLIENTOW" Role="KONTA_KLIENTOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KLIENCI">
+              <PropertyRef Name="ID_KLIENT" />
+            </Principal>
+            <Dependent Role="KONTA_KLIENTOW">
+              <PropertyRef Name="ID_KLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KONTA_KL_ROLE_KLIE_ROLE">
+          <End Type="CarRentalCWModel.ROLE" Role="ROLE" Multiplicity="1" />
+          <End Type="CarRentalCWModel.KONTA_KLIENTOW" Role="KONTA_KLIENTOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ID_ROLA" />
+            </Principal>
+            <Dependent Role="KONTA_KLIENTOW">
+              <PropertyRef Name="ID_ROLA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KONTA_PR_KONTO_PRA_PRACOWNI">
+          <End Type="CarRentalCWModel.PRACOWNICY" Role="PRACOWNICY" Multiplicity="1" />
+          <End Type="CarRentalCWModel.KONTA_PRACOWNIKOW" Role="KONTA_PRACOWNIKOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRACOWNICY">
+              <PropertyRef Name="ID_PRAC" />
+            </Principal>
+            <Dependent Role="KONTA_PRACOWNIKOW">
+              <PropertyRef Name="ID_PRAC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KONTA_PR_ROLE_PRAC_ROLE">
+          <End Type="CarRentalCWModel.ROLE" Role="ROLE" Multiplicity="1" />
+          <End Type="CarRentalCWModel.KONTA_PRACOWNIKOW" Role="KONTA_PRACOWNIKOW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ID_ROLA" />
+            </Principal>
+            <Dependent Role="KONTA_PRACOWNIKOW">
+              <PropertyRef Name="ID_ROLA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRACOWNI_KONTO_PRA_KONTA_PR">
+          <End Type="CarRentalCWModel.KONTA_PRACOWNIKOW" Role="KONTA_PRACOWNIKOW" Multiplicity="0..1" />
+          <End Type="CarRentalCWModel.PRACOWNICY" Role="PRACOWNICY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KONTA_PRACOWNIKOW">
+              <PropertyRef Name="ID_KON_PRACOWNIK" />
+            </Principal>
+            <Dependent Role="PRACOWNICY">
+              <PropertyRef Name="ID_KON_PRACOWNIK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -817,6 +1177,50 @@
               <MappingFragment StoreEntitySet="RODZAJE_NADWOZIA">
                 <ScalarProperty Name="NAZWA_NADWOZIE" ColumnName="NAZWA_NADWOZIE" />
                 <ScalarProperty Name="ID_NADWOZIE" ColumnName="ID_NADWOZIE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KLIENCI">
+            <EntityTypeMapping TypeName="CarRentalCWModel.KLIENCI">
+              <MappingFragment StoreEntitySet="KLIENCI">
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="TELEFON_KLIENT" ColumnName="TELEFON_KLIENT" />
+                <ScalarProperty Name="PESEL_KLIENT" ColumnName="PESEL_KLIENT" />
+                <ScalarProperty Name="NAZWISKO_KLIENT" ColumnName="NAZWISKO_KLIENT" />
+                <ScalarProperty Name="IMIE_KLIENT" ColumnName="IMIE_KLIENT" />
+                <ScalarProperty Name="iD_KON_KLIENT" ColumnName="iD_KON_KLIENT" />
+                <ScalarProperty Name="ID_KLIENT" ColumnName="ID_KLIENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLE">
+            <EntityTypeMapping TypeName="CarRentalCWModel.ROLE">
+              <MappingFragment StoreEntitySet="ROLE">
+                <ScalarProperty Name="ROLA" ColumnName="ROLA" />
+                <ScalarProperty Name="ID_ROLA" ColumnName="ID_ROLA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KONTA_KLIENTOW">
+            <EntityTypeMapping TypeName="CarRentalCWModel.KONTA_KLIENTOW">
+              <MappingFragment StoreEntitySet="KONTA_KLIENTOW">
+                <ScalarProperty Name="HASLO_KLIENT" ColumnName="HASLO_KLIENT" />
+                <ScalarProperty Name="NAZWA_KLIENT" ColumnName="NAZWA_KLIENT" />
+                <ScalarProperty Name="ID_KLIENT" ColumnName="ID_KLIENT" />
+                <ScalarProperty Name="ID_ROLA" ColumnName="ID_ROLA" />
+                <ScalarProperty Name="iD_KON_KLIENT" ColumnName="iD_KON_KLIENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KONTA_PRACOWNIKOW">
+            <EntityTypeMapping TypeName="CarRentalCWModel.KONTA_PRACOWNIKOW">
+              <MappingFragment StoreEntitySet="KONTA_PRACOWNIKOW">
+                <ScalarProperty Name="HASLO_PRACOWNIK" ColumnName="HASLO_PRACOWNIK" />
+                <ScalarProperty Name="NAZWA_PRACOWNIK" ColumnName="NAZWA_PRACOWNIK" />
+                <ScalarProperty Name="ID_PRAC" ColumnName="ID_PRAC" />
+                <ScalarProperty Name="ID_ROLA" ColumnName="ID_ROLA" />
+                <ScalarProperty Name="ID_KON_PRACOWNIK" ColumnName="ID_KON_PRACOWNIK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

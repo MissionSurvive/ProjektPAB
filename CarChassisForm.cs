@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -107,6 +108,40 @@ namespace CarRental
             id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             rowNumber = Int32.Parse(id);
             ChassisTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                AddButton.Enabled = false;
+                UpdateButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                AddButton.Enabled = true;
+                UpdateButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
+                dataGridView1.DataSource = this.allDataSet.RODZAJE_NADWOZIA;
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.RODZAJE_NADWOZIA
+                        .Where(
+                        x => x.NAZWA_NADWOZIE.StartsWith(ChassisTextBox.Text)
+                        )
+                        .ToList();
+                }
+            }
         }
     }
 }
