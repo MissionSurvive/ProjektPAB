@@ -30,7 +30,7 @@ namespace CarRental
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("UPDATE SAMOCHODY SET ID_PALIWO = @Fuel + 1, ID_MODEL = @Model + 1, ID_WYPOZYCZALNIA = @Rental + 1, " +
+            command = new SqlCommand("UPDATE SAMOCHODY SET ID_PALIWO = @Fuel, ID_MODEL = @Model, ID_WYPOZYCZALNIA = @Rental, " +
                 "KOLOR = @Color, PRZEBIEG = @Odo, VIN = @Vin, POJEMNOSC = @Disp, MOC = @Power, SKRZYNIA = @Gearbox, MIEJSCA = @Seats, " +
                 "CENA_DZIEN = @Day, CENA_TYDZIEN = @Week, CENA_MIESIAC = @Month, KAUCJA = @Deposit WHERE ID_SAMOCHOD LIKE'"
                 + CarCarForm.rowNumber + "'", connection.connect());
@@ -45,13 +45,13 @@ namespace CarRental
             command.Parameters.AddWithValue("@Week", WeekNumeric.Value);
             command.Parameters.AddWithValue("@Month", MonthNumeric.Value);
             command.Parameters.AddWithValue("@Deposit", DepositNumeric.Value);
-            command.Parameters.AddWithValue("@Color", CheckNull(ColorTextBox.Text));
+            command.Parameters.AddWithValue("@Color", ColorTextBox.Text);
             command.Parameters.AddWithValue("@Vin", VinTextBox.Text);
             command.Parameters.AddWithValue("@Gearbox", GearboxTextBox.Text);
             try
             {
                 connection.open();
-                if (string.IsNullOrEmpty(VinTextBox.Text) || string.IsNullOrEmpty(GearboxTextBox.Text))
+                if (string.IsNullOrEmpty(ColorTextBox.Text) || string.IsNullOrEmpty(VinTextBox.Text) || string.IsNullOrEmpty(GearboxTextBox.Text))
                 {
                     MessageBox.Show("Pole to nie może być puste!");
                 }
@@ -71,11 +71,11 @@ namespace CarRental
         private void AddButton_Click(object sender, EventArgs e)
         {
             command = new SqlCommand("INSERT INTO SAMOCHODY (ID_PALIWO, ID_MODEL, ID_WYPOZYCZALNIA, KOLOR, PRZEBIEG, VIN, POJEMNOSC, MOC," +
-                " SKRZYNIA, MIEJSCA, CENA_DZIEN, CENA_TYDZIEN, CENA_MIESIAC, KAUCJA) VALUES (@Fuel + 1, @Model + 1, @Rental + 1, @Color, @Odo, @Vin, " +
+                " SKRZYNIA, MIEJSCA, CENA_DZIEN, CENA_TYDZIEN, CENA_MIESIAC, KAUCJA) VALUES (@Fuel, @Model, @Rental, @Color, @Odo, @Vin, " +
                 "@Disp, @Power, @Gearbox, @Seats, @Day, @Week, @Month, @Deposit)", connection.connect());
-            command.Parameters.AddWithValue("@Fuel", FuelCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@Model", ModelCombo.SelectedIndex);
-            command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedIndex);
+            command.Parameters.AddWithValue("@Fuel", FuelCombo.SelectedValue);
+            command.Parameters.AddWithValue("@Model", ModelCombo.SelectedValue);
+            command.Parameters.AddWithValue("@Rental", RentalCombo.SelectedValue);
             command.Parameters.AddWithValue("@Odo", OdometerNumeric.Value);
             command.Parameters.AddWithValue("@Disp", DisplacementNumeric.Value);
             command.Parameters.AddWithValue("@Power", PowerNumeric.Value);
@@ -84,13 +84,13 @@ namespace CarRental
             command.Parameters.AddWithValue("@Week", WeekNumeric.Value);
             command.Parameters.AddWithValue("@Month", MonthNumeric.Value);
             command.Parameters.AddWithValue("@Deposit", DepositNumeric.Value);
-            command.Parameters.AddWithValue("@Color", CheckNull(ColorTextBox.Text));
+            command.Parameters.AddWithValue("@Color", ColorTextBox.Text);
             command.Parameters.AddWithValue("@Vin", VinTextBox.Text);
             command.Parameters.AddWithValue("@Gearbox", GearboxTextBox.Text);
             try
             {
                 connection.open();
-                if (string.IsNullOrEmpty(VinTextBox.Text) || string.IsNullOrEmpty(GearboxTextBox.Text))
+                if (string.IsNullOrEmpty(ColorTextBox.Text) || string.IsNullOrEmpty(VinTextBox.Text) || string.IsNullOrEmpty(GearboxTextBox.Text))
                 {
                     MessageBox.Show("Pole to nie może być puste!");
                 }
@@ -105,6 +105,11 @@ namespace CarRental
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

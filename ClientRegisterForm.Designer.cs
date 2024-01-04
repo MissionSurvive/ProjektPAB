@@ -64,6 +64,7 @@
             this.NipTextBox.Name = "NipTextBox";
             this.NipTextBox.Size = new System.Drawing.Size(260, 20);
             this.NipTextBox.TabIndex = 156;
+            this.NipTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NipTextBox_KeyPress);
             // 
             // label7
             // 
@@ -98,6 +99,7 @@
             this.PeselTextBox.Name = "PeselTextBox";
             this.PeselTextBox.Size = new System.Drawing.Size(260, 20);
             this.PeselTextBox.TabIndex = 152;
+            this.PeselTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PeselTextBox_KeyPress);
             // 
             // label4
             // 

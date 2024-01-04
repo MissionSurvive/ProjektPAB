@@ -39,18 +39,18 @@
             this.rOCZNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gENERACJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sEGMENTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mODELEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.allDataSet = new CarRental.AllDataSet();
             this.FilterButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.mODELETableAdapter = new CarRental.AllDataSetTableAdapters.MODELETableAdapter();
             this.ModelTextBox = new System.Windows.Forms.TextBox();
             this.ModelLabel = new System.Windows.Forms.Label();
             this.FilterCheck = new System.Windows.Forms.CheckBox();
+            this.allDataSet = new CarRental.AllDataSet();
+            this.mODELETableAdapter = new CarRental.AllDataSetTableAdapters.MODELETableAdapter();
+            this.mODELEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -65,7 +65,8 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDMODELDataGridViewTextBoxColumn,
@@ -75,9 +76,9 @@
             this.rOCZNIKDataGridViewTextBoxColumn,
             this.gENERACJADataGridViewTextBoxColumn,
             this.sEGMENTDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.mODELEBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(19, 50);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(906, 507);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -94,46 +95,42 @@
             this.iDMARKADataGridViewTextBoxColumn.DataPropertyName = "ID_MARKA";
             this.iDMARKADataGridViewTextBoxColumn.HeaderText = "ID_MARKA";
             this.iDMARKADataGridViewTextBoxColumn.Name = "iDMARKADataGridViewTextBoxColumn";
+            this.iDMARKADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDNADWOZIEDataGridViewTextBoxColumn
             // 
             this.iDNADWOZIEDataGridViewTextBoxColumn.DataPropertyName = "ID_NADWOZIE";
             this.iDNADWOZIEDataGridViewTextBoxColumn.HeaderText = "ID_NADWOZIE";
             this.iDNADWOZIEDataGridViewTextBoxColumn.Name = "iDNADWOZIEDataGridViewTextBoxColumn";
+            this.iDNADWOZIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nAZWAMODELDataGridViewTextBoxColumn
             // 
             this.nAZWAMODELDataGridViewTextBoxColumn.DataPropertyName = "NAZWA_MODEL";
             this.nAZWAMODELDataGridViewTextBoxColumn.HeaderText = "NAZWA_MODEL";
             this.nAZWAMODELDataGridViewTextBoxColumn.Name = "nAZWAMODELDataGridViewTextBoxColumn";
+            this.nAZWAMODELDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // rOCZNIKDataGridViewTextBoxColumn
             // 
             this.rOCZNIKDataGridViewTextBoxColumn.DataPropertyName = "ROCZNIK";
             this.rOCZNIKDataGridViewTextBoxColumn.HeaderText = "ROCZNIK";
             this.rOCZNIKDataGridViewTextBoxColumn.Name = "rOCZNIKDataGridViewTextBoxColumn";
+            this.rOCZNIKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // gENERACJADataGridViewTextBoxColumn
             // 
             this.gENERACJADataGridViewTextBoxColumn.DataPropertyName = "GENERACJA";
             this.gENERACJADataGridViewTextBoxColumn.HeaderText = "GENERACJA";
             this.gENERACJADataGridViewTextBoxColumn.Name = "gENERACJADataGridViewTextBoxColumn";
+            this.gENERACJADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sEGMENTDataGridViewTextBoxColumn
             // 
             this.sEGMENTDataGridViewTextBoxColumn.DataPropertyName = "SEGMENT";
             this.sEGMENTDataGridViewTextBoxColumn.HeaderText = "SEGMENT";
             this.sEGMENTDataGridViewTextBoxColumn.Name = "sEGMENTDataGridViewTextBoxColumn";
-            // 
-            // mODELEBindingSource
-            // 
-            this.mODELEBindingSource.DataMember = "MODELE";
-            this.mODELEBindingSource.DataSource = this.allDataSet;
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.sEGMENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FilterButton
             // 
@@ -177,10 +174,6 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // mODELETableAdapter
-            // 
-            this.mODELETableAdapter.ClearBeforeFill = true;
-            // 
             // ModelTextBox
             // 
             this.ModelTextBox.Location = new System.Drawing.Point(19, 586);
@@ -210,6 +203,19 @@
             this.FilterCheck.UseVisualStyleBackColor = true;
             this.FilterCheck.CheckedChanged += new System.EventHandler(this.FilterCheck_CheckedChanged);
             // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mODELETableAdapter
+            // 
+            this.mODELETableAdapter.ClearBeforeFill = true;
+            // 
+            // mODELEBindingSource
+            // 
+            this.mODELEBindingSource.DataMember = "MODELE";
+            // 
             // CarModelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,8 +235,8 @@
             this.Text = "CarMakeForm";
             this.Load += new System.EventHandler(this.CarModelForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,9 +248,9 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private AllDataSet allDataSet;
-        private System.Windows.Forms.BindingSource mODELEBindingSource;
-        private AllDataSetTableAdapters.MODELETableAdapter mODELETableAdapter;
+        private System.Windows.Forms.TextBox ModelTextBox;
+        private System.Windows.Forms.Label ModelLabel;
+        private System.Windows.Forms.CheckBox FilterCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDMODELDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDMARKADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDNADWOZIEDataGridViewTextBoxColumn;
@@ -252,8 +258,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rOCZNIKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gENERACJADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sEGMENTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox ModelTextBox;
-        private System.Windows.Forms.Label ModelLabel;
-        private System.Windows.Forms.CheckBox FilterCheck;
+        private AllDataSet allDataSet;
+        private AllDataSetTableAdapters.MODELETableAdapter mODELETableAdapter;
+        private System.Windows.Forms.BindingSource mODELEBindingSource;
     }
 }

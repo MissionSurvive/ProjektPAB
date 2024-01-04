@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -19,8 +14,8 @@ namespace CarRental
             {
                 dataGridView1.DataSource = db.ZAMOWIENIA
                     .Join(db.PAKIETY, 
-                    a => a.ID_PAKIET,  //zamowienia
-                    b => b.ID_PAKIET,  //pakiety
+                    a => a.ID_PAKIET,
+                    b => b.ID_PAKIET,
                     (a,b) => new
                     {
                         id = a.ID_KLIENT,
@@ -28,8 +23,8 @@ namespace CarRental
                     })
                     .Where(a => a.id == LoginForm.userID)
                     .Join(db.WYPOZYCZALNIE,
-                    c => c.a.ID_WYPOZYCZALNIA, //zamowienia
-                    d => d.ID_WYPOZYCZALNIA,   //wypozyczalnie
+                    c => c.a.ID_WYPOZYCZALNIA,
+                    d => d.ID_WYPOZYCZALNIA,
                     (c, d) => new
                     {
                         c,d

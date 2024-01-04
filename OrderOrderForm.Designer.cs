@@ -71,6 +71,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -87,6 +89,7 @@
             this.dataGridView1.DataSource = this.zAMOWIENIABindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(17, 51);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(909, 559);
             this.dataGridView1.TabIndex = 143;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -103,54 +106,63 @@
             this.iDPAKIETDataGridViewTextBoxColumn.DataPropertyName = "ID_PAKIET";
             this.iDPAKIETDataGridViewTextBoxColumn.HeaderText = "ID_PAKIET";
             this.iDPAKIETDataGridViewTextBoxColumn.Name = "iDPAKIETDataGridViewTextBoxColumn";
+            this.iDPAKIETDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDHISTORIADataGridViewTextBoxColumn
             // 
             this.iDHISTORIADataGridViewTextBoxColumn.DataPropertyName = "ID_HISTORIA";
             this.iDHISTORIADataGridViewTextBoxColumn.HeaderText = "ID_HISTORIA";
             this.iDHISTORIADataGridViewTextBoxColumn.Name = "iDHISTORIADataGridViewTextBoxColumn";
+            this.iDHISTORIADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDWYPOZYCZALNIADataGridViewTextBoxColumn
             // 
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDKLIENTDataGridViewTextBoxColumn
             // 
             this.iDKLIENTDataGridViewTextBoxColumn.DataPropertyName = "ID_KLIENT";
             this.iDKLIENTDataGridViewTextBoxColumn.HeaderText = "ID_KLIENT";
             this.iDKLIENTDataGridViewTextBoxColumn.Name = "iDKLIENTDataGridViewTextBoxColumn";
+            this.iDKLIENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDSAMOCHODDataGridViewTextBoxColumn
             // 
             this.iDSAMOCHODDataGridViewTextBoxColumn.DataPropertyName = "ID_SAMOCHOD";
             this.iDSAMOCHODDataGridViewTextBoxColumn.HeaderText = "ID_SAMOCHOD";
             this.iDSAMOCHODDataGridViewTextBoxColumn.Name = "iDSAMOCHODDataGridViewTextBoxColumn";
+            this.iDSAMOCHODDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lICZBADNIDataGridViewTextBoxColumn
             // 
             this.lICZBADNIDataGridViewTextBoxColumn.DataPropertyName = "LICZBA_DNI";
             this.lICZBADNIDataGridViewTextBoxColumn.HeaderText = "LICZBA_DNI";
             this.lICZBADNIDataGridViewTextBoxColumn.Name = "lICZBADNIDataGridViewTextBoxColumn";
+            this.lICZBADNIDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cENAZAMOWIENIEDataGridViewTextBoxColumn
             // 
             this.cENAZAMOWIENIEDataGridViewTextBoxColumn.DataPropertyName = "CENA_ZAMOWIENIE";
             this.cENAZAMOWIENIEDataGridViewTextBoxColumn.HeaderText = "CENA_ZAMOWIENIE";
             this.cENAZAMOWIENIEDataGridViewTextBoxColumn.Name = "cENAZAMOWIENIEDataGridViewTextBoxColumn";
+            this.cENAZAMOWIENIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dATASTARTDataGridViewTextBoxColumn
             // 
             this.dATASTARTDataGridViewTextBoxColumn.DataPropertyName = "DATA_START";
             this.dATASTARTDataGridViewTextBoxColumn.HeaderText = "DATA_START";
             this.dATASTARTDataGridViewTextBoxColumn.Name = "dATASTARTDataGridViewTextBoxColumn";
+            this.dATASTARTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dATAKONIECDataGridViewTextBoxColumn
             // 
             this.dATAKONIECDataGridViewTextBoxColumn.DataPropertyName = "DATA_KONIEC";
             this.dATAKONIECDataGridViewTextBoxColumn.HeaderText = "DATA_KONIEC";
             this.dATAKONIECDataGridViewTextBoxColumn.Name = "dATAKONIECDataGridViewTextBoxColumn";
+            this.dATAKONIECDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // zAMOWIENIABindingSource
             // 
@@ -171,7 +183,7 @@
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(164, 54);
             this.UpdateButton.TabIndex = 136;
-            this.UpdateButton.Text = "Modyfikuj";
+            this.UpdateButton.Text = "Zarządzaj";
             this.UpdateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);

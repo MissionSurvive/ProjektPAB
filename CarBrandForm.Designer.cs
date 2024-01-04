@@ -67,6 +67,10 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -77,6 +81,7 @@
             this.dataGridView1.DataSource = this.mARKIBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(19, 50);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(906, 413);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -93,18 +98,21 @@
             this.nAZWAMARKADataGridViewTextBoxColumn.DataPropertyName = "NAZWA_MARKA";
             this.nAZWAMARKADataGridViewTextBoxColumn.HeaderText = "NAZWA_MARKA";
             this.nAZWAMARKADataGridViewTextBoxColumn.Name = "nAZWAMARKADataGridViewTextBoxColumn";
+            this.nAZWAMARKADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kRAJDataGridViewTextBoxColumn
             // 
             this.kRAJDataGridViewTextBoxColumn.DataPropertyName = "KRAJ";
             this.kRAJDataGridViewTextBoxColumn.HeaderText = "KRAJ";
             this.kRAJDataGridViewTextBoxColumn.Name = "kRAJDataGridViewTextBoxColumn";
+            this.kRAJDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // rEGIONDataGridViewTextBoxColumn
             // 
             this.rEGIONDataGridViewTextBoxColumn.DataPropertyName = "REGION";
             this.rEGIONDataGridViewTextBoxColumn.HeaderText = "REGION";
             this.rEGIONDataGridViewTextBoxColumn.Name = "rEGIONDataGridViewTextBoxColumn";
+            this.rEGIONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // mARKIBindingSource
             // 

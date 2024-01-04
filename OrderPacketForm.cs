@@ -27,25 +27,39 @@ namespace CarRental
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber = Int32.Parse(id);
-            PacketTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            ContentTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            PriceNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            try
+            {
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rowNumber = Int32.Parse(id);
+                PacketTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                ContentTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                PriceNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             command = new SqlCommand("DELETE FROM PAKIETY WHERE ID_PAKIET LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.pAKIETYTableAdapter.Update(this.allDataSet.PAKIETY);
-            this.pAKIETYTableAdapter.Fill(this.allDataSet.PAKIETY);
-            PacketTextBox.Text = "";
-            ContentTextBox.Text = "";
-            PriceNumeric.Value = 0;
+            try
+            {
+                connection.open();
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.pAKIETYTableAdapter.Update(this.allDataSet.PAKIETY);
+                this.pAKIETYTableAdapter.Fill(this.allDataSet.PAKIETY);
+                PacketTextBox.Text = "";
+                ContentTextBox.Text = "";
+                PriceNumeric.Value = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)

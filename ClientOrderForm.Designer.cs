@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientOrderForm));
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.FilterButton = new System.Windows.Forms.Button();
+            this.RefreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,21 +50,21 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(19, 50);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1025, 559);
+            this.dataGridView1.Size = new System.Drawing.Size(1025, 549);
             this.dataGridView1.TabIndex = 5;
             // 
-            // FilterButton
+            // RefreshButton
             // 
-            this.FilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.FilterButton.Image = ((System.Drawing.Image)(resources.GetObject("FilterButton.Image")));
-            this.FilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FilterButton.Location = new System.Drawing.Point(838, 615);
-            this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(206, 54);
-            this.FilterButton.TabIndex = 63;
-            this.FilterButton.Text = "Anuluj zamówienie";
-            this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.FilterButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RefreshButton.Image = ((System.Drawing.Image)(resources.GetObject("RefreshButton.Image")));
+            this.RefreshButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RefreshButton.Location = new System.Drawing.Point(880, 615);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(164, 54);
+            this.RefreshButton.TabIndex = 157;
+            this.RefreshButton.Text = "Odśwież";
+            this.RefreshButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RefreshButton.UseVisualStyleBackColor = true;
             // 
             // ClientOrderForm
             // 
@@ -72,7 +72,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1056, 681);
-            this.Controls.Add(this.FilterButton);
+            this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TableLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -88,6 +88,6 @@
 
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button FilterButton;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }

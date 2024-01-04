@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -52,11 +51,18 @@ namespace CarRental
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber = Int32.Parse(id);
-            BrandTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            CountryTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            RegionTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            try
+            {
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rowNumber = Int32.Parse(id);
+                BrandTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                CountryTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                RegionTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)

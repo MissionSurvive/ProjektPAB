@@ -13,9 +13,6 @@ namespace CarRental
         public static int nextRow;
         public static int idInt;
         private string id = "";
-
-        SqlCommand command = new SqlCommand();
-        dbConnect connection = new dbConnect();
         OrderHistoryOptionsForm orderHistoryOptionsForm = new OrderHistoryOptionsForm() { TopLevel = true, TopMost = true };
         public OrderHistoryForm()
         {
@@ -46,19 +43,26 @@ namespace CarRental
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber = Int32.Parse(id);
-            orderHistoryOptionsForm.EmployeeCombo.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            orderHistoryOptionsForm.StartDatePicker.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            orderHistoryOptionsForm.EndDatePicker.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            orderHistoryOptionsForm.CountNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-            orderHistoryOptionsForm.PriceNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-            orderHistoryOptionsForm.CollisionDatePicker.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
-            orderHistoryOptionsForm.PenaltyNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
-            this.hISTORIA_ZAMOWIENIATableAdapter.Update(this.allDataSet.HISTORIA_ZAMOWIENIA);
-            this.hISTORIA_ZAMOWIENIATableAdapter.Fill(this.allDataSet.HISTORIA_ZAMOWIENIA);
-            nextRow = dataGridView1.Rows.Count;
-            getId();
+            try
+            {
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rowNumber = Int32.Parse(id);
+                orderHistoryOptionsForm.EmployeeCombo.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                orderHistoryOptionsForm.StartDatePicker.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                orderHistoryOptionsForm.EndDatePicker.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                orderHistoryOptionsForm.CountNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                orderHistoryOptionsForm.PriceNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                orderHistoryOptionsForm.CollisionDatePicker.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                orderHistoryOptionsForm.PenaltyNumeric.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+                this.hISTORIA_ZAMOWIENIATableAdapter.Update(this.allDataSet.HISTORIA_ZAMOWIENIA);
+                this.hISTORIA_ZAMOWIENIATableAdapter.Fill(this.allDataSet.HISTORIA_ZAMOWIENIA);
+                nextRow = dataGridView1.Rows.Count;
+                getId();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

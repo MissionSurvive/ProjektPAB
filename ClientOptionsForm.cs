@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -11,6 +12,14 @@ namespace CarRental
         public ClientOptionsForm()
         {
             InitializeComponent();
+            using (CarRentalCWEntities db = new CarRentalCWEntities())
+            {
+                RoleCombo.DataSource = db.ROLE
+                    .Where(x => x.ROLA == "Klient")
+                    .ToList();
+                RoleCombo.DisplayMember = "ROLA";
+                RoleCombo.ValueMember = "ID_ROLA";
+            }
         }
 
         private object CheckNull(string data)
@@ -20,7 +29,7 @@ namespace CarRental
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Dispose();
         }
 
         private void PeselTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -29,11 +38,19 @@ namespace CarRental
             {
                 e.Handled = true;
             }
+            else if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
         }
 
         private void NipTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '!'))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
             {
                 e.Handled = true;
             }
@@ -126,7 +143,6 @@ namespace CarRental
                                     + ClientForm.rowNumber + "'", connection.connect());
             command.Parameters.AddWithValue("@Username", UsernameTextBox.Text);
             command.Parameters.AddWithValue("@Password", PasswordTextBox.Text);
-
             try
             {
                 connection.open();

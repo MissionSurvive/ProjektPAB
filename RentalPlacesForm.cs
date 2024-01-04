@@ -27,14 +27,21 @@ namespace CarRental
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             command = new SqlCommand("DELETE FROM WYPOZYCZALNIE WHERE ID_WYPOZYCZALNIA LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.wYPOZYCZALNIETableAdapter.Update(this.allDataSet.WYPOZYCZALNIE);
-            this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
-            CityTextBox.Text = "";
-            AddressTextBox.Text = "";
+            try
+            {
+                connection.open();
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.wYPOZYCZALNIETableAdapter.Update(this.allDataSet.WYPOZYCZALNIE);
+                this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
+                CityTextBox.Text = "";
+                AddressTextBox.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -101,10 +108,17 @@ namespace CarRental
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber = Int32.Parse(id);
-            CityTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            AddressTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            try
+            {
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rowNumber = Int32.Parse(id);
+                CityTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                AddressTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FilterCheck_CheckedChanged(object sender, EventArgs e)

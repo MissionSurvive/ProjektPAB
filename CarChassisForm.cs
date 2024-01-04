@@ -29,13 +29,20 @@ namespace CarRental
             if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
                 command = new SqlCommand("DELETE FROM RODZAJE_NADWOZIA WHERE ID_NADWOZIE LIKE'" + rowNumber + "'", connection.connect());
-                connection.open();
-                command.ExecuteNonQuery();
-                connection.close();
-                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-                this.rODZAJE_NADWOZIATableAdapter.Update(this.allDataSet.RODZAJE_NADWOZIA);
-                this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
-                ChassisTextBox.Text = "";
+                try
+                {
+                    connection.open();
+                    command.ExecuteNonQuery();
+                    connection.close();
+                    MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                    this.rODZAJE_NADWOZIATableAdapter.Update(this.allDataSet.RODZAJE_NADWOZIA);
+                    this.rODZAJE_NADWOZIATableAdapter.Fill(this.allDataSet.RODZAJE_NADWOZIA);
+                    ChassisTextBox.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
                 MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");

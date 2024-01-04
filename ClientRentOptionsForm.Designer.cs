@@ -32,6 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID_PAKIET = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAZWA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZAWARTOSC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -46,10 +50,6 @@
             this.SumTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.ID_PAKIET = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NAZWA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ZAWARTOSC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNumeric)).BeginInit();
@@ -77,6 +77,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID_PAKIET,
@@ -85,9 +87,38 @@
             this.CENA});
             this.dataGridView1.Location = new System.Drawing.Point(17, 38);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(555, 228);
             this.dataGridView1.TabIndex = 135;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // ID_PAKIET
+            // 
+            this.ID_PAKIET.DataPropertyName = "ID_PAKIET";
+            this.ID_PAKIET.HeaderText = "ID_PAKIET";
+            this.ID_PAKIET.Name = "ID_PAKIET";
+            this.ID_PAKIET.ReadOnly = true;
+            // 
+            // NAZWA
+            // 
+            this.NAZWA.DataPropertyName = "NAZWA";
+            this.NAZWA.HeaderText = "NAZWA";
+            this.NAZWA.Name = "NAZWA";
+            this.NAZWA.ReadOnly = true;
+            // 
+            // ZAWARTOSC
+            // 
+            this.ZAWARTOSC.DataPropertyName = "ZAWARTOSC";
+            this.ZAWARTOSC.HeaderText = "ZAWARTOSC";
+            this.ZAWARTOSC.Name = "ZAWARTOSC";
+            this.ZAWARTOSC.ReadOnly = true;
+            // 
+            // CENA
+            // 
+            this.CENA.DataPropertyName = "CENA";
+            this.CENA.HeaderText = "CENA";
+            this.CENA.Name = "CENA";
+            this.CENA.ReadOnly = true;
             // 
             // label8
             // 
@@ -125,7 +156,6 @@
             this.MonthRadio.Name = "MonthRadio";
             this.MonthRadio.Size = new System.Drawing.Size(61, 17);
             this.MonthRadio.TabIndex = 2;
-            this.MonthRadio.TabStop = true;
             this.MonthRadio.Text = "Miesiąc";
             this.MonthRadio.UseVisualStyleBackColor = true;
             this.MonthRadio.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
@@ -137,7 +167,6 @@
             this.WeekRadio.Name = "WeekRadio";
             this.WeekRadio.Size = new System.Drawing.Size(62, 17);
             this.WeekRadio.TabIndex = 1;
-            this.WeekRadio.TabStop = true;
             this.WeekRadio.Text = "Tydzień";
             this.WeekRadio.UseVisualStyleBackColor = true;
             this.WeekRadio.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
@@ -145,6 +174,7 @@
             // DayRadio
             // 
             this.DayRadio.AutoSize = true;
+            this.DayRadio.Checked = true;
             this.DayRadio.Location = new System.Drawing.Point(6, 26);
             this.DayRadio.Name = "DayRadio";
             this.DayRadio.Size = new System.Drawing.Size(52, 17);
@@ -162,9 +192,20 @@
             0,
             0,
             0});
+            this.LengthNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.LengthNumeric.Name = "LengthNumeric";
             this.LengthNumeric.Size = new System.Drawing.Size(199, 20);
             this.LengthNumeric.TabIndex = 157;
+            this.LengthNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.LengthNumeric.ValueChanged += new System.EventHandler(this.LengthNumeric_ValueChanged);
             // 
             // label6
             // 
@@ -238,30 +279,7 @@
             this.button2.Text = "Anuluj";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // ID_PAKIET
-            // 
-            this.ID_PAKIET.DataPropertyName = "ID_PAKIET";
-            this.ID_PAKIET.HeaderText = "ID_PAKIET";
-            this.ID_PAKIET.Name = "ID_PAKIET";
-            // 
-            // NAZWA
-            // 
-            this.NAZWA.DataPropertyName = "NAZWA";
-            this.NAZWA.HeaderText = "NAZWA";
-            this.NAZWA.Name = "NAZWA";
-            // 
-            // ZAWARTOSC
-            // 
-            this.ZAWARTOSC.DataPropertyName = "ZAWARTOSC";
-            this.ZAWARTOSC.HeaderText = "ZAWARTOSC";
-            this.ZAWARTOSC.Name = "ZAWARTOSC";
-            // 
-            // CENA
-            // 
-            this.CENA.DataPropertyName = "CENA";
-            this.CENA.HeaderText = "CENA";
-            this.CENA.Name = "CENA";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ClientRentOptionsForm
             // 

@@ -39,16 +39,7 @@
             this.ModelCombo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.ColorTextBox = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.GearboxTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PowerDownTextBox = new System.Windows.Forms.TextBox();
-            this.PowerUpTextBox = new System.Windows.Forms.TextBox();
-            this.SeatsTextBox = new System.Windows.Forms.TextBox();
+            this.FilterCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,16 +62,19 @@
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(164, 54);
             this.AddButton.TabIndex = 59;
-            this.AddButton.Text = "Dodaj";
+            this.AddButton.Text = "Wybierz";
             this.AddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(19, 49);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1025, 393);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -159,90 +153,17 @@
             this.label2.TabIndex = 138;
             this.label2.Text = "Paliwo";
             // 
-            // label11
+            // FilterCheck
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(184, 545);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 20);
-            this.label11.TabIndex = 176;
-            this.label11.Text = "Kolor";
-            // 
-            // ColorTextBox
-            // 
-            this.ColorTextBox.Location = new System.Drawing.Point(188, 569);
-            this.ColorTextBox.Name = "ColorTextBox";
-            this.ColorTextBox.Size = new System.Drawing.Size(164, 20);
-            this.ColorTextBox.TabIndex = 174;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label14.Location = new System.Drawing.Point(357, 501);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 20);
-            this.label14.TabIndex = 181;
-            this.label14.Text = "Ilość miejsc";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.Location = new System.Drawing.Point(357, 453);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(123, 20);
-            this.label13.TabIndex = 180;
-            this.label13.Text = "Skrzynia biegów";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(184, 453);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 20);
-            this.label12.TabIndex = 179;
-            this.label12.Text = "Moc od";
-            // 
-            // GearboxTextBox
-            // 
-            this.GearboxTextBox.Location = new System.Drawing.Point(361, 478);
-            this.GearboxTextBox.Name = "GearboxTextBox";
-            this.GearboxTextBox.Size = new System.Drawing.Size(164, 20);
-            this.GearboxTextBox.TabIndex = 178;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(184, 499);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.TabIndex = 184;
-            this.label1.Text = "Moc do";
-            // 
-            // PowerDownTextBox
-            // 
-            this.PowerDownTextBox.Location = new System.Drawing.Point(187, 475);
-            this.PowerDownTextBox.Name = "PowerDownTextBox";
-            this.PowerDownTextBox.Size = new System.Drawing.Size(164, 20);
-            this.PowerDownTextBox.TabIndex = 185;
-            // 
-            // PowerUpTextBox
-            // 
-            this.PowerUpTextBox.Location = new System.Drawing.Point(188, 522);
-            this.PowerUpTextBox.Name = "PowerUpTextBox";
-            this.PowerUpTextBox.Size = new System.Drawing.Size(164, 20);
-            this.PowerUpTextBox.TabIndex = 186;
-            // 
-            // SeatsTextBox
-            // 
-            this.SeatsTextBox.Location = new System.Drawing.Point(361, 522);
-            this.SeatsTextBox.Name = "SeatsTextBox";
-            this.SeatsTextBox.Size = new System.Drawing.Size(164, 20);
-            this.SeatsTextBox.TabIndex = 187;
+            this.FilterCheck.AutoSize = true;
+            this.FilterCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FilterCheck.Location = new System.Drawing.Point(880, 585);
+            this.FilterCheck.Name = "FilterCheck";
+            this.FilterCheck.Size = new System.Drawing.Size(126, 24);
+            this.FilterCheck.TabIndex = 188;
+            this.FilterCheck.Text = "Włącz filtrację";
+            this.FilterCheck.UseVisualStyleBackColor = true;
+            this.FilterCheck.CheckedChanged += new System.EventHandler(this.FilterCheck_CheckedChanged);
             // 
             // ClientRentForm
             // 
@@ -250,16 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1056, 681);
-            this.Controls.Add(this.SeatsTextBox);
-            this.Controls.Add(this.PowerUpTextBox);
-            this.Controls.Add(this.PowerDownTextBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.GearboxTextBox);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.ColorTextBox);
+            this.Controls.Add(this.FilterCheck);
             this.Controls.Add(this.RentalCombo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.FuelCombo);
@@ -291,15 +203,6 @@
         public System.Windows.Forms.ComboBox ModelCombo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label11;
-        public System.Windows.Forms.TextBox ColorTextBox;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.TextBox GearboxTextBox;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox PowerDownTextBox;
-        public System.Windows.Forms.TextBox PowerUpTextBox;
-        public System.Windows.Forms.TextBox SeatsTextBox;
+        private System.Windows.Forms.CheckBox FilterCheck;
     }
 }

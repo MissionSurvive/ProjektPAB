@@ -73,27 +73,34 @@ namespace CarRental
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             command = new SqlCommand("UPDATE PRACOWNICY SET ID_KON_PRACOWNIK = NULL WHERE ID_PRAC LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            command.CommandText = "DELETE FROM KONTA_PRACOWNIKOW WHERE ID_KON_PRACOWNIK LIKE'" + rowNumber + "'";
-            command.ExecuteNonQuery();
-            command.CommandText = "DELETE FROM PRACOWNICY WHERE ID_PRAC LIKE '" + rowNumber + "'";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (KONTA_PRACOWNIKOW, RESEED, 0)";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (PRACOWNICY, RESEED, 0)";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (KONTA_PRACOWNIKOW, RESEED)";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (PRACOWNICY, RESEED)";
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.kONTA_PRACOWNIKOWTableAdapter.Update(this.allDataSet.KONTA_PRACOWNIKOW);
-            this.kONTA_PRACOWNIKOWTableAdapter.Fill(this.allDataSet.KONTA_PRACOWNIKOW);
-            this.pRACOWNICYTableAdapter.Update(this.allDataSet.PRACOWNICY);
-            this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
-            getId();
+            try
+            {
+                connection.open();
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM KONTA_PRACOWNIKOW WHERE ID_KON_PRACOWNIK LIKE'" + rowNumber + "'";
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM PRACOWNICY WHERE ID_PRAC LIKE '" + rowNumber + "'";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (KONTA_PRACOWNIKOW, RESEED, 0)";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (PRACOWNICY, RESEED, 0)";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (KONTA_PRACOWNIKOW, RESEED)";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (PRACOWNICY, RESEED)";
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.kONTA_PRACOWNIKOWTableAdapter.Update(this.allDataSet.KONTA_PRACOWNIKOW);
+                this.kONTA_PRACOWNIKOWTableAdapter.Fill(this.allDataSet.KONTA_PRACOWNIKOW);
+                this.pRACOWNICYTableAdapter.Update(this.allDataSet.PRACOWNICY);
+                this.pRACOWNICYTableAdapter.Fill(this.allDataSet.PRACOWNICY);
+                getId();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)

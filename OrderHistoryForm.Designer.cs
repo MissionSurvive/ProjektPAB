@@ -79,6 +79,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -97,6 +99,7 @@
             this.dataGridView1.DataSource = this.hISTORIAZAMOWIENIABindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 50);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1072, 562);
             this.dataGridView1.TabIndex = 112;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -113,66 +116,77 @@
             this.iDPRACDataGridViewTextBoxColumn.DataPropertyName = "ID_PRAC";
             this.iDPRACDataGridViewTextBoxColumn.HeaderText = "ID_PRAC";
             this.iDPRACDataGridViewTextBoxColumn.Name = "iDPRACDataGridViewTextBoxColumn";
+            this.iDPRACDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDZAMOWIENIEDataGridViewTextBoxColumn
             // 
             this.iDZAMOWIENIEDataGridViewTextBoxColumn.DataPropertyName = "ID_ZAMOWIENIE";
             this.iDZAMOWIENIEDataGridViewTextBoxColumn.HeaderText = "ID_ZAMOWIENIE";
             this.iDZAMOWIENIEDataGridViewTextBoxColumn.Name = "iDZAMOWIENIEDataGridViewTextBoxColumn";
+            this.iDZAMOWIENIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDKLIENTDataGridViewTextBoxColumn
             // 
             this.iDKLIENTDataGridViewTextBoxColumn.DataPropertyName = "ID_KLIENT";
             this.iDKLIENTDataGridViewTextBoxColumn.HeaderText = "ID_KLIENT";
             this.iDKLIENTDataGridViewTextBoxColumn.Name = "iDKLIENTDataGridViewTextBoxColumn";
+            this.iDKLIENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dATAWYDANIEDataGridViewTextBoxColumn
             // 
             this.dATAWYDANIEDataGridViewTextBoxColumn.DataPropertyName = "DATA_WYDANIE";
             this.dATAWYDANIEDataGridViewTextBoxColumn.HeaderText = "DATA_WYDANIE";
             this.dATAWYDANIEDataGridViewTextBoxColumn.Name = "dATAWYDANIEDataGridViewTextBoxColumn";
+            this.dATAWYDANIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dATAPRZYJECIEDataGridViewTextBoxColumn
             // 
             this.dATAPRZYJECIEDataGridViewTextBoxColumn.DataPropertyName = "DATA_PRZYJECIE";
             this.dATAPRZYJECIEDataGridViewTextBoxColumn.HeaderText = "DATA_PRZYJECIE";
             this.dATAPRZYJECIEDataGridViewTextBoxColumn.Name = "dATAPRZYJECIEDataGridViewTextBoxColumn";
+            this.dATAPRZYJECIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tANKOWANIEDataGridViewCheckBoxColumn
             // 
             this.tANKOWANIEDataGridViewCheckBoxColumn.DataPropertyName = "TANKOWANIE";
             this.tANKOWANIEDataGridViewCheckBoxColumn.HeaderText = "TANKOWANIE";
             this.tANKOWANIEDataGridViewCheckBoxColumn.Name = "tANKOWANIEDataGridViewCheckBoxColumn";
+            this.tANKOWANIEDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // iLOSCTANKOWANIEDataGridViewTextBoxColumn
             // 
             this.iLOSCTANKOWANIEDataGridViewTextBoxColumn.DataPropertyName = "ILOSC_TANKOWANIE";
             this.iLOSCTANKOWANIEDataGridViewTextBoxColumn.HeaderText = "ILOSC_TANKOWANIE";
             this.iLOSCTANKOWANIEDataGridViewTextBoxColumn.Name = "iLOSCTANKOWANIEDataGridViewTextBoxColumn";
+            this.iLOSCTANKOWANIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kOSZTTANKOWANIEDataGridViewTextBoxColumn
             // 
             this.kOSZTTANKOWANIEDataGridViewTextBoxColumn.DataPropertyName = "KOSZT_TANKOWANIE";
             this.kOSZTTANKOWANIEDataGridViewTextBoxColumn.HeaderText = "KOSZT_TANKOWANIE";
             this.kOSZTTANKOWANIEDataGridViewTextBoxColumn.Name = "kOSZTTANKOWANIEDataGridViewTextBoxColumn";
+            this.kOSZTTANKOWANIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kOLIZJADataGridViewCheckBoxColumn
             // 
             this.kOLIZJADataGridViewCheckBoxColumn.DataPropertyName = "KOLIZJA";
             this.kOLIZJADataGridViewCheckBoxColumn.HeaderText = "KOLIZJA";
             this.kOLIZJADataGridViewCheckBoxColumn.Name = "kOLIZJADataGridViewCheckBoxColumn";
+            this.kOLIZJADataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // dATAKOLIZJADataGridViewTextBoxColumn
             // 
             this.dATAKOLIZJADataGridViewTextBoxColumn.DataPropertyName = "DATA_KOLIZJA";
             this.dATAKOLIZJADataGridViewTextBoxColumn.HeaderText = "DATA_KOLIZJA";
             this.dATAKOLIZJADataGridViewTextBoxColumn.Name = "dATAKOLIZJADataGridViewTextBoxColumn";
+            this.dATAKOLIZJADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kARAKOLIZJADataGridViewTextBoxColumn
             // 
             this.kARAKOLIZJADataGridViewTextBoxColumn.DataPropertyName = "KARA_KOLIZJA";
             this.kARAKOLIZJADataGridViewTextBoxColumn.HeaderText = "KARA_KOLIZJA";
             this.kARAKOLIZJADataGridViewTextBoxColumn.Name = "kARAKOLIZJADataGridViewTextBoxColumn";
+            this.kARAKOLIZJADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // hISTORIAZAMOWIENIABindingSource
             // 

@@ -55,22 +55,22 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.RentalCombo = new System.Windows.Forms.ComboBox();
+            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
             this.UpdateAccountButton = new System.Windows.Forms.Button();
             this.RoleCombo = new System.Windows.Forms.ComboBox();
+            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.SalaryNumeric = new System.Windows.Forms.NumericUpDown();
             this.ExtraNumeric = new System.Windows.Forms.NumericUpDown();
             this.PeselTextBox = new System.Windows.Forms.TextBox();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.wYPOZYCZALNIETableAdapter = new CarRental.AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter();
-            this.rOLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rOLETableAdapter = new CarRental.AllDataSetTableAdapters.ROLETableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalaryNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExtraNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -267,7 +267,7 @@
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.Image")));
             this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateButton.Location = new System.Drawing.Point(268, 495);
+            this.UpdateButton.Location = new System.Drawing.Point(263, 495);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(164, 54);
             this.UpdateButton.TabIndex = 127;
@@ -281,7 +281,7 @@
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddButton.Location = new System.Drawing.Point(98, 495);
+            this.AddButton.Location = new System.Drawing.Point(93, 495);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(164, 54);
             this.AddButton.TabIndex = 126;
@@ -315,14 +315,24 @@
             this.RentalCombo.TabIndex = 129;
             this.RentalCombo.ValueMember = "ID_WYPOZYCZALNIA";
             // 
+            // wYPOZYCZALNIEBindingSource
+            // 
+            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
+            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // UpdateAccountButton
             // 
             this.UpdateAccountButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UpdateAccountButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateAccountButton.Image")));
             this.UpdateAccountButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateAccountButton.Location = new System.Drawing.Point(438, 495);
+            this.UpdateAccountButton.Location = new System.Drawing.Point(433, 495);
             this.UpdateAccountButton.Name = "UpdateAccountButton";
-            this.UpdateAccountButton.Size = new System.Drawing.Size(164, 54);
+            this.UpdateAccountButton.Size = new System.Drawing.Size(169, 54);
             this.UpdateAccountButton.TabIndex = 130;
             this.UpdateAccountButton.Text = "Modyfikuj konto";
             this.UpdateAccountButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -339,6 +349,11 @@
             this.RoleCombo.Size = new System.Drawing.Size(164, 21);
             this.RoleCombo.TabIndex = 132;
             this.RoleCombo.ValueMember = "ID_ROLA";
+            // 
+            // rOLEBindingSource
+            // 
+            this.rOLEBindingSource.DataMember = "ROLE";
+            this.rOLEBindingSource.DataSource = this.allDataSet;
             // 
             // label14
             // 
@@ -383,24 +398,9 @@
             this.PeselTextBox.Size = new System.Drawing.Size(164, 20);
             this.PeselTextBox.TabIndex = 137;
             // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // wYPOZYCZALNIEBindingSource
-            // 
-            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
-            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
-            // 
             // wYPOZYCZALNIETableAdapter
             // 
             this.wYPOZYCZALNIETableAdapter.ClearBeforeFill = true;
-            // 
-            // rOLEBindingSource
-            // 
-            this.rOLEBindingSource.DataMember = "ROLE";
-            this.rOLEBindingSource.DataSource = this.allDataSet;
             // 
             // rOLETableAdapter
             // 
@@ -446,11 +446,11 @@
             this.Name = "EmployeeOptionsForm";
             this.Text = "Zarządzanie pracownikiem";
             this.Load += new System.EventHandler(this.EmployeeOptionsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalaryNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExtraNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

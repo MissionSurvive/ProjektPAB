@@ -120,6 +120,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -134,6 +136,7 @@
             this.dataGridView1.DataSource = this.kLIENCIBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 50);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1072, 454);
             this.dataGridView1.TabIndex = 111;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -150,42 +153,49 @@
             this.iDKONKLIENTDataGridViewTextBoxColumn.DataPropertyName = "iD_KON_KLIENT";
             this.iDKONKLIENTDataGridViewTextBoxColumn.HeaderText = "iD_KON_KLIENT";
             this.iDKONKLIENTDataGridViewTextBoxColumn.Name = "iDKONKLIENTDataGridViewTextBoxColumn";
+            this.iDKONKLIENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iMIEKLIENTDataGridViewTextBoxColumn
             // 
             this.iMIEKLIENTDataGridViewTextBoxColumn.DataPropertyName = "IMIE_KLIENT";
             this.iMIEKLIENTDataGridViewTextBoxColumn.HeaderText = "IMIE_KLIENT";
             this.iMIEKLIENTDataGridViewTextBoxColumn.Name = "iMIEKLIENTDataGridViewTextBoxColumn";
+            this.iMIEKLIENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nAZWISKOKLIENTDataGridViewTextBoxColumn
             // 
             this.nAZWISKOKLIENTDataGridViewTextBoxColumn.DataPropertyName = "NAZWISKO_KLIENT";
             this.nAZWISKOKLIENTDataGridViewTextBoxColumn.HeaderText = "NAZWISKO_KLIENT";
             this.nAZWISKOKLIENTDataGridViewTextBoxColumn.Name = "nAZWISKOKLIENTDataGridViewTextBoxColumn";
+            this.nAZWISKOKLIENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pESELKLIENTDataGridViewTextBoxColumn
             // 
             this.pESELKLIENTDataGridViewTextBoxColumn.DataPropertyName = "PESEL_KLIENT";
             this.pESELKLIENTDataGridViewTextBoxColumn.HeaderText = "PESEL_KLIENT";
             this.pESELKLIENTDataGridViewTextBoxColumn.Name = "pESELKLIENTDataGridViewTextBoxColumn";
+            this.pESELKLIENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tELEFONKLIENTDataGridViewTextBoxColumn
             // 
             this.tELEFONKLIENTDataGridViewTextBoxColumn.DataPropertyName = "TELEFON_KLIENT";
             this.tELEFONKLIENTDataGridViewTextBoxColumn.HeaderText = "TELEFON_KLIENT";
             this.tELEFONKLIENTDataGridViewTextBoxColumn.Name = "tELEFONKLIENTDataGridViewTextBoxColumn";
+            this.tELEFONKLIENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fAXDataGridViewTextBoxColumn
             // 
             this.fAXDataGridViewTextBoxColumn.DataPropertyName = "FAX";
             this.fAXDataGridViewTextBoxColumn.HeaderText = "FAX";
             this.fAXDataGridViewTextBoxColumn.Name = "fAXDataGridViewTextBoxColumn";
+            this.fAXDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nIPDataGridViewTextBoxColumn
             // 
             this.nIPDataGridViewTextBoxColumn.DataPropertyName = "NIP";
             this.nIPDataGridViewTextBoxColumn.HeaderText = "NIP";
             this.nIPDataGridViewTextBoxColumn.Name = "nIPDataGridViewTextBoxColumn";
+            this.nIPDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kLIENCIBindingSource
             // 

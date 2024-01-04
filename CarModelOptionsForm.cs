@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -89,6 +90,18 @@ namespace CarRental
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void YearTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '!'))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -118,6 +118,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -126,6 +128,7 @@
             this.dataGridView1.DataSource = this.rOLEBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 50);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1076, 502);
             this.dataGridView1.TabIndex = 118;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -142,6 +145,7 @@
             this.rOLADataGridViewTextBoxColumn.DataPropertyName = "ROLA";
             this.rOLADataGridViewTextBoxColumn.HeaderText = "ROLA";
             this.rOLADataGridViewTextBoxColumn.Name = "rOLADataGridViewTextBoxColumn";
+            this.rOLADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // rOLEBindingSource
             // 

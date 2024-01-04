@@ -35,14 +35,6 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.iDKONPRACOWNIKDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDROLADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDPRACDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAZWAPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hASLOPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kONTAPRACOWNIKOWBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.allDataSet = new CarRental.AllDataSet();
             this.iDPRACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDKONPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +47,14 @@
             this.wYNAGRODZENIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pREMIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACOWNICYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDROLADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDPRACDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAZWAPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hASLOPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kONTAPRACOWNIKOWBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pRACOWNICYTableAdapter = new CarRental.AllDataSetTableAdapters.PRACOWNICYTableAdapter();
             this.kONTA_PRACOWNIKOWTableAdapter = new CarRental.AllDataSetTableAdapters.KONTA_PRACOWNIKOWTableAdapter();
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
@@ -63,10 +63,10 @@
             this.ModelLabel = new System.Windows.Forms.Label();
             this.FilterCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kONTAPRACOWNIKOWBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FilterButton
@@ -123,6 +123,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -140,9 +142,97 @@
             this.dataGridView1.DataSource = this.pRACOWNICYBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 50);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1072, 466);
             this.dataGridView1.TabIndex = 106;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // iDPRACDataGridViewTextBoxColumn
+            // 
+            this.iDPRACDataGridViewTextBoxColumn.DataPropertyName = "ID_PRAC";
+            this.iDPRACDataGridViewTextBoxColumn.HeaderText = "ID_PRAC";
+            this.iDPRACDataGridViewTextBoxColumn.Name = "iDPRACDataGridViewTextBoxColumn";
+            this.iDPRACDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDKONPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "ID_KON_PRACOWNIK";
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "ID_KON_PRACOWNIK";
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.Name = "iDKONPRACOWNIKDataGridViewTextBoxColumn";
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDWYPOZYCZALNIADataGridViewTextBoxColumn
+            // 
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iMIEPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "IMIE_PRACOWNIK";
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "IMIE_PRACOWNIK";
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.Name = "iMIEPRACOWNIKDataGridViewTextBoxColumn";
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nAZWISKOPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "NAZWISKO_PRACOWNIK";
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "NAZWISKO_PRACOWNIK";
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.Name = "nAZWISKOPRACOWNIKDataGridViewTextBoxColumn";
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pESELPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "PESEL_PRACOWNIK";
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "PESEL_PRACOWNIK";
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn.Name = "pESELPRACOWNIKDataGridViewTextBoxColumn";
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tELEFONPRACOWNIKDataGridViewTextBoxColumn
+            // 
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "TELEFON_PRACOWNIK";
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "TELEFON_PRACOWNIK";
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.Name = "tELEFONPRACOWNIKDataGridViewTextBoxColumn";
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sTANOWISKODataGridViewTextBoxColumn
+            // 
+            this.sTANOWISKODataGridViewTextBoxColumn.DataPropertyName = "STANOWISKO";
+            this.sTANOWISKODataGridViewTextBoxColumn.HeaderText = "STANOWISKO";
+            this.sTANOWISKODataGridViewTextBoxColumn.Name = "sTANOWISKODataGridViewTextBoxColumn";
+            this.sTANOWISKODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dATAZATRUDNIENIADataGridViewTextBoxColumn
+            // 
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.DataPropertyName = "DATA_ZATRUDNIENIA";
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.HeaderText = "DATA_ZATRUDNIENIA";
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.Name = "dATAZATRUDNIENIADataGridViewTextBoxColumn";
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // wYNAGRODZENIEDataGridViewTextBoxColumn
+            // 
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn.DataPropertyName = "WYNAGRODZENIE";
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn.HeaderText = "WYNAGRODZENIE";
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn.Name = "wYNAGRODZENIEDataGridViewTextBoxColumn";
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pREMIADataGridViewTextBoxColumn
+            // 
+            this.pREMIADataGridViewTextBoxColumn.DataPropertyName = "PREMIA";
+            this.pREMIADataGridViewTextBoxColumn.HeaderText = "PREMIA";
+            this.pREMIADataGridViewTextBoxColumn.Name = "pREMIADataGridViewTextBoxColumn";
+            this.pREMIADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pRACOWNICYBindingSource
+            // 
+            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
+            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridView2
             // 
@@ -196,83 +286,6 @@
             // 
             this.kONTAPRACOWNIKOWBindingSource.DataMember = "KONTA_PRACOWNIKOW";
             this.kONTAPRACOWNIKOWBindingSource.DataSource = this.allDataSet;
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // iDPRACDataGridViewTextBoxColumn
-            // 
-            this.iDPRACDataGridViewTextBoxColumn.DataPropertyName = "ID_PRAC";
-            this.iDPRACDataGridViewTextBoxColumn.HeaderText = "ID_PRAC";
-            this.iDPRACDataGridViewTextBoxColumn.Name = "iDPRACDataGridViewTextBoxColumn";
-            this.iDPRACDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // iDKONPRACOWNIKDataGridViewTextBoxColumn
-            // 
-            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "ID_KON_PRACOWNIK";
-            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "ID_KON_PRACOWNIK";
-            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.Name = "iDKONPRACOWNIKDataGridViewTextBoxColumn";
-            // 
-            // iDWYPOZYCZALNIADataGridViewTextBoxColumn
-            // 
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
-            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
-            // 
-            // iMIEPRACOWNIKDataGridViewTextBoxColumn
-            // 
-            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "IMIE_PRACOWNIK";
-            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "IMIE_PRACOWNIK";
-            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.Name = "iMIEPRACOWNIKDataGridViewTextBoxColumn";
-            // 
-            // nAZWISKOPRACOWNIKDataGridViewTextBoxColumn
-            // 
-            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "NAZWISKO_PRACOWNIK";
-            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "NAZWISKO_PRACOWNIK";
-            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.Name = "nAZWISKOPRACOWNIKDataGridViewTextBoxColumn";
-            // 
-            // pESELPRACOWNIKDataGridViewTextBoxColumn
-            // 
-            this.pESELPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "PESEL_PRACOWNIK";
-            this.pESELPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "PESEL_PRACOWNIK";
-            this.pESELPRACOWNIKDataGridViewTextBoxColumn.Name = "pESELPRACOWNIKDataGridViewTextBoxColumn";
-            // 
-            // tELEFONPRACOWNIKDataGridViewTextBoxColumn
-            // 
-            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "TELEFON_PRACOWNIK";
-            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "TELEFON_PRACOWNIK";
-            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.Name = "tELEFONPRACOWNIKDataGridViewTextBoxColumn";
-            // 
-            // sTANOWISKODataGridViewTextBoxColumn
-            // 
-            this.sTANOWISKODataGridViewTextBoxColumn.DataPropertyName = "STANOWISKO";
-            this.sTANOWISKODataGridViewTextBoxColumn.HeaderText = "STANOWISKO";
-            this.sTANOWISKODataGridViewTextBoxColumn.Name = "sTANOWISKODataGridViewTextBoxColumn";
-            // 
-            // dATAZATRUDNIENIADataGridViewTextBoxColumn
-            // 
-            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.DataPropertyName = "DATA_ZATRUDNIENIA";
-            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.HeaderText = "DATA_ZATRUDNIENIA";
-            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.Name = "dATAZATRUDNIENIADataGridViewTextBoxColumn";
-            // 
-            // wYNAGRODZENIEDataGridViewTextBoxColumn
-            // 
-            this.wYNAGRODZENIEDataGridViewTextBoxColumn.DataPropertyName = "WYNAGRODZENIE";
-            this.wYNAGRODZENIEDataGridViewTextBoxColumn.HeaderText = "WYNAGRODZENIE";
-            this.wYNAGRODZENIEDataGridViewTextBoxColumn.Name = "wYNAGRODZENIEDataGridViewTextBoxColumn";
-            // 
-            // pREMIADataGridViewTextBoxColumn
-            // 
-            this.pREMIADataGridViewTextBoxColumn.DataPropertyName = "PREMIA";
-            this.pREMIADataGridViewTextBoxColumn.HeaderText = "PREMIA";
-            this.pREMIADataGridViewTextBoxColumn.Name = "pREMIADataGridViewTextBoxColumn";
-            // 
-            // pRACOWNICYBindingSource
-            // 
-            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
-            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
             // 
             // pRACOWNICYTableAdapter
             // 
@@ -350,10 +363,10 @@
             this.Text = "EmployeeForm";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kONTAPRACOWNIKOWBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

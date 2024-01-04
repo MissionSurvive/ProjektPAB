@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.navBar = new System.Windows.Forms.Panel();
+            this.roleLabel = new System.Windows.Forms.Label();
             this.userLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataPanel = new System.Windows.Forms.Panel();
-            this.roleLabel = new System.Windows.Forms.Label();
             this.navBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -71,6 +71,16 @@
             this.navBar.Name = "navBar";
             this.navBar.Size = new System.Drawing.Size(164, 681);
             this.navBar.TabIndex = 0;
+            // 
+            // roleLabel
+            // 
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.roleLabel.Location = new System.Drawing.Point(4, 544);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(54, 16);
+            this.roleLabel.TabIndex = 13;
+            this.roleLabel.Text = "userInfo";
             // 
             // userLabel
             // 
@@ -246,16 +256,6 @@
             this.dataPanel.Name = "dataPanel";
             this.dataPanel.Size = new System.Drawing.Size(1100, 681);
             this.dataPanel.TabIndex = 2;
-            // 
-            // roleLabel
-            // 
-            this.roleLabel.AutoSize = true;
-            this.roleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.roleLabel.Location = new System.Drawing.Point(4, 544);
-            this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(54, 16);
-            this.roleLabel.TabIndex = 13;
-            this.roleLabel.Text = "userInfo";
             // 
             // Form1
             // 

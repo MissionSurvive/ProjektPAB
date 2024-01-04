@@ -28,13 +28,20 @@ namespace CarRental
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             command = new SqlCommand("DELETE FROM ROLE WHERE ID_ROLA LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.rOLETableAdapter.Update(this.allDataSet.ROLE);
-            this.rOLETableAdapter.Fill(this.allDataSet.ROLE);
-            RoleTextBox.Text = "";
+            try
+            {
+                connection.open();
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.rOLETableAdapter.Update(this.allDataSet.ROLE);
+                this.rOLETableAdapter.Fill(this.allDataSet.ROLE);
+                RoleTextBox.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -91,9 +98,16 @@ namespace CarRental
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber = Int32.Parse(id);
-            RoleTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            try
+            {
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rowNumber = Int32.Parse(id);
+                RoleTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

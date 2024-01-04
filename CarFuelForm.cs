@@ -29,13 +29,20 @@ namespace CarRental
             if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
                 command = new SqlCommand("DELETE FROM RODZAJE_PALIWA WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
-                connection.open();
-                command.ExecuteNonQuery();
-                connection.close();
-                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-                this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
-                this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
-                FuelTextBox.Text = "";
+                try
+                {
+                    connection.open();
+                    command.ExecuteNonQuery();
+                    connection.close();
+                    MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                    this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                    this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    FuelTextBox.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
                 MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
@@ -43,9 +50,17 @@ namespace CarRental
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber = Int32.Parse(id);
-            FuelTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            try
+            {
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rowNumber = Int32.Parse(id);
+                FuelTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -124,7 +139,7 @@ namespace CarRental
                 UpdateButton.Enabled = true;
                 DeleteButton.Enabled = true;
                 this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
-                dataGridView1.DataSource = this.allDataSet.RODZAJE_PALIWA
+                dataGridView1.DataSource = this.allDataSet.RODZAJE_PALIWA;
             }
         }
 

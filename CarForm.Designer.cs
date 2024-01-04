@@ -151,12 +151,6 @@
             // 
             this.sAMOCHODYBindingSource.DataMember = "SAMOCHODY";
             // 
-            // carRentalCWDataSet
-            // 
-            // 
-            // sAMOCHODYTableAdapter
-            // 
-            // 
             // CarForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;

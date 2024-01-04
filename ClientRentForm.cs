@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -20,10 +19,19 @@ namespace CarRental
         public static int weekPrice = 0;
         public static int monthPrice = 0;
         public static int depositPrice = 0;
+        public static int diff = 0;
         public static int idInt;
+        DateTime startDate;
+        DateTime endDate;
+
         public ClientRentForm()
         {
             InitializeComponent();
+            updateGrid();
+        }
+
+        private void updateGrid()
+        {
             using (CarRentalCWEntities db = new CarRentalCWEntities())
             {
                 dataGridView1.DataSource = db.SAMOCHODY
@@ -32,38 +40,43 @@ namespace CarRental
                     b => b.ID_WYPOZYCZALNIA,
                     (a, b) => new
                     {
-                        a,b
+                        a,
+                        b
                     })
                     .Join(db.RODZAJE_PALIWA,
                     c => c.a.ID_PALIWO,
                     d => d.ID_PALIWO,
                     (c, d) => new
                     {
-                        c, d
+                        c,
+                        d
                     })
                     .Join(db.MODELE,
                     e => e.c.a.ID_MODEL,
-                    f =>  f.ID_MODEL,
+                    f => f.ID_MODEL,
                     (e, f) => new
                     {
-                        e, f
+                        e,
+                        f
                     })
                     .Join(db.RODZAJE_NADWOZIA,
                     g => g.f.ID_NADWOZIE,
                     h => h.ID_NADWOZIE,
                     (g, h) => new
                     {
-                        g, h
+                        g,
+                        h
                     })
                     .Join(db.MARKI,
                     i => i.g.f.ID_MARKA,
                     j => j.ID_MARKA,
                     (i, j) => new
                     {
-                        i, j
+                        i,
+                        j
                     }).Select(result => new
                     {
-                        result.i.g.e.c.a.ID_SAMOCHOD, //0
+                        result.i.g.e.c.a.ID_SAMOCHOD,
                         result.j.NAZWA_MARKA,
                         result.i.g.f.NAZWA_MODEL,
                         result.i.g.e.d.NAZWA_RODZAJ,
@@ -74,13 +87,13 @@ namespace CarRental
                         result.i.g.e.c.a.MOC,
                         result.i.g.e.c.a.SKRZYNIA,
                         result.i.g.e.c.a.MIEJSCA,
-                        result.i.g.e.c.a.CENA_DZIEN, //11
-                        result.i.g.e.c.a.CENA_TYDZIEN, //12
-                        result.i.g.e.c.a.CENA_MIESIAC, //13
-                        result.i.g.e.c.a.KAUCJA, //14
-                        result.i.g.e.c.a.ID_MODEL, //15
-                        result.i.g.e.c.a.ID_PALIWO, //16
-                        result.i.g.e.c.a.ID_WYPOZYCZALNIA, //17
+                        result.i.g.e.c.a.CENA_DZIEN, 
+                        result.i.g.e.c.a.CENA_TYDZIEN,
+                        result.i.g.e.c.a.CENA_MIESIAC,
+                        result.i.g.e.c.a.KAUCJA,
+                        result.i.g.e.c.a.ID_MODEL,
+                        result.i.g.e.c.a.ID_PALIWO,
+                        result.i.g.e.c.a.ID_WYPOZYCZALNIA,
                     })
                     .ToList();
                 ModelCombo.DataSource = db.MODELE.ToList();
@@ -108,22 +121,7 @@ namespace CarRental
                 int modelID = Convert.ToInt32(ModelCombo.SelectedValue);
                 int fuelID = Convert.ToInt32(FuelCombo.SelectedValue);
                 int rentalID = Convert.ToInt32(RentalCombo.SelectedValue);
-                int powerDown = 0;
-                int powerUp = 0;
-                int seats = 0;
-                if (string.IsNullOrEmpty(PowerDownTextBox.Text))     
-                    PowerDownTextBox.Text = "";   
-                else
-                    powerDown = Convert.ToInt32(PowerDownTextBox.Text);
-                if (string.IsNullOrEmpty(PowerUpTextBox.Text))
-                    PowerUpTextBox.Text = "";
-                else
-                    powerUp = Convert.ToInt32(PowerUpTextBox.Text);
-                if (string.IsNullOrEmpty(SeatsTextBox.Text))
-                    SeatsTextBox.Text = "";
-                else
-                    seats = Convert.ToInt32(SeatsTextBox.Text);
-
+                
                 using (CarRentalCWEntities db = new CarRentalCWEntities())
                 {
                     dataGridView1.DataSource = db.SAMOCHODY
@@ -174,7 +172,7 @@ namespace CarRental
                         j
                     }).Select(result => new
                     {
-                        result.i.g.ee.c.a.ID_SAMOCHOD, //0
+                        result.i.g.ee.c.a.ID_SAMOCHOD,
                         result.j.NAZWA_MARKA,
                         result.i.g.f.NAZWA_MODEL,
                         result.i.g.ee.d.NAZWA_RODZAJ,
@@ -185,21 +183,15 @@ namespace CarRental
                         result.i.g.ee.c.a.MOC,
                         result.i.g.ee.c.a.SKRZYNIA,
                         result.i.g.ee.c.a.MIEJSCA,
-                        result.i.g.ee.c.a.CENA_DZIEN, //11
-                        result.i.g.ee.c.a.CENA_TYDZIEN, //12
-                        result.i.g.ee.c.a.CENA_MIESIAC, //13
-                        result.i.g.ee.c.a.KAUCJA, //14
-                        result.i.g.ee.c.a.ID_MODEL, //15
-                        result.i.g.ee.c.a.ID_PALIWO, //16
-                        result.i.g.ee.c.a.ID_WYPOZYCZALNIA, //17
+                        result.i.g.ee.c.a.CENA_DZIEN,
+                        result.i.g.ee.c.a.CENA_TYDZIEN,
+                        result.i.g.ee.c.a.CENA_MIESIAC,
+                        result.i.g.ee.c.a.KAUCJA,
+                        result.i.g.ee.c.a.ID_MODEL,
+                        result.i.g.ee.c.a.ID_PALIWO,
+                        result.i.g.ee.c.a.ID_WYPOZYCZALNIA,
                     })
                     .ToList();
-                    /*PowerDownTextBox.Text != null && x.MOC >= powerDown &&
-                         PowerUpTextBox.Text != null && x.MOC <= powerUp &&
-                         ColorTextBox.Text != null && x.KOLOR.StartsWith(ColorTextBox.Text) &&
-                         GearboxTextBox.Text != null && x.SKRZYNIA.StartsWith(GearboxTextBox.Text) &&
-                         SeatsTextBox.Text !=null && x.MIEJSCA == seats)
-                        .ToList();*/
                 }
             }
             catch (Exception ex)
@@ -212,6 +204,7 @@ namespace CarRental
         {
             try
             {
+                updateGrid();
                 id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 rowNumber = Int32.Parse(id);
                 rental = dataGridView1.Rows[e.RowIndex].Cells[17].Value.ToString();
@@ -225,18 +218,31 @@ namespace CarRental
                 deposit = dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString();
                 depositPrice = Int32.Parse(float.Parse(deposit).ToString());
                 getId();
-                
+
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }   
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
             ClientRentOptionsForm clientRentOptionsForm = new ClientRentOptionsForm();
             clientRentOptionsForm.ShowDialog();
+        }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                AddButton.Enabled = false;
+            }
+            else
+            {
+                AddButton.Enabled = true;
+                updateGrid();
+            }
         }
     }
 }
