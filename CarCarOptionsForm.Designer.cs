@@ -47,9 +47,13 @@
             this.ColorTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.RentalCombo = new System.Windows.Forms.ComboBox();
+            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.FuelCombo = new System.Windows.Forms.ComboBox();
+            this.rODZAJEPALIWABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ModelCombo = new System.Windows.Forms.ComboBox();
+            this.mODELEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,13 +69,13 @@
             this.MonthNumeric = new System.Windows.Forms.NumericUpDown();
             this.DepositNumeric = new System.Windows.Forms.NumericUpDown();
             this.OdometerNumeric = new System.Windows.Forms.NumericUpDown();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.mODELEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mODELETableAdapter = new CarRental.AllDataSetTableAdapters.MODELETableAdapter();
-            this.rODZAJEPALIWABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rODZAJE_PALIWATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_PALIWATableAdapter();
-            this.wYPOZYCZALNIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.wYPOZYCZALNIETableAdapter = new CarRental.AllDataSetTableAdapters.WYPOZYCZALNIETableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DisplacementNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SeatsNumeric)).BeginInit();
@@ -80,10 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MonthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepositNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OdometerNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -248,6 +248,16 @@
             this.RentalCombo.TabIndex = 137;
             this.RentalCombo.ValueMember = "ID_WYPOZYCZALNIA";
             // 
+            // wYPOZYCZALNIEBindingSource
+            // 
+            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
+            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -269,6 +279,11 @@
             this.FuelCombo.TabIndex = 135;
             this.FuelCombo.ValueMember = "ID_PALIWO";
             // 
+            // rODZAJEPALIWABindingSource
+            // 
+            this.rODZAJEPALIWABindingSource.DataMember = "RODZAJE_PALIWA";
+            this.rODZAJEPALIWABindingSource.DataSource = this.allDataSet;
+            // 
             // ModelCombo
             // 
             this.ModelCombo.DataSource = this.mODELEBindingSource;
@@ -279,6 +294,11 @@
             this.ModelCombo.Size = new System.Drawing.Size(163, 21);
             this.ModelCombo.TabIndex = 134;
             this.ModelCombo.ValueMember = "ID_MODEL";
+            // 
+            // mODELEBindingSource
+            // 
+            this.mODELEBindingSource.DataMember = "MODELE";
+            this.mODELEBindingSource.DataSource = this.allDataSet;
             // 
             // label4
             // 
@@ -332,6 +352,7 @@
             this.button2.Text = "Anuluj";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // UpdateButton
             // 
@@ -461,33 +482,13 @@
             this.OdometerNumeric.Size = new System.Drawing.Size(164, 20);
             this.OdometerNumeric.TabIndex = 173;
             // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mODELEBindingSource
-            // 
-            this.mODELEBindingSource.DataMember = "MODELE";
-            this.mODELEBindingSource.DataSource = this.allDataSet;
-            // 
             // mODELETableAdapter
             // 
             this.mODELETableAdapter.ClearBeforeFill = true;
             // 
-            // rODZAJEPALIWABindingSource
-            // 
-            this.rODZAJEPALIWABindingSource.DataMember = "RODZAJE_PALIWA";
-            this.rODZAJEPALIWABindingSource.DataSource = this.allDataSet;
-            // 
             // rODZAJE_PALIWATableAdapter
             // 
             this.rODZAJE_PALIWATableAdapter.ClearBeforeFill = true;
-            // 
-            // wYPOZYCZALNIEBindingSource
-            // 
-            this.wYPOZYCZALNIEBindingSource.DataMember = "WYPOZYCZALNIE";
-            this.wYPOZYCZALNIEBindingSource.DataSource = this.allDataSet;
             // 
             // wYPOZYCZALNIETableAdapter
             // 
@@ -537,6 +538,10 @@
             this.Name = "CarCarOptionsForm";
             this.Text = "Zarządzanie samochodem";
             this.Load += new System.EventHandler(this.CarCarOptionsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DisplacementNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SeatsNumeric)).EndInit();
@@ -545,10 +550,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MonthNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepositNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OdometerNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mODELEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wYPOZYCZALNIEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

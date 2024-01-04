@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -25,72 +26,136 @@ namespace CarRental
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("DELETE FROM RODZAJE_PALIWA WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
-            this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
-            FuelTextBox.Text = "";
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
+            {
+                command = new SqlCommand("DELETE FROM RODZAJE_PALIWA WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
+                try
+                {
+                    connection.open();
+                    command.ExecuteNonQuery();
+                    connection.close();
+                    MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                    this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                    this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    FuelTextBox.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber = Int32.Parse(id);
-            FuelTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            try
+            {
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rowNumber = Int32.Parse(id);
+                FuelTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("UPDATE RODZAJE_PALIWA SET NAZWA_RODZAJ = @FuelName WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
-            command.Parameters.AddWithValue("@FuelName", FuelTextBox.Text);
-            try
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
-                connection.open();
-                if (string.IsNullOrEmpty(FuelTextBox.Text))
+                command = new SqlCommand("UPDATE RODZAJE_PALIWA SET NAZWA_RODZAJ = @FuelName WHERE ID_PALIWO LIKE'" + rowNumber + "'", connection.connect());
+                command.Parameters.AddWithValue("@FuelName", FuelTextBox.Text);
+                try
                 {
-                    MessageBox.Show("Nazwa paliwa nie może być pusta!");
+                    connection.open();
+                    if (string.IsNullOrEmpty(FuelTextBox.Text))
+                    {
+                        MessageBox.Show("Nazwa paliwa nie może być pusta!");
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                        connection.close();
+                        MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
+                        this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                        this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    command.ExecuteNonQuery();
-                    connection.close();
-                    MessageBox.Show("Zaktualizowano rekord z ID: " + rowNumber + " !");
-                    this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
-                    this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand("INSERT INTO RODZAJE_PALIWA (NAZWA_RODZAJ) VALUES (@FuelName)", connection.connect());
-            command.Parameters.AddWithValue("@FuelName", FuelTextBox.Text);
-            try
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Mechanik")
             {
-                connection.open();
-                if (string.IsNullOrEmpty(FuelTextBox.Text))
+                command = new SqlCommand("INSERT INTO RODZAJE_PALIWA (NAZWA_RODZAJ) VALUES (@FuelName)", connection.connect());
+                command.Parameters.AddWithValue("@FuelName", FuelTextBox.Text);
+                try
                 {
-                    MessageBox.Show("Nazwa paliwa nie może być pusta!");
+                    connection.open();
+                    if (string.IsNullOrEmpty(FuelTextBox.Text))
+                    {
+                        MessageBox.Show("Nazwa paliwa nie może być pusta!");
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                        connection.close();
+                        MessageBox.Show("Dodano rekord pomyślnie!");
+                        this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
+                        this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    command.ExecuteNonQuery();
-                    connection.close();
-                    MessageBox.Show("Dodano rekord pomyślnie!");
-                    this.rODZAJE_PALIWATableAdapter.Update(this.allDataSet.RODZAJE_PALIWA);
-                    this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");  
+        }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
             {
-                MessageBox.Show(ex.Message);
+                AddButton.Enabled = false;
+                UpdateButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                AddButton.Enabled = true;
+                UpdateButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.rODZAJE_PALIWATableAdapter.Fill(this.allDataSet.RODZAJE_PALIWA);
+                dataGridView1.DataSource = this.allDataSet.RODZAJE_PALIWA;
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.RODZAJE_PALIWA
+                        .Where(
+                        x => x.NAZWA_RODZAJ.StartsWith(FuelTextBox.Text)
+                        )
+                        .ToList();
+                }
             }
         }
     }

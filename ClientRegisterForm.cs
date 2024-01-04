@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -17,16 +18,48 @@ namespace CarRental
             InitializeComponent();
             SqlConnection connection = new SqlConnection(@"Data Source = X280\SQLEXPRESS; Initial Catalog = CarRentalCW; Integrated Security = True");
             var command = ("SELECT * FROM KLIENCI");
-            SqlDataAdapter adapter = new SqlDataAdapter(command, connection);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            idInt = Convert.ToInt32(dt.Compute("max([ID_KLIENT])", string.Empty));
-            connection.Close();
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(command, connection);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                idInt = Convert.ToInt32(dt.Compute("max([ID_KLIENT])", string.Empty));
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private object CheckNull(string data)
         {
             return string.IsNullOrEmpty(data) ? DBNull.Value : (object)data;
+        }
+
+        private void PeselTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '!'))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void NipTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '!'))
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)

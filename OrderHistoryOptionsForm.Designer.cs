@@ -39,6 +39,8 @@
             this.CountNumeric = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.EmployeeCombo = new System.Windows.Forms.ComboBox();
+            this.pRACOWNICYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,9 +54,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.pRACOWNICYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pRACOWNICYTableAdapter = new CarRental.AllDataSetTableAdapters.PRACOWNICYTableAdapter();
             this.iDPRACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDKONPRACOWNIKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,12 +65,13 @@
             this.dATAZATRUDNIENIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wYNAGRODZENIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pREMIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRACOWNICYTableAdapter = new CarRental.AllDataSetTableAdapters.PRACOWNICYTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CountNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PenaltyNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -163,6 +163,16 @@
             this.EmployeeCombo.Size = new System.Drawing.Size(163, 21);
             this.EmployeeCombo.TabIndex = 158;
             this.EmployeeCombo.ValueMember = "ID_PRAC";
+            // 
+            // pRACOWNICYBindingSource
+            // 
+            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
+            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -294,6 +304,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -311,23 +323,10 @@
             this.dataGridView1.DataSource = this.pRACOWNICYBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(222, 69);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(550, 389);
             this.dataGridView1.TabIndex = 182;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pRACOWNICYBindingSource
-            // 
-            this.pRACOWNICYBindingSource.DataMember = "PRACOWNICY";
-            this.pRACOWNICYBindingSource.DataSource = this.allDataSet;
-            // 
-            // pRACOWNICYTableAdapter
-            // 
-            this.pRACOWNICYTableAdapter.ClearBeforeFill = true;
             // 
             // iDPRACDataGridViewTextBoxColumn
             // 
@@ -341,60 +340,74 @@
             this.iDKONPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "ID_KON_PRACOWNIK";
             this.iDKONPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "ID_KON_PRACOWNIK";
             this.iDKONPRACOWNIKDataGridViewTextBoxColumn.Name = "iDKONPRACOWNIKDataGridViewTextBoxColumn";
+            this.iDKONPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDWYPOZYCZALNIADataGridViewTextBoxColumn
             // 
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.DataPropertyName = "ID_WYPOZYCZALNIA";
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.HeaderText = "ID_WYPOZYCZALNIA";
             this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.Name = "iDWYPOZYCZALNIADataGridViewTextBoxColumn";
+            this.iDWYPOZYCZALNIADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iMIEPRACOWNIKDataGridViewTextBoxColumn
             // 
             this.iMIEPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "IMIE_PRACOWNIK";
             this.iMIEPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "IMIE_PRACOWNIK";
             this.iMIEPRACOWNIKDataGridViewTextBoxColumn.Name = "iMIEPRACOWNIKDataGridViewTextBoxColumn";
+            this.iMIEPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nAZWISKOPRACOWNIKDataGridViewTextBoxColumn
             // 
             this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "NAZWISKO_PRACOWNIK";
             this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "NAZWISKO_PRACOWNIK";
             this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.Name = "nAZWISKOPRACOWNIKDataGridViewTextBoxColumn";
+            this.nAZWISKOPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pESELPRACOWNIKDataGridViewTextBoxColumn
             // 
             this.pESELPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "PESEL_PRACOWNIK";
             this.pESELPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "PESEL_PRACOWNIK";
             this.pESELPRACOWNIKDataGridViewTextBoxColumn.Name = "pESELPRACOWNIKDataGridViewTextBoxColumn";
+            this.pESELPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tELEFONPRACOWNIKDataGridViewTextBoxColumn
             // 
             this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.DataPropertyName = "TELEFON_PRACOWNIK";
             this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.HeaderText = "TELEFON_PRACOWNIK";
             this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.Name = "tELEFONPRACOWNIKDataGridViewTextBoxColumn";
+            this.tELEFONPRACOWNIKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sTANOWISKODataGridViewTextBoxColumn
             // 
             this.sTANOWISKODataGridViewTextBoxColumn.DataPropertyName = "STANOWISKO";
             this.sTANOWISKODataGridViewTextBoxColumn.HeaderText = "STANOWISKO";
             this.sTANOWISKODataGridViewTextBoxColumn.Name = "sTANOWISKODataGridViewTextBoxColumn";
+            this.sTANOWISKODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dATAZATRUDNIENIADataGridViewTextBoxColumn
             // 
             this.dATAZATRUDNIENIADataGridViewTextBoxColumn.DataPropertyName = "DATA_ZATRUDNIENIA";
             this.dATAZATRUDNIENIADataGridViewTextBoxColumn.HeaderText = "DATA_ZATRUDNIENIA";
             this.dATAZATRUDNIENIADataGridViewTextBoxColumn.Name = "dATAZATRUDNIENIADataGridViewTextBoxColumn";
+            this.dATAZATRUDNIENIADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // wYNAGRODZENIEDataGridViewTextBoxColumn
             // 
             this.wYNAGRODZENIEDataGridViewTextBoxColumn.DataPropertyName = "WYNAGRODZENIE";
             this.wYNAGRODZENIEDataGridViewTextBoxColumn.HeaderText = "WYNAGRODZENIE";
             this.wYNAGRODZENIEDataGridViewTextBoxColumn.Name = "wYNAGRODZENIEDataGridViewTextBoxColumn";
+            this.wYNAGRODZENIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pREMIADataGridViewTextBoxColumn
             // 
             this.pREMIADataGridViewTextBoxColumn.DataPropertyName = "PREMIA";
             this.pREMIADataGridViewTextBoxColumn.HeaderText = "PREMIA";
             this.pREMIADataGridViewTextBoxColumn.Name = "pREMIADataGridViewTextBoxColumn";
+            this.pREMIADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pRACOWNICYTableAdapter
+            // 
+            this.pRACOWNICYTableAdapter.ClearBeforeFill = true;
             // 
             // OrderHistoryOptionsForm
             // 
@@ -429,10 +442,10 @@
             this.Load += new System.EventHandler(this.OrderHistoryOptionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PriceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CountNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PenaltyNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRACOWNICYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

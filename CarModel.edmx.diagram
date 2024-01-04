@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3691b9c8b3ce43bc9f9d21759d20d748" Name="Diagram1">
+        <EntityTypeShape EntityType="CarRentalCWModel.SAMOCHODY" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalCWModel.MODELE" Width="1.5" PointX="1.25" PointY="2.125" />
+        <EntityTypeShape EntityType="CarRentalCWModel.RODZAJE_PALIWA" Width="1.5" PointX="8.375" PointY="2.125" />
+        <EntityTypeShape EntityType="CarRentalCWModel.WYPOZYCZALNIE" Width="1.5" PointX="8.375" PointY="5.125" />
+        <AssociationConnector Association="CarRentalCWModel.FK_SAMOCHOD_MODEL_SAM_MODELE" />
+        <AssociationConnector Association="CarRentalCWModel.FK_SAMOCHOD_RODZAJ_PA_RODZAJE_" />
+        <AssociationConnector Association="CarRentalCWModel.FK_SAMOCHOD_SAMOCHOD__WYPOZYCZ" />
+        <EntityTypeShape EntityType="CarRentalCWModel.PAKIETY" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CarRentalCWModel.PRACOWNICY" Width="1.5" PointX="11" PointY="4.5" />
+        <AssociationConnector Association="CarRentalCWModel.FK_PRACOWNI_PRACOWNIK_WYPOZYCZ" />
+        <EntityTypeShape EntityType="CarRentalCWModel.HISTORIA_ZAMOWIENIA" Width="1.5" PointX="15.875" PointY="3.5" />
+        <EntityTypeShape EntityType="CarRentalCWModel.ZAMOWIENIA" Width="1.5" PointX="13.625" PointY="3" />
+        <AssociationConnector Association="CarRentalCWModel.FK_HISTORIA_HISTORIA__ZAMOWIEN" />
+        <AssociationConnector Association="CarRentalCWModel.FK_HISTORIA_PRACOWNIK_PRACOWNI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_HISTORIA__HISTORIA" />
+        <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_PAKIET_W__PAKIETY" />
+        <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIONY_SAMOCHOD" />
+        <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_WYPOZYCZA_WYPOZYCZ" />
+        <EntityTypeShape EntityType="CarRentalCWModel.MARKI" Width="1.5" PointX="1.25" PointY="9.375" />
+        <EntityTypeShape EntityType="CarRentalCWModel.RODZAJE_NADWOZIA" Width="1.5" PointX="1.25" PointY="12.125" />
+        <AssociationConnector Association="CarRentalCWModel.FK_MODELE_MARKA_SAM_MARKI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_MODELE_RODZAJ_NA_RODZAJE_" />
+        <EntityTypeShape EntityType="CarRentalCWModel.KLIENCI" Width="1.5" PointX="3.375" PointY="8" />
+        <EntityTypeShape EntityType="CarRentalCWModel.ROLE" Width="1.5" PointX="5.375" PointY="7.75" />
+        <AssociationConnector Association="CarRentalCWModel.FK_HISTORIA_KLIENT_PO_KLIENCI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_ZAMOWIEN_ZAMOWIENI_KLIENCI" />
+        <EntityTypeShape EntityType="CarRentalCWModel.KONTA_KLIENTOW" Width="1.5" PointX="1.125" PointY="15.375" />
+        <EntityTypeShape EntityType="CarRentalCWModel.KONTA_PRACOWNIKOW" Width="1.5" PointX="13.25" PointY="8.75" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KLIENCI_KONTO_KLI_KONTA_KL" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KONTA_KL_KONTO_KLI_KLIENCI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KONTA_KL_ROLE_KLIE_ROLE" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KONTA_PR_KONTO_PRA_PRACOWNI" />
+        <AssociationConnector Association="CarRentalCWModel.FK_KONTA_PR_ROLE_PRAC_ROLE" />
+        <AssociationConnector Association="CarRentalCWModel.FK_PRACOWNI_KONTO_PRA_KONTA_PR" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

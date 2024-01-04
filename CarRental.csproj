@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,6 +28,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,6 +53,12 @@
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Enums.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
       <HintPath>packages\Enums.NET.4.0.1\lib\net45\Enums.NET.dll</HintPath>
@@ -152,6 +161,21 @@
     <Compile Include="CarFuelForm.Designer.cs">
       <DependentUpon>CarFuelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="CarModelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,11 +206,29 @@
     <Compile Include="ClientOptionsForm.Designer.cs">
       <DependentUpon>ClientOptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientOrderForm.Designer.cs">
+      <DependentUpon>ClientOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientRegisterForm.Designer.cs">
       <DependentUpon>ClientRegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientRentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientRentForm.Designer.cs">
+      <DependentUpon>ClientRentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientRentOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientRentOptionsForm.Designer.cs">
+      <DependentUpon>ClientRentOptionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="dbConnect.cs" />
     <Compile Include="EmployeeForm.cs">
@@ -207,11 +249,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HISTORIA_ZAMOWIENIA.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KLIENCI.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KONTA_KLIENTOW.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KONTA_PRACOWNIKOW.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MARKI.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELE.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderForm.cs">
       <SubType>Form</SubType>
@@ -249,6 +309,12 @@
     <Compile Include="OrderPacketForm.Designer.cs">
       <DependentUpon>OrderPacketForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PAKIETY.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRACOWNICY.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentalPlacesForm.cs">
@@ -263,11 +329,29 @@
     <Compile Include="ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RODZAJE_NADWOZIA.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RODZAJE_PALIWA.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ROLE.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RoleForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RoleForm.Designer.cs">
       <DependentUpon>RoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAMOCHODY.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WYPOZYCZALNIE.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZAMOWIENIA.cs">
+      <DependentUpon>CarModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CarBrandForm.resx">
       <DependentUpon>CarBrandForm.cs</DependentUpon>
@@ -302,8 +386,17 @@
     <EmbeddedResource Include="ClientOptionsForm.resx">
       <DependentUpon>ClientOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientOrderForm.resx">
+      <DependentUpon>ClientOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientRegisterForm.resx">
       <DependentUpon>ClientRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientRentForm.resx">
+      <DependentUpon>ClientRentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientRentOptionsForm.resx">
+      <DependentUpon>ClientRentOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
@@ -360,6 +453,13 @@
     <None Include="AllDataSet.xss">
       <DependentUpon>AllDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="CarModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CarModel.edmx.diagram">
+      <DependentUpon>CarModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CarRental.CarRentalCWDataSetTableAdapters.MARKITableAdapter.datasource" />
     <None Include="Properties\DataSources\CarRental.CarRentalCWDataSetTableAdapters.MODELETableAdapter.datasource" />
@@ -367,6 +467,7 @@
     <None Include="Properties\DataSources\CarRental.CarRentalCWDataSetTableAdapters.RODZAJE_PALIWATableAdapter.datasource" />
     <None Include="Properties\DataSources\CarRental.CarRentalCWDataSetTableAdapters.SAMOCHODYTableAdapter.datasource" />
     <None Include="Properties\DataSources\CarRental.CarRentalCWDataSetTableAdapters.WYPOZYCZALNIETableAdapter.datasource" />
+    <None Include="Properties\DataSources\SAMOCHODY.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -398,9 +499,30 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CarModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarModel.edmx</DependentUpon>
+      <LastGenOutput>CarModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CarModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarModel.edmx</DependentUpon>
+      <LastGenOutput>CarModel.cs</LastGenOutput>
+    </Content>
     <Content Include="SQL%27s\create.sql" />
     <Content Include="SQL%27s\insert.sql" />
     <Content Include="SQL%27s\select.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

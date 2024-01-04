@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRental
@@ -26,14 +27,21 @@ namespace CarRental
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             command = new SqlCommand("DELETE FROM WYPOZYCZALNIE WHERE ID_WYPOZYCZALNIA LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.wYPOZYCZALNIETableAdapter.Update(this.allDataSet.WYPOZYCZALNIE);
-            this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
-            CityTextBox.Text = "";
-            AddressTextBox.Text = "";
+            try
+            {
+                connection.open();
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.wYPOZYCZALNIETableAdapter.Update(this.allDataSet.WYPOZYCZALNIE);
+                this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
+                CityTextBox.Text = "";
+                AddressTextBox.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -100,10 +108,52 @@ namespace CarRental
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            rowNumber = Int32.Parse(id);
-            CityTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            AddressTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            try
+            {
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rowNumber = Int32.Parse(id);
+                CityTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                AddressTextBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void FilterCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                AddButton.Enabled = false;
+                UpdateButton.Enabled = false;
+                DeleteButton.Enabled = false;
+            }
+            else
+            {
+                AddButton.Enabled = true;
+                UpdateButton.Enabled = true;
+                DeleteButton.Enabled = true;
+                this.wYPOZYCZALNIETableAdapter.Fill(this.allDataSet.WYPOZYCZALNIE);
+                dataGridView1.DataSource = this.allDataSet.WYPOZYCZALNIE;
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (FilterCheck.Checked == true)
+            {
+                using (CarRentalCWEntities db = new CarRentalCWEntities())
+                {
+                    dataGridView1.AutoGenerateColumns = false;
+                    dataGridView1.DataSource = db.WYPOZYCZALNIE
+                        .Where(
+                        x => x.MIASTO.StartsWith(CityTextBox.Text)
+                        && x.ADRES.StartsWith(AddressTextBox.Text)
+                        )
+                        .ToList();
+                }
+            }
         }
     }
 }

@@ -38,14 +38,15 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.rODZAJEPALIWABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rODZAJE_PALIWATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_PALIWATableAdapter();
             this.iDPALIWODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAZWARODZAJDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rODZAJEPALIWABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
+            this.rODZAJE_PALIWATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_PALIWATableAdapter();
+            this.FilterCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // FuelLabel
@@ -77,6 +78,7 @@
             this.FilterButton.Text = "Filtruj";
             this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // UpdateButton
             // 
@@ -132,6 +134,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -140,23 +144,10 @@
             this.dataGridView1.DataSource = this.rODZAJEPALIWABindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(19, 51);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(906, 502);
             this.dataGridView1.TabIndex = 94;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rODZAJEPALIWABindingSource
-            // 
-            this.rODZAJEPALIWABindingSource.DataMember = "RODZAJE_PALIWA";
-            this.rODZAJEPALIWABindingSource.DataSource = this.allDataSet;
-            // 
-            // rODZAJE_PALIWATableAdapter
-            // 
-            this.rODZAJE_PALIWATableAdapter.ClearBeforeFill = true;
             // 
             // iDPALIWODataGridViewTextBoxColumn
             // 
@@ -170,6 +161,33 @@
             this.nAZWARODZAJDataGridViewTextBoxColumn.DataPropertyName = "NAZWA_RODZAJ";
             this.nAZWARODZAJDataGridViewTextBoxColumn.HeaderText = "NAZWA_RODZAJ";
             this.nAZWARODZAJDataGridViewTextBoxColumn.Name = "nAZWARODZAJDataGridViewTextBoxColumn";
+            this.nAZWARODZAJDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rODZAJEPALIWABindingSource
+            // 
+            this.rODZAJEPALIWABindingSource.DataMember = "RODZAJE_PALIWA";
+            this.rODZAJEPALIWABindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rODZAJE_PALIWATableAdapter
+            // 
+            this.rODZAJE_PALIWATableAdapter.ClearBeforeFill = true;
+            // 
+            // FilterCheck
+            // 
+            this.FilterCheck.AutoSize = true;
+            this.FilterCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FilterCheck.Location = new System.Drawing.Point(761, 586);
+            this.FilterCheck.Name = "FilterCheck";
+            this.FilterCheck.Size = new System.Drawing.Size(126, 24);
+            this.FilterCheck.TabIndex = 100;
+            this.FilterCheck.Text = "Włącz filtrację";
+            this.FilterCheck.UseVisualStyleBackColor = true;
+            this.FilterCheck.CheckedChanged += new System.EventHandler(this.FilterCheck_CheckedChanged);
             // 
             // CarFuelForm
             // 
@@ -177,6 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(937, 681);
+            this.Controls.Add(this.FilterCheck);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.FuelLabel);
             this.Controls.Add(this.FuelTextBox);
@@ -190,8 +209,8 @@
             this.Text = "CarFuelForm";
             this.Load += new System.EventHandler(this.CarFuelForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rODZAJEPALIWABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +230,6 @@
         private AllDataSetTableAdapters.RODZAJE_PALIWATableAdapter rODZAJE_PALIWATableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDPALIWODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAZWARODZAJDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox FilterCheck;
     }
 }

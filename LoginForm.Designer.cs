@@ -102,13 +102,13 @@
             this.ClientRadio.Name = "ClientRadio";
             this.ClientRadio.Size = new System.Drawing.Size(51, 17);
             this.ClientRadio.TabIndex = 1;
-            this.ClientRadio.TabStop = true;
             this.ClientRadio.Text = "Klient";
             this.ClientRadio.UseVisualStyleBackColor = true;
             // 
             // EmployeeRadio
             // 
             this.EmployeeRadio.AutoSize = true;
+            this.EmployeeRadio.Checked = true;
             this.EmployeeRadio.Location = new System.Drawing.Point(27, 29);
             this.EmployeeRadio.Name = "EmployeeRadio";
             this.EmployeeRadio.Size = new System.Drawing.Size(75, 17);

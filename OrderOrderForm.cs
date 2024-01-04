@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -80,27 +78,34 @@ namespace CarRental
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             command = new SqlCommand("UPDATE ZAMOWIENIA SET ID_HISTORIA = NULL WHERE ID_ZAMOWIENIE LIKE'" + rowNumber + "'", connection.connect());
-            connection.open();
-            command.ExecuteNonQuery();
-            command.CommandText = "DELETE FROM HISTORIA_ZAMOWIENIA WHERE ID_HISTORIA LIKE'" + rowNumber + "'";
-            command.ExecuteNonQuery();
-            command.CommandText = "DELETE FROM ZAMOWIENIA WHERE ID_ZAMOWIENIE LIKE '" + rowNumber + "'";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (HISTORIA_ZAMOWIENIA, RESEED, 0)";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (ZAMOWIENIA, RESEED, 0)";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (HISTORIA_ZAMOWIENIA, RESEED)";
-            command.ExecuteNonQuery();
-            command.CommandText = "DBCC CHECKIDENT (ZAMOWIENIA, RESEED)";
-            command.ExecuteNonQuery();
-            connection.close();
-            MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
-            this.hISTORIA_ZAMOWIENIATableAdapter.Update(this.allDataSet.HISTORIA_ZAMOWIENIA);
-            this.hISTORIA_ZAMOWIENIATableAdapter.Fill(this.allDataSet.HISTORIA_ZAMOWIENIA);
-            this.zAMOWIENIATableAdapter.Update(this.allDataSet.ZAMOWIENIA);
-            this.zAMOWIENIATableAdapter.Fill(this.allDataSet.ZAMOWIENIA);
-            getId();
+            try
+            {
+                connection.open();
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM HISTORIA_ZAMOWIENIA WHERE ID_HISTORIA LIKE'" + rowNumber + "'";
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM ZAMOWIENIA WHERE ID_ZAMOWIENIE LIKE '" + rowNumber + "'";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (HISTORIA_ZAMOWIENIA, RESEED, 0)";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (ZAMOWIENIA, RESEED, 0)";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (HISTORIA_ZAMOWIENIA, RESEED)";
+                command.ExecuteNonQuery();
+                command.CommandText = "DBCC CHECKIDENT (ZAMOWIENIA, RESEED)";
+                command.ExecuteNonQuery();
+                connection.close();
+                MessageBox.Show("Usunięto rekord z ID: " + rowNumber + " !");
+                this.hISTORIA_ZAMOWIENIATableAdapter.Update(this.allDataSet.HISTORIA_ZAMOWIENIA);
+                this.hISTORIA_ZAMOWIENIATableAdapter.Fill(this.allDataSet.HISTORIA_ZAMOWIENIA);
+                this.zAMOWIENIATableAdapter.Update(this.allDataSet.ZAMOWIENIA);
+                this.zAMOWIENIATableAdapter.Fill(this.allDataSet.ZAMOWIENIA);
+                getId();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

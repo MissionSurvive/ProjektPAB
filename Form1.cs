@@ -19,342 +19,380 @@ namespace CarRental
         {
             InitializeComponent();
             userLabel.Text = LoginForm.username + " " + LoginForm.surname;
+            roleLabel.Text = LoginForm.userRoleLogged;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if(LoginForm.userRoleLogged == "Administrator" ||  LoginForm.userRoleLogged == "Wydający" || LoginForm.userRoleLogged == "Mechanik")
             {
-                if (form.Name == "CarForm")
+                foreach (Form form in collection)
                 {
-                    carForm.Hide();
+                    if (form.Name == "CarForm")
+                    {
+                        carForm.Hide();
+                    }
+                    if (form.Name == "OrderForm")
+                    {
+                        orderForm.Hide();
+                    }
+                    if (form.Name == "RentalPlacesForm")
+                    {
+                        rentalPlacesForm.Hide();
+                    }
+                    if (form.Name == "RoleForm")
+                    {
+                        roleForm.Hide();
+                    }
+                    if (form.Name == "EmployeeForm")
+                    {
+                        employeeForm.Hide();
+                    }
+                    if (form.Name == "ClientForm")
+                    {
+                        clientForm.Hide();
+                    }
+                    if (form.Name == "OrderHistoryForm")
+                    {
+                        orderHistoryForm.Hide();
+                    }
+                    if (form.Name == "ReportForm")
+                    {
+                        reportForm.Hide();
+                    }
                 }
-                if (form.Name == "OrderForm")
-                {
-                    orderForm.Hide();
-                }
-                if (form.Name == "RentalPlacesForm")
-                {
-                    rentalPlacesForm.Hide();
-                }
-                if (form.Name == "RoleForm")
-                {
-                    roleForm.Hide();
-                }
-                if (form.Name == "EmployeeForm")
-                {
-                    employeeForm.Hide();
-                }
-                if (form.Name == "ClientForm")
-                {
-                    clientForm.Hide();
-                }
-                if (form.Name == "OrderHistoryForm")
-                {
-                    orderHistoryForm.Hide();
-                }
-                if (form.Name == "ReportForm")
-                {
-                    reportForm.Hide();
-                }
+                carForm.FormBorderStyle = FormBorderStyle.None;
+                dataPanel.Controls.Add(carForm);
+                carForm.Show();
             }
-            carForm.FormBorderStyle = FormBorderStyle.None;
-            dataPanel.Controls.Add(carForm);
-            carForm.Show();
+            else MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if(LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Wydający" || LoginForm.userRoleLogged == "Mechanik")
             {
-                if (form.Name == "CarForm")
+                foreach (Form form in collection)
                 {
-                    carForm.Hide();
+                    if (form.Name == "CarForm")
+                    {
+                        carForm.Hide();
+                    }
+                    if (form.Name == "OrderForm")
+                    {
+                        orderForm.Hide();
+                    }
+                    if (form.Name == "RentalPlacesForm")
+                    {
+                        rentalPlacesForm.Hide();
+                    }
+                    if (form.Name == "RoleForm")
+                    {
+                        roleForm.Hide();
+                    }
+                    if (form.Name == "EmployeeForm")
+                    {
+                        employeeForm.Hide();
+                    }
+                    if (form.Name == "ClientForm")
+                    {
+                        clientForm.Hide();
+                    }
+                    if (form.Name == "OrderHistoryForm")
+                    {
+                        orderHistoryForm.Hide();
+                    }
+                    if (form.Name == "ReportForm")
+                    {
+                        reportForm.Hide();
+                    }
                 }
-                if (form.Name == "OrderForm")
-                {
-                    orderForm.Hide();
-                }
-                if (form.Name == "RentalPlacesForm")
-                {
-                    rentalPlacesForm.Hide();
-                }
-                if (form.Name == "RoleForm")
-                {
-                    roleForm.Hide();
-                }
-                if (form.Name == "EmployeeForm")
-                {
-                    employeeForm.Hide();
-                }
-                if (form.Name == "ClientForm")
-                {
-                    clientForm.Hide();
-                }
-                if (form.Name == "OrderHistoryForm")
-                {
-                    orderHistoryForm.Hide();
-                }
-                if (form.Name == "ReportForm")
-                {
-                    reportForm.Hide();
-                }
+                orderForm.FormBorderStyle = FormBorderStyle.None;
+                dataPanel.Controls.Add(orderForm);
+                orderForm.Show();
             }
-            orderForm.FormBorderStyle = FormBorderStyle.None;
-            dataPanel.Controls.Add(orderForm);
-            orderForm.Show();
+            else MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if(LoginForm.userRoleLogged == "Administrator" ||  LoginForm.userRoleLogged == "Prezes")
             {
-                if (form.Name == "CarForm")
+                foreach (Form form in collection)
                 {
-                    carForm.Hide();
+                    if (form.Name == "CarForm")
+                    {
+                        carForm.Hide();
+                    }
+                    if (form.Name == "OrderForm")
+                    {
+                        orderForm.Hide();
+                    }
+                    if (form.Name == "RentalPlacesForm")
+                    {
+                        rentalPlacesForm.Hide();
+                    }
+                    if (form.Name == "RoleForm")
+                    {
+                        roleForm.Hide();
+                    }
+                    if (form.Name == "EmployeeForm")
+                    {
+                        employeeForm.Hide();
+                    }
+                    if (form.Name == "ClientForm")
+                    {
+                        clientForm.Hide();
+                    }
+                    if (form.Name == "OrderHistoryForm")
+                    {
+                        orderHistoryForm.Hide();
+                    }
+                    if (form.Name == "ReportForm")
+                    {
+                        reportForm.Hide();
+                    }
                 }
-                if (form.Name == "OrderForm")
-                {
-                    orderForm.Hide();
-                }
-                if (form.Name == "RentalPlacesForm")
-                {
-                    rentalPlacesForm.Hide();
-                }
-                if (form.Name == "RoleForm")
-                {
-                    roleForm.Hide();
-                }
-                if (form.Name == "EmployeeForm")
-                {
-                    employeeForm.Hide();
-                }
-                if (form.Name == "ClientForm")
-                {
-                    clientForm.Hide();
-                }
-                if (form.Name == "OrderHistoryForm")
-                {
-                    orderHistoryForm.Hide();
-                }
-                if (form.Name == "ReportForm")
-                {
-                    reportForm.Hide();
-                }
+                rentalPlacesForm.FormBorderStyle = FormBorderStyle.None;
+                dataPanel.Controls.Add(rentalPlacesForm);
+                rentalPlacesForm.Show();
             }
-            rentalPlacesForm.FormBorderStyle = FormBorderStyle.None;
-            dataPanel.Controls.Add(rentalPlacesForm);
-            rentalPlacesForm.Show();
+            else MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
+
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if (LoginForm.userRoleLogged == "Administrator")
             {
-                if (form.Name == "CarForm")
+                foreach (Form form in collection)
                 {
-                    carForm.Hide();
+                    if (form.Name == "CarForm")
+                    {
+                        carForm.Hide();
+                    }
+                    if (form.Name == "OrderForm")
+                    {
+                        orderForm.Hide();
+                    }
+                    if (form.Name == "RentalPlacesForm")
+                    {
+                        rentalPlacesForm.Hide();
+                    }
+                    if (form.Name == "RoleForm")
+                    {
+                        roleForm.Hide();
+                    }
+                    if (form.Name == "EmployeeForm")
+                    {
+                        employeeForm.Hide();
+                    }
+                    if (form.Name == "ClientForm")
+                    {
+                        clientForm.Hide();
+                    }
+                    if (form.Name == "OrderHistoryForm")
+                    {
+                        orderHistoryForm.Hide();
+                    }
+                    if (form.Name == "ReportForm")
+                    {
+                        reportForm.Hide();
+                    }
                 }
-                if (form.Name == "OrderForm")
-                {
-                    orderForm.Hide();
-                }
-                if (form.Name == "RentalPlacesForm")
-                {
-                    rentalPlacesForm.Hide();
-                }
-                if (form.Name == "RoleForm")
-                {
-                    roleForm.Hide();
-                }
-                if (form.Name == "EmployeeForm")
-                {
-                    employeeForm.Hide();
-                }
-                if (form.Name == "ClientForm")
-                {
-                    clientForm.Hide();
-                }
-                if (form.Name == "OrderHistoryForm")
-                {
-                    orderHistoryForm.Hide();
-                }
-                if (form.Name == "ReportForm")
-                {
-                    reportForm.Hide();
-                }
+                roleForm.FormBorderStyle = FormBorderStyle.None;
+                dataPanel.Controls.Add(roleForm);
+                roleForm.Show();
             }
-            roleForm.FormBorderStyle = FormBorderStyle.None;
-            dataPanel.Controls.Add(roleForm);
-            roleForm.Show();
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if(LoginForm.userRoleLogged == "Administrator" ||  LoginForm.userRoleLogged == "Prezes")
             {
-                if (form.Name == "CarForm")
+                foreach (Form form in collection)
                 {
-                    carForm.Hide();
+                    if (form.Name == "CarForm")
+                    {
+                        carForm.Hide();
+                    }
+                    if (form.Name == "OrderForm")
+                    {
+                        orderForm.Hide();
+                    }
+                    if (form.Name == "RentalPlacesForm")
+                    {
+                        rentalPlacesForm.Hide();
+                    }
+                    if (form.Name == "RoleForm")
+                    {
+                        roleForm.Hide();
+                    }
+                    if (form.Name == "EmployeeForm")
+                    {
+                        employeeForm.Hide();
+                    }
+                    if (form.Name == "ClientForm")
+                    {
+                        clientForm.Hide();
+                    }
+                    if (form.Name == "OrderHistoryForm")
+                    {
+                        orderHistoryForm.Hide();
+                    }
+                    if (form.Name == "ReportForm")
+                    {
+                        reportForm.Hide();
+                    }
                 }
-                if (form.Name == "OrderForm")
-                {
-                    orderForm.Hide();
-                }
-                if (form.Name == "RentalPlacesForm")
-                {
-                    rentalPlacesForm.Hide();
-                }
-                if (form.Name == "RoleForm")
-                {
-                    roleForm.Hide();
-                }
-                if (form.Name == "EmployeeForm")
-                {
-                    employeeForm.Hide();
-                }
-                if (form.Name == "ClientForm")
-                {
-                    clientForm.Hide();
-                }
-                if (form.Name == "OrderHistoryForm")
-                {
-                    orderHistoryForm.Hide();
-                }
-                if (form.Name == "ReportForm")
-                {
-                    reportForm.Hide();
-                }
+                employeeForm.FormBorderStyle = FormBorderStyle.None;
+                dataPanel.Controls.Add(employeeForm);
+                employeeForm.Show();
             }
-            employeeForm.FormBorderStyle = FormBorderStyle.None;
-            dataPanel.Controls.Add(employeeForm);
-            employeeForm.Show();
+            else MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if(LoginForm.userRoleLogged == "Administrator" ||  LoginForm.userRoleLogged == "Wydający")
             {
-                if (form.Name == "CarForm")
+                foreach (Form form in collection)
                 {
-                    carForm.Hide();
+                    if (form.Name == "CarForm")
+                    {
+                        carForm.Hide();
+                    }
+                    if (form.Name == "OrderForm")
+                    {
+                        orderForm.Hide();
+                    }
+                    if (form.Name == "RentalPlacesForm")
+                    {
+                        rentalPlacesForm.Hide();
+                    }
+                    if (form.Name == "RoleForm")
+                    {
+                        roleForm.Hide();
+                    }
+                    if (form.Name == "EmployeeForm")
+                    {
+                        employeeForm.Hide();
+                    }
+                    if (form.Name == "ClientForm")
+                    {
+                        clientForm.Hide();
+                    }
+                    if (form.Name == "OrderHistoryForm")
+                    {
+                        orderHistoryForm.Hide();
+                    }
+                    if (form.Name == "ReportForm")
+                    {
+                        reportForm.Hide();
+                    }
                 }
-                if (form.Name == "OrderForm")
-                {
-                    orderForm.Hide();
-                }
-                if (form.Name == "RentalPlacesForm")
-                {
-                    rentalPlacesForm.Hide();
-                }
-                if (form.Name == "RoleForm")
-                {
-                    roleForm.Hide();
-                }
-                if (form.Name == "EmployeeForm")
-                {
-                    employeeForm.Hide();
-                }
-                if (form.Name == "ClientForm")
-                {
-                    clientForm.Hide();
-                }
-                if (form.Name == "OrderHistoryForm")
-                {
-                    orderHistoryForm.Hide();
-                }
-                if (form.Name == "ReportForm")
-                {
-                    reportForm.Hide();
-                }
+                clientForm.FormBorderStyle = FormBorderStyle.None;
+                dataPanel.Controls.Add(clientForm);
+                clientForm.Show();
             }
-            clientForm.FormBorderStyle = FormBorderStyle.None;
-            dataPanel.Controls.Add(clientForm);
-            clientForm.Show();
+            else MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if(LoginForm.userRoleLogged == "Administrator" ||  LoginForm.userRoleLogged == "Wydający")
             {
-                if (form.Name == "CarForm")
+                foreach (Form form in collection)
                 {
-                    carForm.Hide();
+                    if (form.Name == "CarForm")
+                    {
+                        carForm.Hide();
+                    }
+                    if (form.Name == "OrderForm")
+                    {
+                        orderForm.Hide();
+                    }
+                    if (form.Name == "RentalPlacesForm")
+                    {
+                        rentalPlacesForm.Hide();
+                    }
+                    if (form.Name == "RoleForm")
+                    {
+                        roleForm.Hide();
+                    }
+                    if (form.Name == "EmployeeForm")
+                    {
+                        employeeForm.Hide();
+                    }
+                    if (form.Name == "ClientForm")
+                    {
+                        clientForm.Hide();
+                    }
+                    if (form.Name == "OrderHistoryForm")
+                    {
+                        orderHistoryForm.Hide();
+                    }
+                    if (form.Name == "ReportForm")
+                    {
+                        reportForm.Hide();
+                    }
                 }
-                if (form.Name == "OrderForm")
-                {
-                    orderForm.Hide();
-                }
-                if (form.Name == "RentalPlacesForm")
-                {
-                    rentalPlacesForm.Hide();
-                }
-                if (form.Name == "RoleForm")
-                {
-                    roleForm.Hide();
-                }
-                if (form.Name == "EmployeeForm")
-                {
-                    employeeForm.Hide();
-                }
-                if (form.Name == "ClientForm")
-                {
-                    clientForm.Hide();
-                }
-                if (form.Name == "OrderHistoryForm")
-                {
-                    orderHistoryForm.Hide();
-                }
-                if (form.Name == "ReportForm")
-                {
-                    reportForm.Hide();
-                }
+                orderHistoryForm.FormBorderStyle = FormBorderStyle.None;
+                dataPanel.Controls.Add(orderHistoryForm);
+                orderHistoryForm.Show();
             }
-            orderHistoryForm.FormBorderStyle = FormBorderStyle.None;
-            dataPanel.Controls.Add(orderHistoryForm);
-            orderHistoryForm.Show();
+            else MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            foreach (Form form in collection)
+            if (LoginForm.userRoleLogged == "Administrator" || LoginForm.userRoleLogged == "Prezes")
             {
-                if (form.Name == "CarForm")
+                foreach (Form form in collection)
                 {
-                    carForm.Hide();
+                    if (form.Name == "CarForm")
+                    {
+                        carForm.Hide();
+                    }
+                    if (form.Name == "OrderForm")
+                    {
+                        orderForm.Hide();
+                    }
+                    if (form.Name == "RentalPlacesForm")
+                    {
+                        rentalPlacesForm.Hide();
+                    }
+                    if (form.Name == "RoleForm")
+                    {
+                        roleForm.Hide();
+                    }
+                    if (form.Name == "EmployeeForm")
+                    {
+                        employeeForm.Hide();
+                    }
+                    if (form.Name == "ClientForm")
+                    {
+                        clientForm.Hide();
+                    }
+                    if (form.Name == "OrderHistoryForm")
+                    {
+                        orderHistoryForm.Hide();
+                    }
+                    if (form.Name == "ReportForm")
+                    {
+                        reportForm.Hide();
+                    }
                 }
-                if (form.Name == "OrderForm")
-                {
-                    orderForm.Hide();
-                }
-                if (form.Name == "RentalPlacesForm")
-                {
-                    rentalPlacesForm.Hide();
-                }
-                if (form.Name == "RoleForm")
-                {
-                    roleForm.Hide();
-                }
-                if (form.Name == "EmployeeForm")
-                {
-                    employeeForm.Hide();
-                }
-                if (form.Name == "ClientForm")
-                {
-                    clientForm.Hide();
-                }
-                if (form.Name == "OrderHistoryForm")
-                {
-                    orderHistoryForm.Hide();
-                }
-                if (form.Name == "ReportForm")
-                {
-                    reportForm.Hide();
-                }
+                reportForm.FormBorderStyle = FormBorderStyle.None;
+                dataPanel.Controls.Add(reportForm);
+                reportForm.Show();
             }
-            reportForm.FormBorderStyle = FormBorderStyle.None;
-            dataPanel.Controls.Add(reportForm);
-            reportForm.Show();
+            else
+                MessageBox.Show("Odmowa dostępu! Brak wymaganych uprawnień!");
         }
 
         private void button7_Click(object sender, EventArgs e)

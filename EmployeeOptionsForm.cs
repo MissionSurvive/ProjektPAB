@@ -145,7 +145,6 @@ namespace CarRental
                                      + EmployeeForm.rowNumber + "'", connection.connect());
             command.Parameters.AddWithValue("@Username", UsernameTextBox.Text);
             command.Parameters.AddWithValue("@Password", PasswordTextBox.Text);
-
             try
             {
                 connection.open();

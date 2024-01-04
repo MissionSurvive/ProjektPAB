@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.navBar = new System.Windows.Forms.Panel();
+            this.roleLabel = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,8 +45,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.userLabel = new System.Windows.Forms.Label();
             this.navBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -52,6 +53,7 @@
             // navBar
             // 
             this.navBar.BackColor = System.Drawing.Color.White;
+            this.navBar.Controls.Add(this.roleLabel);
             this.navBar.Controls.Add(this.userLabel);
             this.navBar.Controls.Add(this.label1);
             this.navBar.Controls.Add(this.button9);
@@ -69,6 +71,36 @@
             this.navBar.Name = "navBar";
             this.navBar.Size = new System.Drawing.Size(164, 681);
             this.navBar.TabIndex = 0;
+            // 
+            // roleLabel
+            // 
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.roleLabel.Location = new System.Drawing.Point(4, 544);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(54, 16);
+            this.roleLabel.TabIndex = 13;
+            this.roleLabel.Text = "userInfo";
+            // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.userLabel.Location = new System.Drawing.Point(4, 518);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(54, 16);
+            this.userLabel.TabIndex = 12;
+            this.userLabel.Text = "userInfo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(3, 489);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Zalogowano jako:";
             // 
             // button9
             // 
@@ -225,26 +257,6 @@
             this.dataPanel.Size = new System.Drawing.Size(1100, 681);
             this.dataPanel.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 489);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Zalogowano jako:";
-            // 
-            // userLabel
-            // 
-            this.userLabel.AutoSize = true;
-            this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.userLabel.Location = new System.Drawing.Point(4, 518);
-            this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(54, 16);
-            this.userLabel.TabIndex = 12;
-            this.userLabel.Text = "userInfo";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,6 +292,7 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label roleLabel;
     }
 }
 

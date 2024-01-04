@@ -40,20 +40,20 @@
             this.GenerationTextBox = new System.Windows.Forms.TextBox();
             this.ModelTextBox = new System.Windows.Forms.TextBox();
             this.ChassisCombo = new System.Windows.Forms.ComboBox();
+            this.rODZAJENADWOZIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.BrandCombo = new System.Windows.Forms.ComboBox();
+            this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.mARKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mARKITableAdapter = new CarRental.AllDataSetTableAdapters.MARKITableAdapter();
-            this.rODZAJENADWOZIABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rODZAJE_NADWOZIATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,6 +82,7 @@
             this.YearTextBox.Name = "YearTextBox";
             this.YearTextBox.Size = new System.Drawing.Size(164, 20);
             this.YearTextBox.TabIndex = 90;
+            this.YearTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.YearTextBox_KeyPress);
             // 
             // label17
             // 
@@ -145,6 +146,16 @@
             this.ChassisCombo.TabIndex = 83;
             this.ChassisCombo.ValueMember = "ID_NADWOZIE";
             // 
+            // rODZAJENADWOZIABindingSource
+            // 
+            this.rODZAJENADWOZIABindingSource.DataMember = "RODZAJE_NADWOZIA";
+            this.rODZAJENADWOZIABindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -165,6 +176,11 @@
             this.BrandCombo.Size = new System.Drawing.Size(163, 21);
             this.BrandCombo.TabIndex = 81;
             this.BrandCombo.ValueMember = "ID_MARKA";
+            // 
+            // mARKIBindingSource
+            // 
+            this.mARKIBindingSource.DataMember = "MARKI";
+            this.mARKIBindingSource.DataSource = this.allDataSet;
             // 
             // label4
             // 
@@ -218,24 +234,9 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mARKIBindingSource
-            // 
-            this.mARKIBindingSource.DataMember = "MARKI";
-            this.mARKIBindingSource.DataSource = this.allDataSet;
-            // 
             // mARKITableAdapter
             // 
             this.mARKITableAdapter.ClearBeforeFill = true;
-            // 
-            // rODZAJENADWOZIABindingSource
-            // 
-            this.rODZAJENADWOZIABindingSource.DataMember = "RODZAJE_NADWOZIA";
-            this.rODZAJENADWOZIABindingSource.DataSource = this.allDataSet;
             // 
             // rODZAJE_NADWOZIATableAdapter
             // 
@@ -266,9 +267,9 @@
             this.Name = "CarModelOptionsForm";
             this.Text = "Zarządzanie modelami";
             this.Load += new System.EventHandler(this.CarModelOptionsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mARKIBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -32,11 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderHistoryForm));
             this.TableLabel = new System.Windows.Forms.Label();
             this.UpdateButton = new System.Windows.Forms.Button();
-            this.FilterButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.hISTORIAZAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hISTORIA_ZAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter();
             this.iDHISTORIADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDPRACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDZAMOWIENIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,9 +45,12 @@
             this.kOLIZJADataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dATAKOLIZJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kARAKOLIZJADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hISTORIAZAMOWIENIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
+            this.hISTORIA_ZAMOWIENIATableAdapter = new CarRental.AllDataSetTableAdapters.HISTORIA_ZAMOWIENIATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hISTORIAZAMOWIENIABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -69,7 +68,7 @@
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.Image")));
             this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateButton.Location = new System.Drawing.Point(754, 618);
+            this.UpdateButton.Location = new System.Drawing.Point(924, 615);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(164, 54);
             this.UpdateButton.TabIndex = 110;
@@ -78,21 +77,10 @@
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // FilterButton
-            // 
-            this.FilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.FilterButton.Image = ((System.Drawing.Image)(resources.GetObject("FilterButton.Image")));
-            this.FilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FilterButton.Location = new System.Drawing.Point(924, 618);
-            this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(164, 54);
-            this.FilterButton.TabIndex = 111;
-            this.FilterButton.Text = "Filtruj";
-            this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.FilterButton.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -111,23 +99,10 @@
             this.dataGridView1.DataSource = this.hISTORIAZAMOWIENIABindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 50);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1072, 562);
             this.dataGridView1.TabIndex = 112;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hISTORIAZAMOWIENIABindingSource
-            // 
-            this.hISTORIAZAMOWIENIABindingSource.DataMember = "HISTORIA_ZAMOWIENIA";
-            this.hISTORIAZAMOWIENIABindingSource.DataSource = this.allDataSet;
-            // 
-            // hISTORIA_ZAMOWIENIATableAdapter
-            // 
-            this.hISTORIA_ZAMOWIENIATableAdapter.ClearBeforeFill = true;
             // 
             // iDHISTORIADataGridViewTextBoxColumn
             // 
@@ -141,66 +116,91 @@
             this.iDPRACDataGridViewTextBoxColumn.DataPropertyName = "ID_PRAC";
             this.iDPRACDataGridViewTextBoxColumn.HeaderText = "ID_PRAC";
             this.iDPRACDataGridViewTextBoxColumn.Name = "iDPRACDataGridViewTextBoxColumn";
+            this.iDPRACDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDZAMOWIENIEDataGridViewTextBoxColumn
             // 
             this.iDZAMOWIENIEDataGridViewTextBoxColumn.DataPropertyName = "ID_ZAMOWIENIE";
             this.iDZAMOWIENIEDataGridViewTextBoxColumn.HeaderText = "ID_ZAMOWIENIE";
             this.iDZAMOWIENIEDataGridViewTextBoxColumn.Name = "iDZAMOWIENIEDataGridViewTextBoxColumn";
+            this.iDZAMOWIENIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDKLIENTDataGridViewTextBoxColumn
             // 
             this.iDKLIENTDataGridViewTextBoxColumn.DataPropertyName = "ID_KLIENT";
             this.iDKLIENTDataGridViewTextBoxColumn.HeaderText = "ID_KLIENT";
             this.iDKLIENTDataGridViewTextBoxColumn.Name = "iDKLIENTDataGridViewTextBoxColumn";
+            this.iDKLIENTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dATAWYDANIEDataGridViewTextBoxColumn
             // 
             this.dATAWYDANIEDataGridViewTextBoxColumn.DataPropertyName = "DATA_WYDANIE";
             this.dATAWYDANIEDataGridViewTextBoxColumn.HeaderText = "DATA_WYDANIE";
             this.dATAWYDANIEDataGridViewTextBoxColumn.Name = "dATAWYDANIEDataGridViewTextBoxColumn";
+            this.dATAWYDANIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dATAPRZYJECIEDataGridViewTextBoxColumn
             // 
             this.dATAPRZYJECIEDataGridViewTextBoxColumn.DataPropertyName = "DATA_PRZYJECIE";
             this.dATAPRZYJECIEDataGridViewTextBoxColumn.HeaderText = "DATA_PRZYJECIE";
             this.dATAPRZYJECIEDataGridViewTextBoxColumn.Name = "dATAPRZYJECIEDataGridViewTextBoxColumn";
+            this.dATAPRZYJECIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tANKOWANIEDataGridViewCheckBoxColumn
             // 
             this.tANKOWANIEDataGridViewCheckBoxColumn.DataPropertyName = "TANKOWANIE";
             this.tANKOWANIEDataGridViewCheckBoxColumn.HeaderText = "TANKOWANIE";
             this.tANKOWANIEDataGridViewCheckBoxColumn.Name = "tANKOWANIEDataGridViewCheckBoxColumn";
+            this.tANKOWANIEDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // iLOSCTANKOWANIEDataGridViewTextBoxColumn
             // 
             this.iLOSCTANKOWANIEDataGridViewTextBoxColumn.DataPropertyName = "ILOSC_TANKOWANIE";
             this.iLOSCTANKOWANIEDataGridViewTextBoxColumn.HeaderText = "ILOSC_TANKOWANIE";
             this.iLOSCTANKOWANIEDataGridViewTextBoxColumn.Name = "iLOSCTANKOWANIEDataGridViewTextBoxColumn";
+            this.iLOSCTANKOWANIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kOSZTTANKOWANIEDataGridViewTextBoxColumn
             // 
             this.kOSZTTANKOWANIEDataGridViewTextBoxColumn.DataPropertyName = "KOSZT_TANKOWANIE";
             this.kOSZTTANKOWANIEDataGridViewTextBoxColumn.HeaderText = "KOSZT_TANKOWANIE";
             this.kOSZTTANKOWANIEDataGridViewTextBoxColumn.Name = "kOSZTTANKOWANIEDataGridViewTextBoxColumn";
+            this.kOSZTTANKOWANIEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kOLIZJADataGridViewCheckBoxColumn
             // 
             this.kOLIZJADataGridViewCheckBoxColumn.DataPropertyName = "KOLIZJA";
             this.kOLIZJADataGridViewCheckBoxColumn.HeaderText = "KOLIZJA";
             this.kOLIZJADataGridViewCheckBoxColumn.Name = "kOLIZJADataGridViewCheckBoxColumn";
+            this.kOLIZJADataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // dATAKOLIZJADataGridViewTextBoxColumn
             // 
             this.dATAKOLIZJADataGridViewTextBoxColumn.DataPropertyName = "DATA_KOLIZJA";
             this.dATAKOLIZJADataGridViewTextBoxColumn.HeaderText = "DATA_KOLIZJA";
             this.dATAKOLIZJADataGridViewTextBoxColumn.Name = "dATAKOLIZJADataGridViewTextBoxColumn";
+            this.dATAKOLIZJADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kARAKOLIZJADataGridViewTextBoxColumn
             // 
             this.kARAKOLIZJADataGridViewTextBoxColumn.DataPropertyName = "KARA_KOLIZJA";
             this.kARAKOLIZJADataGridViewTextBoxColumn.HeaderText = "KARA_KOLIZJA";
             this.kARAKOLIZJADataGridViewTextBoxColumn.Name = "kARAKOLIZJADataGridViewTextBoxColumn";
+            this.kARAKOLIZJADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hISTORIAZAMOWIENIABindingSource
+            // 
+            this.hISTORIAZAMOWIENIABindingSource.DataMember = "HISTORIA_ZAMOWIENIA";
+            this.hISTORIAZAMOWIENIABindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // hISTORIA_ZAMOWIENIATableAdapter
+            // 
+            this.hISTORIA_ZAMOWIENIATableAdapter.ClearBeforeFill = true;
             // 
             // OrderHistoryForm
             // 
@@ -209,7 +209,6 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1100, 681);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.TableLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -217,8 +216,8 @@
             this.Text = "OrderHistoryForm";
             this.Load += new System.EventHandler(this.OrderHistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hISTORIAZAMOWIENIABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +227,6 @@
 
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.Button UpdateButton;
-        private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private AllDataSet allDataSet;
         private System.Windows.Forms.BindingSource hISTORIAZAMOWIENIABindingSource;

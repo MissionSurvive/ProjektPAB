@@ -44,7 +44,6 @@
             this.ReportRadio4 = new System.Windows.Forms.RadioButton();
             this.RadioGroup = new System.Windows.Forms.GroupBox();
             this.FilterButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -68,9 +67,12 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(19, 66);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1061, 277);
             this.dataGridView1.TabIndex = 103;
             // 
@@ -185,7 +187,7 @@
             this.FilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FilterButton.Image = ((System.Drawing.Image)(resources.GetObject("FilterButton.Image")));
             this.FilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FilterButton.Location = new System.Drawing.Point(752, 615);
+            this.FilterButton.Location = new System.Drawing.Point(924, 615);
             this.FilterButton.Name = "FilterButton";
             this.FilterButton.Size = new System.Drawing.Size(164, 54);
             this.FilterButton.TabIndex = 144;
@@ -193,19 +195,6 @@
             this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FilterButton.UseVisualStyleBackColor = true;
             this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(922, 615);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 54);
-            this.button1.TabIndex = 145;
-            this.button1.Text = "Eksportuj";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // EndDatePicker
             // 
@@ -228,7 +217,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.Location = new System.Drawing.Point(912, 350);
+            this.label13.Location = new System.Drawing.Point(15, 490);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 20);
             this.label13.TabIndex = 151;
@@ -236,7 +225,7 @@
             // 
             // SumTextBox
             // 
-            this.SumTextBox.Location = new System.Drawing.Point(916, 374);
+            this.SumTextBox.Location = new System.Drawing.Point(19, 514);
             this.SumTextBox.Name = "SumTextBox";
             this.SumTextBox.ReadOnly = true;
             this.SumTextBox.Size = new System.Drawing.Size(164, 20);
@@ -256,7 +245,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.EndDatePicker);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.RadioGroup);
             this.Controls.Add(this.label12);
@@ -293,7 +281,6 @@
         private System.Windows.Forms.RadioButton ReportRadio4;
         private System.Windows.Forms.GroupBox RadioGroup;
         private System.Windows.Forms.Button FilterButton;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.DateTimePicker EndDatePicker;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label13;

@@ -38,14 +38,15 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.TableLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.allDataSet = new CarRental.AllDataSet();
-            this.rODZAJENADWOZIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rODZAJE_NADWOZIATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter();
             this.iDNADWOZIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAZWANADWOZIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rODZAJENADWOZIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allDataSet = new CarRental.AllDataSet();
+            this.rODZAJE_NADWOZIATableAdapter = new CarRental.AllDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter();
+            this.FilterCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // ChassisLabel
@@ -77,6 +78,7 @@
             this.FilterButton.Text = "Filtruj";
             this.FilterButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // UpdateButton
             // 
@@ -132,6 +134,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -140,23 +144,10 @@
             this.dataGridView1.DataSource = this.rODZAJENADWOZIABindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(19, 51);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(906, 503);
             this.dataGridView1.TabIndex = 98;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // allDataSet
-            // 
-            this.allDataSet.DataSetName = "AllDataSet";
-            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rODZAJENADWOZIABindingSource
-            // 
-            this.rODZAJENADWOZIABindingSource.DataMember = "RODZAJE_NADWOZIA";
-            this.rODZAJENADWOZIABindingSource.DataSource = this.allDataSet;
-            // 
-            // rODZAJE_NADWOZIATableAdapter
-            // 
-            this.rODZAJE_NADWOZIATableAdapter.ClearBeforeFill = true;
             // 
             // iDNADWOZIEDataGridViewTextBoxColumn
             // 
@@ -170,6 +161,33 @@
             this.nAZWANADWOZIEDataGridViewTextBoxColumn.DataPropertyName = "NAZWA_NADWOZIE";
             this.nAZWANADWOZIEDataGridViewTextBoxColumn.HeaderText = "NAZWA_NADWOZIE";
             this.nAZWANADWOZIEDataGridViewTextBoxColumn.Name = "nAZWANADWOZIEDataGridViewTextBoxColumn";
+            this.nAZWANADWOZIEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rODZAJENADWOZIABindingSource
+            // 
+            this.rODZAJENADWOZIABindingSource.DataMember = "RODZAJE_NADWOZIA";
+            this.rODZAJENADWOZIABindingSource.DataSource = this.allDataSet;
+            // 
+            // allDataSet
+            // 
+            this.allDataSet.DataSetName = "AllDataSet";
+            this.allDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rODZAJE_NADWOZIATableAdapter
+            // 
+            this.rODZAJE_NADWOZIATableAdapter.ClearBeforeFill = true;
+            // 
+            // FilterCheck
+            // 
+            this.FilterCheck.AutoSize = true;
+            this.FilterCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FilterCheck.Location = new System.Drawing.Point(761, 586);
+            this.FilterCheck.Name = "FilterCheck";
+            this.FilterCheck.Size = new System.Drawing.Size(126, 24);
+            this.FilterCheck.TabIndex = 99;
+            this.FilterCheck.Text = "Włącz filtrację";
+            this.FilterCheck.UseVisualStyleBackColor = true;
+            this.FilterCheck.CheckedChanged += new System.EventHandler(this.FilterCheck_CheckedChanged);
             // 
             // CarChassisForm
             // 
@@ -177,6 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(937, 681);
+            this.Controls.Add(this.FilterCheck);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.ChassisLabel);
             this.Controls.Add(this.ChassisTextBox);
@@ -190,8 +209,8 @@
             this.Text = "CarChassisForm";
             this.Load += new System.EventHandler(this.CarChassisForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rODZAJENADWOZIABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +231,6 @@
         private AllDataSetTableAdapters.RODZAJE_NADWOZIATableAdapter rODZAJE_NADWOZIATableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDNADWOZIEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAZWANADWOZIEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox FilterCheck;
     }
 }
